@@ -1,0 +1,42 @@
+{
+  "name": "@pwa-concept/eslint-config-onilab",
+  "version": "0.0.0",
+  "description": "",
+  "author": "Onilab Team <talkto@onilab.com>",
+  "homepage": "https://bitbucket.org/onilab/pwa-concept#readme",
+  "license": "ISC",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "core.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/onilab/pwa-concept.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://bitbucket.org/onilab/pwa-concept/issues"
+  },
+  "dependencies": {
+    "eslint": "^8.5.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx": "^0.1.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "prettier": "^2.5.1"
+  },
+  "peerDependencies": {
+    "eslint": "^8.5.0",
+    "prettier": "^2.5.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

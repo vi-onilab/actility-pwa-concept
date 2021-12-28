@@ -1,5 +1,6 @@
 {
   "name": "pwa-concept",
+  "version": "0.0.0",
   "author": "Onilab Team <talkto@onilab.com>",
   "private": true,
   "scripts": {

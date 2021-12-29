@@ -9,7 +9,7 @@
     "prepublish": "lerna run prepublish"
   },
   "dependencies": {
-    "@pwa-concept/eslint-config-onilab": "./packages/eslint-config-onilab"
+    "@pwa-concept/eslint-config-onilab": "./node_modules/pwa-concept/packages/eslint-config-onilab"
   },
   "devDependencies": {
     "lerna": "^4.0.0"

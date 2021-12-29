@@ -1,0 +1,11 @@
+{
+  "npmClient": "yarn",
+  "packages": [
+    "packages/*"
+  ],
+  "version": "independent",
+  "useWorkspaces": true,
+  "scripts": {
+    "bump:version": "lerna version --no-push"
+  }
+}

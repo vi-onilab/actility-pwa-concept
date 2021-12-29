@@ -1,0 +1,20 @@
+{
+  "name": "pwa-concept",
+  "version": "0.0.0",
+  "author": "Onilab Team <talkto@onilab.com>",
+  "private": true,
+  "scripts": {
+    "clean": "yarn lerna clean -y && yarn lerna bootstrap && yarn lerna exec 'rm -rf ./dist'",
+    "build": "yarn prepublish",
+    "prepublish": "lerna run prepublish"
+  },
+  "dependencies": {
+    "@pwa-concept/eslint-config-onilab": "./node_modules/pwa-concept/packages/eslint-config-onilab"
+  },
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}

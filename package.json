@@ -8,6 +8,9 @@
     "build": "yarn prepublish",
     "prepublish": "lerna run prepublish"
   },
+  "dependencies": {
+    "@pwa-concept/eslint-config-onilab": "./packages/eslint-config-onilab"
+  },
   "devDependencies": {
     "lerna": "^4.0.0"
   },

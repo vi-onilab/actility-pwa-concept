@@ -9,7 +9,10 @@
     "prepublish": "lerna run prepublish"
   },
   "dependencies": {
-    "@pwa-concept/eslint-config-onilab": "./node_modules/pwa-concept/packages/eslint-config-onilab"
+    "@pwa-concept/cli": "./node_modules/pwa-concept/packages/cli",
+    "@pwa-concept/core": "./node_modules/pwa-concept/packages/core",
+    "@pwa-concept/eslint-config": "./node_modules/pwa-concept/packages/eslint-config",
+    "@pwa-concept/ui": "./node_modules/pwa-concept/packages/ui"
   },
   "devDependencies": {
     "lerna": "^4.0.0"

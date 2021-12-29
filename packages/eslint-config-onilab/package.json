@@ -2,6 +2,7 @@
   "name": "@pwa-concept/eslint-config-onilab",
   "version": "0.0.0",
   "description": "",
+  "private": true,
   "author": "Onilab Team <talkto@onilab.com>",
   "homepage": "https://bitbucket.org/onilab/pwa-concept#readme",
   "license": "ISC",

@@ -8,12 +8,6 @@
     "build": "yarn prepublish",
     "prepublish": "lerna run prepublish"
   },
-  "dependencies": {
-    "@pwa-concept/cli": "file:./node_modules/pwa-concept/packages/cli",
-    "@pwa-concept/core": "file:./node_modules/pwa-concept/packages/core",
-    "@pwa-concept/eslint-config": "file:./node_modules/pwa-concept/packages/eslint-config",
-    "@pwa-concept/ui": "file:./node_modules/pwa-concept/packages/ui"
-  },
   "devDependencies": {
     "lerna": "^4.0.0"
   },

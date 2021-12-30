@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+
+const { exec } = require('child_process')
+const { readdirSync } = require('fs')
+const { join } = require('path')
+const config = require('./package.json')
+
+const packages = readdirSync(join(__dirname, 'packages')).reduce((result, name) => {
+	result.push(`file:./node_modules/${config.name}/packages/${name}`)
+
+	return result
+}, []).join(' ')
+
+exec(`cd ${process.cwd()} && yarn add ${packages}`)

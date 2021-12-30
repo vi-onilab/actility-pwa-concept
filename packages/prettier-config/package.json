@@ -1,0 +1,33 @@
+{
+  "name": "@pwa-concept/prettier-config",
+  "version": "0.0.0",
+  "description": "",
+  "private": true,
+  "author": "Onilab Team <talkto@onilab.com>",
+  "homepage": "https://bitbucket.org/onilab/pwa-concept#readme",
+  "license": "ISC",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "core.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/onilab/pwa-concept.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://bitbucket.org/onilab/pwa-concept/issues"
+  },
+  "dependencies": {
+    "prettier": "^2.5.1"
+  },
+  "peerDependencies": {
+    "prettier": "^2.5.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

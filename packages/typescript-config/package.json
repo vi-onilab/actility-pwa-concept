@@ -6,9 +6,9 @@
   "author": "Onilab Team <talkto@onilab.com>",
   "homepage": "https://bitbucket.org/onilab/pwa-concept#readme",
   "license": "ISC",
-  "main": "index.js",
+  "main": "tsconfig.theme.json",
   "files": [
-    "index.js"
+    "tsconfig.theme.json"
   ],
   "repository": {
     "type": "git",

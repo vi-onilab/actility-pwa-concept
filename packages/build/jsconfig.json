@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "module": "commonjs",
+    "target": "es6",
+    "jsx": "preserve",
+    "paths": {
+      "fonts": [ "assets/fonts/*" ],
+      "icons": [ "assets/icons/*" ],
+      "assets": [ "assets/*" ],
+      "old-icons": [ "assets/old-icons/*" ],
+      "images": [ "assets/images/*" ],
+      "elements": [ "components/elements/*" ],
+      "modules": [ "components/modules/*" ],
+      "components": [ "components/*" ],
+      "constants": [ "constants/*" ],
+      "schemas": [ "schemas/*" ],
+      "helpers": [ "helpers/*" ],
+      "hooks": [ "hooks/*" ],
+      "models": [ "models/*" ],
+      "pages": [ "pages/*" ],
+      "providers": [ "providers/*" ],
+      "styles": [ "styles/*" ]
+    }
+  },
+  "exclude": [ "dist", "build", "node_modules" ]
+}

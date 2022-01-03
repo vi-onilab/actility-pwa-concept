@@ -4,8 +4,10 @@
   "author": "Onilab Team <talkto@onilab.com>",
   "private": true,
   "scripts": {
+    "start": "lerna run start --concurrency 1 --stream --no-bail",
+    "build": "lerna run build --concurrency 1 --stream --no-bail",
+    "analyze": "lerna run analyze --concurrency 1 --stream --no-bail",
     "clean": "yarn lerna clean -y && yarn lerna bootstrap && yarn lerna exec 'rm -rf ./dist'",
-    "build": "yarn prepublish",
     "prepublish": "lerna run prepublish"
   },
   "devDependencies": {

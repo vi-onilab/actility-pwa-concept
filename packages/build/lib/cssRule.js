@@ -18,6 +18,7 @@ module.exports = (
 			{
 				loader: MiniCssExtractPlugin.loader,
 				options: {
+					esModule: false,
 					publicPath,
 				},
 			}
@@ -29,7 +30,6 @@ module.exports = (
 			options: {
 				esModule: true,
 				modules: {
-					localIdentContext: path.resolve(cwd, 'src'),
 					localIdentName: (
 						isEnvProduction ? (
 							isModule ? '[sha1:hash:hex:8]' : '[local]'

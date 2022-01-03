@@ -19,14 +19,15 @@ const {
 	svgRule,
 } = require('./lib');
 
-module.exports = ({ WEBPACK_BUNDLE, WEBPACK_SERVE }) => {
+module.exports = ({ WEBPACK_BUNDLE, WEBPACK_SERVE, ANALYZE, AUTO_HMR }) => {
 	const cwd = process.cwd();
 	const isEnvDevelopment = !!WEBPACK_SERVE;
 	const isEnvProduction = !!WEBPACK_BUNDLE;
-	const isEnvAnalyze = !!process.env.ANALYZE;
-	const isEnvAutoHmr = !!process.env.AUTO_HMR;
+	const isEnvAnalyze = ANALYZE || !!process.env.ANALYZE;
+	const isEnvAutoHmr = AUTO_HMR || !!process.env.AUTO_HMR;
 
 	return {
+		mode: isEnvDevelopment ? 'development' : 'production',
 		bail: isEnvProduction,
 		output: {
 			path: path.join(cwd, '/dist'),
@@ -89,7 +90,7 @@ module.exports = ({ WEBPACK_BUNDLE, WEBPACK_SERVE }) => {
 		},
 		devtool: isEnvDevelopment ? 'inline-source-map' : false,
 		resolve: {
-			alias: resolveAlias(),
+			alias: resolveAlias({ cwd }),
 		},
 		module: {
 			rules: [

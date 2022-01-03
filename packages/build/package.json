@@ -56,5 +56,35 @@
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.5.0",
     "webpack-notifier": "^1.14.1"
+  },
+  "babel": {
+    "env": {
+      "production": {
+        "plugins": [
+          [
+            "transform-react-remove-prop-types",
+            {
+              "mode": "remove",
+              "removeImport": true
+            }
+          ]
+        ]
+      }
+    },
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "useBuiltIns": "usage",
+          "corejs": "3.8"
+        }
+      ],
+      [
+        "@babel/preset-react",
+        {
+          "runtime": "automatic"
+        }
+      ]
+    ]
   }
 }

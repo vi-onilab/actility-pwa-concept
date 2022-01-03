@@ -4,6 +4,7 @@ module.exports = ({ isEnvAutoHmr } = {}) => ({
 	use: {
 		loader: 'babel-loader',
 		options: {
+			...require('../package.json').babel,
 			cacheDirectory: true,
 			plugins: [isEnvAutoHmr && require.resolve('react-refresh/babel')].filter(Boolean),
 		},

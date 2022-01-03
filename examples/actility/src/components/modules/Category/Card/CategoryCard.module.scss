@@ -1,0 +1,395 @@
+@import "src/styles/_mixins";
+@import "src/styles/_vars";
+
+/**
+ * Placeholders
+ */
+%zIndexAboveThePicture {
+  z-index: 1;
+  position: relative;
+}
+
+%transitionGroup {
+  transition: .3s;
+}
+
+/**
+ * Styles
+ */
+.card {
+  @extend %transitionGroup;
+
+  cursor: pointer;
+  font: {
+    size: 1.6rem;
+  }
+  line-height: 2.1rem;
+  position: relative;
+  border-radius: .4rem;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+
+  &Container {
+    overflow: hidden;
+  }
+}
+
+.name {
+  @extend %zIndexAboveThePicture;
+
+  &Container {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.icon {
+  @extend %zIndexAboveThePicture;
+
+  width: 2.4rem;
+  height: 2.4rem;
+  display: block;
+}
+
+// Variants
+.variant {
+
+  &Default {
+    display: block;
+
+    @include media-breakpoint-up(lg) {
+      &:hover {
+        color: $color-primary;
+
+        .image {
+          transform: scale(1.05);
+
+          &Container {
+            box-shadow: 0 2px 20px rgba(204, 218, 221, .7);
+          }
+        }
+      }
+    }
+
+    .image {
+      @extend %transitionGroup;
+
+      position: absolute;
+      top: 1.4rem;
+      left: 1.4rem;
+      width: calc(100% - 2.8rem);
+      height: calc(100% - 2.8rem);
+      object-fit: contain;
+
+      &Container {
+        @extend %transitionGroup;
+
+        background: $color-light;
+        box-shadow: 0 2px 16px rgba(204, 218, 221, .5);
+        border-radius: .8rem;
+        position: relative;
+        margin: {
+          bottom: 1.4rem;
+        }
+
+        @include media-breakpoint-down(lg) {
+          margin-bottom: .8rem;
+        }
+
+        &:after {
+          content: "";
+          display: block;
+          padding: {
+            top: 100%;
+          }
+        }
+      }
+    }
+
+    .name {
+      text-align: center;
+
+      @include media-breakpoint-down(lg) {
+        font-size: 14px;
+        color: $color-dark;
+        line-height: 21px;
+      }
+    }
+  }
+
+  &Advantage {
+    display: block;
+    background: $color-light;
+    box-shadow: 0 2px 16px rgba(169, 169, 169, .3);
+    padding: 1.6rem;
+    min-height: 12.8rem;
+    border-radius: .4rem;
+    overflow: hidden;
+    transition: .3s;
+
+    .image {
+      transition: .3s;
+    }
+
+    @include media-breakpoint-down(lg) {
+      padding: .8rem;
+      box-shadow: 0 2px 6px rgba(138, 142, 145, .2);
+    }
+
+    @include media-breakpoint-up(lg) {
+      min-height: 21.6rem;
+
+      &:hover {
+        background: $color-light-3;
+        box-shadow: 0 4px 20px rgba(126, 131, 134, .4);
+
+        .image {
+            transform: scale(1.1);
+        }
+
+      }
+    }
+
+    .icon {
+      margin: {
+        right: .8rem;
+      }
+    }
+
+    .name {
+      font: {
+        weight: 500;
+      }
+      letter-spacing: -.02em;
+      color: $color-accent;
+
+      @include media-breakpoint-down(lg) {
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+      }
+    }
+
+    .image {
+      &Container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  &Small {
+    display: flex;
+    background-color: $color-light;
+    padding: .8rem 1.6rem;
+    border-radius: 4px;
+    white-space: nowrap;
+    box-shadow: 0 2px 6px rgba(138, 142, 145, .2);
+
+    @include media-breakpoint-up(lg) {
+        display: flex;
+        align-items: center;
+        width: 21.2rem;
+        text-align: left;
+        padding: .8rem;
+        white-space: normal;
+        margin-bottom: .4rem;
+        position: relative;
+
+        &::before {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          border-radius: 0 0 4px 4px;
+          height: .3rem;
+          transition: .3s;
+        }
+
+        &:not(:last-child) {
+          margin-right: .8rem;
+        }
+
+        &:hover::before {
+          background-color: $color-secondary;
+        }
+      }
+
+    .itemTitle {
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+        max-width: calc(100% - 6rem);
+        color: $color-secondary-text-2;
+
+        br {
+          display: none;
+        }
+
+        @include media-breakpoint-up(lg) {
+          font-size: 1.3rem;
+          line-height: 2rem;
+          color: $color-secondary-text-2;
+          letter-spacing: -.02em;
+
+          br {
+            display: block;
+          }
+        }
+      }
+
+    .itemImage {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+
+      &Container {
+        width: 4.8rem;
+        height: 4.8rem;
+        margin-right: .8rem;
+        display: none;
+
+        @include media-breakpoint-up(lg) {
+          display: inline-block;
+        }
+      }
+    }
+
+    &Active {
+      display: flex;
+      align-items: center;
+      padding: .8rem 1.6rem .8rem .8rem;
+      background-color: $color-light-3;
+      height: 6.4rem;
+
+      @include media-breakpoint-down(lg) {
+        height: auto;
+      }
+
+      @include media-breakpoint-up(lg) {
+        width: 21.2rem;
+        text-align: left;
+        padding: .8rem;
+        white-space: normal;
+        margin-bottom: .4rem;
+        position: relative;
+        &:hover {
+          background-color: $color-light-2;
+        }
+      }
+
+      .itemImageIcon {
+        width: 2.4rem;
+        height: 2.4rem;
+        display: block;
+        transform: rotate(180deg);
+        color: $color-secondary-text-2;
+      }
+
+      .itemTitle {
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+        max-width: calc(100% - 6rem);
+        color: $color-secondary-text-2;
+        margin-left: 1.2rem;
+
+        br {
+          display: none;
+        }
+
+        @include media-breakpoint-up(lg) {
+          font-size: 1.3rem;
+          line-height: 2rem;
+          color: $color-secondary-text-2;
+          letter-spacing: -.02em;
+          br {
+            display: block;
+          }
+        }
+      }
+    }
+    &List {
+      display: flex;
+      background-color: $color-light;
+      padding: .8rem 1.6rem;
+      border-radius: 4px;
+      white-space: nowrap;
+      border: 1px solid $color-light-5;
+
+      @include media-breakpoint-up(lg) {
+        display: flex;
+        align-items: center;
+        width: 21.2rem;
+        text-align: left;
+        padding: .8rem;
+        white-space: normal;
+        position: relative;
+
+        &::before {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          border-radius: 0 0 4px 4px;
+          height: .3rem;
+          transition: .3s;
+        }
+
+        &:not(:last-child) {
+          margin-right: .8rem;
+        }
+
+        &:hover::before {
+          background-color: $color-secondary;
+        }
+      }
+
+      .itemTitle {
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+        max-width: calc(100% - 6rem);
+        color: $color-secondary-text-2;
+
+        br {
+          display: none;
+        }
+
+        @include media-breakpoint-up(lg) {
+          font-size: 1.3rem;
+          line-height: 2rem;
+          color: $color-secondary-text-2;
+          letter-spacing: -.02em;
+
+          br {
+            display: block;
+          }
+        }
+      }
+
+      .itemImage {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+
+        &Container {
+          width: 4.8rem;
+          height: 4.8rem;
+          margin-right: .8rem;
+          display: none;
+
+          @include media-breakpoint-up(lg) {
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+}

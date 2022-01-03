@@ -1,0 +1,1 @@
+export { ProductFormPrice } from './ProductFormPrice';

@@ -1,0 +1,10 @@
+@import "src/styles/_mixins";
+@import "src/styles/_vars";
+
+.footerNav {
+  @include media-breakpoint-up(lg) {
+    width: 76%;
+    display: flex;
+    padding-left: 13.3rem;
+  }
+}

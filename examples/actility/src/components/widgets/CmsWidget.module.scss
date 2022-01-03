@@ -1,0 +1,15 @@
+@import "../../styles/mixins";
+@import "../../styles/vars";
+
+.cmsWidget__wrap {
+  max-width: 129.5rem;
+  width: 100%;
+  margin: auto;
+  margin-top: 5.6rem;
+  @include media-breakpoint-down(md) {
+    margin: 0;
+    margin-top: 3.2rem;
+    padding: 0 0 3.2rem 2rem;
+    width: calc(100% - 4rem);
+  }
+}

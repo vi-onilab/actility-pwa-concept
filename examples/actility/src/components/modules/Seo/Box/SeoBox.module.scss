@@ -1,0 +1,76 @@
+@import "src/styles/_mixins";
+@import "src/styles/_vars";
+
+.wrapper {
+    padding: 4rem;
+    background-color: $color-light-3;
+    border-radius: .4rem;
+    margin-top: 2rem;
+
+    @include media-breakpoint-down(lg) {
+        padding: 1.6rem;
+    }
+}
+
+.title {
+    font-size: 2.6rem;
+    line-height: 3.9rem;
+    font-weight: 700;
+    letter-spacing: -.01rem;
+    color: #1A2226;
+    padding-bottom: 1.6rem;
+    @include media-breakpoint-down(xs) {
+        font-size: 1.7rem;
+        letter-spacing: -.02rem;
+        line-height: 2.4rem;
+    }
+}
+
+.main {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    letter-spacing: -.02rem;
+    position: relative;
+
+    @include media-breakpoint-down(lg) {
+        font-size: 1.4rem;
+        line-height: 2.2rem;
+    }
+
+}
+
+.readMore {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: {
+        left: 4rem;
+    };
+    background: linear-gradient(-90deg, $color-light-3 calc(100% - 4rem), rgba($color-light-3, .001));
+
+}
+
+.cutText {
+    .main {
+        @supports (-webkit-box-orient: vertical) {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            text-overflow: ellipsis;
+            overflow: hidden;
+
+            @include media-breakpoint-down(lg) {
+                -webkit-line-clamp: 7;
+            }
+        }
+    }
+}
+
+.skeleton {
+    width: 100%;
+    min-height: 20.7rem;
+
+    @include media-breakpoint-down(lg) {
+        min-height: 22.6rem;
+    }
+}

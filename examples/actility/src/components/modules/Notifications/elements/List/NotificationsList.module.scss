@@ -1,0 +1,50 @@
+@import "src/styles/_mixins";
+@import "src/styles/_vars";
+
+.wrapper {
+  display: grid;
+  grid-gap: .8rem;
+}
+
+.item {
+  display: flex;
+
+  &:global(.enter) {
+
+  }
+
+  &:global(.enter-active) {
+    animation: enterAnimation .3s ease-in-out;
+  }
+
+  &:global(.exit) {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: none;
+  }
+
+  &:global(.exit-active) {
+    transform: translateX(100%);
+    opacity: 0;
+    transition: .3s ease-in-out;
+    pointer-events: none;
+  }
+
+}
+
+@keyframes enterAnimation {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  70% {
+    transform: translateX(-10%);
+    opacity: .7;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

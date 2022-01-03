@@ -1,0 +1,300 @@
+@import "src/styles/mixins";
+@import "src/styles/vars";
+
+%greetBannerSizes {
+    min-height: 47.1rem;
+
+    margin-bottom: .8rem;
+
+    @include media-breakpoint-down(md) {
+        margin-bottom: 0;
+    }
+
+    @include media-breakpoint-up(lg) {
+        margin-bottom: 2.2rem;
+    }
+}
+
+.wrapper {
+    @extend %greetBannerSizes;
+}
+
+.greetPagination:global(.swiper-pagination-bullets) {
+    position: absolute;
+    bottom: .1rem;
+}
+
+.greetSlider .greetPagination:global(.swiper-pagination-bullets) {
+    @include media-breakpoint-down(lg) {
+        bottom: 0;
+    }
+}
+
+.greetSlide {
+    position: relative;
+    height: 1px;
+    min-height: 44.7rem;
+    padding: 3.2rem 0 0 0;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+    @include media-breakpoint-up(lg) {
+        padding: 10.6rem 0 0 0;
+        min-height: 46.7rem;
+
+        .container {
+            height: 100%;
+            flex-direction: row;
+        }
+    }
+}
+
+.greetSlideLeft {
+    flex: 1;
+
+    @include media-breakpoint-up(lg) {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding-bottom: 5.7rem;
+        max-width: 72.6rem;
+    }
+}
+
+.greetSlideContent {
+
+    @include media-breakpoint-up(lg) {
+        padding-left: 6.8rem;
+    }
+}
+
+.greetTitle {
+    font-weight: 700;
+    font-size: 2.8rem;
+    line-height: 3.2rem;
+    letter-spacing: -.02em;
+    color: $color-light;
+    margin-bottom: 1.2rem;
+
+    br {
+        display: none;
+    }
+
+    @include media-breakpoint-up(lg){
+        font-size: 4rem;
+        line-height: 4.8rem;
+        margin-bottom: 1.9rem;
+        max-width: 53.99rem;
+
+        br {
+            display: block;
+        }
+    }
+}
+
+.greetSubtitle {
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+    color: $color-light;
+    margin-bottom: 2rem;
+
+    @include media-breakpoint-up(lg) {
+        font-size: 2rem;
+        letter-spacing: -.01em;
+        margin-bottom: 3.4rem;
+    }
+}
+
+.greetSlider {
+    :global(.swiper-slide):nth-child(3) {
+        .greetSubtitle {
+            font-weight: 500;
+        }
+    }
+}
+
+.greetSlide.themeBlack .greetTitle,
+.greetSlide.themeBlack .greetSubtitle,
+.greetSlide.themeBlack .sliderPagination {
+    color: $color-title;
+}
+
+.greetButton {
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 2.1rem;
+    color: $color-primary;
+    background: $color-light;
+    padding: 1rem 2.8rem .6rem;
+    border: 2px solid $color-primary;
+    border-radius: 4px;
+    font-family: inherit;
+    transition: all .3s;
+
+    @include media-breakpoint-up(lg) {
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+        padding: 1.2rem 3.2rem .9rem;
+
+        &:hover {
+            background-color: $color-secondary;
+            border-color: $color-secondary;
+            color: $color-light;
+        }
+    }
+}
+
+.greetSlide.themeBlack .greetButton {
+    color: $color-light;
+    background-color: $color-primary;
+
+    &:hover {
+        background-color: $color-secondary;
+        border-color: $color-secondary;
+        color: $color-light;
+    }
+}
+
+:global(.swiper-slide) .greetSlideBg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: 100%;
+    z-index: -1;
+}
+
+.greetSlide.slideOffers .greetSlideBg {
+    height: 81%;
+
+    @include media-breakpoint-up(md) {
+        height: 76%;
+    }
+    @include media-breakpoint-up(lg) {
+        height: 92.5%;
+    }
+}
+.greetSlide.slidePoc .greetSlideBg {
+    height: 77%;
+
+    @include media-breakpoint-up(lg) {
+        height: 100%;
+    }
+}
+
+.sliderPagination {
+    display: none;
+
+    @include media-breakpoint-up(lg) {
+        display: block;
+        font-weight: 700;
+        font-size: 1.8rem;
+        letter-spacing: -.02em;
+        color: $color-light;
+        margin-top: auto;
+    }
+}
+
+.greetVideo {
+    position: relative;
+    background: $color-light-10;
+    border-radius: 8px;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.greetSlide.slideOffers .greetVideo {
+    width: 100%;
+    height: 17.4rem;
+    margin: 2.4rem auto 0;
+
+    @include media-breakpoint-up(md) {
+        width: 90%;
+    }
+    @include media-breakpoint-up(lg) {
+        top: 3.4rem;
+        width: 60rem;
+        height: 32.6rem;
+        margin: 0;
+    }
+    @include media-breakpoint-down(md) {
+        border-radius: 4px;
+    }
+}
+
+.greetSlider {
+    padding-bottom: 0;
+
+
+    @include media-breakpoint-down(md) {
+        padding-bottom: 1.5rem;
+
+        .swiper {
+            padding-bottom: 1.8rem;
+        }
+
+        .swiper-slide {
+            height: 44.7rem;
+        }
+
+        :global(.swiper) {
+            padding-bottom: 1.5rem;
+        }
+    }
+
+    .swiper-pagination {
+        display: none;
+    }
+
+    @include media-breakpoint-down(md) {
+
+        padding-bottom: .8rem;
+
+        .swiper-pagination.swiper-pagination-bullets {
+            bottom: .1rem;
+            height: .6rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+
+            .swiper-pagination-bullet {
+                width: .6rem;
+                height: .6rem;
+                margin: 0 .3rem;
+                background: $color-secondary-text-2;
+                opacity: 1;
+
+                &.swiper-pagination-bullet-active {
+                    background: $color-secondary;
+                }
+            }
+        }
+
+        .swiper-slide:not(:first-child) .greetSlide {
+            margin-bottom: 2.1rem;
+        }
+
+    }
+
+}
+
+.skeleton {
+    @extend %greetBannerSizes;
+
+    @include media-breakpoint-down(lg) {
+        min-height: 44.7rem;
+    }
+
+}

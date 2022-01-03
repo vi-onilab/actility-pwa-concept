@@ -1,0 +1,30 @@
+@import "src/styles/_mixins";
+@import "src/styles/_vars";
+
+@include media-breakpoint-down(lg) {
+  .wrapper {
+    position: fixed;
+    z-index: 100000;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: $color-light;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header {
+
+  }
+
+  .main {
+    flex: 1;
+    height: 100%;
+    overflow: {
+      y: auto;
+      x: hidden;
+    }
+  }
+
+}

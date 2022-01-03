@@ -1,0 +1,28 @@
+@import "src/styles/_mixins";
+@import "src/styles/_vars";
+
+.wrapper {
+
+  &.isExistSelection {
+    .location {
+      cursor: pointer;
+
+      &:not(.isActive) {
+        &:hover {
+          fill: $color-darkblue-2;
+        }
+      }
+    }
+  }
+
+}
+
+.location {
+  fill: rgba(54, 66, 80, 0.2);
+  stroke: rgba(255, 255, 255, 0.5);
+  stroke-width: 1.5;
+
+  &.isActive {
+    fill: $color-secondary;
+  }
+}

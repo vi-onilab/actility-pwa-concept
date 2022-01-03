@@ -1,0 +1,1 @@
+export { ProductFieldsCommercialStatus } from './ProductFieldsCommercialStatus';

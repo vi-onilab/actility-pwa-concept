@@ -1,0 +1,1 @@
+export { windowOpen } from './windowOpen';

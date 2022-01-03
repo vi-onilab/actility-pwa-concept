@@ -1,0 +1,210 @@
+@import "src/styles/mixins";
+@import "src/styles/vars";
+
+.cardSlider {
+  display: flex;
+
+  @include media-breakpoint-up(lg) {
+    position: sticky;
+    top: 2rem;
+  }
+
+  @include media-breakpoint-down(lg) {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+}
+
+.quickViewSlider {
+  display: flex;
+
+  @include media-breakpoint-up(lg) {
+    position: relative;
+  }
+
+  @include media-breakpoint-down(lg) {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+}
+
+.cardSliderThumbs {
+  width: 4.8rem;
+  margin-right: .8rem;
+
+  @include media-breakpoint-down(lg) {
+    display: none;
+  }
+}
+
+.cardSliderThumbsSlide {
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid transparent;
+  cursor: pointer;
+  background-color: $color-light;
+
+  &.isActive {
+    border: 1px solid $color-primary;
+  }
+
+  .cardSliderThumbsImageWrapper {
+    background-color: $color-light;
+    width: 4.8rem;
+    height: 4.8rem;
+
+    img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+.cardSliderMainWrapper {
+  position: relative;
+  flex: 1;
+}
+
+.cardSliderMain {
+  //flex: 1;
+  box-shadow: 0 2px 8px rgba(204, 218, 221, .25);
+  position: relative;
+  background: $color-light;
+  border-radius: 4px;
+
+  &:after {
+    content: '';
+    display: block;
+    padding: {
+      top: 100%;
+    };
+  }
+}
+
+
+  .cardSliderMainPagination {
+    position: absolute;
+    bottom: .8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+  }
+
+  .swiper-pagination-bullet {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+.cardSliderMainSlide {
+  cursor: pointer;
+  border-radius: 4px;
+  overflow: hidden;
+
+  .cardSliderMainSlideImg {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  &Zoom {
+    width: 50.2rem;
+    height: 50.2rem;
+  }
+
+  @include media-breakpoint-down(lg) {
+    padding: .8rem;
+  }
+}
+
+.productPageMainSwiper {
+  position: absolute!important;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  background-color: $color-light;
+
+  @include media-breakpoint-down(lg) {
+    padding-bottom: 0;
+  }
+
+  :global(.swiper-pagination) {
+    bottom: .8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    :global(.swiper-pagination-bullet) {
+      width: .6rem;
+      height: .6rem;
+      background-color: $color-secondary-text-2;
+      opacity: 1;
+      margin: 0 .3rem;
+    }
+
+    :global(.swiper-pagination-bullet-active) {
+      background-color: $color-secondary;
+    }
+  }
+}
+
+.cardSliderCategoryLabel {
+  position: absolute;
+  top: .8rem;
+  left: 0;
+  z-index: 2;
+  color: #314448;
+}
+
+.wrapperSkeleton {
+  width: 55.6rem;
+  display: flex;
+  align-items: flex-start;
+
+  @include media-breakpoint-down(lg) {
+    width: calc(100% + 4rem);
+    margin: 0 -2rem 0;
+  }
+}
+
+.thumbsSkeleton {
+  width: 4.8rem;
+  height: 50rem;
+  margin-right: .8rem;
+}
+
+.sliderSkeleton {
+  width: 50rem;
+  height: 50rem;
+
+  @include media-breakpoint-down(lg) {
+    width: 100%;
+    height: 36rem;
+  }
+}
+
+.variant {
+
+  &Default {
+
+  }
+
+  &QuickView {
+    flex: 1;
+    width: auto;
+
+    .thumbsSkeleton {
+      height: 100%;
+      width: 4.8rem;
+    }
+
+    .sliderSkeleton {
+      width: 38.7rem;
+      height: 38.7rem;
+    }
+  }
+}

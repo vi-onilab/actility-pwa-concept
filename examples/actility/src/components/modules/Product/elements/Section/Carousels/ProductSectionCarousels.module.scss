@@ -1,0 +1,12 @@
+@import "src/styles/_mixins";
+@import "src/styles/_vars";
+
+.wrapper {
+  width: 100%;
+  background: $color-light-3;
+  padding: 3.2rem 0 0;
+
+  @include media-breakpoint-up(lg) {
+    padding: 8rem 0 0;
+  }
+}

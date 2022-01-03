@@ -1,0 +1,1 @@
+export { FilterSearchHeader } from './FilterSearchHeader';

@@ -1,0 +1,48 @@
+@use "sass:math";
+
+@import "src/styles/_mixins";
+@import "src/styles/_vars";
+
+
+.wrapper {
+  $scrollbarMaxWidth: 43.2;
+  position: relative;
+  -ms-touch-action: none;
+  background: $color-light-3;
+  border-radius: 1rem;
+  height: .4rem;
+  bottom: 0;
+
+  @include media-breakpoint-up(lg) {
+    max-width: #{$scrollbarMaxWidth * 1rem};
+    left: calc(50% - #{math.div($scrollbarMaxWidth, 2) * 1rem});
+  }
+
+  @include media-breakpoint-down(md) {
+    height: .3rem;
+    background: $color-light-4;
+  }
+}
+
+.drag {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  left: 0;
+  top: 0;
+  background: $color-primary;
+  opacity: .5;
+  border-radius: 1rem;
+
+  @include media-breakpoint-down(md) {
+    background: $color-accent-2;
+  }
+}
+
+// VARIANT's
+.variant {
+  &Default {
+
+  }
+
+}

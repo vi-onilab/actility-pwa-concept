@@ -1,0 +1,12 @@
+mutation CreateCustomer(
+    $input: CustomerCreateInput!
+) {
+    createCustomerV2(
+        input: $input
+    ) {
+        customer {
+            firstname
+            createdAt: created_at
+        }
+    }
+}

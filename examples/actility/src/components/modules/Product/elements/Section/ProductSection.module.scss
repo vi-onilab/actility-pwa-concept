@@ -1,0 +1,22 @@
+@import "src/styles/mixins";
+@import "src/styles/vars";
+
+.wrapper {
+  padding: 4rem 0;
+  border-top: 1px solid $color-light-5;
+  scroll-margin: 2rem;
+
+  @include media-breakpoint-down(lg) {
+    padding: 3.2rem 0;
+  }
+}
+
+.variant {
+  &Default {
+
+  }
+
+  &Primary {
+    background-color: $color-light-3;
+  }
+}

@@ -1,0 +1,12 @@
+@import "src/styles/_mixins";
+@import "src/styles/_vars";
+
+.wrapper {
+  width: calc(100% + 2.4rem);
+  border-bottom: 1px solid $color-light-5;
+  margin: {
+    left: -1.2rem;
+    top: .4rem;
+    bottom: .8rem;
+  }
+}

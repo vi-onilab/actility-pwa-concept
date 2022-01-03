@@ -1,0 +1,1 @@
+export { ProductSectionKeyFeaturesHighlights } from './ProductSectionKeyFeaturesHighlights';

@@ -1,0 +1,9 @@
+#import "../fragments/WishListData.graphql"
+
+query CustomerWishlist {
+    customer {
+        wishlists: wishlists {
+            ... WishListData
+        }
+    }
+}

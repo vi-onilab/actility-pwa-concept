@@ -10,7 +10,6 @@ exports.handler = async () => {
 	const config = require(configPath)({
 		WEBPACK_BUNDLE: false,
 		WEBPACK_SERVE: true,
-		AUTO_HMR: true,
 	})
 
 	const compiler = webpack(config)

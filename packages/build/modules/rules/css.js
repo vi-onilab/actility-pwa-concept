@@ -1,25 +1,22 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const path = require('path');
 
-module.exports = (
+const rule = (
 	{
 		test,
 		exclude = [],
 		isModule = false,
-		isEnvProduction,
-		publicPath,
-		cwd,
+		isProduction,
 	},
 ) => ({
 	test,
 	exclude,
 	use: [
-		isEnvProduction ? (
+		isProduction ? (
 			{
 				loader: MiniCssExtractPlugin.loader,
 				options: {
 					esModule: false,
-					publicPath,
+					publicPath: '/',
 				},
 			}
 		) : (
@@ -31,7 +28,7 @@ module.exports = (
 				esModule: true,
 				modules: {
 					localIdentName: (
-						isEnvProduction ? (
+						isProduction ? (
 							isModule ? '[sha1:hash:hex:8]' : '[local]'
 						) : (
 							isModule ? '[name]_[hash:base64:6]____[local]' : '[local]'
@@ -43,8 +40,26 @@ module.exports = (
 		{
 			loader: 'sass-loader',
 			options: {
-				sourceMap: !isEnvProduction,
+				sourceMap: !isProduction,
 			},
 		},
 	],
 });
+
+
+module.exports = (
+	{
+		isProduction,
+	},
+) => ([
+	rule({
+		test: /\.module\.s[ac]ss$/i,
+		isModule: true,
+		isProduction,
+	}),
+	rule({
+		test: /\.s[ac]ss$/i,
+		exclude: /\.module\.s[ac]ss$/i,
+		isProduction,
+	}),
+]);

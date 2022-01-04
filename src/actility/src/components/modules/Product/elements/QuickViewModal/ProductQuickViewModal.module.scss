@@ -1,0 +1,141 @@
+@import "src/styles/_mixins";
+@import "src/styles/_vars";
+
+body .wrapper {
+  width: 99.2rem;
+  position: relative;
+  overflow: initial;
+}
+
+
+.title {
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 2.8rem;
+  height: 2.8rem;
+  font-feature-settings: 'liga' off;
+  color: $color-title;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.header {
+  margin-bottom: 1.6rem;
+}
+
+.content {
+  grid-gap: 2.8rem;
+}
+
+.side {
+  width: 44.2rem;
+}
+
+.sideDelivery {
+  padding: {
+    left: 5.5rem;
+  };
+  display: grid;
+  margin: {
+    top: 1.1rem;
+  };
+}
+
+.form {
+  margin: {
+    top: 2rem;
+  };
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 44.2rem;
+
+  @include media-breakpoint-down(lg) {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+%arrow {
+  --local-arrow-size: 4.8rem;
+
+  position: absolute;
+  top: 50%;
+  width: var(--local-arrow-size);
+  height: var(--local-arrow-size);
+  border-radius: 50%;
+  background: $color-light;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .3s ease-in-out;
+
+  @include media-breakpoint-up(lg) {
+    &:hover {
+      background: $color-secondary;
+    }
+  }
+}
+
+.arrowIcon {
+  width: calc(var(--local-arrow-size) / 2);
+  height: calc(var(--local-arrow-size) / 2);
+  display: block;
+}
+
+.arrowPrev {
+  @extend %arrow;
+
+  left: calc((var(--local-arrow-size) + 4rem) * -1);
+  transform: rotate(180deg);
+}
+
+.arrowNext {
+  @extend %arrow;
+
+  right: calc((var(--local-arrow-size) + 4rem) * -1);
+}
+
+.quickViewPrice {
+  border: 1px solid #e3e4e7;
+}
+
+.mainLinkArrow {
+  margin-top: auto;
+}
+
+.wrapperSkeleton {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.quickViewTitleSkeleton {
+  width: 100%;
+  min-height: 4rem;
+  margin-bottom: 1rem;
+}
+
+.quickViewLeftSkeleton {
+  padding-right: 2.8rem;
+}
+
+.quickViewRightSkeleton {
+  grid-gap: 2rem;
+}
+
+.deliverySkeleton {
+  min-height: 7.2rem;
+  margin-left: auto;
+  width: 38.7rem;
+}
+
+.quickViewFormFooterSkeleton {
+  min-height: 4rem;
+}

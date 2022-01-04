@@ -1,0 +1,1 @@
+export { FaqAskModalSuccess } from './FaqAskModalSuccess';

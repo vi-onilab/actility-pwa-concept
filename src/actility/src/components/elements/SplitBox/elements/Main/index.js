@@ -1,0 +1,1 @@
+export { SplitBoxMain } from './SplitBoxMain';

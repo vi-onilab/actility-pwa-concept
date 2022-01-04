@@ -1,0 +1,222 @@
+@import "src/styles/_mixins";
+@import "src/styles/_vars";
+
+.filterWrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 1.6rem 1.6rem 0;
+  position: relative;
+
+  a {
+    margin-bottom: 0;
+
+    @include media-breakpoint-down(md) {
+      position: absolute;
+      top: 2rem;
+      right: 1.6rem;
+      font-size: 1.3rem;
+    }
+  }
+
+  &:not(:last-child) {
+    border-bottom: 1px solid #E3E4E7;
+  }
+}
+
+.filterTitle {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  letter-spacing: -.02em;
+  color: #263238;
+  padding-bottom: 1.5rem;
+}
+
+.filterContent {
+  display: flex;
+  flex-direction: column;
+
+  @include media-breakpoint-down(lg) {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: calc(100% + 3.2rem);
+    margin-left: -1.6rem;
+    overflow-x: scroll;
+  }
+}
+
+
+
+.modalWrapper {
+  display: none;
+  background-color: #F5FAFB;
+  box-shadow: 0 2px 16px rgba(169, 169, 169, .3);
+  flex-wrap: wrap;
+  width: 55.3rem;
+  height: auto;
+  z-index: 30;
+  padding: 1.6rem;
+  border-radius: 4px;
+
+  .modalTitle {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    letter-spacing: -.02em;
+    color: #1A2226;
+    padding-bottom: 1rem;
+  }
+
+  .modalContent {
+    column-gap: 2rem;
+    column-count: 2;
+  }
+
+  .modalBox {
+    display: block;
+    position: relative;
+    padding-left: 2.3rem;
+    overflow: hidden;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid-column;
+
+    &Title {
+      position: absolute;
+      font-size: 1.2rem;
+      line-height: 1.6rem;
+      text-transform: uppercase;
+      letter-spacing: -.02em;
+      color: #9C9C9C;
+      left: 0;
+      top: .3rem;
+    }
+  }
+}
+
+.modalBoxContainer {
+  display: flex;
+  align-items: center;
+}
+
+.modalBoxItem {
+  margin-bottom: 0;
+}
+
+.modalBoxTooltip {
+  margin-bottom: 1.2rem;
+}
+
+.arrowWrapper {
+  display: flex;
+  position: relative;
+  margin-left: -1.6rem;
+  margin-right: -1.6rem;
+  width: calc(100% + 3.2rem);
+  padding: 1.2rem 1.6rem;
+  margin-top: -.8rem;
+
+  &Item {
+    font-size: 1.4rem;
+    line-height: 2rem;
+    margin-bottom: 0;
+  }
+
+  @include media-breakpoint-up(lg) {
+
+    &:hover {
+      background-color: #F5FAFB;
+      box-shadow: 0 2px 16px rgba(169, 169, 169, .3);
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: calc(100% - .7rem);
+        height: 100%;
+        top: 0;
+        background-color: #F5FAFB;
+        width: 1rem;
+        z-index: 30;
+      }
+    }
+
+    &:hover .modalWrapper {
+      display: block;
+      position: absolute;
+      top: -2rem;
+      left: 100%;
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    margin-left: 0;
+    margin-right: 0;
+    width: auto;
+    margin-top: 0;
+    position: absolute;
+    top: 1.6rem;
+    right: 1.6rem;
+    padding: 0;
+
+    a {
+      position: relative;
+      top: unset;
+      right: unset;
+      font-size: 1.3rem;
+    }
+    .linkArrowIcon {
+      display: block;
+    }
+    .linkArrow {
+      .linkArrowIcon {
+        width: 2rem;
+        height: 2rem;
+      }
+      svg {
+        width: 2rem;
+        height: 2rem;
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.inputSearch {
+  margin-bottom: 1.6rem;
+}
+
+.modalCheckboxList {
+  display: flex;
+  flex-direction: column;
+}
+
+.modalSearch {
+  margin-bottom: .4rem;
+}
+
+
+
+.bottomControl {
+  &Button {
+    font-size: 1.3rem;
+    font-weight: 500;
+    width: 100%;
+    padding: 1rem;
+    line-height: 2rem;
+    letter-spacing: -.02em;
+    color: $color-light;
+    background-color: $color-primary;
+    border-radius: 4px;
+    border: 2px solid $color-primary;
+  }
+}
+
+.footer {
+  padding: 1.2rem 2rem;
+}
+
+//footer {
+//  position: absolute;
+//  bottom: 0;
+//  left: 0;
+//  width: 100%;
+//  padding: 2rem;
+//}

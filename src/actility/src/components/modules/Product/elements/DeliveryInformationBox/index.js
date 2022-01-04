@@ -1,0 +1,1 @@
+export { ProductDeliveryInformationBox } from './ProductDeliveryInformationBox';

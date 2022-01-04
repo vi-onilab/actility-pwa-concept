@@ -5,7 +5,9 @@
   "author": "Onilab Team <talkto@onilab.com>",
   "homepage": "https://bitbucket.org/onilab/pwa-concept#readme",
   "license": "ISC",
-  "main": "index.js",
+  "bin": {
+    "pwa-concept": "bin/pwa-concept.js"
+  },
   "directories": {},
   "files": [],
   "repository": {
@@ -17,5 +19,9 @@
   },
   "bugs": {
     "url": "https://bitbucket.org/onilab/pwa-concept/issues"
+  },
+  "dependencies": {
+    "@pwa-concept/build": "^0.0.0",
+    "yargs": "^17.3.1"
   }
 }

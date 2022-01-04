@@ -1,0 +1,1 @@
+export { MyAccountRoute } from './MyAccountRoute';

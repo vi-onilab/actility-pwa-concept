@@ -1,0 +1,1 @@
+export { ModalAnimationBounce } from './ModalAnimationBounce';

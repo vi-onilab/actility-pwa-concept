@@ -1,0 +1,13 @@
+#import "../fragments/CartData.graphql"
+
+mutation mergeCarts(
+    $sourceCartId: String!
+    $destinationCartId: String
+) {
+    mergeCarts(
+        destination_cart_id: $destinationCartId
+        source_cart_id: $sourceCartId
+    ) {
+        ... CartDataFragment
+    }
+}

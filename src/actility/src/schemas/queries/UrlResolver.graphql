@@ -1,0 +1,7 @@
+#import "../fragments/EntityUrlData.graphql"
+
+query UrlResolver($url: String!) {
+    urlResolver(url: $url) {
+        ... EntityUrlDataFragment
+    }
+}

@@ -1,0 +1,55 @@
+@import "src/styles/_mixins";
+@import "src/styles/_vars";
+
+.headerTop {
+	display: none;
+
+	@include media-breakpoint-up(lg) {
+			display: block;
+			background-color: #364250;
+			padding: 0.8rem 0.7rem;
+	}
+}
+
+.headerTopWrapper {
+
+	@include media-breakpoint-up(lg) {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+	}
+}
+
+.headerInfo {
+	display: flex;
+	align-items: center;
+}
+
+.headerInfoItem {
+	display: flex;
+	align-items: center;
+
+	&Icon {
+		color: $color-light-6;
+		width: 2rem;
+		height: 2rem;
+		margin-right: 0.8rem;
+	}
+
+	&:not(:last-child) {
+			margin-right: 3.2rem;
+	}
+}
+
+.headerInfoItemText {
+	font-weight: 500;
+	font-size: 1.4rem;
+	letter-spacing: -0.02em;
+	line-height: 1;
+	color: #ECEFF1;
+}
+
+.headerTopUser {
+	display: flex;
+	align-items: center;
+}

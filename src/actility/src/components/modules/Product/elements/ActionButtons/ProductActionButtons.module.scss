@@ -1,0 +1,92 @@
+@import "../../../../../styles/mixins";
+@import "../../../../../styles/vars";
+
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+
+
+
+.button {
+  display: flex;
+  align-items: center;
+  color: $color-secondary-text-2;
+  transition: color .3s;
+  cursor: pointer;
+}
+
+.iconWrapper {
+  width: 3.2rem;
+  height: 3.2rem;
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  background-color: $color-light-4;
+  padding: .6rem;
+}
+
+.icon {
+  width: 2rem;
+  height: 2rem;
+  display: inline-block;
+}
+
+.label {
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+  letter-spacing: -.02em;
+  padding-left: 1.2rem;
+}
+
+
+.variant {
+  &Default {
+    .button {
+      &:hover,
+      &.isActive {
+        .iconWrapper {
+          background-color: $color-primary;
+        }
+
+        .icon {
+          color: $color-light;
+        }
+      }
+
+      &:not(:last-child) {
+        margin-right: 3.2rem;
+      }
+    }
+
+  }
+
+  &Vertical {
+    position: absolute;
+    right: 1.6rem;
+    top: 1.6rem;
+    z-index: 2;
+    flex-direction: column;
+
+    .label {
+      display: none;
+    }
+
+    .button {
+      &:hover,
+      &.isActive {
+        .iconWrapper {
+          background-color: $color-primary;
+        }
+
+        .icon {
+          color: $color-light;
+        }
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 1.2rem;
+      }
+    }
+  }
+}

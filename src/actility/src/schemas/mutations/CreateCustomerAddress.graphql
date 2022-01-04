@@ -1,0 +1,12 @@
+mutation CreateCustomerAddress (
+    $input: CustomerAddressInput!
+) {
+    createCustomerAddress(
+        input: $input
+    ) {
+        firstname
+        lastname
+        street
+        telephone
+    }
+}

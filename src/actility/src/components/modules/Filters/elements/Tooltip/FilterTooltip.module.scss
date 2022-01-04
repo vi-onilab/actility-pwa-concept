@@ -1,0 +1,70 @@
+@import "src/styles/_mixins";
+@import "src/styles/_vars";
+
+.wrapper {
+  background-color: $color-accent-2;
+  display: flex;
+  border-radius: 4px 4px 0 0;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  bottom: 0;
+}
+
+.text {
+  font-size: 1.3rem;
+  line-height: 2rem;
+  letter-spacing: -.02em;
+  padding: 1rem 1.6rem;
+  color: $color-light;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.6rem;
+  width: 10.8rem;
+  border-left: 1px solid rgba($color-light-5, .2);
+  font-family: inherit;
+
+  .buttonTitle {
+    color: $color-light;
+    font-size: 1.3rem;
+    line-height: 2rem;
+    letter-spacing: -.02em;
+    padding-top: .2rem;
+    font-weight: 500;
+  }
+}
+
+.icon {
+  width: 2.4rem;
+  height: 2.4rem;
+  color: $color-light;
+  margin-right: .4rem;
+}
+
+
+.variant {
+  &Mobile {
+    @include media-breakpoint-down(lg) {
+      color: $color-tertiary-text-3;
+      padding: 0;
+
+      .icon,
+      .buttonTitle {
+        color: inherit;
+      }
+
+      .icon {
+        width: 2rem;
+        height: 2rem;
+      }
+
+      .buttonTitle {
+        font-size: 1.2rem;
+      }
+    }
+    //width: auto;
+  }
+}

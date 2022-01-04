@@ -1,0 +1,135 @@
+.footerNav__block.active .footerNav__icon {
+  transform: translateY(-50%) rotate(270deg);
+}
+
+@import "src/styles/_mixins";
+@import "src/styles/_vars";
+
+.footerNav__block {
+  position: relative;
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: $color-darkblue-3;
+    border-radius: 2px;
+  }
+
+  @include media-breakpoint-up(lg) {
+    flex: 1;
+
+    &::before {
+      display: none;
+    }
+
+    &:not(:last-child) {
+      padding-right: 9.2rem;
+    }
+
+  }
+
+  @include media-breakpoint-down(lg) {
+    .footerNav__list {
+      display: none;
+    }
+
+    &.active .footerNav__list {
+      display: block;
+    }
+  }
+}
+
+.footerNav__icon {
+  transform: translateY(-50%) rotate(90deg);
+  color: $color-light;
+  width: 2.4rem;
+  height: 2.4rem;
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: -.6rem;
+  @include media-breakpoint-up(lg) {
+    display: none;
+  }
+}
+
+.footerNav__title {
+  width: 100%;
+  position: relative;
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  color: $color-light-6;
+  letter-spacing: -.01em;
+  text-align: left;
+  background: transparent;
+  padding: 1.4rem 1rem 1.2rem 0;
+  border: none;
+  outline: none;
+
+  @include media-breakpoint-up(lg) {
+    font-size: 1.8rem;
+    line-height: 2rem;
+    padding: 0;
+    margin-bottom: 1.7rem;
+
+    &::before {
+      display: none;
+    }
+  }
+}
+
+.footerNav__list {
+  &.displayNone {
+    display: none;
+  }
+
+  li {
+    margin-bottom: 1.1rem;
+
+    &:last-child {
+      margin-bottom: 1.5rem;
+    }
+
+    a {
+      font-size: 1.3rem;
+      line-height: 2rem;
+      color: $color-light-7;
+
+      @include media-breakpoint-up(lg) {
+
+        &:hover {
+          text-decoration: underline;
+        }
+
+      }
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+
+    &.displayNone {
+      display: block;
+    }
+
+    li {
+      margin-bottom: .8rem;
+
+      a {
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+        letter-spacing: -.02em;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,1 @@
+export { SplitBoxTitle } from './SplitBoxTitle';

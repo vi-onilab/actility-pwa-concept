@@ -1,0 +1,25 @@
+@import "src/styles/_mixins";
+@import "src/styles/_vars";
+
+.container {
+  opacity: 1;
+
+  [data-rsbs-overlay],
+  [data-rsbs-backdrop],
+  [data-rsbs-root]:after {
+    z-index: 9999999;
+  }
+}
+
+.wrapper {
+
+}
+
+.header {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  text-align: center;
+  letter-spacing: -0.01em;
+  font-feature-settings: 'liga' off;
+  color: $color-title;
+}

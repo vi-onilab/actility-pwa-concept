@@ -1,0 +1,1 @@
+export { SplitBoxText } from './SplitBoxText';

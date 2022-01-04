@@ -1,0 +1,208 @@
+@import "src/styles/_mixins";
+@import "src/styles/_vars";
+
+.rating {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+
+  &Icon {
+    color: $color-secondary;
+    width: 1.2rem;
+    height: 1.2rem;
+    display: block;
+    margin-right: .2rem;
+  }
+
+  &Value {
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    text-transform: lowercase;
+    padding-top: .1rem;
+  }
+
+
+  &.isEmpty {
+    .ratingIcon {
+      color: $color-light-5;
+    }
+  }
+}
+
+.variant {
+
+  &Single {
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(138, 142, 145, .2);
+    border-radius: .2rem;
+    padding: 0 .4rem;
+    display: inline-flex;
+    align-items: center;
+    margin-right: 0;
+
+    .ratingIcon {
+      width: 1.4rem;
+      height: 1.4rem;
+      margin-right: .4rem;
+      color: $color-secondary;
+    }
+    .ratingValue {
+      line-height: 2rem;
+      font-size: 1.3rem;
+      font-weight: 500;
+    }
+  }
+
+  &SingleLarge {
+    background-color: transparent;
+    box-shadow: none;
+
+    .ratingIcon {
+      width: 2.4rem;
+      height: 2.4rem;
+      display: block;
+      margin-right: .7rem;
+    }
+
+    .ratingValue {
+      font-size: 2.6rem;
+      line-height: 3.9rem;
+      letter-spacing: -.01em;
+      font-weight: 700;
+    }
+
+    &QuickView {
+      .ratingIcon {
+        width: 2rem;
+        height: 2rem;
+      }
+
+      .ratingValue {
+        font-size: 1.4rem;
+        font-weight: 700;
+      }
+    }
+  }
+
+  &List {
+
+    .cardHeaderRatingWrapper {
+      display: flex;
+    }
+
+    &Vertical {
+      flex-direction: column;
+    }
+
+    .cardHeaderRatingStarsIcon {
+      width: 2rem;
+      height: 2rem;
+      color: $color-darkblue-2;
+
+      &.isActive {
+        color: $color-secondary;
+      }
+    }
+
+    &.cardHeaderRating {
+      display: flex;
+      align-items: center;
+
+      .cardHeaderRatingText {
+        color: $color-tertiary-text-3;
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+        letter-spacing: -.02em;
+        font-weight: 400;
+        padding-left: .8rem;
+      }
+
+      &.isBottom {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 2.4rem;
+        position: relative;
+        margin-right: 0;
+
+        &::after {
+          content: "";
+          position: absolute;
+          right: 0;
+          height: 4.4rem;
+          width: 1px;
+          top: 50%;
+          transform: translateY(-50%);
+          background-color: #E3E4E7;
+        }
+
+
+        .cardHeaderRatingText {
+          padding-left: 0;
+        }
+      }
+
+
+      //@include media-breakpoint-up(lg) {
+      //  margin-right: 3.2rem;
+      //}
+    }
+
+  }
+
+  &ListVertical {
+
+    .cardHeaderRatingWrapper {
+      display: flex;
+    }
+
+
+    .cardHeaderRatingStarsIcon {
+      width: 2rem;
+      height: 2rem;
+      color: $color-darkblue-2;
+
+      &.isActive {
+        color: $color-secondary;
+      }
+    }
+
+    &.cardHeaderRating {
+      display: flex;
+      align-items: flex-start;
+
+      .cardHeaderRatingText {
+        color: $color-tertiary-text-3;
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+        letter-spacing: -.02em;
+        font-weight: 400;
+      }
+
+      &.isBottom {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 2.4rem;
+        position: relative;
+        margin-right: 0;
+
+        &::after {
+          content: "";
+          position: absolute;
+          right: 0;
+          height: 4.4rem;
+          width: 1px;
+          top: 50%;
+          transform: translateY(-50%);
+          background-color: #E3E4E7;
+        }
+
+
+        .cardHeaderRatingText {
+          padding-left: 0;
+        }
+      }
+
+    }
+
+  }
+}

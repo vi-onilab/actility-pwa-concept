@@ -1,0 +1,13 @@
+fragment WishListData on Wishlist {
+    id
+    itemsCount: items_count
+    items: items_v2 {
+        items {
+            id
+            product {
+                id
+                sku
+            }
+        }
+    }
+}

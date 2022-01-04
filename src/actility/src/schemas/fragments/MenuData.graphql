@@ -1,0 +1,60 @@
+fragment MenuDataFragment on Menu {
+    title
+    identifier
+    menuId: menu_id
+
+    nodes {
+        ... MenuNode
+
+        nodes {
+            ... MenuNode
+
+            nodes {
+                ... MenuNode
+
+                nodes {
+                    ... MenuNode
+
+                }
+
+            }
+
+        }
+    }
+}
+
+fragment MenuNode on Node {
+    nodeId: node_id
+    level
+    type
+    title
+    content {
+        type
+
+        ... on Category {
+            id
+            urlKey: url_key
+            urlPath: url_path
+            categoryWidgetSvgIcon: category_widget_svg_icon
+            categoryWidgetThumbnail: category_widget_thumbnail
+        }
+
+        ... on Product {
+            name
+            type
+            urlPath: url_path
+        }
+
+        ... on CmsPageLink {
+            type
+            urlPath: url_path
+        }
+
+        ... on CustomUrl {
+            isExternal
+            target
+            type
+            url
+        }
+    }
+}

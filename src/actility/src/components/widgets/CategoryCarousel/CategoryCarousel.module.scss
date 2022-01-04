@@ -1,0 +1,161 @@
+@import "src/styles/mixins";
+@import "src/styles/vars";
+
+/**
+ * Placeholders
+ */
+%overflowVisibleForSlider {
+    overflow: visible;
+
+    @include media-breakpoint-down(lg) {
+        padding-bottom: 1.7rem;
+    }
+}
+
+/**
+ * Styles
+ */
+.wrapper {
+}
+
+.slider {
+}
+
+.slide {
+}
+
+.sectionTitle {
+}
+
+.slideScrollbar {
+    bottom: -2rem;
+}
+
+.linkArrow {
+    span {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.linkArrowIcon {
+    width: 2.4rem;
+    height: 2.4rem;
+    color: inherit;
+    display: block;
+}
+
+.variant {
+    &Default {
+        padding: 5rem 0 4.9rem;
+        overflow: hidden;
+
+        .slider {
+            @include slider-container-priority {
+                @extend %overflowVisibleForSlider;
+            }
+        }
+
+        @include media-breakpoint-up(lg) {
+            padding: 5.2rem 0;
+            margin: {
+                bottom: 8rem;
+            }
+        }
+
+        @include media-breakpoint-down(lg) {
+            margin: {
+                bottom: 4.8rem;
+            }
+        }
+
+        .sectionTop {
+            margin-bottom: 1.6rem;
+
+            @include media-breakpoint-up(lg) {
+                margin-bottom: 3.3rem;
+            }
+
+            .linkArrow {
+                @include media-breakpoint-up(lg) {
+                    display: none;
+                }
+            }
+        }
+
+        .sectionTitle {
+            @include media-breakpoint-up(lg) {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        .slide {
+            @include slider-slide-priority {
+                @include media-breakpoint-up(lg) {
+                    //width: 14.8rem !important;
+                }
+
+                @include media-breakpoint-down(md) {
+                    width: 12.8rem;
+                }
+            }
+        }
+    }
+
+    &Default {
+        background-color: $color-light-3;
+    }
+
+    &Advanced {
+        overflow: hidden;
+
+        .sectionTitle {
+            margin-bottom: 1.6rem;
+
+            @include media-breakpoint-up(lg) {
+                margin-bottom: 2.2rem;
+            }
+        }
+
+        .slider {
+            @include slider-container-priority {
+                @extend %overflowVisibleForSlider;
+            }
+        }
+
+        .slider {
+            padding-bottom: 2.4rem !important;
+
+            @include media-breakpoint-down(lg) {
+                padding-bottom: 2.2rem !important;
+            }
+        }
+
+        .slide {
+            @include slider-slide-priority {
+                width: 12.8rem;
+
+                @include media-breakpoint-up(lg) {
+                    width: 26.5rem;
+                }
+            }
+        }
+    }
+}
+
+.wrapperSkeleton {
+    padding: 5.2rem 0;
+    width: 100%;
+}
+
+.titleSkeleton {
+    width: 40%;
+    margin: 0 auto 3.3rem;
+    min-height: 4rem;
+}
+
+.contentSkeleton {
+    width: 100%;
+    min-height: 20.7rem;
+}

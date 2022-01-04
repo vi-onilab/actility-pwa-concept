@@ -1,0 +1,1 @@
+export { ContentParserCaptionTableInTable } from './ContentParserCaptionTableInTable';

@@ -1,0 +1,1 @@
+export { MicrositeShippingConditions } from './MicrositeShippingConditions';

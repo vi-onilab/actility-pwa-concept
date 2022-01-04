@@ -1,0 +1,1 @@
+export { CompareItemsBottomSheet } from './CompareItemsBottomSheet';

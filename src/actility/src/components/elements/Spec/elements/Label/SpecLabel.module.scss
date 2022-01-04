@@ -1,0 +1,24 @@
+@import "src/styles/_mixins";
+@import "src/styles/_vars";
+
+.wrapper {
+  min-width: 17.6rem;
+  display: inline-flex;
+  margin-right: .4rem;
+  align-items: flex-end;
+  margin-bottom: auto;
+
+  &::after {
+    content: '';
+    position: relative;
+    display: inline-flex;
+    border-bottom: 2px dotted currentColor;
+    flex: 1;
+    margin-bottom: .7rem;
+    margin-left: .1rem;
+
+    @include media-breakpoint-down(lg) {
+      margin-bottom: .6rem;
+    }
+  }
+}

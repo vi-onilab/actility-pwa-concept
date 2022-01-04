@@ -2,7 +2,6 @@
   "name": "@pwa-concept/eslint-config",
   "version": "0.0.0",
   "description": "",
-  "private": true,
   "author": "Onilab Team <talkto@onilab.com>",
   "homepage": "https://bitbucket.org/onilab/pwa-concept#readme",
   "license": "ISC",
@@ -30,12 +29,7 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.28.0",
-    "eslint-plugin-react-hooks": "^4.3.0",
-    "prettier": "^2.5.1"
-  },
-  "peerDependencies": {
-    "eslint": "^8.5.0",
-    "prettier": "^2.5.1"
+    "eslint-plugin-react-hooks": "^4.3.0"
   },
   "engines": {
     "node": ">=14.0.0"

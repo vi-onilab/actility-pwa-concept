@@ -1,0 +1,1 @@
+export { HeaderTopAuth } from './HeaderTopAuth';

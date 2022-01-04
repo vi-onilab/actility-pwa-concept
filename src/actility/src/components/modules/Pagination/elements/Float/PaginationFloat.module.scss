@@ -1,0 +1,63 @@
+@import "src/styles/_mixins";
+@import "src/styles/_vars";
+
+.wrapper {
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(138, 142, 145, .2);
+  padding: 0;
+  position: fixed;
+  bottom: 1.2rem;
+  left: 0;
+  border-radius: 0 10rem 10rem 0;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+}
+
+.label {
+  background-color: #EEF2F3;
+  padding: .9rem 1.8rem;
+  border-radius: 0 10rem 10rem 0;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  width: 0;
+  overflow: hidden;
+}
+
+.isOpen {
+  width: 100%;
+  overflow: hidden;
+}
+
+.item {
+  font-size: 1.3rem;
+  line-height: 2rem;
+  letter-spacing: -.02em;
+  color: $color-dark;
+  padding: .2rem .9rem;
+  border-radius: .4rem;
+
+  &Delimiter {
+
+  }
+
+  &:first-child {
+    margin-left: 1.2rem;
+  }
+
+  &:not(:last-child) {
+    margin-right: .6rem;
+  }
+
+  &:last-child {
+    margin-right: 1.5rem;
+  }
+
+  &.isActive {
+    background-color: #486268;
+    color: $color-light;
+  }
+}

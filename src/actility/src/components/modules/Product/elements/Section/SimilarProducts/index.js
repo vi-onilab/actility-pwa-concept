@@ -1,0 +1,1 @@
+export { ProductSectionSimilarProducts } from './ProductSectionSimilarProducts';

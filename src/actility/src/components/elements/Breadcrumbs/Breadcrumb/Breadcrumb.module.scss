@@ -1,0 +1,35 @@
+@import "src/styles/_mixins";
+@import "src/styles/_vars";
+
+.breadcrumb {
+  position: relative;
+  display: inline-block;
+  font-size: 1.4rem;
+  letter-spacing: -.02em;
+  color: $color-tertiary-text-3;
+
+  &:not(:last-child)::after {
+    content: '>';
+    display: inline-block;
+    margin: 0 .65rem;
+  }
+
+  &.isActive {
+    color: $color-secondary-text-2;
+  }
+
+  &:not(.isActive) {
+    @include media-breakpoint-up(lg) {
+      &:hover {
+        .text {
+          color: $color-primary;
+        }
+      }
+    }
+  }
+}
+
+
+.text {
+
+}

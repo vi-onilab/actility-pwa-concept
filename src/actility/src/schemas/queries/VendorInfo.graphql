@@ -1,0 +1,22 @@
+query VendorInfo(
+    $id: Int!
+) {
+    vendorInfo(
+        id: $id
+    ) {
+        id: entity_id
+        info
+        storeName @client
+        description @client
+        country @client
+        address @client
+        banner @client
+        image @client
+        workHours @client
+        isExistReviews @client
+        social @client
+        businessProfile @client
+        problems @client
+        certifications @client
+    }
+}

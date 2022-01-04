@@ -1,0 +1,38 @@
+query CurrencySwitcher(
+    $lang: String
+) {
+    currencySwitcher(
+        current_language_code: $lang
+    ) {
+        countries {
+            isRegionVisible: is_region_visible
+            label
+            value
+        }
+
+        currencyCookieName: currency_cookie_name
+
+        countryCookieName: country_cookie_name
+        currentCountryCode: current_country_code
+        currentLanguageCode: current_language_code
+
+        languages {
+            code
+            locale
+            name
+            storeCode: store_code
+            url
+        }
+
+        countriesList @client
+        languagesList @client
+
+    }
+
+    currency {
+        currenciesList @client
+        availableCurrencyCodes: available_currency_codes
+        baseCurrencyCode: base_currency_code
+        baseCurrencySymbol: base_currency_symbol
+    }
+}

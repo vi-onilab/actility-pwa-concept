@@ -1,0 +1,1 @@
+export { ProductFormShortSticky } from './ProductFormShortSticky';

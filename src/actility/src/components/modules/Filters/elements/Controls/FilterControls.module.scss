@@ -1,0 +1,9 @@
+@import "src/styles/_mixins";
+@import "src/styles/_vars";
+
+.title {
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  letter-spacing: -.02em;
+  color: $color-secondary-text-2;
+}

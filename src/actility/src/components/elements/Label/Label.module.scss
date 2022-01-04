@@ -1,0 +1,127 @@
+@import "src/styles/_mixins";
+@import "src/styles/_vars";
+
+.wrapper {
+
+}
+
+
+.label {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  letter-spacing: -.02em;
+  color: #1A2226;
+  font-weight: 500;
+
+  @include media-breakpoint-down(lg) {
+    font-size: 1.3rem;
+    line-height: 2rem;
+  }
+}
+
+.labelTooltip {
+  vertical-align: text-top;
+}
+
+
+.tooltip {
+  &Icon {
+    width: 1.6rem;
+    height: 1.6rem;
+    display: block;
+    color: $color-tertiary-text-3;
+  }
+}
+
+
+.header {
+  display: flex;
+  margin-bottom: 1.2rem;
+
+  @include media-breakpoint-down(lg) {
+    margin: 1rem 0 1.6rem;
+    justify-content: center;
+  }
+}
+
+.headerTitle {
+  font-size: 2rem;
+  line-height: 2.8rem;
+  font-weight: 500;
+  color: $color-secondary-text-2;
+
+  @include media-breakpoint-down(lg) {
+    text-align: center;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    letter-spacing: -.01em;
+  }
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  @include media-breakpoint-down(lg) {
+    margin-bottom: 1.2rem;
+  }
+}
+
+.itemImageWrapper {
+  box-shadow: 0 2px 6px rgba(204, 208, 210, .4);
+  border-radius: 4px;
+  width: 4rem;
+  height: 4rem;
+  margin-right: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.itemImage {
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+
+.itemTitle {
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+  letter-spacing: -.02em;
+  color: $color-secondary-text-2;
+
+  @include media-breakpoint-down(lg) {
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+  }
+}
+
+.text {
+
+}
+
+.textDescription {
+  font-weight: 400;
+  line-height: 2.2rem;
+  font-size: 1.4rem;
+  letter-spacing: -.02em;
+  color: $color-secondary-text-2;
+}
+
+.main {
+  @include media-breakpoint-down(lg) {
+    margin: 2rem;
+  }
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+
+  @include media-breakpoint-down(lg) {
+    display: inline;
+  }
+}

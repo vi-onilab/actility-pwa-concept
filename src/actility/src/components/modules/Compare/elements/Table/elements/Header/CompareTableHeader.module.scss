@@ -1,0 +1,38 @@
+@import "src/styles/_mixins";
+@import "src/styles/_vars";
+
+.wrapper {
+  display: flex;
+  padding: 2rem 0 2.4rem 0;
+  background-color: $color-light;
+  z-index: 1;
+
+  &Shadow {
+    height: 33.4rem;
+
+    @include media-breakpoint-down(lg) {
+      display: none;
+    }
+  }
+}
+
+.shadowElement {
+  height: 1px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 0 8px 10px rgba(0, 0, 0, .1);
+  width: 100%;
+  transition: box-shadow .3s;
+
+  @include media-breakpoint-down(lg) {
+    position: relative;
+  }
+}
+

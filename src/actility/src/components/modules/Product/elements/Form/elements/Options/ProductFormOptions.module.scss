@@ -1,0 +1,285 @@
+@import "src/styles/mixins";
+@import "src/styles/vars";
+
+.options {
+  &Divider {
+    background: $color-light-5;
+    height: 1px;
+    width: 100%;
+  }
+
+  &Wrapper {
+
+  }
+
+  &Label {
+    margin: {
+      bottom: .8rem;
+    };
+  }
+
+  &List {
+    display: grid;
+    grid-gap: 2.4rem;
+
+    &:empty {
+      display: none;
+    }
+  }
+}
+
+%choseOptionContainer {
+  display: flex;
+  align-items: center;
+  grid-gap: .8rem;
+  background: $color-light;
+  border: 1px solid $color-light-5;
+  box-sizing: border-box;
+  border-radius: 4px;
+  letter-spacing: -0.02em;
+  color: $color-secondary-text-2;
+  position: relative;
+  text-align: left;
+
+  @include media-breakpoint-up(lg) {
+    padding: .9rem .8rem .9rem 4rem;
+    font-size: 1.4rem;
+    line-height: 2.2rem;
+  }
+  @include media-breakpoint-down(lg) {
+    padding: .8rem .8rem .8rem 4rem;
+    font-size: 1.3rem;
+    line-height: 1.8rem;
+  }
+
+  &[disabled] {
+    opacity: .5;
+    cursor: default;
+  }
+}
+
+%choseOptionContainerIcon {
+  content: '';
+  position: absolute;
+  left: 1.1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.8rem;
+  height: 1.8rem;
+  border: 2px solid $color-light-5;
+  box-sizing: border-box;
+  margin: {
+    right: 1.1rem;
+  };
+}
+
+%choseOptionList {
+  display: grid;
+  grid-gap: .4rem;
+}
+
+%choseOptionLabel {
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+  text-align: right;
+  letter-spacing: -0.02em;
+  color: $color-secondary-text-2;
+  flex: 1;
+  white-space: nowrap;
+  padding: {
+    left: 2rem;
+  };
+}
+
+
+.checkbox {
+  @extend %choseOptionContainer;
+
+  &List {
+    @extend %choseOptionList;
+  }
+
+  &:before {
+    @extend %choseOptionContainerIcon;
+    border-radius: 3px;
+  }
+
+  &Label {
+    @extend %choseOptionLabel;
+  }
+
+  &.isActive {
+    &:before {
+      background: url('../../../../../../../assets/icons/checkboxCheck.svg') center no-repeat;
+      background-size: 160%;
+      border-color: $color-primary;
+    }
+  }
+}
+
+.radio {
+  @extend %choseOptionContainer;
+
+  &List {
+    @extend %choseOptionList;
+  }
+
+  &:before {
+    @extend %choseOptionContainerIcon;
+    border-radius: 50%;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    left: 1.45rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+  }
+
+  &Label {
+    @extend %choseOptionLabel;
+  }
+
+  &.isActive {
+    &:before {
+      border-color: $color-primary;
+    }
+
+    &:after {
+      background: $color-primary;
+    }
+  }
+}
+
+.checkboxTouch {
+  background: $color-light;
+  border: 1px solid $color-light-5;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  letter-spacing: -0.02em;
+  color: $color-secondary-text-2;
+  padding: .6rem 1.6rem;
+
+  &Arrow {
+    font-size: 1.4rem;
+    line-height: 2rem;
+    font-weight: 500;
+    margin: 1.2rem 0 0;
+  }
+
+  &List {
+    display: flex;
+    flex-wrap: wrap;
+    grid-gap: 1.2rem;
+  }
+
+  &.isActive {
+    background: $color-darkblue-2;
+    border-color: $color-darkblue-2;
+    color: $color-light;
+  }
+}
+
+.tooltip {
+  color: $color-tertiary-text-3;
+}
+
+
+.header {
+  display: flex;
+  margin-bottom: 1.2rem;
+
+  @include media-breakpoint-down(lg) {
+    margin: 1rem 0 1.6rem;
+    justify-content: center;
+  }
+}
+
+.headerTitle {
+  font-size: 2rem;
+  line-height: 2.8rem;
+  font-weight: 500;
+  color: $color-secondary-text-2;
+
+  @include media-breakpoint-down(lg) {
+    text-align: center;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    letter-spacing: -.01em;
+  }
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  @include media-breakpoint-down(lg) {
+    margin-bottom: 1.2rem;
+  }
+}
+
+.itemImageWrapper {
+  box-shadow: 0 2px 6px rgba(204, 208, 210, .4);
+  border-radius: 4px;
+  width: 4rem;
+  height: 4rem;
+  margin-right: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.itemImage {
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+
+.itemTitle {
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+  letter-spacing: -.02em;
+  color: $color-secondary-text-2;
+
+  @include media-breakpoint-down(lg) {
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+  }
+}
+
+.text {
+
+}
+
+.textDescription {
+  font-weight: 400;
+  line-height: 2.2rem;
+  font-size: 1.4rem;
+  letter-spacing: -.02em;
+  color: $color-secondary-text-2;
+}
+
+.main {
+  @include media-breakpoint-down(lg) {
+    margin: 2rem;
+  }
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+
+  @include media-breakpoint-down(lg) {
+    display: inline;
+  }
+}

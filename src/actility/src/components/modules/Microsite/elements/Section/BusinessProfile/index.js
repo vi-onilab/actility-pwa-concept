@@ -1,0 +1,1 @@
+export { MicrositeSectionBusinessProfile } from './MicrositeSectionBusinessProfile';

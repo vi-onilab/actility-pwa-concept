@@ -1,0 +1,27 @@
+@import "src/styles/_mixins";
+@import "src/styles/_vars";
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: .8rem 0;
+  font-size: 1.3rem;
+  line-height: 2rem;
+  letter-spacing: -.02em;
+  font-weight: 500;
+
+  @include media-breakpoint-down(lg) {
+    min-width: 16.4rem;
+  }
+
+  &:first-child {
+    color: $color-tertiary-text-3;
+    padding-left: 1.6rem;
+
+    @include media-breakpoint-down(lg) {
+      padding-left: 2rem;
+    }
+  }
+}

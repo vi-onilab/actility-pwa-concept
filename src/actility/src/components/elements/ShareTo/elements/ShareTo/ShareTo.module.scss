@@ -1,0 +1,100 @@
+@import "../../../../../styles/mixins";
+@import "../../../../../styles/vars";
+
+.wrapper {
+  position: relative;
+
+  @include media-breakpoint-up(lg) {
+    &:hover {
+      .dropdown {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  visibility: hidden;
+  opacity: 0;
+  left: 0;
+  z-index: 1;
+  padding: {
+    top: .7rem;
+  };
+}
+
+.dropdownWrap {
+  background: $color-light;
+  box-shadow: 0 2px 6px rgba(138, 142, 145, 0.2);
+  border-radius: 4px;
+  text-align: left;
+  padding: .4rem 0;
+}
+
+.bottom {
+  padding: .8rem 0;
+}
+
+.bottomTitle {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  font-weight: 400;
+  text-align: center;
+  letter-spacing: -0.01em;
+  font-feature-settings: 'liga' off;
+  color: $color-title;
+  padding: {
+    bottom: .8rem;
+  };
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  padding: .4rem 1.2rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.6rem;
+  letter-spacing: -0.02em;
+  color: $color-secondary-text-2;
+  min-width: 100%;
+
+  @include media-breakpoint-down(lg) {
+    padding: .8rem 2rem;
+
+    &:active {
+      background: $color-light-3;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    &:hover {
+      --local-share-color: $color-primary;
+
+      color: $color-primary;
+    }
+  }
+}
+
+.icon {
+  height: 2rem;
+  width: 2rem;
+  margin: {
+    right: .8rem;
+  };
+  color: var(--local-share-color);
+}
+
+.divider {
+  height: 1px;
+  background: $color-light-5;
+  border-radius: 4px;
+
+  @include media-breakpoint-down(lg) {
+    margin: .8rem 2rem;
+  }
+}

@@ -1,0 +1,5 @@
+mutation DeleteCustomerAddress (
+    $id: Int!
+) {
+    deleteCustomerAddress(id: $id)
+}

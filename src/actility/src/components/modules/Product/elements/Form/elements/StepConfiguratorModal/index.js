@@ -1,0 +1,1 @@
+export { ProductFormStepConfiguratorModal } from './ProductFormStepConfiguratorModal';

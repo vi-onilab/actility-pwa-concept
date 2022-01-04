@@ -15,6 +15,6 @@
   },
   "workspaces": [
     "packages/*",
-    "examples/*"
+    "src/*"
   ]
 }

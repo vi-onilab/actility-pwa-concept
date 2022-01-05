@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    "plugins": [
+      { "name": "typescript-plugin-css-modules" }
+    ],
     "target": "ESNext",
     "lib": [
       "dom",
@@ -16,7 +19,8 @@
     "noEmit": true,
     "noFallthroughCasesInSwitch": true,
     "jsx": "react-jsx",
-    "checkJs": true
+    "checkJs": false,
+    "typeRoots": [ "./global.d.ts" ]
   },
   "include": [
     "src",

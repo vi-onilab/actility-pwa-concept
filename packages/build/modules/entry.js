@@ -1,5 +1,19 @@
-const path = require('path');
+const { join } = require('path')
+const { existsSync } = require('fs')
 
-module.exports = ({ root }) => ({
-	index: path.join(root, 'src', 'index.js'),
-})
+const ENTRIES = [
+	'index.ts',
+	'index.js',
+]
+
+module.exports = ({ root }) => {
+	const index = (
+		ENTRIES
+			.map((name) => join(root, 'src', name))
+			.find((path) => existsSync(path))
+	)
+
+	return {
+		index,
+	}
+}

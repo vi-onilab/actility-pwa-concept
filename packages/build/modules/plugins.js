@@ -1,32 +1,39 @@
 const webpack = require('webpack');
 const WebpackNotifierPlugin = require('webpack-notifier');
 const dotenv = require('dotenv');
-const path = require('path');
+const { join } = require('path');
+const { existsSync } = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
-module.exports = ({ root, isDevelopment, isAnalyze, isProduction }) => ([
-	isDevelopment && new WebpackNotifierPlugin({ title: 'PWA Build', emoji: true, alwaysNotify: true }),
-	new webpack.DefinePlugin({
-		'process.env': JSON.stringify(dotenv.config({ path: path.join(root, '.env') }).parsed),
-	}),
-	new HtmlWebpackPlugin({ template: path.join(root, 'src', 'index.html') }),
-	new MiniCssExtractPlugin({
-		filename: isDevelopment ? 'static/css/[name].css' : 'static/css/[name].[contenthash:8].css',
-		chunkFilename: isDevelopment ? 'static/css/[id].css' : 'static/css/[id].[contenthash:8].css',
-	}),
+module.exports = ({ root, isDevelopment, isAnalyze, isProduction }) => {
+	const publicPath = join(root, 'public')
+	const htmlPath = join(root, 'src', 'index.html')
+	const envPath = join(root, '.env')
 
-	isProduction && new CopyPlugin({
-		patterns: [
-			path.resolve(root, 'public'),
-		],
-	}),
+	return [
+		isDevelopment && new WebpackNotifierPlugin({ title: 'PWA Build', emoji: true, alwaysNotify: true }),
+		existsSync(envPath) && new webpack.DefinePlugin({
+			'process.env': JSON.stringify(dotenv.config({ path: envPath }).parsed),
+		}),
+		existsSync(htmlPath) && new HtmlWebpackPlugin({ template: htmlPath }),
+		new MiniCssExtractPlugin({
+			filename: isDevelopment ? 'static/css/[name].css' : 'static/css/[name].[contenthash:8].css',
+			chunkFilename: isDevelopment ? 'static/css/[id].css' : 'static/css/[id].[contenthash:8].css',
+		}),
 
-	isDevelopment && new webpack.HotModuleReplacementPlugin(),
-	isDevelopment && new ReactRefreshWebpackPlugin(),
+		isProduction && existsSync(publicPath) && new CopyPlugin({
+			patterns: [
+				publicPath,
+			],
+		}),
 
-	isAnalyze && new BundleAnalyzerPlugin(),
-])
+		isDevelopment && new webpack.HotModuleReplacementPlugin(),
+		isDevelopment && new ReactRefreshWebpackPlugin(),
+
+		isAnalyze && new BundleAnalyzerPlugin(),
+	]
+}

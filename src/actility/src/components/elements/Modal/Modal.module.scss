@@ -1,0 +1,250 @@
+@import "../../../styles/mixins";
+@import "../../../styles/vars";
+
+%scrollableMainOnMobile {
+  @include media-breakpoint-down(lg) {
+
+    .main {
+      overflow-y: auto;
+      max-height: 100%;
+    }
+
+  }
+}
+
+.wrapper {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  z-index: 9999999;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+}
+
+.body {
+  margin: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  pointer-events: all;
+  background: $color-light;
+  height: auto;
+  width: auto;
+  overflow: auto;
+  border-radius: .8rem;
+
+}
+
+.header {
+
+}
+
+.main {
+
+}
+
+.footer {
+
+}
+
+.close {
+  width: 2.4rem;
+  height: 2.4rem;
+  position: absolute;
+  top: .4rem;
+  right: .4rem;
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &Icon {
+    width: 2.4rem;
+    height: 2.4rem;
+    color: $color-secondary-text-2;
+  }
+}
+
+// VARIANT's
+.variant {
+  &Default {
+    @extend %scrollableMainOnMobile;
+
+    @include media-breakpoint-up(lg) {
+      padding: 10rem 0;
+    }
+
+    .closeIcon {
+      color: $color-tertiary-text-3;
+    }
+
+    .main {
+      padding: 2rem;
+
+      @include media-breakpoint-up(lg) {
+        padding: 3.2rem 4rem;
+        box-shadow: 0 2px 16px rgba(169, 169, 169, 0.3);
+        border-radius: .8rem;
+      }
+    }
+
+    .body {
+      @include media-breakpoint-down(lg) {
+        max-height: 100%;
+        border-radius: 0;
+        height: 100%;
+        width: 100%;
+      }
+
+    }
+
+    .close {
+      @include media-breakpoint-down(lg) {
+        display: none;
+      }
+    }
+
+  }
+
+  &Bottom {
+
+    .body {
+      margin: auto 0 0;
+      width: 100%;
+      border-radius: .8rem .8rem 0 0;
+      padding: 3.2rem 4rem 4rem;
+    }
+
+    .header {
+      font-weight: 500;
+      font-size: 2rem;
+      line-height: 2.8rem;
+      font-feature-settings: 'liga' off;
+      color: $color-secondary-text-2;
+
+      ~ .main {
+        padding: {
+          top: 1.6rem;
+        };
+      }
+    }
+
+    .close {
+      &Icon {
+        color: $color-tertiary-text-3;
+      }
+    }
+
+  }
+
+  &Search {
+    @extend %scrollableMainOnMobile;
+
+
+    .body {
+      border-radius: 0;
+
+      @include media-breakpoint-down(lg) {
+        height: 100%;
+        width: 100%;
+      }
+
+
+      @include media-breakpoint-up(lg) {
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 5.4rem 5.2rem;
+        width: 100%;
+        margin: 0 0 auto;
+        border-radius: 0 0 2rem 2rem;
+      }
+
+
+    }
+
+    .close {
+      @include media-breakpoint-down(lg) {
+        display: none;
+      }
+
+      @include media-breakpoint-up(lg) {
+        width: 4.8rem;
+        height: 4.8rem;
+        border-radius: 50%;
+        background: $color-light-4;
+        top: 3.2rem;
+        right: 5.2rem;
+      }
+    }
+
+  }
+
+  &Login {
+    display: flex;
+    padding: 5rem 0;
+
+    @include media-breakpoint-down(lg) {
+      padding: 0;
+    }
+
+    .close {
+      position: absolute;
+      right: -3rem;
+      top: -3rem;
+      background-color: rgba($color-secondary-text-2, .2);
+      border-radius: 50%;
+      width: 3.2rem;
+      height: 3.2rem;
+      transition: all .3s;
+
+      &:hover {
+        background-color: $color-secondary-text-2;
+      }
+
+      &Icon {
+        color: $color-light;
+      }
+
+      @include media-breakpoint-down(lg) {
+        display: none;
+      }
+    }
+
+    .body {
+      overflow: unset;
+    }
+  }
+
+
+  &Configurator {
+    @extend %scrollableMainOnMobile;
+
+    .body {
+      width: 100%;
+      height: 100%;
+      border-radius: 0;
+    }
+
+    .close {
+      display: none;
+    }
+
+    .main {
+      flex: 1;
+    }
+
+  }
+
+}

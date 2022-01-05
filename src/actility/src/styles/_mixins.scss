@@ -1,0 +1,16 @@
+@import "mixins/responsive";
+@import "mixins/image";
+@import "mixins/media";
+@import "mixins/slider";
+@import "mixins/text";
+@import "mixins/_margin";
+
+@mixin hide-scrollbar() {
+  &::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  scrollbar-heght: none;
+}

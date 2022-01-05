@@ -1,0 +1,11 @@
+@import "src/styles/_mixins";
+@import "src/styles/_vars";
+
+.wrapper {
+  flex: 4;
+  width: 100%;
+
+  @include media-breakpoint-down(lg) {
+    flex: auto;
+  }
+}

@@ -1,0 +1,109 @@
+@import "src/styles/_mixins";
+@import "src/styles/_vars";
+
+.badge {
+  border-radius: 2px;
+  color: $color-light;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  padding: 0 .8rem;
+}
+
+.variant {
+  &New {
+    background-color: $color-secondary;
+  }
+
+  &Discount {
+    background-color: $color-sale;
+  }
+
+  &FilterLabel {
+    width: 1.8rem;
+    height: 1.8rem;
+    background-color: $color-secondary;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: $color-light;
+    font-size: 1.4rem;
+    line-height: 2.2rem;
+    letter-spacing: -.02em;
+    margin-left: 0.4rem;
+    font-weight: 400;
+
+    @include media-breakpoint-down(lg) {
+      font-weight: 500;
+    }
+  }
+
+  &Cart {
+    position: absolute;
+    background-color: $color-secondary;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.2rem;
+    height: 1.2rem;
+    padding: 0;
+
+    font-size: 1rem;
+    line-height: 1rem;
+    color: #1a2226;
+  }
+
+  &CategoryLabel {
+    display: flex;
+    align-items: center;
+    background-color: #F6FAFB;
+    border-radius: 0 .2rem .2rem 0;
+    padding: .4rem;
+    border: 1px solid rgba(22, 70, 104, .07);
+    border-left: none;
+
+    .icon {
+      width: 2rem;
+      height: 2rem;
+      display: block;
+      margin-right: 0.4rem;
+    }
+
+    .main {
+      font-weight: 500;
+      font-size: 1.2rem;
+      line-height: 1.6rem;
+      letter-spacing: -0.02em;
+      color: #314448;
+    }
+  }
+
+  &PriceLabel {
+    border: .7px solid $color-light-5;
+    border-radius: 2px;
+    background-color: #f8fafa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 .8rem;
+    color: $color-primary;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    letter-spacing: -.02em;
+  }
+
+  &SubscribeLabel {
+    background-color: #E95E70;
+    border-radius: 2rem;
+    font-size: 1rem;
+    line-height: .8rem;
+    padding: .4rem .8rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-light;
+    max-width: 5.4rem;
+  }
+}

@@ -1,0 +1,87 @@
+# Mark field as only for client cache
+directive @client on FIELD | FIELD_DEFINITION | ARGUMENT_DEFINITION | MUTATION | SCHEMA
+
+extend type ReviewItem {
+    summary: Int @client
+}
+
+type CurrencySwitcherListItem {
+    value: String
+    label: String
+    icon: String
+}
+
+extend type CurrencySwitcher {
+    countriesList: [CurrencySwitcherListItem] @client
+    languagesList: [CurrencySwitcherListItem] @client
+}
+
+type ProductInterfacePriceBadge {
+    type: String
+    value: String
+}
+
+type ProductInterfaceCalculatedPriceValue {
+    label: String
+    value: Float
+}
+
+type ProductInterfaceCalculatedPrice {
+    initial: ProductInterfaceCalculatedPriceValue
+    current: ProductInterfaceCalculatedPriceValue
+    isRange: Boolean
+}
+
+type ProductConfigurableOptionValuePayload {
+    price: Float
+}
+
+type ProductConfigurableOptionValue {
+    label: String
+    payload: ProductConfigurableOptionValuePayload
+}
+
+type ProductConfigurableOption {
+    type: String
+    label: String
+    values: [ProductConfigurableOption!]
+}
+
+type ProductInterfaceSubscription {
+    label: String
+    text: String
+    badge: String
+    content: ProductInterfaceSubscriptionContent
+}
+
+type ProductInterfaceSubscriptionContent {
+    label: String
+    currentValue: String
+    initialValue: String
+    description: String
+}
+
+type ProductInterfaceSpecificationItem {
+    label: String
+    value: String
+}
+
+type ProductInterfaceSpecificationGroup {
+    options: [ProductInterfaceSpecificationItem!]
+}
+
+extend type ProductInterface {
+    isInCompare: Boolean @client
+    isInCart: Boolean @client
+    isInWishlist: Boolean @client
+    isExistSubscription: Boolean @client
+    isExistCustomization: Boolean @client
+    subscriptionsList: [ProductInterfaceSubscription!] @client
+    isSimpleProduct: Boolean @client
+    isExistReviews: Boolean @client
+    calculatedPrice: ProductInterfaceCalculatedPrice @client
+    priceBadges: [ProductInterfacePriceBadge!] @client
+    customizeOptions: [ProductConfigurableOption!] @client
+    specifications: [ProductInterfaceSpecificationGroup!] @client
+    isVatIncluded: Boolean @client
+}

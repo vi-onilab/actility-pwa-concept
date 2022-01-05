@@ -1,0 +1,131 @@
+@import "src/styles/_mixins";
+@import "src/styles/_vars";
+
+.linkArrow {
+  position: relative;
+  color: $color-primary;
+  transition: .3s;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  .linkArrowCategory {
+    @include media-breakpoint-down(md) {
+      display: none;
+    }
+  }
+
+}
+
+.content {
+
+}
+
+.linkArrowIcon {
+  width: 2.4rem;
+  height: 2.4rem;
+  color: inherit;
+  display: block;
+}
+
+.disableArrow .linkArrowIcon {
+  display: none;
+}
+
+%defaultVariantStyle {
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+
+  @include media-breakpoint-up(md) {
+    font-size: 1.7rem;
+  }
+}
+
+%smallVariantStyles {
+  font: {
+    size: 1.4rem;
+  };
+  line-height: 2.2rem;
+  letter-spacing: -0.02em;
+}
+
+.variant {
+
+  &Default {
+    @extend %defaultVariantStyle;
+
+    @include media-breakpoint-up(lg) {
+      &:hover {
+        color: #F9BA49;
+      }
+    }
+  }
+
+
+  &Light {
+    @extend %defaultVariantStyle;
+
+    color: $color-light;
+  }
+
+  &Small {
+    @extend %smallVariantStyles;
+
+    font: {
+      weight: 400;
+    };
+
+    &Bold {
+      @extend %smallVariantStyles;
+
+      font: {
+        weight: 500;
+      };
+
+    }
+
+  }
+
+  &FilterMobile {
+    .linkArrowIcon {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+
+  &ColoredSmallHover {
+    .linkArrowIcon {
+      width: 2rem;
+      height: 2rem;
+    }
+
+    &:hover {
+      color: #F9BA49;
+    }
+  }
+
+  &GraySmallHover {
+    color: $color-tertiary-text-3;
+
+    @include media-breakpoint-down(lg) {
+      &:hover {
+        color: $color-tertiary-text-3;
+      }
+    }
+
+    .linkArrowIcon {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+}
+
+.skeleton {
+  width: 15rem;
+  height: 2.2rem;
+
+  @include media-breakpoint-down(lg) {
+    height: 2.4rem;
+  }
+}

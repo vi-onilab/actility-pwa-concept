@@ -1,0 +1,196 @@
+@import "src/styles/_mixins";
+@import "src/styles/_vars";
+
+.subscribe {
+  transition: .3s;
+  @include media-breakpoint-up(lg) {
+    margin-bottom: 4rem;
+  }
+}
+
+.title {
+  font-weight: 500;
+  font-size: 1.4rem;
+  color: $color-light;
+  margin-bottom: .9rem;
+
+  @include media-breakpoint-up(lg) {
+    font-size: 1.8rem;
+  }
+}
+
+.isLoading {
+  pointer-events: none;
+  opacity: .5;
+}
+
+.icon {
+  width: 2.4rem;
+  height: 2.4rem;
+  display: block;
+}
+
+.btn {
+  width: 40px;
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  outline: none;
+
+  svg {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+}
+
+input {
+  &::placeholder {
+    font-family: inherit;
+    color: #000;
+  }
+  &::-moz-placeholder {
+    font-family: inherit;
+    color: #000;
+  }
+  &:-moz-placeholder {
+    font-family: inherit;
+    color: #000;
+  }
+  &:-ms-input-placeholder {
+    font-family: inherit;
+    color: #000;
+  }
+}
+
+.input {
+  position: relative;
+
+  &Success {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+  }
+
+  &Error {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    z-index: 1;
+    grid-gap: .8rem;
+
+    ~ .btn,
+    ~ .inputEmail {
+      display: none;
+    }
+  }
+
+  &ErrorButton {
+
+  }
+
+  input {
+    display: block;
+    width: 100%;
+    height: 4rem;
+    letter-spacing: -.02em;
+    padding: 0 4rem 0 1.6rem;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    font-family: inherit;
+
+    &::placeholder {
+      color: $color-tertiary-text-3;
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    font-size: 1.6rem;
+  }
+}
+
+.variant {
+
+  &Default {
+    margin-bottom: 1.6rem;
+
+    .icon {
+      color: $color-light;
+    }
+
+    .btn {
+      right: 0;
+      top: 0;
+    }
+
+    .input {
+      &Success {
+        background-color: $color-darkblue-2;
+        color: $color-light;
+      }
+
+      &Error {
+        background-color: $color-darkblue-2;
+        color: $color-light;
+      }
+
+      input {
+        color: $color-light;
+        background-color: $color-accent-2;
+        font-size: 1.3rem;
+      }
+    }
+  }
+
+  &Microsite {
+    margin-bottom: 1.2rem;
+
+    .title {
+      color: $color-dark;
+
+      @include media-breakpoint-down(lg) {
+        margin-bottom: .8rem;
+      }
+    }
+
+    .input {
+      padding: 1.2rem 1.6rem 1.2rem 1.2rem;
+      background-color: $color-light-4;
+      border-radius: .8rem;
+
+      @include media-breakpoint-down(lg) {
+        padding: .8rem;
+      }
+
+      input {
+        background-color: $color-light;
+        color: $color-tertiary-text-3;
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+      }
+    }
+
+    .btn {
+      right: 3rem;
+      top: 1.2rem;
+      bottom: 1.2rem;
+      height: auto;
+    }
+
+    .icon {
+      color: $color-secondary-text-2;
+    }
+  }
+
+}

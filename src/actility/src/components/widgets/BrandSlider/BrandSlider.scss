@@ -1,0 +1,94 @@
+@import "src/styles/mixins";
+@import "src/styles/vars";
+
+%brandSizes {
+  min-height: 5.3rem;
+
+  margin: {
+    bottom: 1.4rem;
+  };
+
+  @include media-breakpoint-up(lg) {
+    margin-bottom: 2.9rem;
+  }
+}
+
+.brand {
+  @extend %brandSizes;
+}
+
+.brand__slider {
+  position: relative;
+  width: calc(100% + 4rem);
+  margin: 0 -2rem;
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+
+  @include media-breakpoint-down(lg) {
+    margin: 0 -2rem !important;
+  }
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none;
+    background: transparent;
+  }
+
+  @include media-breakpoint-up(lg) {
+    margin: 0;
+    overflow-x: initial;
+  }
+}
+
+.brand__item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10.2rem;
+  height: 5.2rem;
+
+  img {
+    width: 100%;
+  }
+
+  &:not(:last-of-type) {
+    margin-right: .2rem;
+  }
+
+  @include media-breakpoint-up(md) {
+    width: 13.2rem;
+
+    &:not(:last-of-type) {
+      margin-right: 3.4rem;
+    }
+  }
+  @include media-breakpoint-up(lg) {
+    &.brandVolod {
+      width: 16.6rem;
+    }
+  }
+}
+
+.brandSkeleton {
+  @extend %brandSizes;
+
+  @include media-breakpoint-down(lg) {
+    margin-top: 3rem;
+  }
+}
+
+:global(.swiper.swiper-initialized.swiper-horizontal) .brand__navigation :global(.swiper-button-prev.swiper-button-disabled),
+:global(.swiper.swiper-initialized.swiper-horizontal) .brand__navigation :global(.swiper-button-next.swiper-button-disabled) {
+  display: none;
+}
+:global(.swiper.swiper-initialized.swiper-horizontal) .brand__navigation :global(.swiper-button-prev) {
+  left: 0;
+}
+
+:global(.swiper.swiper-initialized.swiper-horizontal .swiper-button-next) .brand__navigation :global(.swiper-button-next) {
+  right: 0;
+}

@@ -1,0 +1,1 @@
+export { CompareTableCell } from './CompareTableCell';

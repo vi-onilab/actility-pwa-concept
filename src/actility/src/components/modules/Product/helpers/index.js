@@ -1,0 +1,1 @@
+export { transformProductsToQuickViewIdList } from './transformProductsToQuickViewIdList';

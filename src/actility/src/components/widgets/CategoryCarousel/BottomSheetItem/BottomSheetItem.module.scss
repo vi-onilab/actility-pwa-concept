@@ -1,0 +1,45 @@
+@import "../../../../styles/mixins";
+@import "../../../../styles/vars";
+
+.item {
+  position: relative;
+  background-color: $color-light-3;
+  padding: 1.4rem 4rem 1.4rem 1.2rem;
+  display: flex;
+  align-items: center;
+
+  &:not(:last-child) {
+    border-bottom: .1rem solid rgba($color-tertiary-text-3, .1);
+  }
+
+  &:first-child, &:last-child {
+    border-radius: 0 .4rem .4rem 0;
+  }
+}
+
+.arrow {
+  width: 2.4rem;
+  height: 2.4rem;
+  position: absolute;
+  top: 50%;
+  right: .8rem;
+  transform: translateY(-50%);
+  color: $color-tertiary-text-3;
+}
+
+.icon {
+  width: 2.4rem;
+  height: 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+}
+
+.title {
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+  letter-spacing: -.02em;
+  color: $color-accent;
+}
+

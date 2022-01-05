@@ -1,0 +1,287 @@
+@import '~swiper/scss';
+@import '~swiper/scss/navigation';
+@import '~swiper/scss/pagination';
+@import '~swiper/scss/scrollbar';
+
+@import '~react-spring-bottom-sheet/dist/style.css';
+
+@import 'styles/vars';
+@import 'styles/mixins';
+@import 'styles/base';
+
+@font-face {
+    font-family: 'CircularProTT';
+    src: url('./assets/fonts/CircularProTT-Book.woff2') format('woff2'),
+        url('./assets/fonts/CircularProTT-Book.woff') format('woff'),
+        url('./assets/fonts/CircularProTT-Book.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CircularProTT';
+    src: url('./assets/fonts/CircularProTT-Medium.woff2') format('woff2'),
+        url('./assets/fonts/CircularProTT-Medium.woff') format('woff'),
+        url('./assets/fonts/CircularProTT-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CircularProTT';
+    src: url('./assets/fonts/CircularProTT-Bold.woff2') format('woff2'),
+        url('./assets/fonts/CircularProTT-Bold.woff') format('woff'),
+        url('./assets/fonts/CircularProTT-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+ul,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    padding: 0;
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+a {
+    display: inline-block;
+    color: $color-secondary-text-2;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+
+    &:not([draggable]) {
+        height: auto;
+    }
+}
+
+svg {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+button {
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+input,
+select {
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+button {
+    font-family: 'CircularProTT', serif;
+}
+
+body {
+    -webkit-text-size-adjust: none;
+}
+
+a, label{
+    -webkit-tap-highlight-color: transparent;
+}
+
+input[type=text], input[type=submit], textarea{
+    -webkit-appearance: none;
+}
+
+// TODO: Remove this css style: elements/Container
+.container {
+    padding: 0 2rem;
+    margin: 0 auto;
+
+    @include media-breakpoint-up(lg) {
+        max-width: calc(133.6rem + 4rem);
+    }
+}
+
+// TODO: Remove this css style: elements/Section/SectionTitle
+.section-title {
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 3rem;
+    letter-spacing: -.01em;
+    color: $color-title;
+
+    @include media-breakpoint-up(md) {
+        font-size: 2.6rem;
+        line-height: 3.9rem;
+    }
+}
+
+// TODO: Remove this css style: elements/Section/SectionTop
+.section-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.favourite-btn {
+    margin-bottom: 1.3rem;
+}
+
+.favourite-btn,
+.compare-btn {
+    width: 2.4rem;
+    height: 2.4rem;
+}
+
+.favourite-btn,
+.compare-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+
+
+    @include media-breakpoint-up(md) {
+        &:hover {
+            background: $color-secondary;
+        }
+    }
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 4rem;
+    background-color: $color-primary;
+    border: 2px solid $color-primary;
+    border-radius: 4px;
+    transition: .3s;
+
+    @include media-breakpoint-up(md) {
+        &:hover {
+            background-color: $color-secondary;
+            border-color: $color-secondary;
+        }
+    }
+
+    &.typeSecond,
+    &.view-btn {
+        background-color: $color-light;
+
+        .button__text {
+            color: $color-primary;
+        }
+
+        @include media-breakpoint-up(md) {
+            &:hover {
+                border-color: $color-primary;
+                background-color: $color-light-4;
+
+            }
+        }
+    }
+
+    &.view-btn {
+
+        .button__text {
+            margin-left: .5rem;
+        }
+    }
+
+    &.view-btn {
+        flex: 0 0 4.4rem;
+    }
+
+    &.cart-btn {
+        flex: 1;
+
+        svg {
+            fill: $color-light;
+        }
+    }
+
+    @include media-breakpoint-up(md) {
+        height: 4.4rem;
+    }
+}
+
+.button__icon {
+    width: 2.4rem;
+    height: 2.4rem;
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.button__text {
+    font-weight: 500;
+    font-size: 1.3rem;
+    letter-spacing: -.02em;
+    color: $color-light;
+    margin-left: .4rem;
+    transition: inherit;
+
+    @include media-breakpoint-up(md) {
+        font-size: 1.4rem;
+    }
+}
+
+:global([data-rsbs-header]) {
+    box-shadow: none;
+}
+
+:global([data-rsbs-header]) {
+    padding-top: calc(28px + env(safe-area-inset-top));
+}
+
+:global([data-rsbs-footer]) {
+    box-shadow: 0 4px 20px rgba(126, 131, 134, .4);
+}
+
+:global(.swiper-css-mode) > :global(.swiper-wrapper) {
+    -webkit-overflow-scrolling: touch;
+    overflow-y: hidden;
+    overflow-x: scroll;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none!important;
+        transition: none!important;
+    }
+}

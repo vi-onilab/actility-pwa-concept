@@ -1,0 +1,13 @@
+mutation updateCustomer (
+    $is_subscribed: Boolean!
+) {
+    updateCustomerV2 (
+        input: {
+            is_subscribed: $is_subscribed
+        }
+    ) {
+        customer {
+            is_subscribed
+        }
+    }
+}

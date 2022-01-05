@@ -1,0 +1,13 @@
+mutation SendMessageToVendor(
+    $vendorId: String!
+    $attachments: String!
+    $content: String!
+    $subject: String!
+) {
+    sendMessageToVendor(
+        vendor_id: $vendorId
+        attachments: $attachments
+        content: $content
+        subject: $subject
+    )
+}

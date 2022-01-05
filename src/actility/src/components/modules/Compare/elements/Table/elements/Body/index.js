@@ -1,0 +1,1 @@
+export { CompareTableBody } from './CompareTableBody';

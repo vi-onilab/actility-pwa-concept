@@ -1,0 +1,72 @@
+type VendorInfoSocial {
+    facebook: String
+    googlePlus: String
+    instagram: String
+    pinterest: String
+    twitter: String
+    vimeo: String
+    website: String
+    youtube: String
+}
+
+type VendorInfoBannerSliderSlide {
+    url: String
+}
+
+type VendorInfoBannerSlider {
+    title: String
+    delay: Int
+    isHidePagination: Boolean
+    speed: Int
+    typePagination: String
+    items: [VendorInfoBannerSliderSlide!]
+}
+
+type VendorInfoBanner {
+    image: String
+    type: String
+    slider: VendorInfoBannerSlider
+}
+
+type VendorInfoBusinessProfileItem {
+    label: String
+    value: String
+}
+
+type VendorInfoBusinessProfile {
+    items: [VendorInfoBusinessProfileItem!]
+}
+
+type VendorInfoProblemsItem {
+    question: String
+    answer: String
+}
+
+type VendorInfoProblems {
+    items: [VendorInfoProblemsItem!]
+}
+
+type VendorInfoCertificationsItem {
+    image: String
+    label: String
+    description: String
+}
+
+type VendorInfoCertifications {
+    items: [VendorInfoCertificationsItem!]
+}
+
+extend type VendorInfo {
+    storeName: String @client
+    description: String @client
+    country: String @client
+    address: String @client
+    banner: VendorInfoBanner @client
+    image: String @client
+    workHours: String @client
+    isExistReviews: Boolean @client
+    social: VendorInfoSocial @client
+    businessProfile: VendorInfoBusinessProfile @client
+    problems: VendorInfoProblems @client
+    certifications: VendorInfoCertifications @client
+}

@@ -1,0 +1,92 @@
+query Config($ids: [String]) {
+    cmsBlocks(identifiers: $ids) {
+        items {
+            content
+            identifier
+        }
+    }
+    countries {
+        available_regions {
+            code
+            id
+            name
+        }
+        id
+        three_letter_abbreviation
+        two_letter_abbreviation
+        full_name_english
+        full_name_locale
+    }
+    ratings {
+        rating_code
+        rating_id
+        rating_options {
+            option_id
+            value
+        }
+    }
+    currency {
+        base_currency_symbol
+        base_currency_code
+    }
+    storeConfig {
+        id
+        base_currency_code
+        default_title
+        default_description
+        homepage_meta_description
+        homepage_title
+        checkout_subscribe_text
+        bsk_editable_frontend_labels_shipping_text
+        bsk_editable_frontend_labels_live_chat_days
+        bsk_editable_frontend_labels_live_chat_hours
+        bsk_editable_frontend_labels_live_chat_timezone
+        bsk_editable_frontend_labels_call_us_phone
+        bsk_editable_frontend_labels_call_us_days
+        bsk_editable_frontend_labels_call_us_hours
+        bsk_editable_frontend_labels_email_us_text
+        bsk_editable_frontend_labels_delivery_time_production
+        bsk_editable_frontend_labels_delivery_time_transport
+        bsk_editable_frontend_labels_delivery_time_delivery
+        bsk_editable_frontend_labels_trust_block_label1
+        bsk_editable_frontend_labels_trust_block_label2
+        bsk_editable_frontend_labels_trust_block_label3
+        bsk_editable_frontend_labels_contact_us_block_1_heading
+        bsk_editable_frontend_labels_contact_us_block_1_line_1
+        bsk_editable_frontend_labels_contact_us_block_2_heading
+        bsk_editable_frontend_labels_contact_us_block_2_line_1
+        bsk_editable_frontend_labels_contact_us_block_2_line_2
+        bsk_editable_frontend_labels_contact_us_block_3_heading
+        bsk_editable_frontend_labels_contact_us_block_3_line_1
+        bsk_editable_frontend_labels_contact_us_block_4_heading
+        bsk_editable_frontend_labels_contact_us_block_4_line_1
+    }
+    storesConfig {
+        id
+        base_currency_code
+        secure_base_link_url
+    }
+    navigationMenu {
+        entity_id
+        link_type
+        name
+        url
+        sort_order
+        device_id
+        group_id
+        category
+        custom_link_is_external
+        custom_link_open_popup
+        custom_link_popup_id
+        sub_links {
+            title
+            link
+            open_popup
+            is_external
+        }
+        sub_categories {
+            name
+            url
+        }
+    }
+}

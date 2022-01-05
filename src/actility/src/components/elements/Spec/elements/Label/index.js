@@ -1,0 +1,1 @@
+export { SpecLabel } from './SpecLabel';

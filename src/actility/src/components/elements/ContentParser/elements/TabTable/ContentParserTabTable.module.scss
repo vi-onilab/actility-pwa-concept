@@ -1,0 +1,365 @@
+@import "src/styles/_mixins";
+@import "src/styles/_vars";
+
+.wrapper {
+  display: flex;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+
+  @include media-breakpoint-down(lg) {
+    flex-direction: column;
+  }
+}
+
+.tab {
+  border-radius: 4px;
+  background-color: #fbfdfd;
+  border: 1px solid $color-light;
+  padding: .8rem 1.6rem;
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  margin-bottom: .7rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 2rem;
+  letter-spacing: -.02em;
+  text-align: left;
+  color: $color-secondary-text-2;
+
+  &Icon {
+    display: none;
+    width: 2.4rem;
+    height: 2.4rem;
+    color: $color-tertiary-text-3;
+  }
+
+  @include media-breakpoint-down(lg) {
+    width: 100%;
+    max-width: unset;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(204, 218, 221, .5);
+
+    &Icon {
+      display: block;
+    }
+  }
+}
+
+.tabContent {
+  display: flex;
+  align-items: center;
+  grid-gap: 1.2rem;
+
+  img {
+    max-width: 6rem;
+  }
+}
+
+.isActive {
+  @include media-breakpoint-up(lg) {
+    border: {
+      top: 1px solid $color-light-5;
+      left: 1px solid $color-light-5;
+      right: 1px solid $color-light-5;
+      bottom: 1px solid $color-light;
+    }
+    border-radius: 4px 4px 0 0;
+    margin-bottom: 0;
+    padding-bottom: .7rem;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: .3rem;
+      background-color: $color-secondary;
+      border-radius: 4px 4px 0 0;
+    }
+  }
+}
+
+.tabImage {
+  min-width: 5.4rem;
+  min-height: 5.4rem;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+  margin-right: 1.2rem;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: contain;
+  }
+}
+.contentWrapper {
+  padding: 2.4rem;
+  width: 100%;
+  background-color: #fbfdfd;
+  border-radius: 4px;
+  border: 1px solid $color-light-5;
+  margin-top: -1px;
+
+}
+
+.modalWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal {
+  img {
+    width: 100%;
+
+    &:only-child {
+      margin: 1.6rem 0;
+    }
+  }
+}
+
+.contentLine {
+  padding: {
+    bottom: 2rem;
+  };
+  &:not(:last-child) {
+    position: relative;
+
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: -2rem;
+      bottom: 0;
+      right: -2rem;
+      height: 1px;
+      background: #E3E4E7;
+    }
+
+  }
+}
+
+.content {
+  &:after {
+    content: '';
+    clear: both;
+    display: table;
+  }
+
+  @include media-breakpoint-down(lg) {
+    table {
+      display: flex!important;
+      flex-direction: column!important;
+      border-collapse: collapse!important;
+      border: none!important;
+
+      tbody {
+        display: flex!important;
+        flex-direction: column!important;
+      }
+
+      tr {
+        display: flex!important;
+        flex-direction: column!important;
+      }
+
+      td {
+        border: none!important;
+      }
+    }
+  }
+}
+
+.tabBadge {
+  position: absolute;
+  right: -.5rem;
+  top: -.5rem;
+}
+
+// variants
+.variant {
+
+  &Horizontal {
+    //align-items: flex-start;
+
+    .header {
+      flex-direction: column;
+      width: calc(100% - 89rem);
+
+      @include media-breakpoint-down(lg) {
+        width: 100%;
+      }
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contentWrapper {
+      width: 89rem;
+    }
+
+    .tab {
+      background-color: $color-light-3;
+      margin-bottom: 0;
+      padding: 1.6rem;
+      border: 1px solid $color-light-3;
+      margin-right: .6rem;
+      line-height: 2.4rem;
+
+      &:not(:last-child) {
+        margin-bottom: .8rem;
+      }
+
+      @include media-breakpoint-down(lg) {
+        background-color: $color-light;
+        box-shadow: 0 2px 8px rgba(204, 218, 221, .5);
+
+        &:not(:last-child) {
+          margin-bottom: .3rem;
+          margin-right: 0;
+        }
+      }
+    }
+
+    .isActive {
+      background-color: $color-light;
+      margin-right: 0;
+      padding-right: .6rem;
+      border-radius: 4px 0 0 4px;
+      border: {
+        top: 1px solid $color-light-5;
+        bottom: 1px solid $color-light-5;
+        left: 1px solid $color-light-5;
+        right: 1px solid $color-light;
+      }
+
+      &::before {
+        width: .3rem;
+        height: 100%;
+        border-radius: 4px 0 0 4px;
+      }
+
+      @include media-breakpoint-down(lg) {
+        box-shadow: 0 2px 8px rgba(204, 218, 221, .5);
+        border: none;
+        padding: 1.6rem;
+      }
+    }
+
+    .contentWrapper {
+      background-color: $color-light;
+      margin-left: -1px;
+      margin-top: 0;
+      border-radius: 0 4px 4px 0;
+    }
+
+  }
+
+  &Vertical {
+    flex-direction: column;
+
+    .content {
+
+      img {
+        &[style*="right"] {
+          @include media-breakpoint-up(lg) {
+            margin: {
+              left: 5rem;
+            };
+            max-width: 37.4rem;
+          }
+
+          @include media-breakpoint-down(lg) {
+            float: none!important;
+          }
+        }
+      }
+    }
+
+    .tab {
+      max-width: 26.1rem;
+
+      &:not(:last-child) {
+        margin-right: .8rem;
+      }
+
+      @include media-breakpoint-down(lg) {
+        max-width: unset;
+        margin-bottom: 0;
+
+        &:not(:last-child) {
+          margin-right: 0;
+          margin-bottom: .3rem;
+        }
+      }
+    }
+  }
+
+  &Form {
+    flex-direction: column;
+
+    .contentWrapper {
+      border-radius: 0 0 .8rem .8rem;
+      padding: 2.4rem 4rem 4rem 4rem;
+    }
+
+    .tab {
+      background-color: transparent;
+      margin-bottom: 0;
+      max-width: unset;
+      width: 50%;
+      border: none;
+      padding: 1.2rem 1.2rem 1rem 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        .tabTitle {
+          color: $color-dark;
+        }
+      }
+
+      &Title {
+        font-size: 1.4rem;
+        line-height: 2.2rem;
+        letter-spacing: -.02em;
+        color: $color-tertiary-text-3;
+        font-weight: 400;
+      }
+
+      &.isActive {
+        border-radius: .8rem .8rem 0 0;
+        background-color: $color-light;
+        border: {
+          top: 1px solid $color-light-5;
+          left: 1px solid $color-light-5;
+          right: 1px solid $color-light-5;
+          bottom: 1px solid $color-light;
+        };
+
+        .tabTitle {
+          color: $color-secondary-text-2;
+        }
+
+        &::before {
+          content: none;
+        }
+      }
+    }
+  }
+}

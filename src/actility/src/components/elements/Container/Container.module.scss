@@ -1,0 +1,43 @@
+@import "src/styles/_mixins";
+@import "src/styles/_vars";
+
+.container {
+  width: 100%;
+  margin: {
+    left: auto;
+    right: auto;
+  };
+}
+
+
+.variant {
+  &Default {
+    padding: 0 2rem;
+    max-width: calc(133.6rem + 4rem);
+  }
+
+  &None {
+
+  }
+
+  &Wide {
+    padding: 0 1.2rem;
+    max-width: calc(138.8rem + 4rem);
+
+    @include media-breakpoint-up(lg) {
+      padding: 0 2rem;
+    }
+  }
+
+  &Stretch {
+    display: flex;
+    padding: 0 2rem;
+    max-width: calc(133.6rem + 4rem);
+  }
+
+  &Small {
+    max-width: 116rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+}

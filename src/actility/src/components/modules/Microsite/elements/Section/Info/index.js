@@ -1,0 +1,1 @@
+export { MicrositeSectionInfo } from './MicrositeSectionInfo';

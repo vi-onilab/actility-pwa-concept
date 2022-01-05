@@ -1,0 +1,1 @@
+export { ContentParserTabTable } from './ContentParserTabTable';

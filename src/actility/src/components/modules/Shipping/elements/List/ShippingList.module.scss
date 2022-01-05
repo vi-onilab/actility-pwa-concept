@@ -1,0 +1,31 @@
+@use "sass:math";
+
+@import "src/styles/_mixins";
+@import "src/styles/_vars";
+
+.wrapper {
+  display: grid;
+  width: 100%;
+}
+
+.variant {
+  &Default {
+    @include media-breakpoint-up(lg) {
+      grid-gap: 1.2rem;
+      grid-template-columns: repeat(2, #{math.div(100, 2) * 1%});
+    }
+
+    @include media-breakpoint-down(lg) {
+      grid-gap: 1.6rem;
+    }
+  }
+
+  &Touch {
+    grid-gap: .4rem;
+  }
+
+  &Modal {
+    grid-gap: 1.2rem;
+    grid-template-columns: repeat(3, #{math.div(100, 3) * 1%});
+  }
+}

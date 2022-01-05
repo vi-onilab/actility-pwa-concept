@@ -1,0 +1,1 @@
+export { useFaqAskModal } from './useFaqAskModal';

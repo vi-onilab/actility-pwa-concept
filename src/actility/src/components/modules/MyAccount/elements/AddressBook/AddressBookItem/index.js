@@ -1,0 +1,1 @@
+export { AddressBookItem } from './AddressBookItem';

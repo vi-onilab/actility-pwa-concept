@@ -1,0 +1,28 @@
+@import "src/styles/_mixins";
+@import "src/styles/_vars";
+
+.tooltip {
+  display: none;
+}
+
+.wrapper {
+  width: 74.8rem;
+}
+
+.icon {
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-left: .4rem;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: text-bottom;
+
+  &Svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  @include media-breakpoint-down(md) {
+    display: none;
+  }
+}

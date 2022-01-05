@@ -1,0 +1,14 @@
+@import "src/styles/_mixins";
+@import "src/styles/_vars";
+
+.wrapper {
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+  letter-spacing: -.02em;
+  color: $color-tertiary-text-3;
+
+  @include media-breakpoint-down(lg) {
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+  }
+}

@@ -1,0 +1,31 @@
+@import "src/styles/_mixins";
+@import "src/styles/_vars";
+
+.controlButton {
+  border-radius: .4rem;
+  background-color: $color-primary;
+  padding: 1rem 2.8rem;
+  transition: .3s;
+
+  &Text {
+    font-size: 1.4rem;
+    line-height: 2rem;
+    letter-spacing: .02em;
+    color: $color-light;
+    font-weight: 500;
+  }
+
+  @include media-breakpoint-down(lg) {
+    padding: .6rem 2.4rem;
+
+    &Text {
+      font-size: 1.3rem;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    &:hover {
+      background-color: #f9ba49;
+    }
+  }
+}

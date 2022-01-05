@@ -1,0 +1,9 @@
+mutation DeleteCompareList(
+	$uid: ID!
+) {
+	deleteCompareList(
+		uid: $uid
+	) {
+		result
+	}
+}

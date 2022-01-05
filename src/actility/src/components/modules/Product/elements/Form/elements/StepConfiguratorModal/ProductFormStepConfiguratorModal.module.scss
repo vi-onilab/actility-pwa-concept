@@ -1,0 +1,71 @@
+@import "src/styles/_mixins";
+@import "src/styles/_vars";
+
+.wrapper {
+
+}
+
+.close {
+  width: 2.4rem;
+  height: 2.4rem;
+  color: $color-light;
+
+  &Icon {
+
+  }
+}
+
+.footer {
+  background: $color-light;
+  box-shadow: 0 2px 16px rgba(204, 218, 221, 0.5);
+  padding: .8rem 2rem;
+}
+
+.total {
+  color: $color-secondary-text-2;
+  grid-gap: 1.2rem;
+  letter-spacing: -0.02em;
+
+  &Label {
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+  }
+
+  &Value {
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 2.2rem;
+  }
+
+  &Icon {
+    width: 2.4rem;
+    height: 2.4rem;
+    transform: rotate(90deg);
+  }
+
+  &IconWrapper {
+    background: $color-light-3;
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 50%;
+  }
+}
+
+.button {
+  background: $color-primary;
+  border-radius: 4px;
+  padding: 1rem 3.3rem;
+  font-size: 1.3rem;
+  line-height: 2rem;
+  letter-spacing: -0.02em;
+  color: $color-light;
+  font-weight: 500;
+
+  &[disabled] {
+    background: #AFB3B9;
+  }
+}
+
+.main {
+  padding: 2rem;
+}

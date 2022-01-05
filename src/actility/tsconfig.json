@@ -1,0 +1,39 @@
+{
+	"extends": "../../node_modules/@pwa-concept/typescript-config/theme.json",
+	"compilerOptions": {
+		"baseUrl": "./src",
+		"paths": {
+			"fonts/*": [ "assets/fonts/*" ],
+			"icons/*": [ "assets/icons/*" ],
+			"icons": [ "assets/icons/index" ],
+			"assets/*": [ "assets/*" ],
+			"images/*": [ "assets/images/*" ],
+			"elements/*": [ "components/elements/*" ],
+			"modules/*": [ "components/modules/*" ],
+			"components/*": [ "components/*" ],
+			"constants/*": [ "constants/*" ],
+			"constants": [ "constants/index" ],
+			"schemas/*": [ "schemas/*" ],
+			"schemas": [ "schemas/index" ],
+			"helpers/*": [ "helpers/*" ],
+			"helpers": [ "helpers/index" ],
+			"hooks/*": [ "hooks/*" ],
+			"hooks": [ "hooks/index" ],
+			"models/*": [ "models/*" ],
+			"models": [ "models/index" ],
+			"pages/*": [ "pages/*" ],
+			"providers/*": [ "providers/*" ],
+			"providers": [ "providers/index" ],
+			"styles/*": [ "styles/*" ]
+		}
+	},
+	"include": [
+		"src",
+		"**/*.ts",
+		"**/*.tsx"
+	],
+	"exclude": [
+		"node_modules",
+		"build"
+	]
+}

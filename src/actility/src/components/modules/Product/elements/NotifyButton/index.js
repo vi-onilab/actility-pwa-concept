@@ -1,0 +1,1 @@
+export { ProductNotifyButton } from './ProductNotifyButton';

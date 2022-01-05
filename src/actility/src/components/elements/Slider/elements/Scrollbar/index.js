@@ -1,0 +1,1 @@
+export { SliderScrollbar } from './SliderScrollbar';

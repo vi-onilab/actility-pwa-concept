@@ -1,0 +1,11 @@
+#import "../fragments.graphql"
+
+query CompareList(
+	$uid: ID!
+) {
+	compareList(
+		uid: $uid
+	) {
+		... CompareListDataFragment
+	}
+}

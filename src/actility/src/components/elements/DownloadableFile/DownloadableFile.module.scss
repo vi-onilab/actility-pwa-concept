@@ -1,0 +1,39 @@
+@import "src/styles/_mixins";
+@import "src/styles/_vars";
+
+.wrapper {
+  display: flex;
+  align-items: flex-start;
+}
+
+.iconWrapper {
+  margin-right: 1.2rem;
+}
+
+.icon {
+  width: 3.2rem;
+  height: 3.2rem;
+  display: inline-block;
+  color: $color-secondary-text-2;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+  letter-spacing: -.02em;
+  font-weight: 400;
+  color: $color-secondary-text-2;
+}
+
+.link {
+  font-weight: 700;
+  font-size: 1.3rem;
+  line-height: 2rem;
+  letter-spacing: -.02em;
+  color: $color-primary;
+}

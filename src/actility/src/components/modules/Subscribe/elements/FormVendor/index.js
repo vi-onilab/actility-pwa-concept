@@ -1,0 +1,1 @@
+export { SubscribeFormVendor } from './SubscribeFormVendor';

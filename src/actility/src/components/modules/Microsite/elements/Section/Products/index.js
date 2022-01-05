@@ -1,0 +1,1 @@
+export { MicrositeSectionProducts } from './MicrositeSectionProducts';

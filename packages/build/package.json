@@ -2,7 +2,6 @@
   "name": "@pwa-concept/build",
   "version": "0.0.0",
   "description": "",
-  "private": true,
   "author": "Onilab Team <talkto@onilab.com>",
   "homepage": "https://bitbucket.org/onilab/pwa-concept#readme",
   "license": "ISC",
@@ -22,5 +21,73 @@
   },
   "engines": {
     "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/eslint-parser": "^7.16.3",
+    "@babel/preset-env": "^7.16.0",
+    "@babel/preset-react": "^7.16.0",
+    "@babel/preset-typescript": "^7.16.7",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.1",
+    "@pwa-concept/eslint-config": "^0.0.0",
+    "@pwa-concept/typescript-config": "^0.0.0",
+    "@svgr/webpack": "^5.5.0",
+    "@types/react": "^17.0.38",
+    "@types/react-dom": "^17.0.11",
+    "babel-loader": "^8.2.3",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "copy-webpack-plugin": "^9.1.0",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.5.1",
+    "dotenv": "^10.0.0",
+    "file-loader": "^6.2.0",
+    "get-graphql-schema": "^2.1.2",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.4.4",
+    "react-refresh": "^0.11.0",
+    "sass": "^1.43.4",
+    "sass-loader": "^12.3.0",
+    "style-loader": "^3.3.1",
+    "terser-webpack-plugin": "^5.2.5",
+    "typescript": "^4.5.4",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.64.0",
+    "webpack-bundle-analyzer": "^4.5.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.5.0",
+    "webpack-notifier": "^1.14.1"
+  },
+  "babel": {
+    "env": {
+      "production": {
+        "plugins": [
+          [
+            "transform-react-remove-prop-types",
+            {
+              "mode": "remove",
+              "removeImport": true
+            }
+          ]
+        ]
+      }
+    },
+    "presets": [
+      [
+        "@babel/preset-typescript"
+      ],
+      [
+        "@babel/preset-env",
+        {
+          "useBuiltIns": "usage",
+          "corejs": "3.8"
+        }
+      ],
+      [
+        "@babel/preset-react",
+        {
+          "runtime": "automatic"
+        }
+      ]
+    ]
   }
 }

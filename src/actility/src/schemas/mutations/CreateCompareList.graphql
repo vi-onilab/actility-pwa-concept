@@ -1,0 +1,11 @@
+#import "../fragments.graphql"
+
+mutation CreateCompareList(
+	$input: CreateCompareListInput
+) {
+	createCompareList(
+		input: $input
+	) {
+		... CompareListDataFragment
+	}
+}

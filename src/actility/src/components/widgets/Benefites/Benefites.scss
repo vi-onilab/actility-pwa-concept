@@ -1,0 +1,153 @@
+
+@import "../../../styles/mixins";
+@import "../../../styles/vars";
+
+%benefitesSizes {
+    min-height: 24.6rem;
+
+    margin-bottom: 4.8rem;
+
+    @include media-breakpoint-up(lg) {
+        min-height: 7.3rem;
+        margin-bottom: 5.4rem;
+    }
+}
+
+.benefites {
+    @extend %benefitesSizes;
+}
+
+.benefites__list {
+    background: rgba(252, 249, 238, .45);
+    border: 1px solid rgba(249, 186, 73, .25);
+    border-radius: 4px;
+
+    @include media-breakpoint-up(lg) {
+        display: flex;
+        padding: 1.2rem 1.1rem .8rem;
+    }
+}
+
+.benefites__item {
+    display: flex;
+    align-items: center;
+    min-height: 4.8rem;
+    padding: .8rem 1.4rem;
+
+    &:not(:last-child) {
+        border-bottom: 1px solid rgba($color-secondary, .25);
+    }
+
+    @include media-breakpoint-up(md) {
+        padding: 1.45rem 2.4rem;
+
+        &.verticalRepresented {
+            padding-right: 3.1rem;
+        }
+    }
+    @include media-breakpoint-up(lg) {
+        min-height: 4.9rem;
+        padding: 0 2.4rem;
+
+        &:not(:last-child) {
+            position: relative;
+            border: none;
+
+            &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 0;
+                right: 0;
+                height: 100%;
+                width: 1px;
+                background: rgba($color-secondary, .25);
+                border-radius: 4px;
+            }
+        }
+
+        &.tp_connected {
+            padding-right: .3rem;
+        }
+        &.productShipped {
+            padding-right: 2.1rem;
+        }
+    }
+}
+
+.benefites__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 6.2rem;
+    height: 3.2rem;
+    margin-right: 1.4rem;
+
+    svg {
+        width: 100%;
+        height: 100%;
+    }
+
+    @include media-breakpoint-up(md) {
+        width: 8.2rem;
+        height: 4.1rem;
+    }
+    @include media-breakpoint-up(lg) {
+        width: initial;
+        margin-right: 1.2rem;
+    }
+}
+
+.benefites__item.verticalRepresented .benefites__icon {
+    @include media-breakpoint-up(lg) {
+        width: 4rem;
+        height: 3.9rem;
+    }
+}
+.benefites__item.tp_connected .benefites__icon {
+    @include media-breakpoint-up(lg) {
+        width: 8.2rem;
+        height: 2.5rem;
+    }
+}
+.benefites__item.productShipped .benefites__icon {
+    @include media-breakpoint-up(lg) {
+        width: 6.3rem;
+        height: 2.5rem;
+    }
+}
+.benefites__item.kitsStart .benefites__icon {
+    @include media-breakpoint-up(lg) {
+        width: 3.6rem;
+        height: 3.8rem;
+    }
+}
+.benefites__item.sertDevices {
+    @include media-breakpoint-up(lg) {
+        padding: 0 1.2rem 0 2.4rem;
+
+        .benefites__icon  {
+            width: 4.4rem;
+            height: 4.1rem;
+        }
+    }
+}
+
+.benefites__text {
+    flex: 1;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    letter-spacing: -.02em;
+    color: $color-secondary-text-2;
+
+    @include media-breakpoint-up(md) {
+        font-size: 1.4rem;
+        line-height: 2rem;
+        letter-spacing: -.03em;
+    }
+}
+
+
+.benefitesSkeleton {
+    @extend %benefitesSizes;
+}

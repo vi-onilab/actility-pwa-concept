@@ -1,0 +1,36 @@
+@import "src/styles/_mixins";
+@import "src/styles/_vars";
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  @include media-breakpoint-up(lg) {
+    grid-gap: .8rem;
+  }
+
+  @include media-breakpoint-down(lg) {
+    grid-gap: .7rem;
+  }
+}
+
+.button {
+  padding: .8rem;
+  border-radius: 50%;
+  background-color: $color-darkblue-2;
+
+  @include media-breakpoint-up(lg) {
+    &:hover {
+      background-color: $color-primary;
+    }
+  }
+}
+
+
+.icon {
+  width: 2rem;
+  height: 2rem;
+  display: block;
+  color: $color-light;
+}

@@ -1,0 +1,22 @@
+#import "../fragments/MenuData.graphql"
+
+query Init {
+    headerMenu: menu(identifier: "headermenu") {
+        ... MenuDataFragment
+    }
+
+    footerMenu: menu(identifier: "footer") {
+        ... MenuDataFragment
+    }
+
+    socialNetworks: cmsBlocks(
+        identifiers: ["social-networks"]
+    ) {
+        items {
+            id
+            identifier
+            title
+            content
+        }
+    }
+}

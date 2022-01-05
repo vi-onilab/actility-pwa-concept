@@ -1,0 +1,87 @@
+html,
+body {
+  height: 100%;
+  font-family: 'CircularProTT';
+  font-weight: 400;
+  color: #263238;
+  margin: 0;
+}
+
+html {
+  font-size: vwcalc(10, 1440);
+
+  @include media-breakpoint-up(xxs) {
+    font-size: vwcalc(10, 360);
+  }
+
+  @include media-breakpoint-up(sm) {
+    font-size: vwcalc(10, 480);
+  }
+  
+  @include media-breakpoint-up(md) {
+    font-size: vwcalc(10, 768);
+  }
+
+  @include media-breakpoint-up(lg) {
+    font-size: vwcalc(10, 1440);
+  }
+
+  @include media-breakpoint-up(xxxl) {
+    font-size: 11.666px;
+  }
+  // font-size: convert-to-vw(16, 1440);
+}
+
+body {
+  font-size: 1.4rem;
+  min-width: 320px;
+  position: relative;
+  line-height: 1.57;
+  @include media-breakpoint-up(lg) {
+    font-size: 1.6rem;
+    line-height: 1.5;
+  }
+
+  input,
+  textarea {
+    display: block;
+    width: 100%;
+    outline: none;
+    resize: none;
+    border: none;
+  }
+
+  input,
+  textarea,
+  button,
+  a {
+    text-decoration: none;
+    &:active,
+    &:hover,
+    &:focus {
+      outline: 0;
+      outline-offset: 0;
+    }
+  }
+
+  button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+  }
+}
+
+ul {
+  list-style: none;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.row {
+  //@extend %row-wrap;
+}

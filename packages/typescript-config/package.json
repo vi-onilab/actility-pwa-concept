@@ -2,14 +2,16 @@
   "name": "@pwa-concept/typescript-config",
   "version": "0.0.0",
   "description": "",
-  "private": true,
   "author": "Onilab Team <talkto@onilab.com>",
   "homepage": "https://bitbucket.org/onilab/pwa-concept#readme",
   "license": "ISC",
-  "main": "tsconfig.theme.json",
+  "main": "theme.json",
   "files": [
-    "tsconfig.theme.json"
+    "theme.json"
   ],
+  "directories": {
+    "lib": "lib"
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@bitbucket.org/onilab/pwa-concept.git"
@@ -22,5 +24,10 @@
   },
   "engines": {
     "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "@types/react": "^17.0.38",
+    "@types/react-dom": "^17.0.11",
+    "typescript-plugin-css-modules": "^3.4.0"
   }
 }

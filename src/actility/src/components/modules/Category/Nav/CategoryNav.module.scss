@@ -1,0 +1,116 @@
+@import "src/styles/_mixins";
+@import "src/styles/_vars";
+
+.container {
+    padding: .3rem 2rem .6rem;
+    margin: 0 -1.2rem 1.5rem;
+
+    &Visible {
+        overflow: visible;
+
+        @include media-breakpoint-down(lg) {
+            margin-bottom: 0;
+        }
+    }
+
+    &::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+        display: none;
+        background: transparent;
+    }
+
+    @include media-breakpoint-up(lg) {
+        padding: .3rem 2.6rem .6rem;
+        margin: 0 -2.6rem 2.6rem;
+    }
+}
+
+.categorySection {
+    width: 100%;
+    overflow: hidden;
+    padding-top: 4rem;
+
+    @include media-breakpoint-down(lg) {
+        padding-top: 2.4rem;
+    }
+}
+
+.slide {
+    width: auto;
+    max-width: 100%;
+}
+
+.sectionTop {
+    padding: 0 0.9rem;
+    margin-bottom: 0.3rem;
+
+    @include media-breakpoint-up(lg) {
+        padding: 0;
+        margin-bottom: 1.2rem;
+    }
+}
+
+.sectionTitle {
+    font-weight: 500;
+    font-size: 1.4rem;
+    color: #979797;
+    text-transform: uppercase;
+
+    @include media-breakpoint-up(lg) {
+        font-size: 2rem;
+        line-height: 2.4rem;
+    }
+}
+
+.linkArrow {
+    font-size: 1.4rem;
+
+    @include media-breakpoint-up(lg) {
+        font-size: 1.6rem;
+    }
+
+    &LgHide {
+        @include media-breakpoint-down(lg) {
+            display: none;
+        }
+    }
+}
+
+
+.modal {
+    max-width: 95.2rem;
+    width: 100%;
+
+    &Title {
+        font-weight: 500;
+        font-size: 2rem;
+        line-height: 2.8rem;
+        font-feature-settings: 'liga' off;
+        color: $color-title;
+
+        &Center {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+    }
+
+    &Main {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: .8rem;
+    }
+
+    &CategoryList {
+        display: flex;
+    }
+}
+
+:global(.swiper.swiper-initialized.swiper-horizontal .swiper-button-prev) {
+    left: 2.6rem;
+    top: 42%;
+}
+:global(.swiper.swiper-initialized.swiper-horizontal .swiper-button-next) {
+    right: 2.6rem;
+    top: 42%;
+}

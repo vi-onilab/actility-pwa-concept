@@ -1,0 +1,135 @@
+@use "sass:math";
+
+@import "src/styles/_mixins";
+@import "src/styles/_vars";
+
+#fullwidth {
+  &.slider {
+    :global {
+      & .swiper-button-prev,
+      & .swiper-button-next {
+        @include media-breakpoint-down(md) {
+          display: none;
+        }
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+        background: #fff !important;
+        box-shadow: 0 2px 12px rgba(179, 186, 194, .3);
+
+        &:after {
+          content: '';
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      & .swiper-button-prev {
+        left: 3.2rem;
+      }
+
+      & .swiper-button-next {
+        right: 3.2rem;
+      }
+
+      & .swiper-pagination-bullets {
+        bottom: 0;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+#topAdvantages {
+  &.slider {
+    width: 100%;
+    max-width: 110rem;
+    margin: auto;
+    padding: 1.2rem 0 .8rem;
+  }
+  :global {
+    .swiper-wrapper {
+      .swiper-slide {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        &:last-child {
+          justify-content: flex-end;
+          @include media-breakpoint-down(md) {
+            justify-content: center;
+          }
+        }
+        &:nth-child(even) {
+          justify-content: center;
+        }
+        @include media-breakpoint-down(md) {
+          justify-content: center;
+        }
+        span {
+          padding-left: 1rem;
+        }
+      }
+    }
+  }
+}
+
+.topCategories {
+  &.slider {
+    :global {
+      .swiper-scrollbar {
+        display: none;
+        @include media-breakpoint-down(md) {
+          display: block;
+        }
+
+      }
+    }
+  }
+}
+
+#stepper {
+  &.slider {
+    padding-bottom: 4rem;
+  }
+  :global {
+    .swiper-pagination {
+      @include media-breakpoint-down(md) {
+        display: block;
+        bottom: 0;
+      }
+      display: none;
+    }
+  }
+}
+
+.slider {
+  &.swiper {
+    :global {
+      @include media-breakpoint-down(lg) {
+        padding-bottom: 2rem;
+      }
+    }
+  }
+}
+
+#reviews {
+  &.swiper {
+    padding-top: .4rem;
+    padding-bottom: 2.5rem;
+  }
+}
+
+#productSlider {
+  padding: 1rem;
+  margin: -1rem;
+
+  @include media-breakpoint-up(lg) {
+
+
+
+  }
+
+}

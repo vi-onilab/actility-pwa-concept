@@ -1,0 +1,6 @@
+fragment EntityUrlDataFragment on EntityUrl {
+    type
+    id
+    redirectCode
+    relativeUrl: relative_url
+}

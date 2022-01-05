@@ -1,0 +1,24 @@
+@import "src/styles/_mixins";
+@import "src/styles/_vars";
+
+.wrapper {
+  align-items: center;
+  display: grid;
+  grid-template-columns: 22.4rem repeat(5, 20.2rem);
+  grid-gap: 2.4rem;
+  border-radius: .2rem;
+
+  &:nth-child(odd) {
+    background-color: #EEF2F3;
+  }
+
+  &:hover {
+    background-color: rgba(#00B3B1, .16);
+  }
+
+  @include media-breakpoint-down(lg) {
+    grid-template-columns: auto repeat(5, 1fr);
+    grid-gap: 2rem;
+    padding-right: 2rem;
+  }
+}

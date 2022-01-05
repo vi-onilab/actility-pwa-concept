@@ -6,7 +6,7 @@
   "homepage": "https://bitbucket.org/onilab/pwa-concept#readme",
   "license": "ISC",
   "bin": {
-    "pwa-concept": "bin/pwa-concept.js"
+    "pwa-concept": "index.js"
   },
   "directories": {},
   "files": [],

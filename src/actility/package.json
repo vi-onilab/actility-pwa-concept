@@ -32,12 +32,12 @@
   "dependencies": {
     "@apollo/client": "^3.4.17",
     "@pwa-concept/build": "^0.0.0",
+    "@pwa-concept/core": "^0.0.0",
     "@pwa-concept/eslint-config": "^0.0.0",
     "@pwa-concept/typescript-config": "^0.0.0",
     "@svg-maps/world": "^1.0.1",
     "@svgr/webpack": "^5.5.0",
     "apollo-link-queue": "^3.1.0",
-    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "core-js": "^3.19.1",
     "graphql": "^16.0.1",
     "html-react-parser": "^1.4.0",

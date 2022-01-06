@@ -1,10 +1,10 @@
 import { PropsWithChildren, ReactElement } from 'react' 
 
-interface Props {
+interface AppProviderProps {
 
 }
 
-export default function AppProvider({ children }: PropsWithChildren<Props>): ReactElement {
+export default function AppProvider({ children }: PropsWithChildren<AppProviderProps>): ReactElement {
     return (
         <>
             {children}

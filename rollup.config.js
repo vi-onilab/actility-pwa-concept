@@ -11,7 +11,7 @@ const config = require('./package.json');
 
 export default [
 	{
-		input: 'src/index.ts',
+		input: join(process.cwd(), 'src', 'index.ts'),
 		output: [
 			{
 				file: packageJson.main,
@@ -29,7 +29,7 @@ export default [
 			peerDepsExternal(),
 			resolve({ extensions: ['.jsx', '.js', '.ts', '.tsx'] }),
 			commonjs(),
-			typescript({ tsconfig: join(process.cwd(), './package.json') }),
+			typescript({ tsconfig: join(__dirname, 'tsconfig.json') }),
 			babel({
 				extensions: ['.jsx', '.js', '.ts', '.tsx'],
 				exclude: /node_modules/,
@@ -42,8 +42,8 @@ export default [
 		],
 	},
 	{
-		input: 'dist/esm/types/index.d.ts',
-		output: [{ file: 'dist/index.d.ts', format: 'esm' }],
+		input: join(process.cwd(), 'dist', 'esm', 'types', 'index.d.ts'),
+		output: [{ file: packageJson.types, format: 'esm' }],
 		plugins: [dts()],
 	},
 ];

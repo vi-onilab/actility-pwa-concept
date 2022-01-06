@@ -3,50 +3,29 @@
   "version": "0.0.0",
   "description": "",
   "author": "Onilab Team <talkto@onilab.com>",
-  "homepage": ".",
+  "homepage": "https://bitbucket.org/onilab/pwa-concept#readme",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "files": [
+    "dist"
+  ],
+  "types": "dist/index.d.ts",
   "license": "ISC",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@bitbucket.org/onilab/pwa-concept.git"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "rollup --watch --config=../../rollup.config.js",
+    "build": "rollup --config=../../rollup.config.js"
   },
   "bugs": {
-    "url": "https://bitbucket.org/onilab/pwa-concept/issues"
+  "url": "https://bitbucket.org/onilab/pwa-concept/issues"
   },
   "dependencies": {
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^12.0.0",
-    "@testing-library/user-event": "^13.2.1",
-    "@types/jest": "^27.0.1",
-    "@types/node": "^16.7.13",
-    "@types/react": "^17.0.20",
-    "@types/react-dom": "^17.0.9",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "5.0.0",
-    "typescript": "^4.4.2",
-    "web-vitals": "^2.1.0"
+    "@pwa-concept/eslint-config": "^0.0.0"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "extends": "@pwa-concept/eslint-config"
   }
 }

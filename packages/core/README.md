@@ -14,9 +14,9 @@
 
 ## Содержание
 - [Инициализация](#init)
-  - [Рендеринг](#init_render)
-    - [Мотивация](#init_render_motivation)
-    - [Пример](#init_render_example)
+    - [Рендеринг](#init_render)
+        - [Мотивация](#init_render_motivation)
+        - [Пример](#init_render_example)
 
 ## Инициализация <a name="init"></a>
 ### Рендеринг <a name="init_render"></a>

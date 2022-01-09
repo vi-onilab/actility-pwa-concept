@@ -1,4 +1,4 @@
-import ReactDom from 'react-dom';
+import { run } from '@pwa-concept/core';
 import App from './App';
 
-ReactDom.render(<App />, document.getElementById('app'));
+run(<App />, document.getElementById('app'));

@@ -3,13 +3,20 @@ const webpackDevServer = require('webpack-dev-server')
 
 const configPath = require.resolve('@pwa-concept/build/webpack.config.js')
 
-exports.command = 'start'
+exports.command = 'start [port]'
 exports.desc = 'Start the local server'
-exports.builder = {}
-exports.handler = async () => {
+exports.builder = {
+	port: {
+		alias: 'p',
+		describe: 'Pass the server port',
+		demand: false,
+	},
+}
+exports.handler = async ({ port }) => {
 	const config = require(configPath)({
 		WEBPACK_BUNDLE: false,
 		WEBPACK_SERVE: true,
+		PORT: port,
 	})
 
 	const compiler = webpack(config)

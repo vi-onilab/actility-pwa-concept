@@ -19,7 +19,10 @@ module.exports = ({ root }) => {
 		if (existsSync(configPath)) {
 			const config = require(configPath)
 
-			result.alias = aliasPipe(config, { root, name })
+			result.alias = {
+				...result.alias,
+				...aliasPipe(config, { root, name }),
+			}
 		}
 	})
 

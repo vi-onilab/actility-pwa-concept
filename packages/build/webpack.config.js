@@ -1,10 +1,12 @@
-module.exports = ({ WEBPACK_BUNDLE, WEBPACK_SERVE, ANALYZE }) => {
+module.exports = ({ WEBPACK_BUNDLE, WEBPACK_SERVE, ANALYZE, PORT }) => {
 	const root = process.cwd()
 	const isProduction = !!WEBPACK_BUNDLE
 	const isDevelopment = !!WEBPACK_SERVE
 	const isAnalyze = ANALYZE || !!process.env.ANALYZE
+	const port = PORT || !!process.env.PORT || 3000
 
 	const args = {
+		port,
 		root,
 		isProduction,
 		isDevelopment,

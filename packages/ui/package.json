@@ -4,18 +4,27 @@
   "description": "",
   "author": "Onilab Team <talkto@onilab.com>",
   "homepage": "https://bitbucket.org/onilab/pwa-concept#readme",
-  "license": "ISC",
-  "main": "index.js",
-  "directories": {},
-  "files": [],
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "files": [
+    "dist"
+  ],
+  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@bitbucket.org/onilab/pwa-concept.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "start": "rollup --watch --config=../../rollup.config.js",
+    "build": "rollup --config=../../rollup.config.js"
   },
   "bugs": {
     "url": "https://bitbucket.org/onilab/pwa-concept/issues"
+  },
+  "dependencies": {
+    "@pwa-concept/eslint-config": "^0.0.0"
+  },
+  "eslintConfig": {
+    "extends": "@pwa-concept/eslint-config"
   }
 }

@@ -1,12 +1,12 @@
 import { Container, render } from 'react-dom';
-import { AppProvider } from '../providers';
+import { CoreProvider } from '../providers';
 
 export default function run(app: any, container: Container | HTMLElement) {
     if (container) {
         render((
-            <AppProvider>
+            <CoreProvider>
                 {app}
-            </AppProvider>
+            </CoreProvider>
         ), container);
     }
 };

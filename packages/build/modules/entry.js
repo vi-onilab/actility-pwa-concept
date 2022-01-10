@@ -3,7 +3,9 @@ const { existsSync } = require('fs')
 
 const ENTRIES = [
 	'index.ts',
+	'index.tsx',
 	'index.js',
+	'index.jsx',
 ]
 
 module.exports = ({ root }) => {

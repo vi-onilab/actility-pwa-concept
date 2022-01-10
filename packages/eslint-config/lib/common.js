@@ -4,24 +4,26 @@ module.exports = {
 		'plugin:react/recommended',
 		'plugin:import/errors',
 		'plugin:import/warnings',
+		'plugin:import/typescript',
+		'plugin:@typescript-eslint/recommended',
 		'plugin:jsx-a11y/recommended',
 		'plugin:react-hooks/recommended',
 		'airbnb',
 	],
-	parser: '@babel/eslint-parser',
 	env: {
 		browser: true,
 		commonjs: true,
 		es6: true,
 		node: true,
 	},
+	parser: '@typescript-eslint/parser',
 	ignorePatterns: [
 		'webpack/*',
 		'*.stories.js',
 	],
 	rules: {
 		'linebreak-style': 0,
-		'react/jsx-filename-extension': [1, { 'extensions': ['.js'] }],
+		'react/jsx-filename-extension': [1, { 'extensions': ['.js', '.jsx', '.tsx'] }],
 		'indent': [2, 'tab'],
 		'no-tabs': 0,
 		'react/jsx-indent': ['error', 'tab'],
@@ -38,6 +40,10 @@ module.exports = {
 		'no-param-reassign': 'off',
 		'react/function-component-definition': 'off',
 		'no-restricted-exports': 'off',
+		'semi': ['error', 'never'],
+		'import/extensions': ['error', 'never'],
+		'no-unused-vars': 'off',
+		'@typescript-eslint/no-unused-vars': ['warn']
 	},
 	parserOptions: {
 		ecmaVersion: 2018,
@@ -51,5 +57,7 @@ module.exports = {
 			version: 'detect',
 		},
 	},
-	plugins: [],
+	plugins: [
+		'@typescript-eslint',
+	],
 }

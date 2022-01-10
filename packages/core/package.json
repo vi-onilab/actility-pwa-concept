@@ -20,10 +20,15 @@
     "build": "rollup --config=../../rollup.config.js"
   },
   "bugs": {
-  "url": "https://bitbucket.org/onilab/pwa-concept/issues"
+    "url": "https://bitbucket.org/onilab/pwa-concept/issues"
   },
   "dependencies": {
-    "@pwa-concept/eslint-config": "^0.0.0"
+    "@apollo/client": "^3.5.6",
+    "@pwa-concept/eslint-config": "^0.0.0",
+    "@types/react": "^17.0.38",
+    "@types/react-dom": "^17.0.11",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "eslintConfig": {
     "extends": "@pwa-concept/eslint-config"

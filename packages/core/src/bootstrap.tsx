@@ -36,11 +36,11 @@ const create: CreateFn = async (module: Module, options = {}) => {
 	}
 }
 
-interface BootstrapEntryFunction {
+interface BootstrapEntryFn {
 	(options: { create: typeof create }): Promise<void>
 }
 
-const bootstrap = async (fn: BootstrapEntryFunction) => {
+const bootstrap = async (fn: BootstrapEntryFn) => {
 	await fn({
 		create,
 	})

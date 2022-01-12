@@ -1,1 +1,0 @@
-export { ProductFormFooter } from './ProductFormFooter';

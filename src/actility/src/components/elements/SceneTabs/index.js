@@ -1,1 +1,0 @@
-export { SceneTabs } from './SceneTabs';

@@ -1,9 +1,0 @@
-mutation SubscribeEmailToVendor(
-    $email: String!
-    $vendorId: String!
-) {
-    subscribeEmailToVendor(
-        email: $email
-        vendorId: $vendorId
-    )
-}

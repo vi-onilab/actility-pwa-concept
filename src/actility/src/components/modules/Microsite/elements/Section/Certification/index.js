@@ -1,1 +1,0 @@
-export { MicrositeSectionCertification } from './MicrositeSectionCertification';

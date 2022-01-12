@@ -1,1 +1,0 @@
-export { MicrositeSectionBestsellers } from './MicrositeSectionBestsellers';

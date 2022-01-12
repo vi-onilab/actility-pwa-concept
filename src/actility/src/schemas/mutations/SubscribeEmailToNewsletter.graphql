@@ -1,9 +1,0 @@
-mutation SubscribeEmailToNewsletter (
-    $email: String!
-) {
-    subscribeEmailToNewsletter (
-        email: $email
-    ) {
-        status
-    }
-}

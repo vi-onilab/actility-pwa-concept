@@ -1,1 +1,0 @@
-export { ProductSectionCertifications } from './ProductSectionCertifications';

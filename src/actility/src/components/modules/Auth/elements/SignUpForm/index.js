@@ -1,1 +1,0 @@
-export { AuthSignUpForm } from './AuthSignUpForm';

@@ -1,1 +1,0 @@
-export { AddressBookList } from './AddressBookList';

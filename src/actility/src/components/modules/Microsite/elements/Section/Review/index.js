@@ -1,1 +1,0 @@
-export { MicrositeSectionReview } from './MicrositeSectionReview';

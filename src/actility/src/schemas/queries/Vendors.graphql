@@ -1,8 +1,0 @@
-query Vendors {
-    vendors {
-        id: entity_id
-        info
-        storeName @client
-        image @client
-    }
-}

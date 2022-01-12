@@ -25,11 +25,13 @@
   },
   "dependencies": {
     "@apollo/client": "^3.5.6",
-    "@pwa-concept/eslint-config": "^0.0.0",
+    "@pwa-concept/eslint-config": "portal:../eslint-config",
     "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
     "apollo-link-queue": "^3.1.0",
+    "core-js": "^3.20.2",
     "deepmerge": "^4.2.2",
+    "graphql": "^16.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },

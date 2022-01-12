@@ -1569,7 +1569,47 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pwa-concept/build@^0.0.0, @pwa-concept/build@workspace:packages/build":
+"@pwa-concept/build@portal:../build::locator=%40pwa-concept%2Fcli%40workspace%3Apackages%2Fcli":
+  version: 0.0.0-use.local
+  resolution: "@pwa-concept/build@portal:../build::locator=%40pwa-concept%2Fcli%40workspace%3Apackages%2Fcli"
+  dependencies:
+    "@babel/core": ^7.16.0
+    "@babel/eslint-parser": ^7.16.3
+    "@babel/preset-env": ^7.16.0
+    "@babel/preset-react": ^7.16.0
+    "@babel/preset-typescript": ^7.16.7
+    "@pmmmwh/react-refresh-webpack-plugin": ^0.5.1
+    "@pwa-concept/eslint-config": "portal:../eslint-config"
+    "@pwa-concept/typescript-config": "portal:../typescript-config"
+    "@svgr/webpack": ^5.5.0
+    "@types/react": ^17.0.38
+    "@types/react-dom": ^17.0.11
+    babel-loader: ^8.2.3
+    babel-plugin-transform-react-remove-prop-types: ^0.4.24
+    copy-webpack-plugin: ^9.1.0
+    cross-env: ^7.0.3
+    css-loader: ^6.5.1
+    dotenv: ^10.0.0
+    file-loader: ^6.2.0
+    get-graphql-schema: ^2.1.2
+    html-webpack-plugin: ^5.5.0
+    mini-css-extract-plugin: ^2.4.4
+    react-refresh: ^0.11.0
+    sass: ^1.43.4
+    sass-loader: ^12.3.0
+    style-loader: ^3.3.1
+    terser-webpack-plugin: ^5.2.5
+    typescript: ^4.5.4
+    url-loader: ^4.1.1
+    webpack: ^5.64.0
+    webpack-bundle-analyzer: ^4.5.0
+    webpack-cli: ^4.9.1
+    webpack-dev-server: ^4.5.0
+    webpack-notifier: ^1.14.1
+  languageName: node
+  linkType: soft
+
+"@pwa-concept/build@workspace:packages/build":
   version: 0.0.0-use.local
   resolution: "@pwa-concept/build@workspace:packages/build"
   dependencies:
@@ -1579,8 +1619,8 @@ __metadata:
     "@babel/preset-react": ^7.16.0
     "@babel/preset-typescript": ^7.16.7
     "@pmmmwh/react-refresh-webpack-plugin": ^0.5.1
-    "@pwa-concept/eslint-config": ^0.0.0
-    "@pwa-concept/typescript-config": ^0.0.0
+    "@pwa-concept/eslint-config": "portal:../eslint-config"
+    "@pwa-concept/typescript-config": "portal:../typescript-config"
     "@svgr/webpack": ^5.5.0
     "@types/react": ^17.0.38
     "@types/react-dom": ^17.0.11
@@ -1613,7 +1653,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@pwa-concept/cli@workspace:packages/cli"
   dependencies:
-    "@pwa-concept/build": ^0.0.0
+    "@pwa-concept/build": "portal:../build"
     yargs: ^17.3.1
   bin:
     pwa-concept: index.js
@@ -1625,17 +1665,95 @@ __metadata:
   resolution: "@pwa-concept/core@workspace:packages/core"
   dependencies:
     "@apollo/client": ^3.5.6
-    "@pwa-concept/eslint-config": ^0.0.0
+    "@pwa-concept/eslint-config": "portal:../eslint-config"
     "@types/react": ^17.0.38
     "@types/react-dom": ^17.0.11
     apollo-link-queue: ^3.1.0
+    core-js: ^3.20.2
     deepmerge: ^4.2.2
+    graphql: ^16.2.0
     react: ^17.0.2
     react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
-"@pwa-concept/eslint-config@^0.0.0, @pwa-concept/eslint-config@workspace:packages/eslint-config":
+"@pwa-concept/eslint-config@portal:../eslint-config::locator=%40pwa-concept%2Fbuild%40portal%3A..%2Fbuild%3A%3Alocator%3D%2540pwa-concept%252Fcli%2540workspace%253Apackages%252Fcli":
+  version: 0.0.0-use.local
+  resolution: "@pwa-concept/eslint-config@portal:../eslint-config::locator=%40pwa-concept%2Fbuild%40portal%3A..%2Fbuild%3A%3Alocator%3D%2540pwa-concept%252Fcli%2540workspace%253Apackages%252Fcli"
+  dependencies:
+    "@babel/eslint-parser": ^7.16.5
+    "@typescript-eslint/eslint-plugin": ^5.9.0
+    "@typescript-eslint/parser": ^5.9.0
+    eslint: ^8.5.0
+    eslint-config-airbnb: ^19.0.4
+    eslint-config-prettier: ^8.3.0
+    eslint-plugin-import: ^2.25.3
+    eslint-plugin-jsx: ^0.1.0
+    eslint-plugin-jsx-a11y: ^6.5.1
+    eslint-plugin-prettier: ^4.0.0
+    eslint-plugin-react: ^7.28.0
+    eslint-plugin-react-hooks: ^4.3.0
+  languageName: node
+  linkType: soft
+
+"@pwa-concept/eslint-config@portal:../eslint-config::locator=%40pwa-concept%2Fbuild%40workspace%3Apackages%2Fbuild":
+  version: 0.0.0-use.local
+  resolution: "@pwa-concept/eslint-config@portal:../eslint-config::locator=%40pwa-concept%2Fbuild%40workspace%3Apackages%2Fbuild"
+  dependencies:
+    "@babel/eslint-parser": ^7.16.5
+    "@typescript-eslint/eslint-plugin": ^5.9.0
+    "@typescript-eslint/parser": ^5.9.0
+    eslint: ^8.5.0
+    eslint-config-airbnb: ^19.0.4
+    eslint-config-prettier: ^8.3.0
+    eslint-plugin-import: ^2.25.3
+    eslint-plugin-jsx: ^0.1.0
+    eslint-plugin-jsx-a11y: ^6.5.1
+    eslint-plugin-prettier: ^4.0.0
+    eslint-plugin-react: ^7.28.0
+    eslint-plugin-react-hooks: ^4.3.0
+  languageName: node
+  linkType: soft
+
+"@pwa-concept/eslint-config@portal:../eslint-config::locator=%40pwa-concept%2Fcore%40workspace%3Apackages%2Fcore":
+  version: 0.0.0-use.local
+  resolution: "@pwa-concept/eslint-config@portal:../eslint-config::locator=%40pwa-concept%2Fcore%40workspace%3Apackages%2Fcore"
+  dependencies:
+    "@babel/eslint-parser": ^7.16.5
+    "@typescript-eslint/eslint-plugin": ^5.9.0
+    "@typescript-eslint/parser": ^5.9.0
+    eslint: ^8.5.0
+    eslint-config-airbnb: ^19.0.4
+    eslint-config-prettier: ^8.3.0
+    eslint-plugin-import: ^2.25.3
+    eslint-plugin-jsx: ^0.1.0
+    eslint-plugin-jsx-a11y: ^6.5.1
+    eslint-plugin-prettier: ^4.0.0
+    eslint-plugin-react: ^7.28.0
+    eslint-plugin-react-hooks: ^4.3.0
+  languageName: node
+  linkType: soft
+
+"@pwa-concept/eslint-config@portal:../eslint-config::locator=%40pwa-concept%2Fui%40workspace%3Apackages%2Fui":
+  version: 0.0.0-use.local
+  resolution: "@pwa-concept/eslint-config@portal:../eslint-config::locator=%40pwa-concept%2Fui%40workspace%3Apackages%2Fui"
+  dependencies:
+    "@babel/eslint-parser": ^7.16.5
+    "@typescript-eslint/eslint-plugin": ^5.9.0
+    "@typescript-eslint/parser": ^5.9.0
+    eslint: ^8.5.0
+    eslint-config-airbnb: ^19.0.4
+    eslint-config-prettier: ^8.3.0
+    eslint-plugin-import: ^2.25.3
+    eslint-plugin-jsx: ^0.1.0
+    eslint-plugin-jsx-a11y: ^6.5.1
+    eslint-plugin-prettier: ^4.0.0
+    eslint-plugin-react: ^7.28.0
+    eslint-plugin-react-hooks: ^4.3.0
+  languageName: node
+  linkType: soft
+
+"@pwa-concept/eslint-config@workspace:packages/eslint-config":
   version: 0.0.0-use.local
   resolution: "@pwa-concept/eslint-config@workspace:packages/eslint-config"
   dependencies:
@@ -1664,7 +1782,27 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@pwa-concept/typescript-config@^0.0.0, @pwa-concept/typescript-config@workspace:packages/typescript-config":
+"@pwa-concept/typescript-config@portal:../typescript-config::locator=%40pwa-concept%2Fbuild%40portal%3A..%2Fbuild%3A%3Alocator%3D%2540pwa-concept%252Fcli%2540workspace%253Apackages%252Fcli":
+  version: 0.0.0-use.local
+  resolution: "@pwa-concept/typescript-config@portal:../typescript-config::locator=%40pwa-concept%2Fbuild%40portal%3A..%2Fbuild%3A%3Alocator%3D%2540pwa-concept%252Fcli%2540workspace%253Apackages%252Fcli"
+  dependencies:
+    "@types/react": ^17.0.38
+    "@types/react-dom": ^17.0.11
+    typescript-plugin-css-modules: ^3.4.0
+  languageName: node
+  linkType: soft
+
+"@pwa-concept/typescript-config@portal:../typescript-config::locator=%40pwa-concept%2Fbuild%40workspace%3Apackages%2Fbuild":
+  version: 0.0.0-use.local
+  resolution: "@pwa-concept/typescript-config@portal:../typescript-config::locator=%40pwa-concept%2Fbuild%40workspace%3Apackages%2Fbuild"
+  dependencies:
+    "@types/react": ^17.0.38
+    "@types/react-dom": ^17.0.11
+    typescript-plugin-css-modules: ^3.4.0
+  languageName: node
+  linkType: soft
+
+"@pwa-concept/typescript-config@workspace:packages/typescript-config":
   version: 0.0.0-use.local
   resolution: "@pwa-concept/typescript-config@workspace:packages/typescript-config"
   dependencies:
@@ -1678,7 +1816,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@pwa-concept/ui@workspace:packages/ui"
   dependencies:
-    "@pwa-concept/eslint-config": ^0.0.0
+    "@pwa-concept/eslint-config": "portal:../eslint-config"
   languageName: unknown
   linkType: soft
 
@@ -3416,6 +3554,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"core-js@npm:^3.20.2":
+  version: 3.20.2
+  resolution: "core-js@npm:3.20.2"
+  checksum: dc055a5a79f2e3c2e060b4fb8a3e228fa0de16464bff3c6605646183139eebaa68c390ec6d9c3acc5677f333df510b977ee3f1d5992e6c36b1f200e35f5ed8ca
+  languageName: node
+  linkType: hard
+
 "core-util-is@npm:~1.0.0":
   version: 1.0.3
   resolution: "core-util-is@npm:1.0.3"
@@ -4991,6 +5136,13 @@ __metadata:
   dependencies:
     iterall: ^1.2.2
   checksum: e5f4e60799421a573904f390e1ec0aa76360f751688dbbe62e9c35baa0d3727c8d59a659bfc524f126dffe3518da87fd8ecaa78c94fd5c0fe4e035c670745242
+  languageName: node
+  linkType: hard
+
+"graphql@npm:^16.2.0":
+  version: 16.2.0
+  resolution: "graphql@npm:16.2.0"
+  checksum: 204b5c9991b82561651a28b13dbb2e0e67514171a6a8c045ca4a527b944087344a14519d0426d661b49f2305584b390591abadc82b942f7b65e64e05cb31a584
   languageName: node
   linkType: hard
 
@@ -7212,10 +7364,6 @@ __metadata:
     "@rollup/plugin-commonjs": ^21.0.1
     "@rollup/plugin-node-resolve": ^13.1.2
     "@rollup/plugin-typescript": ^8.3.0
-    "@types/react": ^17.0.38
-    "@types/react-dom": ^17.0.11
-    react: ^17.0.2
-    react-dom: ^17.0.2
     rollup: ^2.63.0
     rollup-plugin-babel: ^4.4.0
     rollup-plugin-dts: ^4.1.0

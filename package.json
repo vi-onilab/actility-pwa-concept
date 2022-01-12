@@ -7,7 +7,7 @@
     "start": "yarn workspaces foreach run start",
     "build": "yarn workspaces foreach run build",
     "analyze": "yarn workspaces foreach run analyze",
-    "clean": "yarn lerna clean -y && yarn lerna bootstrap && yarn lerna exec 'rm -rf ./dist'",
+    "clean": "yarn workspaces foreach exec 'rm -rf ./node_modules; rm -rf node_modules; rm -rf ./dist'; yarn install",
     "prepublish": "lerna run prepublish"
   },
   "devDependencies": {
@@ -16,10 +16,6 @@
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.1.2",
     "@rollup/plugin-typescript": "^8.3.0",
-    "@types/react": "^17.0.38",
-    "@types/react-dom": "^17.0.11",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
     "rollup": "^2.63.0",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-dts": "^4.1.0",

@@ -21,7 +21,7 @@
     "url": "https://bitbucket.org/onilab/pwa-concept/issues"
   },
   "dependencies": {
-    "@pwa-concept/build": "^0.0.0",
+    "@pwa-concept/build": "portal:../build",
     "yargs": "^17.3.1"
   }
 }

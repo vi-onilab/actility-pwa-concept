@@ -1,0 +1,7 @@
+#!/usr/bin/env node
+
+const { spawnSync } = require('child_process')
+
+spawnSync(`node`, ['./install'], { stdio: 'inherit', cwd: __dirname })
+spawnSync(`node`, ['./build'], { stdio: 'inherit', cwd: __dirname })
+spawnSync(`node`, ['./upgrade'])

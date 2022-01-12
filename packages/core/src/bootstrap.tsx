@@ -1,6 +1,9 @@
-import { FC, ReactElement } from 'react'
 import { Module } from './types'
 import render from './render'
+import { combineProviders } from './utils'
+import providers from './providers'
+import getModulesTree from './getModulesTree'
+import { ProvideConstructor } from './provide'
 
 interface CreateFnOptions {
 	root?: Parameters<typeof render>[1]
@@ -13,25 +16,31 @@ interface CreateFn {
 const create: CreateFn = async (module: Module, options = {}) => {
 	const { root = document.getElementById('app') } = options
 
-	if (module?.entry) {
+	if (module?.entry && root) {
+		const tree = getModulesTree(module)
+		const moduleId = Symbol('bootstrap')
+
+		const ProvideProvider = ProvideConstructor(moduleId, tree.provides)
+
 		render(
-			!module?.providers?.length ? module.entry : (
-				module.providers.reduceRight<ReactElement>((children, Current: FC) => (
-					<Current>
-						{children}
-					</Current>
-				), module.entry)
+			(
+				<ProvideProvider>
+					{combineProviders(module.entry, [
+						...providers,
+						...tree.providers,
+					])}
+				</ProvideProvider>
 			),
 			root,
 		)
 	}
 }
 
-interface BootstrapEntryFunction {
+interface BootstrapEntryFn {
 	(options: { create: typeof create }): Promise<void>
 }
 
-const bootstrap = async (fn: BootstrapEntryFunction) => {
+const bootstrap = async (fn: BootstrapEntryFn) => {
 	await fn({
 		create,
 	})

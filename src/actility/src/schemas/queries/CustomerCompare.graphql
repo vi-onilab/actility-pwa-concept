@@ -1,9 +1,0 @@
-#import "../fragments.graphql"
-
-query CustomerCompare {
-    customer {
-        compareList: compare_list {
-            ... CompareListDataFragment
-        }
-    }
-}

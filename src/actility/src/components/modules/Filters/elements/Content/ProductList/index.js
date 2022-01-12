@@ -1,1 +1,0 @@
-export { FilterContentProductList } from './FilterContentProductList';

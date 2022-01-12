@@ -1,1 +1,0 @@
-export { ModalHeaderBackArrow } from './ModalHeaderBackArrow';

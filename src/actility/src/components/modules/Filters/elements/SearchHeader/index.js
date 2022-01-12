@@ -1,1 +1,0 @@
-export { FilterSearchHeader } from './FilterSearchHeader';

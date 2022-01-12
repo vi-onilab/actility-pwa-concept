@@ -1,1 +1,0 @@
-export { ProductFieldsStockBadge } from './ProductFieldsStockBadge';

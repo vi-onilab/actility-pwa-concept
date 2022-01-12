@@ -1,1 +1,0 @@
-export { MyAccountSidebar } from './MyAccountSidebar';

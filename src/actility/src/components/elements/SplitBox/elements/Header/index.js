@@ -1,1 +1,0 @@
-export { SplitBoxHeader } from './SplitBoxHeader';

@@ -1,1 +1,0 @@
-export { MicrositeSectionBanner } from './MicrositeSectionBanner';

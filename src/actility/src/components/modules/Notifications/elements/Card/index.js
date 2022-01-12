@@ -1,1 +1,0 @@
-export { NotificationsCard } from './NotificationsCard';

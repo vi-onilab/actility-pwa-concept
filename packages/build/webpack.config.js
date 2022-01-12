@@ -17,7 +17,6 @@ module.exports = ({ WEBPACK_BUNDLE, WEBPACK_SERVE, ANALYZE, PORT }) => {
 		mode: isDevelopment ? 'development' : 'production',
 		bail: isProduction,
 		devtool: isDevelopment ? 'inline-source-map' : false,
-
 		output: require('./modules/output')(args),
 		entry: require('./modules/entry')(args),
 		optimization: require('./modules/optimization')(args),

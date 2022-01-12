@@ -1,1 +1,0 @@
-export { SplitBoxTitle } from './SplitBoxTitle';

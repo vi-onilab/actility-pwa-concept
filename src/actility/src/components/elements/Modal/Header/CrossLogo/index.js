@@ -1,1 +1,0 @@
-export { ModalHeaderCrossLogo } from './ModalHeaderCrossLogo';

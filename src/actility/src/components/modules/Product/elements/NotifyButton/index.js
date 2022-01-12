@@ -1,1 +1,0 @@
-export { ProductNotifyButton } from './ProductNotifyButton';

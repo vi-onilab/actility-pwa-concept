@@ -13,6 +13,7 @@ export interface ModuleProvide {
 }
 
 export interface Module {
+	entryId?: ProvideId
     entry?: ReactElement
     modules?: Module[]
     provides?: ModuleProvide[]

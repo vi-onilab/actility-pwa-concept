@@ -1,5 +1,5 @@
 {
-    "name": "@pwa-concept/ui",
+    "name": "@pwa-concept/modules",
     "version": "0.0.0",
     "description": "",
     "author": "Onilab Team <talkto@onilab.com>",
@@ -10,10 +10,14 @@
         "src",
         "types"
     ],
-    "types": "./src",
+    "types": "./types",
     "repository": {
         "type": "git",
         "url": "git+ssh://git@bitbucket.org/onilab/pwa-concept.git"
+    },
+    "scripts": {
+        "start": "rollup -c --watch ",
+        "build": "rollup -c"
     },
     "bugs": {
         "url": "https://bitbucket.org/onilab/pwa-concept/issues"

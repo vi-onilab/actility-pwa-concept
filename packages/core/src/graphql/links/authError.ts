@@ -1,12 +1,13 @@
 import { onError } from '@apollo/client/link/error'
+import { $auth, $clean } from 'models'
 
 const authErrorLink = (
 	onError(({ graphQLErrors }) => {
 		if (graphQLErrors) {
 			const authError = graphQLErrors.find(({ extensions }) => extensions?.category === 'graphql-authorization')
 
-			if (authError) {
-				// TODO: Сюда засунуть логаут с проверкой на существование токена
+			if (authError && $auth.isToken) {
+				$clean.logout()
 			}
 		}
 	})

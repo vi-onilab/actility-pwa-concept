@@ -1,17 +1,23 @@
 #!/usr/bin/env node
 
 const { spawnSync } = require('child_process')
-const { readdirSync } = require('fs')
+const { readdirSync, existsSync } = require('fs')
 const { join } = require('path')
 
-console.log('Upgrading PWA...')
-const packages = readdirSync(join(__dirname, 'packages')).reduce((result, name) => {
+const isIncludeToTheme = __dirname.startsWith(process.cwd())
 
+console.log('Upgrading PWA...')
+
+if (isIncludeToTheme && existsSync(join(process.cwd(), '.gitmodules'))) {
+	spawnSync(`git`, ['submodule', 'update', '--remote'], { stdio: 'inherit', cwd: process.cwd() })
+}
+
+const packages = readdirSync(join(__dirname, 'packages')).reduce((result, name) => {
 	const root = join(__dirname, 'packages', name)
 	const config = require(join(root, 'package.json'))
 
 	if (config && config.name) {
-		if (__dirname.startsWith(process.cwd())) {
+		if (isIncludeToTheme) {
 			result.push(`${config.name}@portal:${join('.', root.substring(process.cwd().length))}`)
 		} else {
 			result.push(`${config.name}@portal:${root}`)

@@ -22,7 +22,6 @@
     "url": "https://bitbucket.org/onilab/pwa-concept/issues"
   },
   "dependencies": {
-    "@pwa-concept/eslint-config": "portal:../eslint-config"
   },
   "eslintConfig": {
     "extends": "@pwa-concept/eslint-config"

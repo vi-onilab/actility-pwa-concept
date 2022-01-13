@@ -25,7 +25,6 @@
   },
   "dependencies": {
     "@apollo/client": "^3.5.6",
-    "@pwa-concept/eslint-config": "portal:../eslint-config",
     "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
     "apollo-link-queue": "^3.1.0",

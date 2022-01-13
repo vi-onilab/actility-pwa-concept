@@ -1398,17 +1398,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/types@npm:^7.12.6, @babel/types@npm:^7.16.0, @babel/types@npm:^7.16.7, @babel/types@npm:^7.4.4":
-  version: 7.16.7
-  resolution: "@babel/types@npm:7.16.7"
-  dependencies:
-    "@babel/helper-validator-identifier": ^7.16.7
-    to-fast-properties: ^2.0.0
-  checksum: df9210723259df9faea8c7e5674a59e57ead82664aab9f54daae887db5a50a956f30f57ed77a2d6cbb89b908d520cf8d883267c4e9098e31bc74649f2f714654
-  languageName: node
-  linkType: hard
-
-"@babel/types@npm:^7.8.3":
+"@babel/types@npm:^7.12.6, @babel/types@npm:^7.16.0, @babel/types@npm:^7.16.7, @babel/types@npm:^7.4.4, @babel/types@npm:^7.8.3":
   version: 7.16.8
   resolution: "@babel/types@npm:7.16.8"
   dependencies:
@@ -1579,8 +1569,8 @@ __metadata:
     "@babel/preset-react": ^7.16.0
     "@babel/preset-typescript": ^7.16.7
     "@pmmmwh/react-refresh-webpack-plugin": ^0.5.1
-    "@pwa-concept/eslint-config": "portal:../eslint-config"
-    "@pwa-concept/typescript-config": "portal:../typescript-config"
+    "@pwa-concept/eslint-config": "link:../eslint-config"
+    "@pwa-concept/typescript-config": "link:../typescript-config"
     "@svgr/webpack": ^5.5.0
     "@types/react": ^17.0.38
     "@types/react-dom": ^17.0.11
@@ -1619,8 +1609,8 @@ __metadata:
     "@babel/preset-react": ^7.16.0
     "@babel/preset-typescript": ^7.16.7
     "@pmmmwh/react-refresh-webpack-plugin": ^0.5.1
-    "@pwa-concept/eslint-config": "portal:../eslint-config"
-    "@pwa-concept/typescript-config": "portal:../typescript-config"
+    "@pwa-concept/eslint-config": "link:../eslint-config"
+    "@pwa-concept/typescript-config": "link:../typescript-config"
     "@svgr/webpack": ^5.5.0
     "@types/react": ^17.0.38
     "@types/react-dom": ^17.0.11
@@ -1665,7 +1655,7 @@ __metadata:
   resolution: "@pwa-concept/core@workspace:packages/core"
   dependencies:
     "@apollo/client": ^3.5.6
-    "@pwa-concept/eslint-config": "portal:../eslint-config"
+    "@pwa-concept/eslint-config": "link:../eslint-config"
     "@types/react": ^17.0.38
     "@types/react-dom": ^17.0.11
     apollo-link-queue: ^3.1.0
@@ -1677,79 +1667,27 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@pwa-concept/eslint-config@portal:../eslint-config::locator=%40pwa-concept%2Fbuild%40portal%3A..%2Fbuild%3A%3Alocator%3D%2540pwa-concept%252Fcli%2540workspace%253Apackages%252Fcli":
+"@pwa-concept/eslint-config@link:../eslint-config::locator=%40pwa-concept%2Fbuild%40portal%3A..%2Fbuild%3A%3Alocator%3D%2540pwa-concept%252Fcli%2540workspace%253Apackages%252Fcli":
   version: 0.0.0-use.local
-  resolution: "@pwa-concept/eslint-config@portal:../eslint-config::locator=%40pwa-concept%2Fbuild%40portal%3A..%2Fbuild%3A%3Alocator%3D%2540pwa-concept%252Fcli%2540workspace%253Apackages%252Fcli"
-  dependencies:
-    "@babel/eslint-parser": ^7.16.5
-    "@typescript-eslint/eslint-plugin": ^5.9.0
-    "@typescript-eslint/parser": ^5.9.0
-    eslint: ^8.5.0
-    eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.3.0
-    eslint-plugin-import: ^2.25.3
-    eslint-plugin-jsx: ^0.1.0
-    eslint-plugin-jsx-a11y: ^6.5.1
-    eslint-plugin-prettier: ^4.0.0
-    eslint-plugin-react: ^7.28.0
-    eslint-plugin-react-hooks: ^4.3.0
+  resolution: "@pwa-concept/eslint-config@link:../eslint-config::locator=%40pwa-concept%2Fbuild%40portal%3A..%2Fbuild%3A%3Alocator%3D%2540pwa-concept%252Fcli%2540workspace%253Apackages%252Fcli"
   languageName: node
   linkType: soft
 
-"@pwa-concept/eslint-config@portal:../eslint-config::locator=%40pwa-concept%2Fbuild%40workspace%3Apackages%2Fbuild":
+"@pwa-concept/eslint-config@link:../eslint-config::locator=%40pwa-concept%2Fbuild%40workspace%3Apackages%2Fbuild":
   version: 0.0.0-use.local
-  resolution: "@pwa-concept/eslint-config@portal:../eslint-config::locator=%40pwa-concept%2Fbuild%40workspace%3Apackages%2Fbuild"
-  dependencies:
-    "@babel/eslint-parser": ^7.16.5
-    "@typescript-eslint/eslint-plugin": ^5.9.0
-    "@typescript-eslint/parser": ^5.9.0
-    eslint: ^8.5.0
-    eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.3.0
-    eslint-plugin-import: ^2.25.3
-    eslint-plugin-jsx: ^0.1.0
-    eslint-plugin-jsx-a11y: ^6.5.1
-    eslint-plugin-prettier: ^4.0.0
-    eslint-plugin-react: ^7.28.0
-    eslint-plugin-react-hooks: ^4.3.0
+  resolution: "@pwa-concept/eslint-config@link:../eslint-config::locator=%40pwa-concept%2Fbuild%40workspace%3Apackages%2Fbuild"
   languageName: node
   linkType: soft
 
-"@pwa-concept/eslint-config@portal:../eslint-config::locator=%40pwa-concept%2Fcore%40workspace%3Apackages%2Fcore":
+"@pwa-concept/eslint-config@link:../eslint-config::locator=%40pwa-concept%2Fcore%40workspace%3Apackages%2Fcore":
   version: 0.0.0-use.local
-  resolution: "@pwa-concept/eslint-config@portal:../eslint-config::locator=%40pwa-concept%2Fcore%40workspace%3Apackages%2Fcore"
-  dependencies:
-    "@babel/eslint-parser": ^7.16.5
-    "@typescript-eslint/eslint-plugin": ^5.9.0
-    "@typescript-eslint/parser": ^5.9.0
-    eslint: ^8.5.0
-    eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.3.0
-    eslint-plugin-import: ^2.25.3
-    eslint-plugin-jsx: ^0.1.0
-    eslint-plugin-jsx-a11y: ^6.5.1
-    eslint-plugin-prettier: ^4.0.0
-    eslint-plugin-react: ^7.28.0
-    eslint-plugin-react-hooks: ^4.3.0
+  resolution: "@pwa-concept/eslint-config@link:../eslint-config::locator=%40pwa-concept%2Fcore%40workspace%3Apackages%2Fcore"
   languageName: node
   linkType: soft
 
-"@pwa-concept/eslint-config@portal:../eslint-config::locator=%40pwa-concept%2Fui%40workspace%3Apackages%2Fui":
+"@pwa-concept/eslint-config@link:../eslint-config::locator=%40pwa-concept%2Fui%40workspace%3Apackages%2Fui":
   version: 0.0.0-use.local
-  resolution: "@pwa-concept/eslint-config@portal:../eslint-config::locator=%40pwa-concept%2Fui%40workspace%3Apackages%2Fui"
-  dependencies:
-    "@babel/eslint-parser": ^7.16.5
-    "@typescript-eslint/eslint-plugin": ^5.9.0
-    "@typescript-eslint/parser": ^5.9.0
-    eslint: ^8.5.0
-    eslint-config-airbnb: ^19.0.4
-    eslint-config-prettier: ^8.3.0
-    eslint-plugin-import: ^2.25.3
-    eslint-plugin-jsx: ^0.1.0
-    eslint-plugin-jsx-a11y: ^6.5.1
-    eslint-plugin-prettier: ^4.0.0
-    eslint-plugin-react: ^7.28.0
-    eslint-plugin-react-hooks: ^4.3.0
+  resolution: "@pwa-concept/eslint-config@link:../eslint-config::locator=%40pwa-concept%2Fui%40workspace%3Apackages%2Fui"
   languageName: node
   linkType: soft
 
@@ -1782,23 +1720,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@pwa-concept/typescript-config@portal:../typescript-config::locator=%40pwa-concept%2Fbuild%40portal%3A..%2Fbuild%3A%3Alocator%3D%2540pwa-concept%252Fcli%2540workspace%253Apackages%252Fcli":
+"@pwa-concept/typescript-config@link:../typescript-config::locator=%40pwa-concept%2Fbuild%40portal%3A..%2Fbuild%3A%3Alocator%3D%2540pwa-concept%252Fcli%2540workspace%253Apackages%252Fcli":
   version: 0.0.0-use.local
-  resolution: "@pwa-concept/typescript-config@portal:../typescript-config::locator=%40pwa-concept%2Fbuild%40portal%3A..%2Fbuild%3A%3Alocator%3D%2540pwa-concept%252Fcli%2540workspace%253Apackages%252Fcli"
-  dependencies:
-    "@types/react": ^17.0.38
-    "@types/react-dom": ^17.0.11
-    typescript-plugin-css-modules: ^3.4.0
+  resolution: "@pwa-concept/typescript-config@link:../typescript-config::locator=%40pwa-concept%2Fbuild%40portal%3A..%2Fbuild%3A%3Alocator%3D%2540pwa-concept%252Fcli%2540workspace%253Apackages%252Fcli"
   languageName: node
   linkType: soft
 
-"@pwa-concept/typescript-config@portal:../typescript-config::locator=%40pwa-concept%2Fbuild%40workspace%3Apackages%2Fbuild":
+"@pwa-concept/typescript-config@link:../typescript-config::locator=%40pwa-concept%2Fbuild%40workspace%3Apackages%2Fbuild":
   version: 0.0.0-use.local
-  resolution: "@pwa-concept/typescript-config@portal:../typescript-config::locator=%40pwa-concept%2Fbuild%40workspace%3Apackages%2Fbuild"
-  dependencies:
-    "@types/react": ^17.0.38
-    "@types/react-dom": ^17.0.11
-    typescript-plugin-css-modules: ^3.4.0
+  resolution: "@pwa-concept/typescript-config@link:../typescript-config::locator=%40pwa-concept%2Fbuild%40workspace%3Apackages%2Fbuild"
   languageName: node
   linkType: soft
 
@@ -1816,7 +1746,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@pwa-concept/ui@workspace:packages/ui"
   dependencies:
-    "@pwa-concept/eslint-config": "portal:../eslint-config"
+    "@pwa-concept/eslint-config": "link:../eslint-config"
   languageName: unknown
   linkType: soft
 
@@ -4693,20 +4623,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-glob@npm:^3.1.1, fast-glob@npm:^3.2.7":
-  version: 3.2.7
-  resolution: "fast-glob@npm:3.2.7"
-  dependencies:
-    "@nodelib/fs.stat": ^2.0.2
-    "@nodelib/fs.walk": ^1.2.3
-    glob-parent: ^5.1.2
-    merge2: ^1.3.0
-    micromatch: ^4.0.4
-  checksum: 2f4708ff112d2b451888129fdd9a0938db88b105b0ddfd043c064e3c4d3e20eed8d7c7615f7565fee660db34ddcf08a2db1bf0ab3c00b87608e4719694642d78
-  languageName: node
-  linkType: hard
-
-"fast-glob@npm:^3.2.9":
+"fast-glob@npm:^3.2.7, fast-glob@npm:^3.2.9":
   version: 3.2.10
   resolution: "fast-glob@npm:3.2.10"
   dependencies:
@@ -5084,21 +5001,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globby@npm:^11.0.1, globby@npm:^11.0.3":
-  version: 11.0.4
-  resolution: "globby@npm:11.0.4"
-  dependencies:
-    array-union: ^2.1.0
-    dir-glob: ^3.0.1
-    fast-glob: ^3.1.1
-    ignore: ^5.1.4
-    merge2: ^1.3.0
-    slash: ^3.0.0
-  checksum: d3e02d5e459e02ffa578b45f040381c33e3c0538ed99b958f0809230c423337999867d7b0dbf752ce93c46157d3bbf154d3fff988a93ccaeb627df8e1841775b
-  languageName: node
-  linkType: hard
-
-"globby@npm:^11.0.4":
+"globby@npm:^11.0.1, globby@npm:^11.0.3, globby@npm:^11.0.4":
   version: 11.1.0
   resolution: "globby@npm:11.1.0"
   dependencies:
@@ -5460,7 +5363,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ignore@npm:^5.1.4, ignore@npm:^5.1.8, ignore@npm:^5.2.0":
+"ignore@npm:^5.1.8, ignore@npm:^5.2.0":
   version: 5.2.0
   resolution: "ignore@npm:5.2.0"
   checksum: 6b1f926792d614f64c6c83da3a1f9c83f6196c2839aa41e1e32dd7b8d174cef2e329d75caabb62cb61ce9dc432f75e67d07d122a037312db7caa73166a1bdb77

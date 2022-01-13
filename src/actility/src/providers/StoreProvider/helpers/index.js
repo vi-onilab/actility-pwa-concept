@@ -1,1 +1,0 @@
-export { fetchMorePagination } from './fetchMorePagination';

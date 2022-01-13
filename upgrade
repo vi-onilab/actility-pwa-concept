@@ -1,14 +1,33 @@
 #!/usr/bin/env node
 
-const { exec } = require('child_process')
-const { readdirSync } = require('fs')
+const { spawnSync } = require('child_process')
+const { readdirSync, existsSync } = require('fs')
 const { join } = require('path')
-const config = require('./package.json')
+
+const isIncludeToTheme = __dirname.startsWith(process.cwd())
+
+console.log('Upgrading PWA...')
+
+if (isIncludeToTheme && existsSync(join(process.cwd(), '.gitmodules'))) {
+	spawnSync(`git`, ['submodule', 'update', '--remote'], { stdio: 'inherit', cwd: process.cwd() })
+}
 
 const packages = readdirSync(join(__dirname, 'packages')).reduce((result, name) => {
-	result.push(`file:./node_modules/${config.name}/packages/${name}`)
+	const root = join(__dirname, 'packages', name)
+	const config = require(join(root, 'package.json'))
+
+	if (config && config.name) {
+		if (isIncludeToTheme) {
+			result.push(`${config.name}@portal:${join('.', root.substring(process.cwd().length))}`)
+		} else {
+			result.push(`${config.name}@portal:${root}`)
+		}
+	}
 
 	return result
-}, []).join(' ')
+}, [])
 
-exec(`cd ${process.cwd()} && yarn add ${packages}`)
+spawnSync(`yarn`, ['add', ...packages], { stdio: 'inherit', cwd: process.cwd() })
+spawnSync(`yarn`, [], { stdio: 'inherit', cwd: process.cwd() })
+
+console.log('Upgraded PWA. Be happy! <3')

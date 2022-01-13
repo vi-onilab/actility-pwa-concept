@@ -1,1 +1,0 @@
-export { ProductFieldsCommercialStatus } from './ProductFieldsCommercialStatus';

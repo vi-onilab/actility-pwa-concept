@@ -1,1 +1,0 @@
-export { WriteReviewButton } from './WriteReviewButton';

@@ -9,7 +9,10 @@ const CONFIGS = [
 
 module.exports = ({ root }) => {
 	const result = {
-		alias: {},
+		alias: {
+			react: join(root, 'node_modules', 'react'),
+			'react-dom': join(root, 'node_modules', 'react-dom'),
+		},
 		extensions: ['.tsx', '.ts', '.js', '.jsx'],
 	}
 

@@ -21,9 +21,6 @@
   "bugs": {
     "url": "https://bitbucket.org/onilab/pwa-concept/issues"
   },
-  "dependencies": {
-    "@pwa-concept/eslint-config": "^0.0.0"
-  },
   "eslintConfig": {
     "extends": "@pwa-concept/eslint-config"
   }

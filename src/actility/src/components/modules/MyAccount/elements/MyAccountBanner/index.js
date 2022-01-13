@@ -1,1 +1,0 @@
-export { MyAccountBanner } from './MyAccountBanner';

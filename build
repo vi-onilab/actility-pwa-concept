@@ -1,0 +1,7 @@
+#!/usr/bin/env node
+
+const { spawnSync } = require('child_process')
+
+console.log('Building PWA...')
+spawnSync(`yarn`, ['build'], { stdio: 'inherit', cwd: __dirname })
+console.log('Build PWA.')

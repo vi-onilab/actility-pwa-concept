@@ -7,7 +7,7 @@ import babel from 'rollup-plugin-babel';
 import { join } from 'path';
 
 const packageJson = require(require.resolve(join(process.cwd(), './package.json')));
-const config = require('./package.json');
+const config = require(join(__dirname, './package.json'));
 
 export default [
 	{
@@ -24,21 +24,21 @@ export default [
 				sourcemap: true,
 			},
 		],
-		external: Object.keys(config.devDependencies),
+		external: (id) => id.includes('node_modules'),
 		plugins: [
 			peerDepsExternal(),
 			resolve({ extensions: ['.jsx', '.js', '.ts', '.tsx'] }),
 			commonjs(),
 			typescript({ tsconfig: join(__dirname, 'tsconfig.json') }),
-			babel({
-				extensions: ['.jsx', '.js', '.ts', '.tsx'],
-				exclude: /node_modules/,
-				presets: [
-					['@babel/preset-env', { loose: true }],
-					['@babel/preset-react', {'runtime': 'automatic'} ],
-					['@babel/preset-typescript'],
-				],
-			})
+			// babel({
+			// 	extensions: ['.jsx', '.js', '.ts', '.tsx'],
+			// 	exclude: /node_modules/,
+			// 	presets: [
+			// 		['@babel/preset-env', { loose: true }],
+			// 		['@babel/preset-react' ],
+			// 		['@babel/preset-typescript'],
+			// 	],
+			// })
 		],
 	},
 	{

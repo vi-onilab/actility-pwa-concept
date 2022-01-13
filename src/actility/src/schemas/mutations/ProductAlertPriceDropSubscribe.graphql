@@ -1,7 +1,0 @@
-mutation productAlertPriceDropSubscribe(
-    $productId: ID!
-) {
-    productAlertPriceDropSubscribe(
-        product_id: $productId
-    )
-}

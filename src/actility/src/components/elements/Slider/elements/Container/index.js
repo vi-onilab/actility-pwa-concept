@@ -1,1 +1,0 @@
-export { SliderContainer } from './SliderContainer';

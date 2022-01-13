@@ -1,7 +1,0 @@
-mutation SubscribeGuestToNewsletter(
-    $email: String!
-) {
-    subscribeGuestToNewsletter(
-        email: $email
-    )
-}

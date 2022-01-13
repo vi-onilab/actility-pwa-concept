@@ -1,1 +1,0 @@
-export { InputCode } from './InputCode';

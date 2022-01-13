@@ -1,1 +1,0 @@
-export { ProductFieldsVat } from './ProductFieldsVat';

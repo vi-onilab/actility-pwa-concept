@@ -1,1 +1,0 @@
-export { CompareTableHeader } from './CompareTableHeader';

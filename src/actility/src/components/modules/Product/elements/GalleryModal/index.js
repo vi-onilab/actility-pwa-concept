@@ -1,1 +1,0 @@
-export { ProductGalleryModal } from './ProductGalleryModal';

@@ -1,1 +1,0 @@
-export { StarPicker } from './StarPicker';

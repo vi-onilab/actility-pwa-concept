@@ -1,1 +1,0 @@
-export { ProductSectionShippingConditions } from './ProductSectionShippingConditions';

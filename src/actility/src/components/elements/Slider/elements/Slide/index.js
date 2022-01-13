@@ -1,1 +1,0 @@
-export { SliderSlide } from './Slide';

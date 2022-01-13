@@ -1,1 +1,0 @@
-export { HeaderTopCustomer } from './HeaderTopCustomer';

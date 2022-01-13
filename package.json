@@ -4,11 +4,10 @@
   "author": "Onilab Team <talkto@onilab.com>",
   "private": true,
   "scripts": {
-    "start": "lerna run start --concurrency 1 --stream --no-bail --parallel",
-    "build": "lerna run build --concurrency 1 --stream --no-bail",
-    "analyze": "lerna run analyze --concurrency 1 --stream --no-bail",
-    "clean": "yarn lerna clean -y && yarn lerna bootstrap && yarn lerna exec 'rm -rf ./dist'",
-    "prepublish": "lerna run prepublish"
+    "start": "yarn workspaces foreach run start",
+    "build": "yarn workspaces foreach run build",
+    "analyze": "yarn workspaces foreach run analyze",
+    "clean": "yarn workspaces foreach exec 'rm -rf ./node_modules; rm -rf ./dist'; rm -rf ./node_modules; yarn install"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.16.7",
@@ -16,18 +15,13 @@
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.1.2",
     "@rollup/plugin-typescript": "^8.3.0",
-    "@types/react": "^17.0.38",
-    "@types/react-dom": "^17.0.11",
-    "lerna": "^4.0.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
     "rollup": "^2.63.0",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-dts": "^4.1.0",
     "rollup-plugin-peer-deps-external": "^2.2.4"
   },
   "workspaces": [
-    "packages/*",
-    "src/*"
-  ]
+    "packages/*"
+  ],
+  "packageManager": "yarn@3.1.1"
 }

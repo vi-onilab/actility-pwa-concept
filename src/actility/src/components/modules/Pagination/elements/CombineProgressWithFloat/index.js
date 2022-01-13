@@ -1,1 +1,0 @@
-export { PaginationCombineProgressWithFloat } from './PaginationCombineProgressWithFloat';

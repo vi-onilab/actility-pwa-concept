@@ -1,9 +1,0 @@
-mutation AddProductReview(
-    $input: ProductReviewInput!
-) {
-    addProductReview(
-        productReviewItem: $input
-    ) {
-        createdAt: created_at
-    }
-}

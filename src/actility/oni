@@ -1,8 +1,0 @@
-#!/usr/bin/env node
-
-const path = require('path');
-const {Plop, run} = require('plop');
-
-Plop.launch({
-	configPath: path.join(__dirname, '.cli', 'index.js'),
-}, env => run(env, undefined, true));

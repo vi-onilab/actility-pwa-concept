@@ -1,1 +1,0 @@
-export { useCustomerData } from './useCustomerData';

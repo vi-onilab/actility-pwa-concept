@@ -21,6 +21,8 @@
     "url": "https://bitbucket.org/onilab/pwa-concept/issues"
   },
   "dependencies": {
+    "inquirer-directory": "^2.2.0",
+    "plop": "^3.0.5",
     "yargs": "^17.3.1"
   }
 }

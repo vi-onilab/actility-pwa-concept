@@ -9,9 +9,13 @@
         "url": "git+ssh://git@bitbucket.org/onilab/pwa-concept.git"
     },
     "scripts": {
-        "start": "rollup -c --watch ",
-        "build": "rollup -c"
+        "start": "tsc --watch",
+        "build": "tsc"
     },
+    "main": ".",
+    "module": ".",
+    "types": "./@types",
+    "typings": "./@types",
     "bugs": {
         "url": "https://bitbucket.org/onilab/pwa-concept/issues"
     },

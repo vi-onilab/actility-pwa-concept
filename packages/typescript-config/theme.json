@@ -21,14 +21,5 @@
     "jsx": "react-jsx",
     "checkJs": false,
     "typeRoots": [ "./global.d.ts" ]
-  },
-  "include": [
-    "src",
-    "**/*.ts",
-    "**/*.tsx"
-  ],
-  "exclude": [
-    "node_modules",
-    "build"
-  ]
+  }
 }

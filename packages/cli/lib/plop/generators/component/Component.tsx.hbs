@@ -1,0 +1,29 @@
+import { FC } from 'react'
+import { classNames } from 'helpers'
+
+{{#if isAddCss}}
+import css from './{{pascalCase name}}.module.scss'
+
+{{/if}}
+interface {{pascalCase name}}Props {
+    className?: string
+}
+
+const {{pascalCase name}}: FC<{{pascalCase name}}Props> = (
+	{
+		children,
+		className,
+	},
+) => (
+	{{#if isAddCss}}
+	<div className={classNames(css.root, className)}>
+		{children}
+	</div>
+	{{else}}
+	<div className={classNames(className)}>
+		{children}
+	</div>
+	{{/if}}
+)
+
+export default {{pascalCase name}}

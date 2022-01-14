@@ -1,21 +1,21 @@
 {
-    "name": "@pwa-concept/ui",
+    "name": "@pwa-concept/modules",
     "version": "0.0.0",
     "description": "",
     "author": "Onilab Team <talkto@onilab.com>",
     "homepage": "https://bitbucket.org/onilab/pwa-concept#readme",
-    "main": ".",
-    "module": ".",
-    "types": "./@types",
-    "typings": "./@types",
-    "scripts": {
-        "start": "node ../../node_modules/.bin/tsc --watch",
-        "build": "node ../../node_modules/.bin/tsc"
-    },
     "repository": {
         "type": "git",
         "url": "git+ssh://git@bitbucket.org/onilab/pwa-concept.git"
     },
+    "scripts": {
+        "start": "node ../../node_modules/.bin/tsc --watch",
+        "build": "node ../../node_modules/.bin/tsc"
+    },
+    "main": ".",
+    "module": ".",
+    "types": "./@types",
+    "typings": "./@types",
     "bugs": {
         "url": "https://bitbucket.org/onilab/pwa-concept/issues"
     },

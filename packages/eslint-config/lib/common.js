@@ -1,4 +1,5 @@
 module.exports = {
+	root: true,
 	extends: [
 		'eslint:recommended',
 		'plugin:react/recommended',
@@ -43,7 +44,9 @@ module.exports = {
 		'semi': ['error', 'never'],
 		'import/extensions': ['error', 'never'],
 		'no-unused-vars': 'off',
-		'@typescript-eslint/no-unused-vars': ['warn']
+		'@typescript-eslint/no-unused-vars': ['warn'],
+		'react/require-default-props': 'off',
+		'import/no-extraneous-dependencies': 'off',
 	},
 	parserOptions: {
 		ecmaVersion: 2018,

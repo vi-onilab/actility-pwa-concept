@@ -1,13 +1,17 @@
 import {
 	createContext, FC, useContext, PropsWithChildren,
 } from 'react'
-import { ProvideId, Provides, ProvideToken } from '../types'
+import {
+	ProvideId, Provides, ProvideToken, Module,
+} from '../types'
 
 const data = new Map<symbol, Provides>()
 const context = createContext<ProvideId | null>(null)
 
-const get = (id: ProvideId, token: ProvideToken) => (
-	data.get(id)?.get(token)
+const get = (id: ProvideId | Module, token: ProvideToken) => (
+	data.get(
+		(id as Module)?.entryId || id as ProvideId,
+	)?.get(token)
 )
 
 const init = (id: ProvideId, values: Provides) => {

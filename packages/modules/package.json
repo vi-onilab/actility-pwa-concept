@@ -4,13 +4,6 @@
     "description": "",
     "author": "Onilab Team <talkto@onilab.com>",
     "homepage": "https://bitbucket.org/onilab/pwa-concept#readme",
-    "main": "./src",
-    "module": "./src",
-    "files": [
-        "src",
-        "types"
-    ],
-    "types": "./types",
     "repository": {
         "type": "git",
         "url": "git+ssh://git@bitbucket.org/onilab/pwa-concept.git"

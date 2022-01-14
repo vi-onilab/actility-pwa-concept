@@ -3,6 +3,9 @@
     "compilerOptions": {
         "baseUrl": "./src",
         "declaration": true,
-        "declarationDir": "./types"
+        "declarationDir": "./types",
+        "paths": {
+            "*": ["./src/*"]
+        }
     }
 }

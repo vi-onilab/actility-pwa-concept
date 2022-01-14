@@ -4,13 +4,8 @@
     "description": "",
     "author": "Onilab Team <talkto@onilab.com>",
     "homepage": "https://bitbucket.org/onilab/pwa-concept#readme",
-    "main": "./src",
-    "module": "./src",
-    "files": [
-        "src",
-        "types"
-    ],
-    "types": "./src/index.ts",
+    "main": "./index.ts",
+    "module": "./index.ts",
     "license": "ISC",
     "repository": {
         "type": "git",

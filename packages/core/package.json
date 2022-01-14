@@ -10,8 +10,8 @@
     "typings": "./@types",
     "license": "ISC",
     "scripts": {
-        "start": "tsc --watch",
-        "build": "tsc"
+        "start": "node ../../node_modules/.bin/tsc --watch",
+        "build": "node ../../node_modules/.bin/tsc"
     },
     "repository": {
         "type": "git",

@@ -9,8 +9,8 @@
         "url": "git+ssh://git@bitbucket.org/onilab/pwa-concept.git"
     },
     "scripts": {
-        "start": "tsc --watch",
-        "build": "tsc"
+        "start": "node ../../node_modules/.bin/tsc --watch",
+        "build": "node ../../node_modules/.bin/tsc"
     },
     "main": ".",
     "module": ".",

@@ -8,10 +8,6 @@ const isIncludeToTheme = __dirname.startsWith(process.cwd())
 
 console.log('Upgrading PWA...')
 
-if (isIncludeToTheme && existsSync(join(process.cwd(), '.gitmodules'))) {
-	spawnSync(`git`, ['submodule', 'update', '--remote'], { stdio: 'inherit', cwd: process.cwd() })
-}
-
 const packages = readdirSync(join(__dirname, 'packages')).reduce((result, name) => {
 	const root = join(__dirname, 'packages', name)
 	const config = require(join(root, 'package.json'))

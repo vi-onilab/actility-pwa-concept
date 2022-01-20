@@ -12,6 +12,8 @@ module.exports = ({ root }) => {
 		alias: {
 			react: join(root, 'node_modules', 'react'),
 			'react-dom': join(root, 'node_modules', 'react-dom'),
+			'react-router': join(root, 'node_modules', 'react-router'),
+			'react-router-dom': join(root, 'node_modules', 'react-router-dom'),
 		},
 		extensions: ['.tsx', '.ts', '.js', '.jsx'],
 	}

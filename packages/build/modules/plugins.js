@@ -15,6 +15,9 @@ module.exports = ({ root, isDevelopment, isAnalyze, isProduction }) => {
 	const envPath = join(root, '.env')
 
 	return [
+		new webpack.ProgressPlugin({
+			activeModules: true,
+		}),
 		isDevelopment && new WebpackNotifierPlugin({ title: 'PWA Build', emoji: true, alwaysNotify: true }),
 		existsSync(envPath) && new webpack.DefinePlugin({
 			'process.env': JSON.stringify(dotenv.config({ path: envPath }).parsed),

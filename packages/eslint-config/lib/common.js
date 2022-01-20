@@ -44,9 +44,13 @@ module.exports = {
 		'semi': ['error', 'never'],
 		'import/extensions': ['error', 'never'],
 		'no-unused-vars': 'off',
-		'@typescript-eslint/no-unused-vars': ['warn'],
+		'@typescript-eslint/no-unused-vars': ['warn', {
+			argsIgnorePattern: '_'
+		}],
 		'react/require-default-props': 'off',
 		'import/no-extraneous-dependencies': 'off',
+		'@typescript-eslint/no-unnecessary-type-constraint': 'off',
+		'no-nested-ternary': 'off',
 	},
 	parserOptions: {
 		ecmaVersion: 2018,

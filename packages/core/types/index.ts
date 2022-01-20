@@ -1,4 +1,17 @@
 import { FC, ReactElement } from 'react'
+import { RouteObject } from 'react-router-dom'
+
+export interface CoreRouteObject extends RouteObject {
+	children?: CoreRouteObject[]
+	element: ReactElement | FC
+	fallback?: FC | string
+}
+
+export interface ModuleProvideAliases {
+	graphqlPolicies: any
+	graphqlLinks: any
+	routes: CoreRouteObject[]
+}
 
 export type ProvideToken = string | symbol
 export type ProvideValue = any
@@ -12,14 +25,13 @@ export interface ModuleProvide {
 	value: ProvideValue
 }
 
-export interface Module {
+export interface Module extends Partial<ModuleProvideAliases> {
 	entryId?: ProvideId
 	entry?: ReactElement
-	modules?: Module[]
+	modules?: Partial<Module>[]
 	provides?: ModuleProvide[]
 	providers?: ModuleProvider[]
+	configure?: ((...args: any) => Module) | unknown | undefined
 }
 
-export interface ModuleFn {
-	(): Module
-}
+export type ModuleFn = () => Module

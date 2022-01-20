@@ -6,10 +6,10 @@ import {
 	authErrorLink, authLink, errorLink, httpLink, queueLink, retryLink,
 } from './links'
 import { useProvide } from '../provide'
-import { PROVIDE_GRAPHQL_POLICY_TOKEN } from './tokens'
+import { PROVIDE_GRAPHQL_POLICY } from './tokens'
 
 const GraphQLProvider: FC = ({ children }) => {
-	const typePolicies = useProvide(PROVIDE_GRAPHQL_POLICY_TOKEN, {})
+	const typePolicies = useProvide(PROVIDE_GRAPHQL_POLICY, {})
 
 	const client = useMemo(() => (
 		new ApolloClient({

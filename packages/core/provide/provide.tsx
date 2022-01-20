@@ -18,7 +18,7 @@ const init = (id: ProvideId, values: Provides) => {
 	data.set(id, values)
 }
 
-const useProvide = (token: ProvideToken, defaultValue: unknown = null) => {
+const useProvide = <T extends unknown>(token: ProvideToken, defaultValue: T = null): T | null => {
 	const id = useContext(context)
 
 	if (id) {

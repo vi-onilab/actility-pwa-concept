@@ -7,11 +7,13 @@ const getModulesTree = (rootModule: Module) => {
 	const providers = new Set<ModuleProvider>()
 
 	const search = (module: Module) => {
+		const moduleProvides = module?.provides || []
+
 		module?.providers?.forEach((provider) => (
 			!providers.has(provider) && providers.add(provider)
 		))
 
-		module?.provides?.forEach((provide) => {
+		moduleProvides.forEach((provide) => {
 			if (provides.has(provide.use)) {
 				provides.set(provide.use, [...provides.get(provide.use), provide.value])
 			} else {

@@ -1,7 +1,4 @@
-const webpack = require('webpack')
-const webpackDevServer = require('webpack-dev-server')
-
-const configPath = require.resolve('@pwa-concept/build/webpack.config.js')
+const Builder = require('@pwa-concept/build')
 
 exports.command = 'start [port]'
 exports.desc = 'Start the local server'
@@ -12,21 +9,8 @@ exports.builder = {
 		demand: false,
 	},
 }
-exports.handler = async ({ port }) => {
-	const config = require(configPath)({
-		WEBPACK_BUNDLE: false,
-		WEBPACK_SERVE: true,
-		PORT: port,
-	})
+exports.handler = async (args) => {
+	const builder = await Builder()
 
-	const compiler = webpack(config)
-
-	const devServerOptions = { ...config.devServer, open: true }
-	const server = new webpackDevServer(devServerOptions, compiler)
-
-	const runServer = async () => {
-		await server.start()
-	};
-
-	runServer()
+	await builder.start(args)
 }

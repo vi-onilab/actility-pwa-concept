@@ -13,15 +13,26 @@ module.exports = ({ root, isDevelopment, isAnalyze, isProduction }) => {
 	const publicPath = join(root, 'public');
 	const htmlPath = join(root, 'src', 'index.html');
 	const envPath = join(root, '.env');
-
+	const envConfig = existsSync(envPath) ? dotenv.config({ path: envPath }).parsed : null;
+	// PWA_STORE_NAME
 	return [
 		new webpack.ProgressPlugin({
 			activeModules: true,
 		}),
-		isDevelopment && new WebpackNotifierPlugin({ title: 'PWA Build', emoji: true, alwaysNotify: true }),
-		existsSync(envPath) && new webpack.DefinePlugin({
-			'process.env': JSON.stringify(dotenv.config({ path: envPath }).parsed),
+		envConfig && new webpack.DefinePlugin({
+			'process.env': JSON.stringify(envConfig),
+			PWA_STORE_NAME: envConfig.PWA_STORE_NAME,
 		}),
+		('PWA_STORE_NAME' in envConfig) && new webpack.NormalModuleReplacementPlugin(
+			/(\[]\.tsx?$)/,
+			(resource) => {
+				resource.request = resource.request.replace(
+					/\[]/,
+					`[${envConfig.PWA_STORE_NAME}]`,
+				);
+			},
+		),
+		isDevelopment && new WebpackNotifierPlugin({ title: 'PWA Build', emoji: true, alwaysNotify: true }),
 		existsSync(htmlPath) && new HtmlWebpackPlugin({
 			templateContent: (
 				readFileSync(htmlPath, { encoding: 'utf8' }).replace(/<script(.*)type="module"(.*)><\/script>/gim, '')

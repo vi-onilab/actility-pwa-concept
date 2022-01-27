@@ -1,0 +1,21 @@
+definitions:
+    add: &top-comment
+        content: >
+            /**
+             * NOTE: THIS IS AN AUTO-GENERATED FILE. DO NOT MODIFY IT DIRECTLY.
+             * USE `yarn build:schema-types` or `yarn build`.
+             */
+schema:
+    - "**/schema.{graphql,gql,graphqls}"
+    - "**/schemas.{graphql,gql,graphqls}"
+    - "**/schemas/*.{graphql,gql,graphqls}"
+generates:
+    ./:
+        preset: graphql-modules
+        presetConfig:
+            baseTypesPath: ../generated-types/graphql.ts # Where to create the complete schema types
+            filename: generated-types/module-types.ts # Where to create each module types
+        plugins:
+            - add: *top-comment
+            - typescript
+            - typescript-resolvers

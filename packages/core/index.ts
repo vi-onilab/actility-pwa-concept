@@ -6,5 +6,7 @@ export * from './types'
 export * from './utils'
 
 export { default as bootstrap } from './bootstrap'
+export { default as feature } from './feature'
 export { default as module } from './module'
+export { default as Platform } from './platform'
 export { default as render } from './render'

@@ -18,11 +18,15 @@ const init = (id: ProvideId, values: Provides) => {
 	data.set(id, values)
 }
 
-const useProvide = <T extends unknown>(token: ProvideToken, defaultValue: T = null): T | null => {
+const useProvide = <T extends unknown, T2 extends unknown = T>(
+	token: ProvideToken,
+	defaultValue: T = null,
+	transform = (value: T): T | T2 => value,
+): T | T2 | null => {
 	const id = useContext(context)
 
 	if (id) {
-		return get(id, token)
+		return transform(get(id, token))
 	}
 
 	return defaultValue

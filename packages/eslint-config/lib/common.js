@@ -51,6 +51,9 @@ module.exports = {
 		'import/no-extraneous-dependencies': 'off',
 		'@typescript-eslint/no-unnecessary-type-constraint': 'off',
 		'no-nested-ternary': 'off',
+		'import/no-dynamic-require': 'off',
+		'global-require': 'off',
+		'@typescript-eslint/no-var-requires': 'off',
 	},
 	parserOptions: {
 		ecmaVersion: 2018,

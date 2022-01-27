@@ -10,7 +10,8 @@
     },
     "scripts": {
         "start": "node ../../node_modules/.bin/tsc --watch",
-        "build": "node ../../node_modules/.bin/tsc"
+        "build": "node ../../node_modules/.bin/tsc && build:schema-types",
+        "build:schema-types": "graphql-codegen --config codegen.yml"
     },
     "main": ".",
     "module": ".",
@@ -21,5 +22,11 @@
     },
     "eslintConfig": {
         "extends": "@pwa-concept/eslint-config"
+    },
+    "dependencies": {
+        "@graphql-codegen/add": "^3.1.1",
+        "@graphql-codegen/graphql-modules-preset": "^2.3.2",
+        "@graphql-codegen/typescript": "^2.4.2",
+        "@graphql-codegen/typescript-resolvers": "^2.4.3"
     }
 }

@@ -2,11 +2,13 @@ import { FC, Suspense } from 'react'
 import { useProvide } from '@pwa-concept/core'
 import { PROVIDE_CMS_MODULE_REPLACE } from '../../../../tokens'
 import { CmsModuleReplaceProvide } from '../../../../types'
-import { useCmsGetByRoute } from '../../hooks'
+import { useCmsGetRoute } from '../../hooks'
 
 const CmsGetRoute: FC = () => {
-	const { data, loading } = useCmsGetByRoute()
+	const { data, loading } = useCmsGetRoute()
 	const replace = useProvide<CmsModuleReplaceProvide>(PROVIDE_CMS_MODULE_REPLACE)
+
+	console.log(2222, data)
 
 	if (loading) {
 		return (

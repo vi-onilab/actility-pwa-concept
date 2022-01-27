@@ -1,19 +1,21 @@
 import deepmerge from 'deepmerge'
-import { Module, ModuleProvider, Provides } from './types'
+import {
+	Module, ModuleProvider, Provides, Feature,
+} from './types'
 import { isPrimitive } from './utils'
 
 const getModulesTree = (rootModule: Module) => {
 	const provides: Provides = new Map()
 	const providers = new Set<ModuleProvider>()
 
-	const search = (module: Module) => {
-		const moduleProvides = module?.provides || []
+	const search = (instance: Module | Feature) => {
+		if ('providers' in instance) {
+			instance?.providers?.forEach((provider) => (
+				!providers.has(provider) && providers.add(provider)
+			))
+		}
 
-		module?.providers?.forEach((provider) => (
-			!providers.has(provider) && providers.add(provider)
-		))
-
-		moduleProvides.forEach((provide) => {
+		(instance?.provides || []).forEach((provide) => {
 			if (provides.has(provide.use)) {
 				provides.set(provide.use, [...provides.get(provide.use), provide.value])
 			} else {
@@ -21,7 +23,13 @@ const getModulesTree = (rootModule: Module) => {
 			}
 		})
 
-		module?.modules?.forEach((deepModule) => search(deepModule))
+		if ('features' in instance) {
+			instance?.features?.forEach((feature) => search(feature))
+		}
+
+		if ('modules' in instance) {
+			instance?.modules?.forEach((deepModule) => search(deepModule))
+		}
 	}
 
 	search(rootModule)

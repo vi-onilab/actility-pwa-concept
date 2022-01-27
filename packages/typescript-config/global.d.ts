@@ -5,6 +5,9 @@ declare global {
 	const PWA_STORE_NAME: string
 }
 
+declare    type Optional<T> = T | null | undefined;
+
+
 declare namespace NodeJS {
 	interface ImportMeta {
 		env: object;
@@ -80,20 +83,17 @@ declare module '*.module.sass' {
 	export default classes
 }
 
-declare module '*.graphqls' {
-	import { DocumentNode } from 'graphql'
-	const Node: DocumentNode
-	export default Node
+declare module '*.gql' {
+	const content: any
+	export default content
 }
 
 declare module '*.graphql' {
-	import { DocumentNode } from 'graphql'
-	const Node: DocumentNode
-	export default Node
+	const content: any
+	export default content
 }
 
-declare module '*.gql' {
-	import { DocumentNode } from 'graphql'
-	const Node: DocumentNode
-	export default Node
+declare module '*.graphqls' {
+	const content: any
+	export default content
 }

@@ -4,4 +4,6 @@ extend type Query {
 
 type CmsRoute {
     id: String
+    type: String
+    url: String
 }

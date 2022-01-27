@@ -1,11 +1,8 @@
-export default {
-	Query: {
-		getCmsRoute: async (...args) => {
-			console.log(args)
+import { Resolvers } from '../../../../graphql'
+import Query from './Query'
 
-			return {
-				id: 1,
-			}
-		}
-	},
+const resolvers: Resolvers = {
+	Query,
 }
+
+export default resolvers

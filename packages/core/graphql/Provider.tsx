@@ -27,8 +27,6 @@ const GraphQLProvider: FC = ({ children }) => {
 		value?.length > 0 ? value : undefined
 	))
 
-	console.log(typeDefs, resolvers)
-
 	const client = useMemo(() => (
 		new ApolloClient({
 			cache: new InMemoryCache({

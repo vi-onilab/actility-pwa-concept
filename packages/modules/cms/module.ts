@@ -1,4 +1,4 @@
-import { module, Platform } from '@pwa-concept/core'
+import { module } from '@pwa-concept/core'
 import { PROVIDE_CMS_MODULE_REPLACE } from './tokens'
 import { CmsGetRoute } from './features'
 import { CmsModuleReplaceProvide } from './types'

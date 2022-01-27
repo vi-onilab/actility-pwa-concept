@@ -1,0 +1,15 @@
+schema {
+  query: Query
+}
+
+directive @client on ARGUMENT_DEFINITION | FIELD_DEFINITION | QUERY
+
+type CmsRoute {
+  id: String
+  type: String
+  url: String
+}
+
+type Query {
+  getCmsRoute(url: String): CmsRoute
+}

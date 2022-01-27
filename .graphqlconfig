@@ -1,0 +1,4 @@
+{
+    "name": "Modules GraphQL Schema",
+    "schemaPath": "packages/modules/schema.graphql"
+}

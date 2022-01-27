@@ -1721,19 +1721,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/graphql-modules-preset@npm:^2.3.2":
-  version: 2.3.2
-  resolution: "@graphql-codegen/graphql-modules-preset@npm:2.3.2"
+"@graphql-codegen/near-operation-file-preset@npm:^2.2.3":
+  version: 2.2.3
+  resolution: "@graphql-codegen/near-operation-file-preset@npm:2.2.3"
   dependencies:
+    "@graphql-codegen/add": ^3.1.1
     "@graphql-codegen/plugin-helpers": ^2.3.2
     "@graphql-codegen/visitor-plugin-common": 2.5.2
-    "@graphql-tools/utils": 8.5.5
-    change-case-all: 1.0.14
+    "@graphql-tools/utils": ^8.5.2
     parse-filepath: ^1.0.2
     tslib: ~2.3.0
   peerDependencies:
     graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
-  checksum: 79c1b13d7753b6644b58476041ada936300534693b1d302fffef9e916722c05138850872358b2b364c15d2fc7852755f8c32ba73abd1efdcc2cf0b8a4cfb57b7
+  checksum: 6aa27acb1dbc480f481f657d3a00990dc7216c989145b2269ada24cef786601609597e68be64ee3a74f17ec4debce4f2d5ce9d795cba51b6557f4a58fbfddc62
   languageName: node
   linkType: hard
 
@@ -1763,6 +1763,37 @@ __metadata:
   peerDependencies:
     graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
   checksum: 534725acaa20a2a8d2c0a5880f8e854a26107d434a9358baa22d64d3e68b1fd4bc96141f1ca972cc87b21a26a10c72e0f85027ce86cf3e3610a943b484cd60e1
+  languageName: node
+  linkType: hard
+
+"@graphql-codegen/typescript-operations@npm:^2.2.2":
+  version: 2.2.2
+  resolution: "@graphql-codegen/typescript-operations@npm:2.2.2"
+  dependencies:
+    "@graphql-codegen/plugin-helpers": ^2.3.2
+    "@graphql-codegen/typescript": ^2.4.2
+    "@graphql-codegen/visitor-plugin-common": 2.5.2
+    auto-bind: ~4.0.0
+    tslib: ~2.3.0
+  peerDependencies:
+    graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: 003610c72025905ddbd601d7ed76c69517a4f663448025f4a0540621d6e555bb1b842ddc1b06361b337e603ba3e8f972eb092dd80ed46792c888da8a8bbeeae0
+  languageName: node
+  linkType: hard
+
+"@graphql-codegen/typescript-react-apollo@npm:^3.2.4":
+  version: 3.2.4
+  resolution: "@graphql-codegen/typescript-react-apollo@npm:3.2.4"
+  dependencies:
+    "@graphql-codegen/plugin-helpers": ^2.3.2
+    "@graphql-codegen/visitor-plugin-common": 2.5.2
+    auto-bind: ~4.0.0
+    change-case-all: 1.0.14
+    tslib: ~2.3.0
+  peerDependencies:
+    graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+    graphql-tag: ^2.0.0
+  checksum: 4087338202d9b5530ae9d635977c65e64301374ec5f57d6d00bc339922113f55d90abce2a82355a4fbd67e0f517de0ac681e6024706d6c4236c9e8de2a28913b
   languageName: node
   linkType: hard
 
@@ -2087,17 +2118,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-tools/utils@npm:8.5.5":
-  version: 8.5.5
-  resolution: "@graphql-tools/utils@npm:8.5.5"
-  dependencies:
-    tslib: ~2.3.0
-  peerDependencies:
-    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
-  checksum: e23c78ba268d1e56546b96c7bd0e4df36cbeac4941c6e1547d6e59f0b8d5312e937f788efd03a5ab21701ac348d2f567cb92acac27171ddf77c57de483fa5902
-  languageName: node
-  linkType: hard
-
 "@graphql-tools/utils@npm:8.6.1, @graphql-tools/utils@npm:^8.1.1, @graphql-tools/utils@npm:^8.3.0, @graphql-tools/utils@npm:^8.5.1, @graphql-tools/utils@npm:^8.5.2, @graphql-tools/utils@npm:^8.5.3, @graphql-tools/utils@npm:^8.5.4, @graphql-tools/utils@npm:^8.6.0":
   version: 8.6.1
   resolution: "@graphql-tools/utils@npm:8.6.1"
@@ -2359,8 +2379,11 @@ __metadata:
   resolution: "@pwa-concept/modules@workspace:packages/modules"
   dependencies:
     "@graphql-codegen/add": ^3.1.1
-    "@graphql-codegen/graphql-modules-preset": ^2.3.2
+    "@graphql-codegen/near-operation-file-preset": ^2.2.3
+    "@graphql-codegen/schema-ast": ^2.4.1
     "@graphql-codegen/typescript": ^2.4.2
+    "@graphql-codegen/typescript-operations": ^2.2.2
+    "@graphql-codegen/typescript-react-apollo": ^3.2.4
     "@graphql-codegen/typescript-resolvers": ^2.4.3
   languageName: unknown
   linkType: soft

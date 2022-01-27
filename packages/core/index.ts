@@ -1,9 +1,12 @@
 export * from './graphql'
 export * from './hooks'
 export * from './provide'
+export * from './router'
 export * from './types'
 export * from './utils'
 
 export { default as bootstrap } from './bootstrap'
+export { default as feature } from './feature'
 export { default as module } from './module'
+export { default as Platform } from './platform'
 export { default as render } from './render'

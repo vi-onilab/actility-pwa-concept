@@ -1,0 +1,9 @@
+extend type Query {
+    getCmsRoute(url: String): CmsRoute
+}
+
+type CmsRoute {
+    id: String
+    type: String
+    url: String
+}

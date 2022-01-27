@@ -1,0 +1,43 @@
+definitions:
+    copyright: &top-comment
+        content: >
+            /**
+             * NOTE: THIS IS AN AUTO-GENERATED FILE. DO NOT MODIFY IT DIRECTLY.
+             * USE `yarn build:schema-types` or `yarn build`.
+             */
+            
+            /* eslint-disable */
+            
+            /* tslint:disable */
+            
+            /* @ts-nocheck */
+
+schema:
+    - "directive @client on FIELD_DEFINITION | ARGUMENT_DEFINITION | QUERY"
+    - "**/schema.{graphql,gql,graphqls}"
+    - "**/schemas.{graphql,gql,graphqls}"
+    - "**/schemas/*.{graphql,gql,graphqls}"
+documents:
+    - "**/{fragments,mutations,queries}/*.{graphql,gql}"
+generates:
+    ./schema.graphql:
+        plugins:
+            - schema-ast
+        config:
+            includeDirectives: true
+    ./graphql.ts:
+        plugins:
+            - add: *top-comment
+            - typescript
+            - typescript-resolvers
+    ./:
+        preset: near-operation-file
+        presetConfig:
+            extension: .tsx
+            baseTypesPath: ./graphql.ts
+        config:
+            withHooks: true
+        plugins:
+            - add: *top-comment
+            - typescript-operations
+            - typescript-react-apollo

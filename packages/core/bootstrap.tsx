@@ -10,10 +10,10 @@ interface CreateFnOptions {
 }
 
 interface CreateFn {
-	(module: Module, options?: CreateFnOptions): Promise<void>
+	(module: Partial<Module>, options?: CreateFnOptions): Promise<void>
 }
 
-const create: CreateFn = async (module: Module, options = {}) => {
+const create: CreateFn = async (module, options = {}) => {
 	const { root = document.getElementById('app') } = options
 
 	if (module?.entry && root) {

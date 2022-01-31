@@ -8,7 +8,7 @@ const useCms = ({ id = null }: { id: string }) => {
 		variables: {
 			url: pathname,
 		},
-		skip: !id,
+		skip: !!id,
 	})
 	const pageId = id || cmsRoute?.id
 

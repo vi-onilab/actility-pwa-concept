@@ -9,9 +9,10 @@
         "url": "git+ssh://git@bitbucket.org/onilab/pwa-concept.git"
     },
     "scripts": {
-        "start": "node ../../node_modules/.bin/tsc --watch",
-        "build": "node ../../node_modules/.bin/tsc && build:schema-types",
-        "build:schema-types": "graphql-codegen --config codegen.yml"
+        "start": "yarn build:schema-types --watch & yarn build:types --watch",
+        "build": "yarn build:types && yarn build:schema-types",
+        "build:types": "node ../../node_modules/.bin/tsc",
+        "build:schema-types": "node ../../node_modules/.bin/graphql-codegen --config codegen.yml"
     },
     "main": ".",
     "module": ".",
@@ -25,6 +26,7 @@
     },
     "dependencies": {
         "@graphql-codegen/add": "^3.1.1",
+        "@graphql-codegen/cli": "^2.4.0",
         "@graphql-codegen/near-operation-file-preset": "^2.2.3",
         "@graphql-codegen/schema-ast": "^2.4.1",
         "@graphql-codegen/typescript": "^2.4.2",

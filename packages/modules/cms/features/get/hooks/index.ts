@@ -1,1 +1,1 @@
-export { default as useCmsGetRoute } from './useCmsGetRoute'
+export { default as useCmsRoute } from './useCmsRoute'

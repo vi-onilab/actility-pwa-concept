@@ -2,7 +2,7 @@ import api from '@pwa-concept/core/api'
 import { gql } from 'graphql-tag'
 import { QueryResolvers } from '../../../../../graphql'
 
-const getCmsRoute: QueryResolvers['getCmsRoute'] = async (_, { url }) => {
+const cmsRoute: QueryResolvers['cmsRoute'] = async (_, { url }) => {
 	const { data: { urlResolver: data = {} } = {} } = await (
 		api.graphql(
 			gql`
@@ -24,4 +24,4 @@ const getCmsRoute: QueryResolvers['getCmsRoute'] = async (_, { url }) => {
 	}
 }
 
-export default getCmsRoute
+export default cmsRoute

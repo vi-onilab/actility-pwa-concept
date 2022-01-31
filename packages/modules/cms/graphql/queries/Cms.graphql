@@ -1,0 +1,5 @@
+query Cms($id: String) {
+    cms(id: $id) @client {
+        id
+    }
+}

@@ -23,6 +23,16 @@ export type Scalars = {
   Float: number;
 };
 
+export type Cms = {
+  __typename?: 'Cms';
+  content?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['String']>;
+  metaDescription?: Maybe<Scalars['String']>;
+  metaKeywords?: Maybe<Scalars['String']>;
+  metaTitle?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+};
+
 export type CmsRoute = {
   __typename?: 'CmsRoute';
   id?: Maybe<Scalars['String']>;
@@ -32,11 +42,17 @@ export type CmsRoute = {
 
 export type Query = {
   __typename?: 'Query';
-  getCmsRoute?: Maybe<CmsRoute>;
+  cms?: Maybe<Cms>;
+  cmsRoute?: Maybe<CmsRoute>;
 };
 
 
-export type QueryGetCmsRouteArgs = {
+export type QueryCmsArgs = {
+  id?: InputMaybe<Scalars['String']>;
+};
+
+
+export type QueryCmsRouteArgs = {
   url?: InputMaybe<Scalars['String']>;
 };
 
@@ -110,6 +126,7 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
+  Cms: ResolverTypeWrapper<Cms>;
   CmsRoute: ResolverTypeWrapper<CmsRoute>;
   Query: ResolverTypeWrapper<{}>;
   String: ResolverTypeWrapper<Scalars['String']>;
@@ -118,6 +135,7 @@ export type ResolversTypes = {
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = {
   Boolean: Scalars['Boolean'];
+  Cms: Cms;
   CmsRoute: CmsRoute;
   Query: {};
   String: Scalars['String'];
@@ -127,6 +145,16 @@ export type ClientDirectiveArgs = { };
 
 export type ClientDirectiveResolver<Result, Parent, ContextType = any, Args = ClientDirectiveArgs> = DirectiveResolverFn<Result, Parent, ContextType, Args>;
 
+export type CmsResolvers<ContextType = any, ParentType extends ResolversParentTypes['Cms'] = ResolversParentTypes['Cms']> = {
+  content?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  metaDescription?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  metaKeywords?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  metaTitle?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  title?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
 export type CmsRouteResolvers<ContextType = any, ParentType extends ResolversParentTypes['CmsRoute'] = ResolversParentTypes['CmsRoute']> = {
   id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   type?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
@@ -135,10 +163,12 @@ export type CmsRouteResolvers<ContextType = any, ParentType extends ResolversPar
 };
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
-  getCmsRoute?: Resolver<Maybe<ResolversTypes['CmsRoute']>, ParentType, ContextType, RequireFields<QueryGetCmsRouteArgs, never>>;
+  cms?: Resolver<Maybe<ResolversTypes['Cms']>, ParentType, ContextType, RequireFields<QueryCmsArgs, never>>;
+  cmsRoute?: Resolver<Maybe<ResolversTypes['CmsRoute']>, ParentType, ContextType, RequireFields<QueryCmsRouteArgs, never>>;
 };
 
 export type Resolvers<ContextType = any> = {
+  Cms?: CmsResolvers<ContextType>;
   CmsRoute?: CmsRouteResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
 };

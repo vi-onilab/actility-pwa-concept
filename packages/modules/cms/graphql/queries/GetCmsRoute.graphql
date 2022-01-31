@@ -1,7 +1,0 @@
-query GetCmsRoute($url: String) {
-    getCmsRoute(url: $url) @client {
-        id
-        type
-        url
-    }
-}

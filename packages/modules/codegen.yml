@@ -19,6 +19,7 @@ schema:
     - "**/schemas/*.{graphql,gql,graphqls}"
 documents:
     - "**/{fragments,mutations,queries}/*.{graphql,gql}"
+overwrite: true
 generates:
     ./schema.graphql:
         plugins:

@@ -1,0 +1,5 @@
+mutation RenewAccessToken($code: String, $email: String) {
+    renewAccessToken(code: $code, email: $email) @client {
+        token
+    }
+}

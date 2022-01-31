@@ -1,0 +1,7 @@
+mutation CreateCustomer($input: CustomerCreateInput) {
+    createCustomer(input: $input) @client {
+        firstName
+        lastName
+        email
+    }
+}

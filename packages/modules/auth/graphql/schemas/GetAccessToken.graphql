@@ -1,0 +1,7 @@
+extend type Mutation {
+    getAccessToken(email: String, password: String): GetAccessToken
+}
+
+type GetAccessToken {
+    accessToken: String
+}

@@ -1,0 +1,16 @@
+extend type Mutation {
+    createCustomer(input: CustomerCreateInput): CreateCustomerOutput
+}
+
+input CustomerCreateInput {
+    email: String
+    firstName: String
+    lastName: String
+    password: String
+}
+
+type CreateCustomerOutput {
+    firstName: String
+    lastName: String
+    email: String
+}

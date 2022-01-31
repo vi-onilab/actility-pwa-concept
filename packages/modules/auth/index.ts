@@ -1,3 +1,3 @@
-export default function Auth() {
-	console.log('Auth')
-}
+export * from './features'
+
+export { default as AuthModule } from './module'

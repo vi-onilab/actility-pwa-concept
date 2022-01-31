@@ -40,6 +40,55 @@ export type CmsRoute = {
   url?: Maybe<Scalars['String']>;
 };
 
+export type CreateCustomerOutput = {
+  __typename?: 'CreateCustomerOutput';
+  email?: Maybe<Scalars['String']>;
+  firstName?: Maybe<Scalars['String']>;
+  lastName?: Maybe<Scalars['String']>;
+};
+
+export type CustomerCreateInput = {
+  email?: InputMaybe<Scalars['String']>;
+  firstName?: InputMaybe<Scalars['String']>;
+  lastName?: InputMaybe<Scalars['String']>;
+  password?: InputMaybe<Scalars['String']>;
+};
+
+export type GetAccessToken = {
+  __typename?: 'GetAccessToken';
+  accessToken?: Maybe<Scalars['String']>;
+};
+
+export type Mutation = {
+  __typename?: 'Mutation';
+  createCustomer?: Maybe<CreateCustomerOutput>;
+  getAccessToken?: Maybe<GetAccessToken>;
+  recoverByEmail?: Maybe<Scalars['String']>;
+  renewAccessToken?: Maybe<RenewAccessToken>;
+};
+
+
+export type MutationCreateCustomerArgs = {
+  input?: InputMaybe<CustomerCreateInput>;
+};
+
+
+export type MutationGetAccessTokenArgs = {
+  email?: InputMaybe<Scalars['String']>;
+  password?: InputMaybe<Scalars['String']>;
+};
+
+
+export type MutationRecoverByEmailArgs = {
+  email?: InputMaybe<Scalars['String']>;
+};
+
+
+export type MutationRenewAccessTokenArgs = {
+  code?: InputMaybe<Scalars['String']>;
+  email?: InputMaybe<Scalars['String']>;
+};
+
 export type Query = {
   __typename?: 'Query';
   cms?: Maybe<Cms>;
@@ -54,6 +103,11 @@ export type QueryCmsArgs = {
 
 export type QueryCmsRouteArgs = {
   url?: InputMaybe<Scalars['String']>;
+};
+
+export type RenewAccessToken = {
+  __typename?: 'RenewAccessToken';
+  token?: Maybe<Scalars['String']>;
 };
 
 
@@ -128,7 +182,12 @@ export type ResolversTypes = {
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
   Cms: ResolverTypeWrapper<Cms>;
   CmsRoute: ResolverTypeWrapper<CmsRoute>;
+  CreateCustomerOutput: ResolverTypeWrapper<CreateCustomerOutput>;
+  CustomerCreateInput: CustomerCreateInput;
+  GetAccessToken: ResolverTypeWrapper<GetAccessToken>;
+  Mutation: ResolverTypeWrapper<{}>;
   Query: ResolverTypeWrapper<{}>;
+  RenewAccessToken: ResolverTypeWrapper<RenewAccessToken>;
   String: ResolverTypeWrapper<Scalars['String']>;
 };
 
@@ -137,7 +196,12 @@ export type ResolversParentTypes = {
   Boolean: Scalars['Boolean'];
   Cms: Cms;
   CmsRoute: CmsRoute;
+  CreateCustomerOutput: CreateCustomerOutput;
+  CustomerCreateInput: CustomerCreateInput;
+  GetAccessToken: GetAccessToken;
+  Mutation: {};
   Query: {};
+  RenewAccessToken: RenewAccessToken;
   String: Scalars['String'];
 };
 
@@ -162,15 +226,43 @@ export type CmsRouteResolvers<ContextType = any, ParentType extends ResolversPar
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
+export type CreateCustomerOutputResolvers<ContextType = any, ParentType extends ResolversParentTypes['CreateCustomerOutput'] = ResolversParentTypes['CreateCustomerOutput']> = {
+  email?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  firstName?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  lastName?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type GetAccessTokenResolvers<ContextType = any, ParentType extends ResolversParentTypes['GetAccessToken'] = ResolversParentTypes['GetAccessToken']> = {
+  accessToken?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
+  createCustomer?: Resolver<Maybe<ResolversTypes['CreateCustomerOutput']>, ParentType, ContextType, RequireFields<MutationCreateCustomerArgs, never>>;
+  getAccessToken?: Resolver<Maybe<ResolversTypes['GetAccessToken']>, ParentType, ContextType, RequireFields<MutationGetAccessTokenArgs, never>>;
+  recoverByEmail?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType, RequireFields<MutationRecoverByEmailArgs, never>>;
+  renewAccessToken?: Resolver<Maybe<ResolversTypes['RenewAccessToken']>, ParentType, ContextType, RequireFields<MutationRenewAccessTokenArgs, never>>;
+};
+
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
   cms?: Resolver<Maybe<ResolversTypes['Cms']>, ParentType, ContextType, RequireFields<QueryCmsArgs, never>>;
   cmsRoute?: Resolver<Maybe<ResolversTypes['CmsRoute']>, ParentType, ContextType, RequireFields<QueryCmsRouteArgs, never>>;
 };
 
+export type RenewAccessTokenResolvers<ContextType = any, ParentType extends ResolversParentTypes['RenewAccessToken'] = ResolversParentTypes['RenewAccessToken']> = {
+  token?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
 export type Resolvers<ContextType = any> = {
   Cms?: CmsResolvers<ContextType>;
   CmsRoute?: CmsRouteResolvers<ContextType>;
+  CreateCustomerOutput?: CreateCustomerOutputResolvers<ContextType>;
+  GetAccessToken?: GetAccessTokenResolvers<ContextType>;
+  Mutation?: MutationResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
+  RenewAccessToken?: RenewAccessTokenResolvers<ContextType>;
 };
 
 export type DirectiveResolvers<ContextType = any> = {

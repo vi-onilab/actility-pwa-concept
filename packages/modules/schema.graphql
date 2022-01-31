@@ -1,5 +1,6 @@
 schema {
   query: Query
+  mutation: Mutation
 }
 
 directive @client on ARGUMENT_DEFINITION | FIELD_DEFINITION | QUERY
@@ -19,7 +20,35 @@ type CmsRoute {
   url: String
 }
 
+type CreateCustomerOutput {
+  email: String
+  firstName: String
+  lastName: String
+}
+
+input CustomerCreateInput {
+  email: String
+  firstName: String
+  lastName: String
+  password: String
+}
+
+type GetAccessToken {
+  accessToken: String
+}
+
+type Mutation {
+  createCustomer(input: CustomerCreateInput): CreateCustomerOutput
+  getAccessToken(email: String, password: String): GetAccessToken
+  recoverByEmail(email: String): String
+  renewAccessToken(code: String, email: String): RenewAccessToken
+}
+
 type Query {
   cms(id: String): Cms
   cmsRoute(url: String): CmsRoute
+}
+
+type RenewAccessToken {
+  token: String
 }

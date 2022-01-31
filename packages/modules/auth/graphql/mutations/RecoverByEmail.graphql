@@ -1,0 +1,3 @@
+mutation RecoverByEmail($email: String) {
+    recoverByEmail(email: $email) @client
+}

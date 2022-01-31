@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+        "baseUrl": ".",
         "target": "es6",
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
@@ -13,8 +14,18 @@
         "moduleResolution": "node",
         "allowSyntheticDefaultImports": true,
         "emitDeclarationOnly": true,
-        "typeRoots": ["./node_modules/@pwa-concept/typescript-config/global.d.ts", "./node_modules/@types" ]
+        "typeRoots": ["packages/typescript-config/global.d.ts", "./node_modules/@types"],
+        "paths": {
+            "~core/*": ["./packages/core/*"],
+            "~core": ["./packages/core/index"],
+            "~modules/*": ["./packages/modules/*"],
+            "~modules": ["./packages/modules/index"],
+            "~ui/*": ["./packages/ui/*"],
+            "~ui": ["./packages/ui/index"]
+        }
     },
+    "files": ["packages/typescript-config/global.d.ts"],
     "compileOnSave": false,
-    "buildOnSave": false
+    "buildOnSave": false,
+    "include": ["packages/**/*"]
 }

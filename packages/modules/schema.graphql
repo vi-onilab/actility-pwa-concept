@@ -4,6 +4,15 @@ schema {
 
 directive @client on ARGUMENT_DEFINITION | FIELD_DEFINITION | QUERY
 
+type Cms {
+  content: String
+  id: String
+  metaDescription: String
+  metaKeywords: String
+  metaTitle: String
+  title: String
+}
+
 type CmsRoute {
   id: String
   type: String
@@ -11,5 +20,6 @@ type CmsRoute {
 }
 
 type Query {
-  getCmsRoute(url: String): CmsRoute
+  cms(id: String): Cms
+  cmsRoute(url: String): CmsRoute
 }

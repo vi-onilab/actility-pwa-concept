@@ -1,0 +1,14 @@
+extend type Query {
+    cms(id: String): Cms
+}
+
+type Cms {
+    id: String
+    title: String
+    content: String
+
+    # Meta
+    metaDescription: String
+    metaKeywords: String
+    metaTitle: String
+}

@@ -2,11 +2,6 @@ const { join } = require('path')
 const { existsSync } = require('fs')
 const aliasPipe = require('./utils/aliasPipe')
 
-const CONFIGS = [
-	'tsconfig.json',
-	'jsconfig.json',
-]
-
 module.exports = ({ root }) => {
 	const result = {
 		alias: {
@@ -18,15 +13,22 @@ module.exports = ({ root }) => {
 		extensions: ['.tsx', '.ts', '.js', '.jsx'],
 	}
 
-	CONFIGS.forEach((name) => {
-		const configPath = join(root, name)
+	const configs = [
+		[root, 'tsconfig.json'],
+		[root, 'jsconfig.json'],
+		[__dirname.split('packages')[0], 'tsconfig.json'],
+	]
+
+
+	configs.forEach(([rootPath, name]) => {
+		const configPath = join(rootPath, name)
 
 		if (existsSync(configPath)) {
 			const config = require(configPath)
 
 			result.alias = {
 				...result.alias,
-				...aliasPipe(config, { root, name }),
+				...aliasPipe(config, { root: rootPath, name }),
 			}
 		}
 	})

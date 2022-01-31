@@ -1,8 +1,10 @@
-import getCmsRoute from './getCmsRoute'
-import { QueryResolvers } from '../../../../../graphql'
+import cms from './cms'
+import cmsRoute from './cmsRoute'
+import { QueryResolvers } from '~modules/graphql'
 
 const Query: QueryResolvers = {
-	getCmsRoute,
+	cms,
+	cmsRoute,
 }
 
 export default Query

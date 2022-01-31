@@ -84,16 +84,19 @@ declare module '*.module.sass' {
 }
 
 declare module '*.gql' {
-	const content: any
-	export default content
+	import { DocumentNode } from 'graphql'
+	const Schema: DocumentNode
+	export default Schema
 }
 
 declare module '*.graphql' {
-	const content: any
-	export default content
+	import { DocumentNode } from 'graphql'
+	const Schema: DocumentNode
+	export default Schema
 }
 
 declare module '*.graphqls' {
-	const content: any
-	export default content
+	import { DocumentNode } from 'graphql'
+	const Schema: DocumentNode
+	export default Schema
 }

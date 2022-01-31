@@ -17,13 +17,18 @@ export type CmsQueryVariables = Types.Exact<{
 }>;
 
 
-export type CmsQuery = { __typename?: 'Query', cms?: { __typename?: 'Cms', id?: string | null | undefined } | null | undefined };
+export type CmsQuery = { __typename?: 'Query', cms?: { __typename?: 'Cms', id?: string | null | undefined, title?: string | null | undefined, content?: string | null | undefined, metaTitle?: string | null | undefined, metaKeywords?: string | null | undefined, metaDescription?: string | null | undefined } | null | undefined };
 
 
 export const CmsDocument = gql`
     query Cms($id: String) {
   cms(id: $id) @client {
     id
+    title
+    content
+    metaTitle
+    metaKeywords
+    metaDescription
   }
 }
     `;

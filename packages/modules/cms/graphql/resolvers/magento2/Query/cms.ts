@@ -3,7 +3,7 @@ import { gql } from 'graphql-tag'
 import { QueryResolvers } from '~modules/graphql'
 
 const cms: QueryResolvers['cms'] = async (_, { id }) => {
-	const { data: { urlResolver: data = {} } = {} } = await (
+	const { data: { cmsPage: data = {} } = {} } = await (
 		api.graphql(
 			gql`
 				query($id: String) {
@@ -27,6 +27,7 @@ const cms: QueryResolvers['cms'] = async (_, { id }) => {
 		metaTitle: data?.meta_title,
 		metaKeywords: data?.meta_keywords,
 		metaDescription: data?.meta_description,
+		__typename: 'Cms',
 	}
 }
 

@@ -1,5 +1,10 @@
 query Cms($id: String) {
     cms(id: $id) @client {
         id
+        title
+        content
+        metaTitle
+        metaKeywords
+        metaDescription
     }
 }

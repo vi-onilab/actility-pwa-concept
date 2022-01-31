@@ -3,17 +3,17 @@ import { gql } from 'graphql-tag'
 import { MutationResolvers } from '~modules/graphql'
 
 const recoverByEmail: MutationResolvers['recoverByEmail'] = async (_, { email }) => {
-	await (
-		api.graphql(
-			gql`
-				mutation($email: String) {
-					requestPasswordResetEmail(email: $email)
-				}
-			`,
-		).mutation({ email })
-	)
+    await (
+        api.graphql(
+            gql`
+                mutation($email: String) {
+                    requestPasswordResetEmail(email: $email)
+                }
+            `,
+        ).mutation({ email })
+    )
 
-	return null
+    return null
 }
 
 export default recoverByEmail

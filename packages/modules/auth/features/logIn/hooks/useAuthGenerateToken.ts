@@ -1,7 +1,7 @@
 import { useGetAccessTokenMutation } from '~modules/auth/graphql/mutations/GetAccessToken'
 
 const useAuthGenerateToken = () => {
-	const [logIn, { loading }] = useGetAccessTokenMutation()
+    const [logIn, { loading }] = useGetAccessTokenMutation()
 
     return {
         logIn,

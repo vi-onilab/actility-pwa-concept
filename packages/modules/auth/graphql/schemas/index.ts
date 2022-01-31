@@ -4,7 +4,7 @@ import RecoverByEmail from './RecoverByEmail.graphql'
 import CreateCustomer from './CreateCustomer.graphql'
 
 export default [
-	GetAccessToken,
+    GetAccessToken,
     RenewAccessToken,
     RecoverByEmail,
     CreateCustomer

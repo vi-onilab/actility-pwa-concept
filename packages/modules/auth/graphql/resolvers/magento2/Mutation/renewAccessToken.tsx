@@ -3,20 +3,20 @@ import { gql } from 'graphql-tag'
 import { MutationResolvers } from '~modules/graphql'
 
 const renewAccessToken: MutationResolvers['renewAccessToken'] = async (_, { email, code }) => {
-	const { data: { token = '' } } = await (
-		api.graphql(
-			gql`
-				mutation($email: String, $code: String) {
-					verifyOneTimePasswordAuth(email: $email, code: $code) {
+    const { data: { token = '' } } = await (
+        api.graphql(
+            gql`
+                mutation($email: String, $code: String) {
+                    verifyOneTimePasswordAuth(email: $email, code: $code) {
                         attempts_left
                         token
                     }
-				}
-			`,
-		).mutation({ email, code })
-	)
+                }
+            `,
+        ).mutation({ email, code })
+    )
 
-	return {
+    return {
         token,
     }
 }

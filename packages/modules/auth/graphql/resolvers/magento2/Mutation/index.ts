@@ -5,10 +5,10 @@ import renewAccessToken from './renewAccessToken'
 import { MutationResolvers } from '~modules/graphql'
 
 const Mutation: MutationResolvers = {
-	createCustomer,
-	getAccessToken,
-	recoverByEmail,
-	renewAccessToken
+    createCustomer,
+    getAccessToken,
+    recoverByEmail,
+    renewAccessToken
 }
 
 export default Mutation

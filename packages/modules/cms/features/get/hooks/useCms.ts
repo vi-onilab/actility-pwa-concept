@@ -10,7 +10,7 @@ const useCms = ({ id = null }: { id: string }) => {
 		},
 		skip: !!id,
 	})
-	const pageId = id || cmsRoute?.id
+	const pageId = id || cmsRoute?.url
 
 	const { data: { cms = null } = {}, loading: pageLoading } = useCmsQuery({
 		variables: {

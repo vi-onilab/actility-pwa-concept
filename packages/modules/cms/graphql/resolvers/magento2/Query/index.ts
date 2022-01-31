@@ -1,7 +1,9 @@
+import cms from './cms'
 import cmsRoute from './cmsRoute'
-import { QueryResolvers } from '../../../../../graphql'
+import { QueryResolvers } from '~modules/graphql'
 
 const Query: QueryResolvers = {
+	cms,
 	cmsRoute,
 }
 

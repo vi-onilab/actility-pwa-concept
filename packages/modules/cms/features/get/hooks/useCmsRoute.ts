@@ -3,14 +3,14 @@ import { useCmsRouteQuery } from '~modules/cms/graphql/queries/CmsRoute'
 
 const useCmsRoute = () => {
 	const { pathname } = useLocation()
-	const { data: { cmsRoute: data } = {}, loading } = useCmsRouteQuery({
+	const { data, loading } = useCmsRouteQuery({
 		variables: {
 			url: pathname,
 		},
 	})
 
 	return {
-		data,
+		data: data?.cmsRoute,
 		loading,
 	}
 }

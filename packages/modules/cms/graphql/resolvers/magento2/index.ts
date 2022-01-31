@@ -1,4 +1,4 @@
-import { Resolvers } from '../../../../graphql'
+import { Resolvers } from '~modules/graphql'
 import Query from './Query'
 
 const resolvers: Resolvers = {

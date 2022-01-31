@@ -1,6 +1,6 @@
 import { FC, Suspense } from 'react'
 import { useProvide } from '@pwa-concept/core'
-import { PROVIDE_CMS_MODULE_REPLACE } from '../../../../tokens'
+import { PROVIDE_CMS_MODULE_REPLACE } from '~modules/cms'
 import { CmsModuleReplaceProvide } from '../../../../types'
 import { useCmsRoute } from '../../hooks'
 

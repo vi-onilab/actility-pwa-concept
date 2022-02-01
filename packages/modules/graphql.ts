@@ -27,7 +27,6 @@ export type Cms = {
   __typename?: 'Cms';
   content?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['String']>;
-  kek?: Maybe<Scalars['String']>;
   metaDescription?: Maybe<Scalars['String']>;
   metaKeywords?: Maybe<Scalars['String']>;
   metaTitle?: Maybe<Scalars['String']>;
@@ -149,7 +148,6 @@ export type ClientDirectiveResolver<Result, Parent, ContextType = any, Args = Cl
 export type CmsResolvers<ContextType = any, ParentType extends ResolversParentTypes['Cms'] = ResolversParentTypes['Cms']> = {
   content?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  kek?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   metaDescription?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   metaKeywords?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   metaTitle?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;

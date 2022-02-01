@@ -2354,6 +2354,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@pwa-concept/editor-config@workspace:packages/editor-config":
+  version: 0.0.0-use.local
+  resolution: "@pwa-concept/editor-config@workspace:packages/editor-config"
+  languageName: unknown
+  linkType: soft
+
 "@pwa-concept/eslint-config@workspace:packages/eslint-config":
   version: 0.0.0-use.local
   resolution: "@pwa-concept/eslint-config@workspace:packages/eslint-config"

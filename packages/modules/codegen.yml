@@ -1,3 +1,5 @@
+overwrite: true
+
 definitions:
     copyright: &top-comment
         content: >
@@ -11,26 +13,39 @@ definitions:
             /* tslint:disable */
             
             /* @ts-nocheck */
+    copyright_gql: &top-comment-gql
+        content: >
+            # NOTE: THIS IS AN AUTO-GENERATED FILE. DO NOT MODIFY IT DIRECTLY.
+            
+            # USE `yarn build:schema-types` or `yarn build`.
+            
 
 schema:
     - "directive @client on FIELD_DEFINITION | ARGUMENT_DEFINITION | QUERY"
     - "**/schema.{graphql,gql,graphqls}"
     - "**/schemas.{graphql,gql,graphqls}"
     - "**/schemas/*.{graphql,gql,graphqls}"
+    - "!./schema.graphql"
+
 documents:
     - "**/{fragments,mutations,queries}/*.{graphql,gql}"
-overwrite: false
+    - "!./schema.graphql"
+
 generates:
     ./schema.graphql:
         plugins:
+            - add: *top-comment-gql
             - schema-ast
         config:
             includeDirectives: true
+            federation: true
+
     ./graphql.ts:
         plugins:
             - add: *top-comment
             - typescript
             - typescript-resolvers
+
     ./:
         preset: near-operation-file
         presetConfig:

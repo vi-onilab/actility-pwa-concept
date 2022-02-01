@@ -34,6 +34,9 @@
         "react-router-dom": "^6.2.1"
     },
     "eslintConfig": {
-        "extends": "@pwa-concept/eslint-config"
+        "extends": "@pwa-concept/eslint-config",
+        "parserOptions": {
+            "project": "./tsconfig.json"
+        }
     }
 }

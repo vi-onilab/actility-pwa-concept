@@ -212,7 +212,7 @@ module.exports = {
 
     'promise/param-names': 'error',
 
-    'jsx-quotes': ['error', 'prefer-single'],
+    'jsx-quotes': ['error', 'prefer-double'],
     'react/jsx-boolean-value': 'error',
     'react/jsx-closing-bracket-location': ['error', 'tag-aligned'],
     'react/jsx-closing-tag-location': 'error',

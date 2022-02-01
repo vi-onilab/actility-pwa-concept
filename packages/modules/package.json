@@ -9,7 +9,7 @@
         "url": "git+ssh://git@bitbucket.org/onilab/pwa-concept.git"
     },
     "scripts": {
-        "start": "yarn build:schema-types --watch & yarn build:types --watch",
+        "start": "node ../../node_modules/.bin/npm-run-all --parallel \"build:** -- --watch\"",
         "build": "yarn build:types && yarn build:schema-types",
         "build:types": "node ../../node_modules/.bin/tsc",
         "build:schema-types": "node ../../node_modules/.bin/graphql-codegen --config codegen.yml"
@@ -24,7 +24,7 @@
     "eslintConfig": {
         "extends": "@pwa-concept/eslint-config",
         "parserOptions": {
-            "project": "../../tsconfig.json"
+            "project": "./tsconfig.json"
         }
     },
     "dependencies": {

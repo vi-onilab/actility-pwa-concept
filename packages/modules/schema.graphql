@@ -1,0 +1,38 @@
+# NOTE: THIS IS AN AUTO-GENERATED FILE. DO NOT MODIFY IT DIRECTLY.
+# USE `yarn build:schema-types` or `yarn build`.
+
+schema {
+  query: Query
+}
+
+directive @external on FIELD_DEFINITION
+
+directive @requires(fields: _FieldSet!) on FIELD_DEFINITION
+
+directive @provides(fields: _FieldSet!) on FIELD_DEFINITION
+
+directive @key(fields: _FieldSet!) on OBJECT | INTERFACE
+
+directive @client on ARGUMENT_DEFINITION | FIELD_DEFINITION | QUERY
+
+scalar _FieldSet
+
+type Cms {
+  content: String
+  id: String
+  metaDescription: String
+  metaKeywords: String
+  metaTitle: String
+  title: String
+}
+
+type CmsRoute {
+  id: String
+  type: String
+  url: String
+}
+
+type Query {
+  cms(id: String): Cms
+  cmsRoute(url: String): CmsRoute
+}

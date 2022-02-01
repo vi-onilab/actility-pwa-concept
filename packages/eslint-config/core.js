@@ -1,3 +1,3 @@
 module.exports = {
-	extends: [require.resolve('./lib/common')]
-};
+    extends: [require.resolve('./lib')]
+}

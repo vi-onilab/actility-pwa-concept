@@ -9,8 +9,10 @@
         "url": "git+ssh://git@bitbucket.org/onilab/pwa-concept.git"
     },
     "scripts": {
-        "start": "node ../../node_modules/.bin/tsc --watch",
-        "build": "node ../../node_modules/.bin/tsc"
+        "start": "yarn build:schema-types --watch & yarn build:types --watch",
+        "build": "yarn build:types && yarn build:schema-types",
+        "build:types": "node ../../node_modules/.bin/tsc",
+        "build:schema-types": "node ../../node_modules/.bin/graphql-codegen --config codegen.yml"
     },
     "main": ".",
     "module": ".",
@@ -20,6 +22,19 @@
         "url": "https://bitbucket.org/onilab/pwa-concept/issues"
     },
     "eslintConfig": {
-        "extends": "@pwa-concept/eslint-config"
+        "extends": "@pwa-concept/eslint-config",
+        "parserOptions": {
+            "project": "../../tsconfig.json"
+        }
+    },
+    "dependencies": {
+        "@graphql-codegen/add": "^3.1.1",
+        "@graphql-codegen/cli": "^2.4.0",
+        "@graphql-codegen/near-operation-file-preset": "^2.2.3",
+        "@graphql-codegen/schema-ast": "^2.4.1",
+        "@graphql-codegen/typescript": "^2.4.2",
+        "@graphql-codegen/typescript-operations": "^2.2.2",
+        "@graphql-codegen/typescript-react-apollo": "^3.2.4",
+        "@graphql-codegen/typescript-resolvers": "^2.4.3"
     }
 }

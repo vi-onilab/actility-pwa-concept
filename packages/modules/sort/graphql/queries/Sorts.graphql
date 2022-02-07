@@ -1,0 +1,9 @@
+query Sorts {
+    sorts @client {
+        default
+        items {
+            id
+            name
+        }
+    }
+}

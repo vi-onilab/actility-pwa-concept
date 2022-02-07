@@ -7,23 +7,27 @@ module.exports = {
     'array-bracket-spacing': ['error', 'never'],
     'array-callback-return': ['error', {
         allowImplicit: false,
-        checkForEach: false
-    }],
+        checkForEach: false,
+    },
+    ],
     'arrow-spacing': ['error', { before: true, after: true }],
     'block-spacing': ['error', 'always'],
     'brace-style': ['error', '1tbs', { allowSingleLine: true }],
     camelcase: ['error', {
         allow: ['^UNSAFE_'],
         properties: 'never',
-        ignoreGlobals: true
+        ignoreGlobals: true,
     }],
-    'comma-dangle': ['error', {
-        arrays: 'never',
-        objects: 'never',
-        imports: 'never',
-        exports: 'never',
-        functions: 'never'
-    }],
+    'comma-dangle': [
+        'error',
+        {
+            arrays: 'always-multiline',
+            objects: 'always-multiline',
+            imports: 'always-multiline',
+            exports: 'always-multiline',
+            functions: 'always-multiline',
+        },
+    ],
     'comma-spacing': ['error', { before: false, after: true }],
     'comma-style': ['error', 'last'],
     'computed-property-spacing': ['error', 'never', { enforceForClassMembers: true }],
@@ -50,7 +54,7 @@ module.exports = {
         flatTernaryExpressions: false,
         ignoreComments: false,
         ignoredNodes: ['TemplateLiteral *', 'JSXElement', 'JSXElement > *', 'JSXAttribute', 'JSXIdentifier', 'JSXNamespacedName', 'JSXMemberExpression', 'JSXSpreadAttribute', 'JSXExpressionContainer', 'JSXOpeningElement', 'JSXClosingElement', 'JSXFragment', 'JSXOpeningFragment', 'JSXClosingFragment', 'JSXText', 'JSXEmptyExpression', 'JSXSpreadChild'],
-        offsetTernaryExpressions: true
+        offsetTernaryExpressions: true,
     }],
     'key-spacing': ['error', { beforeColon: false, afterColon: true }],
     'keyword-spacing': ['error', { before: true, after: true }],
@@ -103,9 +107,9 @@ module.exports = {
         groups: [
             ['==', '!=', '===', '!==', '>', '>=', '<', '<='],
             ['&&', '||'],
-            ['in', 'instanceof']
+            ['in', 'instanceof'],
         ],
-        allowSamePrecedence: true
+        allowSamePrecedence: true,
     }],
     'no-mixed-spaces-and-tabs': 'error',
     'no-multi-spaces': 'error',
@@ -145,13 +149,13 @@ module.exports = {
     'no-unused-expressions': ['error', {
         allowShortCircuit: true,
         allowTernary: true,
-        allowTaggedTemplates: true
+        allowTaggedTemplates: true,
     }],
     'no-unused-vars': ['error', {
         args: 'none',
         caughtErrors: 'none',
         ignoreRestSiblings: true,
-        vars: 'all'
+        vars: 'all',
     }],
     'no-use-before-define': ['error', { functions: false, classes: false, variables: false }],
     'no-useless-call': 'error',
@@ -187,8 +191,8 @@ module.exports = {
         block: {
             balanced: true,
             markers: ['*package', '!', ',', ':', '::', 'flow-include'],
-            exceptions: ['*']
-        }
+            exceptions: ['*'],
+        },
     }],
     'symbol-description': 'error',
     'template-curly-spacing': ['error', 'never'],
@@ -196,7 +200,7 @@ module.exports = {
     'unicode-bom': ['error', 'never'],
     'use-isnan': ['error', {
         enforceForSwitchCase: true,
-        enforceForIndexOf: true
+        enforceForIndexOf: true,
     }],
     'valid-typeof': ['error', { requireStringLiterals: true }],
     'wrap-iife': ['error', 'any', { functionPrototypeMethods: true }],
@@ -218,15 +222,15 @@ module.exports = {
     'react/jsx-closing-tag-location': 'error',
     'react/jsx-curly-brace-presence': ['error', {
         props: 'never',
-        children: 'never'
+        children: 'never',
     }],
     'react/jsx-curly-newline': ['error', {
         multiline: 'consistent',
-        singleline: 'consistent'
+        singleline: 'consistent',
     }],
     'react/jsx-curly-spacing': ['error', {
         attributes: { when: 'never', allowMultiline: true },
-        children: { when: 'never', allowMultiline: true }
+        children: { when: 'never', allowMultiline: true },
     }],
     'react/jsx-equals-spacing': ['error', 'never'],
     'react/jsx-first-prop-new-line': ['error', 'multiline-multiprop'],
@@ -234,11 +238,11 @@ module.exports = {
     'react/jsx-handler-names': 'error',
     'react/jsx-indent': ['error', INDENT, {
         checkAttributes: false,
-        indentLogicalExpressions: true
+        indentLogicalExpressions: true,
     }],
     'react/jsx-indent-props': ['error', INDENT],
     'react/jsx-key': ['error', {
-        checkFragmentShorthand: true
+        checkFragmentShorthand: true,
     }],
     'react/jsx-no-comment-textnodes': 'error',
     'react/jsx-no-duplicate-props': 'error',
@@ -250,7 +254,7 @@ module.exports = {
         closingSlash: 'never',
         beforeSelfClosing: 'always',
         afterOpening: 'never',
-        beforeClosing: 'never'
+        beforeClosing: 'never',
     }],
     'react/jsx-uses-react': 'error',
     'react/jsx-uses-vars': 'error',
@@ -261,7 +265,7 @@ module.exports = {
         arrow: 'ignore',
         condition: 'ignore',
         logical: 'ignore',
-        prop: 'ignore'
+        prop: 'ignore',
     }],
     'react/no-children-prop': 'error',
     'react/no-danger-with-children': 'error',
@@ -270,12 +274,12 @@ module.exports = {
     'react/no-find-dom-node': 'error',
     'react/no-is-mounted': 'error',
     'react/no-string-refs': ['error', {
-        noTemplateLiterals: true
+        noTemplateLiterals: true,
     }],
     'react/no-unescaped-entities': ['error', {
-        forbid: ['>', '}']
+        forbid: ['>', '}'],
     }],
     'react/no-render-return-value': 'error',
     'react/require-render-return': 'error',
-    'react/self-closing-comp': 'error'
+    'react/self-closing-comp': 'error',
 }

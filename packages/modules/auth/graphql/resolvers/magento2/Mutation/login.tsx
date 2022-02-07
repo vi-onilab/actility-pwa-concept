@@ -18,7 +18,6 @@ const login: MutationResolvers['login'] = async (_, { email, password }) => {
 
     if (token) {
         $auth.setToken(token)
-        console.log($auth.getToken())
     }
 
     return {

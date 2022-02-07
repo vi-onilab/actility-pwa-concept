@@ -12,7 +12,8 @@ const useAuthReset = () => {
             },
             ignoreResults: true
         })
-        console.log(res)
+
+       return res
     }
 };
 

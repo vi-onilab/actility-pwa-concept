@@ -39,7 +39,6 @@ const register: MutationResolvers['register'] = async (_, input) => {
 
     if (token) {
         $auth.setToken(token)
-        console.log($auth.getToken())
     }
 
     return null

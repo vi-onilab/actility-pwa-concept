@@ -7,13 +7,14 @@
 /* tslint:disable */
 /* @ts-nocheck */
 
-import * as Types from '../../../graphql';
+import * as Types from '../../../graphql'
 
-import { gql } from '@apollo/client';
-import * as Apollo from '@apollo/client';
-const defaultOptions = {} as const;
+import { gql } from '@apollo/client'
+import * as Apollo from '@apollo/client'
+
+const defaultOptions = {} as const
 export type CmsRouteQueryVariables = Types.Exact<{
-  url?: Types.InputMaybe<Types.Scalars['String']>;
+    url?: Types.InputMaybe<Types.Scalars['String']>;
 }>;
 
 
@@ -22,13 +23,13 @@ export type CmsRouteQuery = { __typename?: 'Query', cmsRoute?: { __typename?: 'C
 
 export const CmsRouteDocument = gql`
     query CmsRoute($url: String) {
-  cmsRoute(url: $url) @client {
-    id
-    type
-    url
-  }
-}
-    `;
+        cmsRoute(url: $url) @client {
+            id
+            type
+            url
+        }
+    }
+`
 
 /**
  * __useCmsRouteQuery__
@@ -47,13 +48,15 @@ export const CmsRouteDocument = gql`
  * });
  */
 export function useCmsRouteQuery(baseOptions?: Apollo.QueryHookOptions<CmsRouteQuery, CmsRouteQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<CmsRouteQuery, CmsRouteQueryVariables>(CmsRouteDocument, options);
-      }
+    const options = { ...defaultOptions, ...baseOptions }
+    return Apollo.useQuery<CmsRouteQuery, CmsRouteQueryVariables>(CmsRouteDocument, options)
+}
+
 export function useCmsRouteLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<CmsRouteQuery, CmsRouteQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<CmsRouteQuery, CmsRouteQueryVariables>(CmsRouteDocument, options);
-        }
+    const options = { ...defaultOptions, ...baseOptions }
+    return Apollo.useLazyQuery<CmsRouteQuery, CmsRouteQueryVariables>(CmsRouteDocument, options)
+}
+
 export type CmsRouteQueryHookResult = ReturnType<typeof useCmsRouteQuery>;
 export type CmsRouteLazyQueryHookResult = ReturnType<typeof useCmsRouteLazyQuery>;
 export type CmsRouteQueryResult = Apollo.QueryResult<CmsRouteQuery, CmsRouteQueryVariables>;

@@ -1,8 +1,8 @@
 import { setContext } from '@apollo/client/link/context'
+import { $auth } from '@pwa-concept/core/models';
 
 const authLink = setContext((_, { headers }) => {
-    // TODO: Сюда засунуть токен при мердже бранчей моделей и аполло
-    const token: string = null
+	const token = $auth.getToken()
 
     return {
         headers: {

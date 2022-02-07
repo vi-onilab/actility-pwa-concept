@@ -5,15 +5,15 @@ const useCategoryImages = ({ id = null, images = null }: Category) => {
     const { data, loading } = useCategoryQuery({
         variables: {
             input: {
-                id
-            }
+                id,
+            },
         },
-        skip: !!images || !id
+        skip: !!images || !id,
     })
 
     return {
         data: images || data?.category?.images,
-        loading: !id || loading
+        loading: !id || loading,
     }
 }
 

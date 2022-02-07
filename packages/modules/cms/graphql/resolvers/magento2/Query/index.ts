@@ -4,7 +4,7 @@ import { QueryResolvers } from '~modules/graphql'
 
 const Query: QueryResolvers = {
     cms,
-    cmsRoute
+    cmsRoute,
 }
 
 export default Query

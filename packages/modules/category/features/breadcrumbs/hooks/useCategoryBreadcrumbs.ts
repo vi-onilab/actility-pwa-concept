@@ -5,15 +5,15 @@ const useCategoryBreadcrumbs = ({ id = null, breadcrumbs = null }: Category) => 
     const { data, loading } = useCategoryQuery({
         variables: {
             input: {
-                id
-            }
+                id,
+            },
         },
-        skip: !!breadcrumbs || !id
+        skip: !!breadcrumbs || !id,
     })
 
     return {
         data: data?.category?.breadcrumbs,
-        loading: !id || loading
+        loading: !id || loading,
     }
 }
 

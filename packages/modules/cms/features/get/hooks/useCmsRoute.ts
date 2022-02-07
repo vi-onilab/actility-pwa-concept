@@ -5,13 +5,13 @@ const useCmsRoute = () => {
     const { pathname } = useLocation()
     const { data, loading } = useCmsRouteQuery({
         variables: {
-            url: pathname
-        }
+            url: pathname,
+        },
     })
 
     return {
         data: data?.cmsRoute,
-        loading
+        loading,
     }
 }
 

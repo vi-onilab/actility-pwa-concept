@@ -15,20 +15,20 @@ const CMSModule = module(() => ({
     routes: [
         {
             path: '*',
-            element: CmsGetRoute
-        }
+            element: CmsGetRoute,
+        },
     ],
-    configure ({ replace = {} }: CMSModuleConfigureOptions) {
+    configure({ replace = {} }: CMSModuleConfigureOptions) {
         return {
             provides: [
                 ...(this.provides || []),
                 {
                     use: PROVIDE_CMS_MODULE_REPLACE,
-                    value: replace
-                }
-            ]
+                    value: replace,
+                },
+            ],
         }
-    }
+    },
 }))
 
 export default CMSModule

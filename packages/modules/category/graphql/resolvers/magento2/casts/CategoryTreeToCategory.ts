@@ -14,14 +14,14 @@ const CategoryTreeToCategory = (category): Category => {
             thumbnail: category?.image_url ? {
                 id: `${categoryId}_thumbnail`,
                 url: category.image_url,
-                __typename: 'CategoryImage'
+                __typename: 'CategoryImage',
             } : null,
             main: (category?.category_widget_thumbnail || category?.image_url) ? {
                 id: `${categoryId}_main`,
                 url: category?.category_widget_thumbnail || category?.image_url,
-                __typename: 'CategoryImage'
+                __typename: 'CategoryImage',
             } : null,
-            __typename: 'CategoryImages'
+            __typename: 'CategoryImages',
         },
         level: category?.level ? Number(category?.level) : 0,
         parent: category?.parent_category ? CategoryTreeToCategory(category.parent_category) : null,
@@ -38,27 +38,27 @@ const CategoryTreeToCategory = (category): Category => {
                             id: `${categoryId}_0`,
                             url: category?.top_banner_mobile,
                             media: '(max-width: 768px)',
-                            __typename: 'CategoryBannerImageSource'
-                        }
+                            __typename: 'CategoryBannerImageSource',
+                        },
                     ],
-                    __typename: 'CategoryBannerImage'
+                    __typename: 'CategoryBannerImage',
                 },
-                __typename: 'CategoryBanner'
-            }
+                __typename: 'CategoryBanner',
+            },
         ],
         breadcrumbs: [
             ...(category?.breadcrumbs || [])?.map?.((breadcrumb) => ({
                 id: !breadcrumb?.category_id ? null : String(breadcrumb?.category_id),
                 name: breadcrumb?.category_name,
-                level: +breadcrumb?.category_level || null
+                level: +breadcrumb?.category_level || null,
             })),
             {
                 id: category?.id,
                 level: 0,
-                name: category?.name
-            }
+                name: category?.name,
+            },
         ],
-        __typename: 'Category'
+        __typename: 'Category',
     }
 }
 

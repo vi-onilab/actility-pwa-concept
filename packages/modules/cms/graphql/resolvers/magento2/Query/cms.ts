@@ -16,7 +16,7 @@ const cms: QueryResolvers['cms'] = async (_, { id }) => {
                         meta_description
                     }
                 }
-            `
+            `,
         ).query({ id })
     )
 
@@ -27,7 +27,7 @@ const cms: QueryResolvers['cms'] = async (_, { id }) => {
         metaTitle: data?.meta_title,
         metaKeywords: data?.meta_keywords,
         metaDescription: data?.meta_description,
-        __typename: 'Cms'
+        __typename: 'Cms',
     }
 }
 

@@ -5,16 +5,16 @@ const useCategoryParent = ({ id = null, parent = null }: Category) => {
     const { data, loading } = useCategoryQuery({
         variables: {
             input: {
-                id
-            }
+                id,
+            },
         },
         returnPartialData: true,
-        skip: !!parent || !id
+        skip: !!parent || !id,
     })
 
     return {
         data: parent || data?.category?.parent,
-        loading: !id || loading
+        loading: !id || loading,
     }
 }
 

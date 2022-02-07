@@ -4,15 +4,15 @@ const useCategory = ({ id = null }: { id?: string }) => {
     const { data, loading } = useCategoryQuery({
         variables: {
             input: {
-                id
-            }
+                id,
+            },
         },
-        skip: !id
+        skip: !id,
     })
 
     return {
         data: data?.category,
-        loading: !id || loading
+        loading: !id || loading,
     }
 }
 

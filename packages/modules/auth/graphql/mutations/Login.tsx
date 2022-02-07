@@ -7,15 +7,14 @@
 /* tslint:disable */
 /* @ts-nocheck */
 
-import * as Types from '../../../graphql'
+import * as Types from '../../../graphql';
 
-import { gql } from '@apollo/client'
-import * as Apollo from '@apollo/client'
-
-const defaultOptions = {} as const
+import { gql } from '@apollo/client';
+import * as Apollo from '@apollo/client';
+const defaultOptions = {} as const;
 export type LoginMutationVariables = Types.Exact<{
-    email: Types.Scalars['String'];
-    password: Types.Scalars['String'];
+  email: Types.Scalars['String'];
+  password: Types.Scalars['String'];
 }>;
 
 
@@ -24,11 +23,11 @@ export type LoginMutation = { __typename?: 'Mutation', login?: { __typename?: 'T
 
 export const LoginDocument = gql`
     mutation Login($email: String!, $password: String!) {
-        login(email: $email, password: $password) @client {
-            token
-        }
-    }
-`
+  login(email: $email, password: $password) @client {
+    token
+  }
+}
+    `;
 export type LoginMutationFn = Apollo.MutationFunction<LoginMutation, LoginMutationVariables>;
 
 /**
@@ -50,10 +49,9 @@ export type LoginMutationFn = Apollo.MutationFunction<LoginMutation, LoginMutati
  * });
  */
 export function useLoginMutation(baseOptions?: Apollo.MutationHookOptions<LoginMutation, LoginMutationVariables>) {
-    const options = { ...defaultOptions, ...baseOptions }
-    return Apollo.useMutation<LoginMutation, LoginMutationVariables>(LoginDocument, options)
-}
-
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<LoginMutation, LoginMutationVariables>(LoginDocument, options);
+      }
 export type LoginMutationHookResult = ReturnType<typeof useLoginMutation>;
 export type LoginMutationResult = Apollo.MutationResult<LoginMutation>;
 export type LoginMutationOptions = Apollo.BaseMutationOptions<LoginMutation, LoginMutationVariables>;

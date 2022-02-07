@@ -7,14 +7,13 @@
 /* tslint:disable */
 /* @ts-nocheck */
 
-import * as Types from '../../../graphql'
+import * as Types from '../../../graphql';
 
-import { gql } from '@apollo/client'
-import * as Apollo from '@apollo/client'
-
-const defaultOptions = {} as const
+import { gql } from '@apollo/client';
+import * as Apollo from '@apollo/client';
+const defaultOptions = {} as const;
 export type CmsQueryVariables = Types.Exact<{
-    id?: Types.InputMaybe<Types.Scalars['String']>;
+  id?: Types.InputMaybe<Types.Scalars['String']>;
 }>;
 
 
@@ -23,16 +22,16 @@ export type CmsQuery = { __typename?: 'Query', cms?: { __typename?: 'Cms', id?: 
 
 export const CmsDocument = gql`
     query Cms($id: String) {
-        cms(id: $id) @client {
-            id
-            title
-            content
-            metaTitle
-            metaKeywords
-            metaDescription
-        }
-    }
-`
+  cms(id: $id) @client {
+    id
+    title
+    content
+    metaTitle
+    metaKeywords
+    metaDescription
+  }
+}
+    `;
 
 /**
  * __useCmsQuery__
@@ -51,15 +50,13 @@ export const CmsDocument = gql`
  * });
  */
 export function useCmsQuery(baseOptions?: Apollo.QueryHookOptions<CmsQuery, CmsQueryVariables>) {
-    const options = { ...defaultOptions, ...baseOptions }
-    return Apollo.useQuery<CmsQuery, CmsQueryVariables>(CmsDocument, options)
-}
-
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<CmsQuery, CmsQueryVariables>(CmsDocument, options);
+      }
 export function useCmsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<CmsQuery, CmsQueryVariables>) {
-    const options = { ...defaultOptions, ...baseOptions }
-    return Apollo.useLazyQuery<CmsQuery, CmsQueryVariables>(CmsDocument, options)
-}
-
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<CmsQuery, CmsQueryVariables>(CmsDocument, options);
+        }
 export type CmsQueryHookResult = ReturnType<typeof useCmsQuery>;
 export type CmsLazyQueryHookResult = ReturnType<typeof useCmsLazyQuery>;
 export type CmsQueryResult = Apollo.QueryResult<CmsQuery, CmsQueryVariables>;

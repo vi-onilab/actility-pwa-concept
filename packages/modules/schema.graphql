@@ -17,6 +17,62 @@ directive @client on ARGUMENT_DEFINITION | FIELD_DEFINITION | QUERY
 
 scalar _FieldSet
 
+input CategoriesQueryInput {
+  id: [String]
+  parent: String
+}
+
+type Category {
+  banners: [CategoryBanner]
+  breadcrumbs: [CategoryBreadcrumb]
+  description: String
+  icon: String
+  id: String
+  images: CategoryImages
+  level: Int
+  name: String
+  parent: Category
+}
+
+type CategoryBanner {
+  description: String
+  id: String
+  image: CategoryBannerImage
+  title: String
+}
+
+type CategoryBannerImage {
+  id: String
+  sources: [CategoryBannerImageSource]
+  url: String
+}
+
+type CategoryBannerImageSource {
+  id: String
+  media: String
+  url: String
+}
+
+type CategoryBreadcrumb {
+  id: String
+  level: Int
+  name: String
+}
+
+type CategoryImage {
+  id: String
+  url: String
+}
+
+type CategoryImages {
+  main: CategoryImage
+  thumbnail: CategoryImage
+}
+
+input CategoryQueryInput {
+  id: String
+}
+
 type Cms {
   content: String
   id: String
@@ -33,6 +89,8 @@ type CmsRoute {
 }
 
 type Query {
+  categories(input: CategoriesQueryInput): [Category]
+  category(input: CategoryQueryInput): Category
   cms(id: String): Cms
   cmsRoute(url: String): CmsRoute
 }

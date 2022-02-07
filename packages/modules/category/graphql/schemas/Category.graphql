@@ -1,0 +1,60 @@
+extend type Query {
+    category(input: CategoryQueryInput): Category
+    categories(input: CategoriesQueryInput): [Category]
+}
+
+input CategoryQueryInput {
+    id: String
+}
+
+input CategoriesQueryInput {
+    parent: String
+    id: [String]
+}
+
+type Category {
+    id: String
+    name: String
+    description: String
+    icon: String
+    images: CategoryImages
+    breadcrumbs: [CategoryBreadcrumb]
+    banners: [CategoryBanner]
+    parent: Category
+    level: Int
+}
+
+type CategoryImages {
+    thumbnail: CategoryImage
+    main: CategoryImage
+}
+
+type CategoryImage {
+    id: String
+    url: String
+}
+
+type CategoryBreadcrumb {
+    id: String
+    level: Int
+    name: String
+}
+
+type CategoryBanner {
+    id: String
+    title: String
+    description: String
+    image: CategoryBannerImage
+}
+
+type CategoryBannerImage {
+    id: String
+    url: String
+    sources: [CategoryBannerImageSource]
+}
+
+type CategoryBannerImageSource {
+    id: String
+    url: String
+    media: String
+}

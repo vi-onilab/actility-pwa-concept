@@ -1,0 +1,42 @@
+fragment CategoryFragment on Category {
+    id
+    name
+    description
+    level
+    icon
+    banners {
+        id
+        title
+        description
+        image {
+            id
+            url
+            sources {
+                id
+                url
+                media
+            }
+        }
+    }
+    breadcrumbs {
+        id
+        name
+        level
+    }
+    images {
+        thumbnail {
+            id
+            url
+        }
+        main {
+            id
+            url
+        }
+    }
+    parent {
+        id
+        name
+        description
+        level
+    }
+}

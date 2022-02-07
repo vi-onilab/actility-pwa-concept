@@ -23,6 +23,69 @@ export type Scalars = {
   Float: number;
 };
 
+export type CategoriesQueryInput = {
+  id?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  parent?: InputMaybe<Scalars['String']>;
+};
+
+export type Category = {
+  __typename?: 'Category';
+  banners?: Maybe<Array<Maybe<CategoryBanner>>>;
+  breadcrumbs?: Maybe<Array<Maybe<CategoryBreadcrumb>>>;
+  description?: Maybe<Scalars['String']>;
+  icon?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['String']>;
+  images?: Maybe<CategoryImages>;
+  level?: Maybe<Scalars['Int']>;
+  name?: Maybe<Scalars['String']>;
+  parent?: Maybe<Category>;
+};
+
+export type CategoryBanner = {
+  __typename?: 'CategoryBanner';
+  description?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['String']>;
+  image?: Maybe<CategoryBannerImage>;
+  title?: Maybe<Scalars['String']>;
+};
+
+export type CategoryBannerImage = {
+  __typename?: 'CategoryBannerImage';
+  id?: Maybe<Scalars['String']>;
+  sources?: Maybe<Array<Maybe<CategoryBannerImageSource>>>;
+  url?: Maybe<Scalars['String']>;
+};
+
+export type CategoryBannerImageSource = {
+  __typename?: 'CategoryBannerImageSource';
+  id?: Maybe<Scalars['String']>;
+  media?: Maybe<Scalars['String']>;
+  url?: Maybe<Scalars['String']>;
+};
+
+export type CategoryBreadcrumb = {
+  __typename?: 'CategoryBreadcrumb';
+  id?: Maybe<Scalars['String']>;
+  level?: Maybe<Scalars['Int']>;
+  name?: Maybe<Scalars['String']>;
+};
+
+export type CategoryImage = {
+  __typename?: 'CategoryImage';
+  id?: Maybe<Scalars['String']>;
+  url?: Maybe<Scalars['String']>;
+};
+
+export type CategoryImages = {
+  __typename?: 'CategoryImages';
+  main?: Maybe<CategoryImage>;
+  thumbnail?: Maybe<CategoryImage>;
+};
+
+export type CategoryQueryInput = {
+  id?: InputMaybe<Scalars['String']>;
+};
+
 export type Cms = {
   __typename?: 'Cms';
   content?: Maybe<Scalars['String']>;
@@ -40,85 +103,22 @@ export type CmsRoute = {
   url?: Maybe<Scalars['String']>;
 };
 
-export type CreateCustomerOutput = {
-  __typename?: 'CreateCustomerOutput';
-  email?: Maybe<Scalars['String']>;
-  firstName?: Maybe<Scalars['String']>;
-  lastName?: Maybe<Scalars['String']>;
-};
-
-export type CustomerCreateInput = {
-  email?: InputMaybe<Scalars['String']>;
-  firstName?: InputMaybe<Scalars['String']>;
-  lastName?: InputMaybe<Scalars['String']>;
-  password?: InputMaybe<Scalars['String']>;
-};
-
-export type GetAccessToken = {
-  __typename?: 'GetAccessToken';
-  accessToken?: Maybe<Scalars['String']>;
-};
-
-export type Mutation = {
-  __typename?: 'Mutation';
-  createCustomer?: Maybe<CreateCustomerOutput>;
-  getAccessToken?: Maybe<GetAccessToken>;
-  login?: Maybe<Token>;
-  recoverByEmail?: Maybe<Scalars['String']>;
-  register?: Maybe<RegisterOutput>;
-  renewAccessToken?: Maybe<RenewAccessToken>;
-  reset?: Maybe<RenewToken>;
-  resetRequest?: Maybe<Scalars['String']>;
-};
-
-
-export type MutationCreateCustomerArgs = {
-  input?: InputMaybe<CustomerCreateInput>;
-};
-
-
-export type MutationGetAccessTokenArgs = {
-  email?: InputMaybe<Scalars['String']>;
-  password?: InputMaybe<Scalars['String']>;
-};
-
-
-export type MutationLoginArgs = {
-  email?: InputMaybe<Scalars['String']>;
-  password?: InputMaybe<Scalars['String']>;
-};
-
-
-export type MutationRecoverByEmailArgs = {
-  email?: InputMaybe<Scalars['String']>;
-};
-
-
-export type MutationRegisterArgs = {
-  input?: InputMaybe<RegisterInput>;
-};
-
-
-export type MutationRenewAccessTokenArgs = {
-  code?: InputMaybe<Scalars['String']>;
-  email?: InputMaybe<Scalars['String']>;
-};
-
-
-export type MutationResetArgs = {
-  code?: InputMaybe<Scalars['String']>;
-  email?: InputMaybe<Scalars['String']>;
-};
-
-
-export type MutationResetRequestArgs = {
-  email?: InputMaybe<Scalars['String']>;
-};
-
 export type Query = {
   __typename?: 'Query';
+  categories?: Maybe<Array<Maybe<Category>>>;
+  category?: Maybe<Category>;
   cms?: Maybe<Cms>;
   cmsRoute?: Maybe<CmsRoute>;
+};
+
+
+export type QueryCategoriesArgs = {
+  input?: InputMaybe<CategoriesQueryInput>;
+};
+
+
+export type QueryCategoryArgs = {
+  input?: InputMaybe<CategoryQueryInput>;
 };
 
 
@@ -129,37 +129,6 @@ export type QueryCmsArgs = {
 
 export type QueryCmsRouteArgs = {
   url?: InputMaybe<Scalars['String']>;
-};
-
-export type RegisterInput = {
-  email?: InputMaybe<Scalars['String']>;
-  firstName?: InputMaybe<Scalars['String']>;
-  lastName?: InputMaybe<Scalars['String']>;
-  password?: InputMaybe<Scalars['String']>;
-};
-
-export type RegisterOutput = {
-  __typename?: 'RegisterOutput';
-  email?: Maybe<Scalars['String']>;
-  firstName?: Maybe<Scalars['String']>;
-  lastName?: Maybe<Scalars['String']>;
-  middleName?: Maybe<Scalars['String']>;
-  password?: Maybe<Scalars['String']>;
-};
-
-export type RenewAccessToken = {
-  __typename?: 'RenewAccessToken';
-  token?: Maybe<Scalars['String']>;
-};
-
-export type RenewToken = {
-  __typename?: 'RenewToken';
-  token?: Maybe<Scalars['String']>;
-};
-
-export type Token = {
-  __typename?: 'Token';
-  token?: Maybe<Scalars['String']>;
 };
 
 
@@ -232,42 +201,98 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
+  CategoriesQueryInput: CategoriesQueryInput;
+  Category: ResolverTypeWrapper<Category>;
+  CategoryBanner: ResolverTypeWrapper<CategoryBanner>;
+  CategoryBannerImage: ResolverTypeWrapper<CategoryBannerImage>;
+  CategoryBannerImageSource: ResolverTypeWrapper<CategoryBannerImageSource>;
+  CategoryBreadcrumb: ResolverTypeWrapper<CategoryBreadcrumb>;
+  CategoryImage: ResolverTypeWrapper<CategoryImage>;
+  CategoryImages: ResolverTypeWrapper<CategoryImages>;
+  CategoryQueryInput: CategoryQueryInput;
   Cms: ResolverTypeWrapper<Cms>;
   CmsRoute: ResolverTypeWrapper<CmsRoute>;
-  CreateCustomerOutput: ResolverTypeWrapper<CreateCustomerOutput>;
-  CustomerCreateInput: CustomerCreateInput;
-  GetAccessToken: ResolverTypeWrapper<GetAccessToken>;
-  Mutation: ResolverTypeWrapper<{}>;
+  Int: ResolverTypeWrapper<Scalars['Int']>;
   Query: ResolverTypeWrapper<{}>;
-  RegisterInput: RegisterInput;
-  RegisterOutput: ResolverTypeWrapper<RegisterOutput>;
-  RenewAccessToken: ResolverTypeWrapper<RenewAccessToken>;
-  RenewToken: ResolverTypeWrapper<RenewToken>;
   String: ResolverTypeWrapper<Scalars['String']>;
-  Token: ResolverTypeWrapper<Token>;
 };
 
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = {
   Boolean: Scalars['Boolean'];
+  CategoriesQueryInput: CategoriesQueryInput;
+  Category: Category;
+  CategoryBanner: CategoryBanner;
+  CategoryBannerImage: CategoryBannerImage;
+  CategoryBannerImageSource: CategoryBannerImageSource;
+  CategoryBreadcrumb: CategoryBreadcrumb;
+  CategoryImage: CategoryImage;
+  CategoryImages: CategoryImages;
+  CategoryQueryInput: CategoryQueryInput;
   Cms: Cms;
   CmsRoute: CmsRoute;
-  CreateCustomerOutput: CreateCustomerOutput;
-  CustomerCreateInput: CustomerCreateInput;
-  GetAccessToken: GetAccessToken;
-  Mutation: {};
+  Int: Scalars['Int'];
   Query: {};
-  RegisterInput: RegisterInput;
-  RegisterOutput: RegisterOutput;
-  RenewAccessToken: RenewAccessToken;
-  RenewToken: RenewToken;
   String: Scalars['String'];
-  Token: Token;
 };
 
 export type ClientDirectiveArgs = { };
 
 export type ClientDirectiveResolver<Result, Parent, ContextType = any, Args = ClientDirectiveArgs> = DirectiveResolverFn<Result, Parent, ContextType, Args>;
+
+export type CategoryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Category'] = ResolversParentTypes['Category']> = {
+  banners?: Resolver<Maybe<Array<Maybe<ResolversTypes['CategoryBanner']>>>, ParentType, ContextType>;
+  breadcrumbs?: Resolver<Maybe<Array<Maybe<ResolversTypes['CategoryBreadcrumb']>>>, ParentType, ContextType>;
+  description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  icon?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  images?: Resolver<Maybe<ResolversTypes['CategoryImages']>, ParentType, ContextType>;
+  level?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  parent?: Resolver<Maybe<ResolversTypes['Category']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type CategoryBannerResolvers<ContextType = any, ParentType extends ResolversParentTypes['CategoryBanner'] = ResolversParentTypes['CategoryBanner']> = {
+  description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  image?: Resolver<Maybe<ResolversTypes['CategoryBannerImage']>, ParentType, ContextType>;
+  title?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type CategoryBannerImageResolvers<ContextType = any, ParentType extends ResolversParentTypes['CategoryBannerImage'] = ResolversParentTypes['CategoryBannerImage']> = {
+  id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  sources?: Resolver<Maybe<Array<Maybe<ResolversTypes['CategoryBannerImageSource']>>>, ParentType, ContextType>;
+  url?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type CategoryBannerImageSourceResolvers<ContextType = any, ParentType extends ResolversParentTypes['CategoryBannerImageSource'] = ResolversParentTypes['CategoryBannerImageSource']> = {
+  id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  media?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  url?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type CategoryBreadcrumbResolvers<ContextType = any, ParentType extends ResolversParentTypes['CategoryBreadcrumb'] = ResolversParentTypes['CategoryBreadcrumb']> = {
+  id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  level?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type CategoryImageResolvers<ContextType = any, ParentType extends ResolversParentTypes['CategoryImage'] = ResolversParentTypes['CategoryImage']> = {
+  id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  url?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type CategoryImagesResolvers<ContextType = any, ParentType extends ResolversParentTypes['CategoryImages'] = ResolversParentTypes['CategoryImages']> = {
+  main?: Resolver<Maybe<ResolversTypes['CategoryImage']>, ParentType, ContextType>;
+  thumbnail?: Resolver<Maybe<ResolversTypes['CategoryImage']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
 
 export type CmsResolvers<ContextType = any, ParentType extends ResolversParentTypes['Cms'] = ResolversParentTypes['Cms']> = {
   content?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
@@ -286,69 +311,24 @@ export type CmsRouteResolvers<ContextType = any, ParentType extends ResolversPar
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
-export type CreateCustomerOutputResolvers<ContextType = any, ParentType extends ResolversParentTypes['CreateCustomerOutput'] = ResolversParentTypes['CreateCustomerOutput']> = {
-  email?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  firstName?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  lastName?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-};
-
-export type GetAccessTokenResolvers<ContextType = any, ParentType extends ResolversParentTypes['GetAccessToken'] = ResolversParentTypes['GetAccessToken']> = {
-  accessToken?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-};
-
-export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
-  createCustomer?: Resolver<Maybe<ResolversTypes['CreateCustomerOutput']>, ParentType, ContextType, RequireFields<MutationCreateCustomerArgs, never>>;
-  getAccessToken?: Resolver<Maybe<ResolversTypes['GetAccessToken']>, ParentType, ContextType, RequireFields<MutationGetAccessTokenArgs, never>>;
-  login?: Resolver<Maybe<ResolversTypes['Token']>, ParentType, ContextType, RequireFields<MutationLoginArgs, never>>;
-  recoverByEmail?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType, RequireFields<MutationRecoverByEmailArgs, never>>;
-  register?: Resolver<Maybe<ResolversTypes['RegisterOutput']>, ParentType, ContextType, RequireFields<MutationRegisterArgs, never>>;
-  renewAccessToken?: Resolver<Maybe<ResolversTypes['RenewAccessToken']>, ParentType, ContextType, RequireFields<MutationRenewAccessTokenArgs, never>>;
-  reset?: Resolver<Maybe<ResolversTypes['RenewToken']>, ParentType, ContextType, RequireFields<MutationResetArgs, never>>;
-  resetRequest?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType, RequireFields<MutationResetRequestArgs, never>>;
-};
-
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
+  categories?: Resolver<Maybe<Array<Maybe<ResolversTypes['Category']>>>, ParentType, ContextType, RequireFields<QueryCategoriesArgs, never>>;
+  category?: Resolver<Maybe<ResolversTypes['Category']>, ParentType, ContextType, RequireFields<QueryCategoryArgs, never>>;
   cms?: Resolver<Maybe<ResolversTypes['Cms']>, ParentType, ContextType, RequireFields<QueryCmsArgs, never>>;
   cmsRoute?: Resolver<Maybe<ResolversTypes['CmsRoute']>, ParentType, ContextType, RequireFields<QueryCmsRouteArgs, never>>;
 };
 
-export type RegisterOutputResolvers<ContextType = any, ParentType extends ResolversParentTypes['RegisterOutput'] = ResolversParentTypes['RegisterOutput']> = {
-  email?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  firstName?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  lastName?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  middleName?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  password?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-};
-
-export type RenewAccessTokenResolvers<ContextType = any, ParentType extends ResolversParentTypes['RenewAccessToken'] = ResolversParentTypes['RenewAccessToken']> = {
-  token?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-};
-
-export type RenewTokenResolvers<ContextType = any, ParentType extends ResolversParentTypes['RenewToken'] = ResolversParentTypes['RenewToken']> = {
-  token?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-};
-
-export type TokenResolvers<ContextType = any, ParentType extends ResolversParentTypes['Token'] = ResolversParentTypes['Token']> = {
-  token?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-};
-
 export type Resolvers<ContextType = any> = {
+  Category?: CategoryResolvers<ContextType>;
+  CategoryBanner?: CategoryBannerResolvers<ContextType>;
+  CategoryBannerImage?: CategoryBannerImageResolvers<ContextType>;
+  CategoryBannerImageSource?: CategoryBannerImageSourceResolvers<ContextType>;
+  CategoryBreadcrumb?: CategoryBreadcrumbResolvers<ContextType>;
+  CategoryImage?: CategoryImageResolvers<ContextType>;
+  CategoryImages?: CategoryImagesResolvers<ContextType>;
   Cms?: CmsResolvers<ContextType>;
   CmsRoute?: CmsRouteResolvers<ContextType>;
-  CreateCustomerOutput?: CreateCustomerOutputResolvers<ContextType>;
-  GetAccessToken?: GetAccessTokenResolvers<ContextType>;
-  Mutation?: MutationResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
-  RegisterOutput?: RegisterOutputResolvers<ContextType>;
-  RenewAccessToken?: RenewAccessTokenResolvers<ContextType>;
-  RenewToken?: RenewTokenResolvers<ContextType>;
-  Token?: TokenResolvers<ContextType>;
 };
 
 export type DirectiveResolvers<ContextType = any> = {

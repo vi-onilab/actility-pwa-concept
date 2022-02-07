@@ -1,1 +1,1 @@
-export { default as useAuthCreateCustomer } from './useAuthCreateCustomer';
+export { default as useAuthRegister } from './useAuthRegister';

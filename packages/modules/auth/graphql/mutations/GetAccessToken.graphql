@@ -1,5 +1,0 @@
-mutation GetAccessToken($email: String, $password: String) {
-    getAccessToken(email: $email, password: $password) @client {
-        accessToken
-    }
-}

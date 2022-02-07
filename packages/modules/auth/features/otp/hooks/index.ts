@@ -1,2 +1,2 @@
-export { default as useAuthOTPVerify } from './useAuthOTPVerify'
-export { default as useAuthOTPRequest } from './useAuthOTPRequest'
+export { default as useAuthReset } from './useAuthReset'
+export { default as useAuthResetRequest } from './useAuthResetRequest'

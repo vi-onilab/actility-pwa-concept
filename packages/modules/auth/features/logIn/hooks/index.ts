@@ -1,1 +1,1 @@
-export { default as useAuthGenerateToken } from './useAuthGenerateToken';
+export { default as useAuthLogin } from './useAuthLogin';

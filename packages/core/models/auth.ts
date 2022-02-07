@@ -17,9 +17,9 @@ const setToken = (newValue: string | null) => {
 
 export const $auth = {
 	get isToken() {
-		return token()!.length > 0
+		return token()?.length > 0
 	},
-	useIsToken: () => useReactiveVar(token)!.length > 0,
+	useIsToken: () => useReactiveVar(token)?.length > 0,
 	useToken: () => [
 		useReactiveVar(token),
 		setToken,

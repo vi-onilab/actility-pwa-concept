@@ -1,11 +1,11 @@
-import GetAccessToken from './GetAccessToken.graphql'
-import RenewAccessToken from './RenewAccessToken.graphql'
-import RecoverByEmail from './RecoverByEmail.graphql'
-import CreateCustomer from './CreateCustomer.graphql'
+import Login from './Login.graphql'
+import ResetRequest from './ResetRequest.graphql'
+import Reset from './Reset.graphql'
+import Register from './Register.graphql'
 
 export default [
-    GetAccessToken,
-    RenewAccessToken,
-    RecoverByEmail,
-    CreateCustomer
+    ResetRequest,
+    Login,
+    Reset,
+    Register
 ]

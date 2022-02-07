@@ -1,12 +1,13 @@
 import api from '@pwa-concept/core/api'
 import { gql } from 'graphql-tag'
+import { $auth } from '~core/models'
 import { MutationResolvers } from '~modules/graphql'
 
-const getAccessToken: MutationResolvers['getAccessToken'] = async (_, { email, password }) => {
-    const { data: { token = '' } } = await (
+const login: MutationResolvers['login'] = async (_, { email, password }) => {
+    const { data: { generateCustomerToken: { token = '' } } } = await (
         api.graphql(
             gql`
-                mutation($email: String, $password: String) {
+                mutation($email: String!, $password: String!) {
                     generateCustomerToken(email: $email, password: $password) {
                         token
                     }
@@ -15,9 +16,14 @@ const getAccessToken: MutationResolvers['getAccessToken'] = async (_, { email, p
         ).mutation({ email, password })
     )
 
+    if (token) {
+        $auth.setToken(token)
+        console.log($auth.getToken())
+    }
+
     return {
         token
     }
 }
 
-export default getAccessToken
+export default login

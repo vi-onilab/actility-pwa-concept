@@ -2,12 +2,12 @@ import api from '@pwa-concept/core/api'
 import { gql } from 'graphql-tag'
 import { MutationResolvers } from '~modules/graphql'
 
-const renewAccessToken: MutationResolvers['renewAccessToken'] = async (_, { email, code }) => {
-    const { data: { token = '' } } = await (
+const reset: MutationResolvers['reset'] = async (_, { email, code }) => {
+    const { data: { verifyOneTimePassword: { token = '' } } } = await (
         api.graphql(
             gql`
-                mutation($email: String, $code: String) {
-                    verifyOneTimePasswordAuth(email: $email, code: $code) {
+                mutation($email: String!, $code: String!) {
+                    verifyOneTimePassword(email: $email, code: $code) {
                         attempts_left
                         token
                     }
@@ -15,10 +15,10 @@ const renewAccessToken: MutationResolvers['renewAccessToken'] = async (_, { emai
             `,
         ).mutation({ email, code })
     )
-
+    console.log(token)
     return {
         token,
     }
 }
 
-export default renewAccessToken
+export default reset

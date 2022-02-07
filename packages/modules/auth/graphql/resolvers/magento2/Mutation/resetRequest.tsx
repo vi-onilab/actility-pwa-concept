@@ -2,11 +2,11 @@ import api from '@pwa-concept/core/api'
 import { gql } from 'graphql-tag'
 import { MutationResolvers } from '~modules/graphql'
 
-const recoverByEmail: MutationResolvers['recoverByEmail'] = async (_, { email }) => {
+const resetRequest: MutationResolvers['resetRequest'] = async (_, { email }) => {
     await (
         api.graphql(
             gql`
-                mutation($email: String) {
+                mutation($email: String!) {
                     requestPasswordResetEmail(email: $email)
                 }
             `,
@@ -16,4 +16,4 @@ const recoverByEmail: MutationResolvers['recoverByEmail'] = async (_, { email })
     return null
 }
 
-export default recoverByEmail
+export default resetRequest

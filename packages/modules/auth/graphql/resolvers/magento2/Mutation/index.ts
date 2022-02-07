@@ -1,14 +1,14 @@
-import createCustomer from './createCustomer'
-import getAccessToken from './getAccessToken'
-import recoverByEmail from './recoverByEmail'
-import renewAccessToken from './renewAccessToken'
+import register from './register'
+import login from './login'
+import resetRequest from './resetRequest'
+import reset from './reset'
 import { MutationResolvers } from '~modules/graphql'
 
 const Mutation: MutationResolvers = {
-    createCustomer,
-    getAccessToken,
-    recoverByEmail,
-    renewAccessToken
+    register,
+    login,
+    resetRequest,
+    reset
 }
 
 export default Mutation

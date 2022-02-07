@@ -1,0 +1,3 @@
+mutation ResetRequest($email: String) {
+    resetRequest(email: $email) @client
+}

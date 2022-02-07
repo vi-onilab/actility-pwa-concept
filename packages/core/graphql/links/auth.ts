@@ -1,5 +1,5 @@
 import { setContext } from '@apollo/client/link/context'
-import { $auth } from 'models';
+import { $auth } from '@pwa-concept/core/models';
 
 const authLink = setContext((_, { headers }) => {
 	const token = $auth.getToken()

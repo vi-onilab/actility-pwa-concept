@@ -1,0 +1,4 @@
+extend type Mutation {
+    resetRequest(email: String): String
+}
+

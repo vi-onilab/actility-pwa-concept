@@ -1,5 +1,5 @@
 import { Resolvers } from '~modules/graphql'
-import Mutation from './mutation'
+import Mutation from './Mutation'
 
 const resolvers: Resolvers = {
     Mutation,

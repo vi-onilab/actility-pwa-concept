@@ -1,5 +1,5 @@
 import { onError } from '@apollo/client/link/error'
-import { $auth, $clean } from 'models'
+import { $auth, $clean } from '@pwa-concept/core/models'
 
 const authErrorLink = (
 	onError(({ graphQLErrors }) => {

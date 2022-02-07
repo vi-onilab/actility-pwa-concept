@@ -40,8 +40,12 @@ type GetAccessToken {
 type Mutation {
   createCustomer(input: CustomerCreateInput): CreateCustomerOutput
   getAccessToken(email: String, password: String): GetAccessToken
+  login(email: String, password: String): Token
   recoverByEmail(email: String): String
+  register(input: RegisterInput): RegisterOutput
   renewAccessToken(code: String, email: String): RenewAccessToken
+  reset(code: String, email: String): RenewToken
+  resetRequest(email: String): String
 }
 
 type Query {
@@ -49,6 +53,29 @@ type Query {
   cmsRoute(url: String): CmsRoute
 }
 
+input RegisterInput {
+  email: String
+  firstName: String
+  lastName: String
+  password: String
+}
+
+type RegisterOutput {
+  email: String
+  firstName: String
+  lastName: String
+  middleName: String
+  password: String
+}
+
 type RenewAccessToken {
+  token: String
+}
+
+type RenewToken {
+  token: String
+}
+
+type Token {
   token: String
 }

@@ -20,6 +20,9 @@
         "url": "https://bitbucket.org/onilab/pwa-concept/issues"
     },
     "eslintConfig": {
-        "extends": "@pwa-concept/eslint-config"
+        "extends": "@pwa-concept/eslint-config",
+        "parserOptions": {
+            "project": "./tsconfig.json"
+        }
     }
 }

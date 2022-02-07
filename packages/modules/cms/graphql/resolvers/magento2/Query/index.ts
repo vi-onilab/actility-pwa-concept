@@ -3,8 +3,8 @@ import cmsRoute from './cmsRoute'
 import { QueryResolvers } from '~modules/graphql'
 
 const Query: QueryResolvers = {
-	cms,
-	cmsRoute,
+    cms,
+    cmsRoute
 }
 
 export default Query

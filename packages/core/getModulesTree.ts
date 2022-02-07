@@ -1,47 +1,52 @@
 import deepmerge from 'deepmerge'
 import {
-	Module, ModuleProvider, Provides, Feature,
+    Module, ModuleProvider, Provides, Feature
 } from './types'
 import { isPrimitive } from './utils'
 
-const getModulesTree = (rootModule: Module) => {
-	const provides: Provides = new Map()
-	const providers = new Set<ModuleProvider>()
+interface GetModulesTreeReturnType {
+    provides: Provides
+    providers: ModuleProvider[]
+}
 
-	const search = (instance: Module | Feature) => {
-		if ('providers' in instance) {
-			instance?.providers?.forEach((provider) => (
-				!providers.has(provider) && providers.add(provider)
-			))
-		}
+const getModulesTree = (rootModule: Module): GetModulesTreeReturnType => {
+    const provides: Provides = new Map()
+    const providers = new Set<ModuleProvider>()
 
-		(instance?.provides || []).forEach((provide) => {
-			if (provides.has(provide.use)) {
-				provides.set(provide.use, [...provides.get(provide.use), provide.value])
-			} else {
-				provides.set(provide.use, [provide.value])
-			}
-		})
+    const search = (instance: Module | Feature): void => {
+        if ('providers' in instance) {
+            instance?.providers?.forEach((provider) => (
+                !providers.has(provider) && providers.add(provider)
+            ))
+        }
 
-		if ('features' in instance) {
-			instance?.features?.forEach((feature) => search(feature))
-		}
+        (instance?.provides || []).forEach((provide) => {
+            if (provides.has(provide.use)) {
+                provides.set(provide.use, [...provides.get(provide.use), provide.value])
+            } else {
+                provides.set(provide.use, [provide.value])
+            }
+        })
 
-		if ('modules' in instance) {
-			instance?.modules?.forEach((deepModule) => search(deepModule))
-		}
-	}
+        if ('features' in instance) {
+            instance?.features?.forEach((feature) => search(feature))
+        }
 
-	search(rootModule)
+        if ('modules' in instance) {
+            instance?.modules?.forEach((deepModule) => search(deepModule))
+        }
+    }
 
-	provides.forEach((value, key) => {
-		provides.set(key, isPrimitive(value?.[0]) ? value?.[0] : deepmerge.all(value))
-	})
+    search(rootModule)
 
-	return {
-		providers: Array.from(providers),
-		provides,
-	}
+    provides.forEach((value, key) => {
+        provides.set(key, isPrimitive(value?.[0]) ? value?.[0] : deepmerge.all(value))
+    })
+
+    return {
+        providers: Array.from(providers),
+        provides
+    }
 }
 
 export default getModulesTree

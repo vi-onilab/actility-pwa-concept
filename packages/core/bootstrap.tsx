@@ -6,44 +6,40 @@ import getModulesTree from './getModulesTree'
 import { ProvideConstructor } from './provide'
 
 interface CreateFnOptions {
-	root?: Parameters<typeof render>[1]
+    root?: Parameters<typeof render>[1]
 }
 
-interface CreateFn {
-	(module: Partial<Module>, options?: CreateFnOptions): Promise<void>
-}
+type CreateFn = (module: Partial<Module>, options?: CreateFnOptions) => Promise<void>
 
 const create: CreateFn = async (module, options = {}) => {
-	const { root = document.getElementById('app') } = options
+    const { root = document.getElementById('app') } = options
 
-	if (module?.entry && root) {
-		const tree = getModulesTree(module)
-		const moduleId = Symbol('bootstrap')
+    if (module?.entry && root) {
+        const tree = getModulesTree(module)
+        const moduleId = Symbol('bootstrap')
 
-		const ProvideProvider = ProvideConstructor(moduleId, tree.provides)
+        const ProvideProvider = ProvideConstructor(moduleId, tree.provides)
 
-		render(
-			(
-				<ProvideProvider>
-					{combineProviders(module.entry, [
-						...providers,
-						...tree.providers,
-					])}
-				</ProvideProvider>
-			),
-			root,
-		)
-	}
+        render(
+            (
+                <ProvideProvider>
+                    {combineProviders(module.entry, [
+                        ...providers,
+                        ...tree.providers
+                    ])}
+                </ProvideProvider>
+            ),
+            root
+        )
+    }
 }
 
-interface BootstrapEntryFn {
-	(options: { create: typeof create }): Promise<void>
-}
+type BootstrapEntryFn = (options: { create: typeof create }) => Promise<void>
 
-const bootstrap = async (fn: BootstrapEntryFn) => {
-	await fn({
-		create,
-	})
+const bootstrap = async (fn: BootstrapEntryFn): Promise<void> => {
+    await fn({
+        create
+    })
 }
 
 export default bootstrap

@@ -4,7 +4,7 @@ import graphqlResolvers from './graphql/resolvers'
 
 const CategoryModule = module(() => ({
     graphqlSchemas,
-    graphqlResolvers
+    graphqlResolvers,
 }))
 
 export default CategoryModule

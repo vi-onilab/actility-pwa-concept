@@ -1,1 +1,1 @@
-export { default as useAuthRegister } from './useAuthRegister';
+export { default as useAuthRegister } from './useAuthRegister'

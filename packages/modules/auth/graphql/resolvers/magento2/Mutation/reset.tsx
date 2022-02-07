@@ -17,7 +17,7 @@ const reset: MutationResolvers['reset'] = async (_, { email, code }) => {
     )
 
     return {
-        token
+        token,
     }
 }
 

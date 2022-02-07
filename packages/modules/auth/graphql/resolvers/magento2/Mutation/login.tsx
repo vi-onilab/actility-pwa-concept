@@ -21,7 +21,7 @@ const login: MutationResolvers['login'] = async (_, { email, password }) => {
     }
 
     return {
-        token
+        token,
     }
 }
 

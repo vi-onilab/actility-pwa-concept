@@ -1,20 +1,17 @@
-import { useResetMutation } from '~modules/auth/graphql/mutations/Reset'
-import reset from '~modules/auth/graphql/resolvers/magento2/Mutation/reset'
+import { useResetMutation, ResetMutationVariables } from '~modules/auth/graphql/mutations/Reset'
 
 const useAuthReset = () => {
     const [reset] = useResetMutation()
-    //TODO: need for check that hook after fix on backend
-    return async ({ email, code }) => {
-        const res = await reset({
+    // TODO: need for check that hook after fix on backend
+    return async ({ email, code }: ResetMutationVariables) => {
+        return await reset({
             variables: {
                 email,
                 code,
             },
-            ignoreResults: true
+            ignoreResults: true,
         })
-
-       return res
     }
-};
+}
 
 export default useAuthReset

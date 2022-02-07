@@ -8,7 +8,7 @@ const Mutation: MutationResolvers = {
     register,
     login,
     resetRequest,
-    reset
+    reset,
 }
 
 export default Mutation

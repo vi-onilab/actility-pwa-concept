@@ -7,13 +7,14 @@
 /* tslint:disable */
 /* @ts-nocheck */
 
-import * as Types from '../../../graphql';
+import * as Types from '../../../graphql'
 
-import { gql } from '@apollo/client';
-import * as Apollo from '@apollo/client';
-const defaultOptions = {} as const;
+import { gql } from '@apollo/client'
+import * as Apollo from '@apollo/client'
+
+const defaultOptions = {} as const
 export type RegisterMutationVariables = Types.Exact<{
-  input?: Types.InputMaybe<Types.RegisterInput>;
+    input?: Types.InputMaybe<Types.RegisterInput>;
 }>;
 
 
@@ -22,15 +23,15 @@ export type RegisterMutation = { __typename?: 'Mutation', register?: { __typenam
 
 export const RegisterDocument = gql`
     mutation Register($input: RegisterInput) {
-  register(input: $input) @client {
-    firstName
-    lastName
-    email
-    middleName
-    password
-  }
-}
-    `;
+        register(input: $input) @client {
+            firstName
+            lastName
+            email
+            middleName
+            password
+        }
+    }
+`
 export type RegisterMutationFn = Apollo.MutationFunction<RegisterMutation, RegisterMutationVariables>;
 
 /**
@@ -51,9 +52,10 @@ export type RegisterMutationFn = Apollo.MutationFunction<RegisterMutation, Regis
  * });
  */
 export function useRegisterMutation(baseOptions?: Apollo.MutationHookOptions<RegisterMutation, RegisterMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<RegisterMutation, RegisterMutationVariables>(RegisterDocument, options);
-      }
+    const options = { ...defaultOptions, ...baseOptions }
+    return Apollo.useMutation<RegisterMutation, RegisterMutationVariables>(RegisterDocument, options)
+}
+
 export type RegisterMutationHookResult = ReturnType<typeof useRegisterMutation>;
 export type RegisterMutationResult = Apollo.MutationResult<RegisterMutation>;
 export type RegisterMutationOptions = Apollo.BaseMutationOptions<RegisterMutation, RegisterMutationVariables>;

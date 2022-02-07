@@ -7,14 +7,15 @@
 /* tslint:disable */
 /* @ts-nocheck */
 
-import * as Types from '../../../graphql';
+import * as Types from '../../../graphql'
 
-import { gql } from '@apollo/client';
-import * as Apollo from '@apollo/client';
-const defaultOptions = {} as const;
+import { gql } from '@apollo/client'
+import * as Apollo from '@apollo/client'
+
+const defaultOptions = {} as const
 export type ResetMutationVariables = Types.Exact<{
-  code?: Types.InputMaybe<Types.Scalars['String']>;
-  email?: Types.InputMaybe<Types.Scalars['String']>;
+    code?: Types.InputMaybe<Types.Scalars['String']>;
+    email?: Types.InputMaybe<Types.Scalars['String']>;
 }>;
 
 
@@ -23,11 +24,11 @@ export type ResetMutation = { __typename?: 'Mutation', reset?: { __typename?: 'R
 
 export const ResetDocument = gql`
     mutation Reset($code: String, $email: String) {
-  reset(code: $code, email: $email) @client {
-    token
-  }
-}
-    `;
+        reset(code: $code, email: $email) @client {
+            token
+        }
+    }
+`
 export type ResetMutationFn = Apollo.MutationFunction<ResetMutation, ResetMutationVariables>;
 
 /**
@@ -49,9 +50,10 @@ export type ResetMutationFn = Apollo.MutationFunction<ResetMutation, ResetMutati
  * });
  */
 export function useResetMutation(baseOptions?: Apollo.MutationHookOptions<ResetMutation, ResetMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<ResetMutation, ResetMutationVariables>(ResetDocument, options);
-      }
+    const options = { ...defaultOptions, ...baseOptions }
+    return Apollo.useMutation<ResetMutation, ResetMutationVariables>(ResetDocument, options)
+}
+
 export type ResetMutationHookResult = ReturnType<typeof useResetMutation>;
 export type ResetMutationResult = Apollo.MutationResult<ResetMutation>;
 export type ResetMutationOptions = Apollo.BaseMutationOptions<ResetMutation, ResetMutationVariables>;

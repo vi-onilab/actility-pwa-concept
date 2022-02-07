@@ -7,5 +7,5 @@ export default [
     ResetRequest,
     Login,
     Reset,
-    Register
+    Register,
 ]

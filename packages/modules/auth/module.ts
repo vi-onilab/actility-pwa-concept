@@ -4,7 +4,7 @@ import graphqlResolvers from './graphql/resolvers'
 
 const AuthModule = module(() => ({
     graphqlSchemas,
-    graphqlResolvers
+    graphqlResolvers,
 }))
 
 export default AuthModule

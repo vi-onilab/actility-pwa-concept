@@ -33,7 +33,7 @@ const register: MutationResolvers['register'] = async (_, input) => {
             `,
         ).mutation({
             email: data?.customer?.email,
-            password
+            password,
         })
     )
 

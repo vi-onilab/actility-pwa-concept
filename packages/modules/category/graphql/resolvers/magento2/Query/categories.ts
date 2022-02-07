@@ -15,10 +15,10 @@ const categories: QueryResolvers['categories'] = async (_, { input }) => {
                     filters: {
                         ...prev?.filters,
                         parent_id: {
-                            eq: parent
-                        }
-                    }
-                })
+                            eq: parent,
+                        },
+                    },
+                }),
             )
             .variableIf(
                 Array.isArray(id) && id?.length > 0,
@@ -27,10 +27,10 @@ const categories: QueryResolvers['categories'] = async (_, { input }) => {
                     filters: {
                         ...prev?.filters,
                         ids: {
-                            in: id.map((value) => value)
-                        }
-                    }
-                })
+                            in: id.map((value) => value),
+                        },
+                    },
+                }),
             )
             .query()
     )

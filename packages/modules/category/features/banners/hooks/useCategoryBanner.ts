@@ -6,7 +6,7 @@ const useCategoryBanner = (category: Category) => {
 
     return {
         data: data?.[0],
-        loading
+        loading,
     }
 }
 

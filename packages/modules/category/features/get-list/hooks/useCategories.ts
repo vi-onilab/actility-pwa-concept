@@ -15,15 +15,15 @@ const useCategories = ({ parent = null, id = null }: UseCategoriesOptions, optio
         variables: {
             input: {
                 parent: parent?.id,
-                id: (Array.isArray(id) ? id : [id]).filter(Boolean)
-            }
+                id: (Array.isArray(id) ? id : [id]).filter(Boolean),
+            },
         },
-        skip: options?.skip || false
+        skip: options?.skip || false,
     })
 
     return {
         data: data?.categories,
-        loading
+        loading,
     }
 }
 

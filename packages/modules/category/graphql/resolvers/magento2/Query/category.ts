@@ -10,9 +10,9 @@ const category: QueryResolvers['category'] = async (_, { input }) => {
         api.graphql(categoryListQuery).query({
             filters: {
                 ids: {
-                    eq: id
-                }
-            }
+                    eq: id,
+                },
+            },
         })
     )
 

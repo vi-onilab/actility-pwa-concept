@@ -5,15 +5,15 @@ const useCategoryBanners = ({ id = null, banners = null }: Category) => {
     const { data, loading } = useCategoryQuery({
         variables: {
             input: {
-                id
-            }
+                id,
+            },
         },
-        skip: !!banners?.length
+        skip: !!banners?.length,
     })
 
     return {
         data: banners || data?.category?.banners,
-        loading: !id || loading
+        loading: !id || loading,
     }
 }
 

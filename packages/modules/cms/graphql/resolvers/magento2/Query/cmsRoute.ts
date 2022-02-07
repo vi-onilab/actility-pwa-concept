@@ -13,7 +13,7 @@ const cmsRoute: QueryResolvers['cmsRoute'] = async (_, { url }) => {
                         relative_url
                     }
                 }
-            `
+            `,
         ).query({ url })
     )
 
@@ -21,7 +21,7 @@ const cmsRoute: QueryResolvers['cmsRoute'] = async (_, { url }) => {
         id: data?.id,
         type: data?.type,
         url: data?.relative_url,
-        __typename: 'CmsRoute'
+        __typename: 'CmsRoute',
     }
 }
 

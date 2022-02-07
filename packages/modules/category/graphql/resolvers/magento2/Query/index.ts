@@ -4,7 +4,7 @@ import categories from './categories'
 
 const Query: QueryResolvers = {
     category,
-    categories
+    categories,
 }
 
 export default Query

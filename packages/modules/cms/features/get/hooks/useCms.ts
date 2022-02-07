@@ -6,24 +6,24 @@ const useCms = ({ id = null }: { id: string }) => {
     const { pathname } = useLocation()
     const { data: { cmsRoute = null } = {}, loading: routeLoading } = useCmsRouteQuery({
         variables: {
-            url: pathname
+            url: pathname,
         },
-        skip: !!id
+        skip: !!id,
     })
     const pageId = id || cmsRoute?.url
 
     const { data: { cms = null } = {}, loading: pageLoading } = useCmsQuery({
         variables: {
-            id: pageId
+            id: pageId,
         },
-        skip: !pageId
+        skip: !pageId,
     })
 
     const loading: boolean = routeLoading || pageLoading
 
     return {
         data: loading ? null : cms,
-        loading
+        loading,
     }
 }
 

@@ -17,10 +17,10 @@ const equivalents = [
     'no-useless-constructor',
     'quotes',
     'semi',
-    'space-before-function-paren'
+    'space-before-function-paren',
 ]
 
-function fromEntries (iterable) {
+function fromEntries(iterable) {
     return [...iterable].reduce((obj, [key, val]) => {
         obj[key] = val
         return obj
@@ -47,7 +47,7 @@ module.exports = [
                 classes: false,
                 enums: false,
                 variables: false,
-                typedefs: false // Only the TypeScript rule has this option.
+                typedefs: false, // Only the TypeScript rule has this option.
             }],
 
             // Rules exclusive to Standard TypeScript:
@@ -57,8 +57,8 @@ module.exports = [
                 'error',
                 {
                     assertionStyle: 'as',
-                    objectLiteralTypeAssertions: 'never'
-                }
+                    objectLiteralTypeAssertions: 'never',
+                },
             ],
             '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
             '@typescript-eslint/explicit-function-return-type': 'off',
@@ -66,18 +66,18 @@ module.exports = [
                 'error',
                 {
                     multiline: { delimiter: 'none' },
-                    singleline: { delimiter: 'comma', requireLast: false }
-                }
+                    singleline: { delimiter: 'comma', requireLast: false },
+                },
             ],
             '@typescript-eslint/method-signature-style': 'error',
             '@typescript-eslint/naming-convention': ['error', {
                 selector: 'variableLike',
                 leadingUnderscore: 'allow',
                 trailingUnderscore: 'allow',
-                format: ['camelCase', 'PascalCase', 'UPPER_CASE']
+                format: ['camelCase', 'PascalCase', 'UPPER_CASE'],
             }],
             '@typescript-eslint/no-base-to-string': 'off',
-            '@typescript-eslint/no-dynamic-delete': 'error',
+            '@typescript-eslint/no-dynamic-delete': 'off',
             '@typescript-eslint/no-empty-interface': ['error', { allowSingleExtends: true }],
             '@typescript-eslint/no-extra-non-null-assertion': 'error',
             '@typescript-eslint/no-extraneous-class': ['error', { allowWithDecorator: true }],
@@ -98,7 +98,7 @@ module.exports = [
             '@typescript-eslint/prefer-includes': 'error',
             '@typescript-eslint/prefer-nullish-coalescing': ['error', {
                 ignoreConditionalTests: false,
-                ignoreMixedLogicalExpressions: false
+                ignoreMixedLogicalExpressions: false,
             }],
             '@typescript-eslint/prefer-optional-chain': 'error',
             '@typescript-eslint/prefer-readonly': 'error',
@@ -112,7 +112,7 @@ module.exports = [
             '@typescript-eslint/strict-boolean-expressions': 'off',
             '@typescript-eslint/triple-slash-reference': ['error', { lib: 'never', path: 'never', types: 'never' }],
             '@typescript-eslint/type-annotation-spacing': 'error',
-            'no-void': ['error', { allowAsStatement: true }]
-        }
-    }
+            'no-void': ['error', { allowAsStatement: true }],
+        },
+    },
 ]

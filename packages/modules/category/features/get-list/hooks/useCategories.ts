@@ -1,7 +1,7 @@
 import { useCategoriesQuery } from '~modules/category/graphql/queries/Categories'
 import { Category } from '~modules/graphql'
 
-interface UseCategoriesOptions {
+interface UseCategoriesFilters {
     parent?: Category
     id?: string | string[]
 }
@@ -10,7 +10,7 @@ interface UseCategoriesOptions {
     skip?: boolean
 }
 
-const useCategories = ({ parent = null, id = null }: UseCategoriesOptions, options?: UseCategoriesOptions) => {
+const useCategories = ({ parent = null, id = null }: UseCategoriesFilters, options?: UseCategoriesOptions) => {
     const { data, loading } = useCategoriesQuery({
         variables: {
             input: {

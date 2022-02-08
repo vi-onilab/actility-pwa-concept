@@ -1,5 +1,5 @@
 const { join } = require('path')
-const { readFileSync } = require('fs')
+const { existsSync } = require('fs')
 
 module.exports = ({ renderString }) => ({
     description: 'Creating a new feature',
@@ -22,27 +22,29 @@ module.exports = ({ renderString }) => ({
 
         actions.push({
             type: 'add',
-            path: `${rootPath}{{path}}/{{dashCase name}}/index.ts`,
+            path: join(rootPath, '{{path}}', '{{dashCase name}}', 'index.ts'),
             templateFile: join(__dirname, 'index.ts.hbs'),
         })
 
         actions.push({
             type: 'add',
-            path: `${rootPath}{{path}}/{{dashCase name}}/hooks/index.ts`,
+            path: join(rootPath, '{{path}}', '{{dashCase name}}', 'hooks', 'index.ts'),
             templateFile: join(__dirname, 'hooks', 'index.ts.hbs'),
         })
 
         try {
-            actions.push({
-                type: 'modify',
-                path: `${rootPath}{{path}}/index.ts`,
-                transform: (current) => (
-                    `${(current || '').replace('export {}', '').trim()}${renderString(
-                        'export * from \'./{{dashCase name}}\'',
-                        data,
-                    )}\n`
-                ),
-            })
+            if (existsSync(join(rootPath, data.path, 'index.ts'))) {
+                actions.push({
+                    type: 'modify',
+                    path: join(rootPath, '{{path}}', 'index.ts'),
+                    transform: (current) => (
+                        `${(current || '').replace('export {}', '').trim()}${renderString(
+                            'export * from \'./{{dashCase name}}\'',
+                            data,
+                        )}\n`
+                    ),
+                })
+            }
         } catch (e) {
             //
         }

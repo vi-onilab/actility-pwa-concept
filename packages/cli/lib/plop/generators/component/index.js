@@ -28,7 +28,7 @@ module.exports = () => ({
 
         actions.push({
             type: 'add',
-            path: `${rootPath}{{path}}/{{pascalCase name}}/{{pascalCase name}}.tsx`,
+            path: join(rootPath, '{{path}}', '{{pascalCase name}}', '{{pascalCase name}}.tsx'),
             templateFile: join(__dirname, 'Component.tsx.hbs'),
             data: {
                 isAddCss: data.styles !== 'No',
@@ -37,14 +37,14 @@ module.exports = () => ({
 
         actions.push({
             type: 'add',
-            path: `${rootPath}{{path}}/{{pascalCase name}}/index.ts`,
+            path: join(rootPath, '{{path}}', '{{pascalCase name}}', 'index.ts'),
             templateFile: join(__dirname, 'index.ts.hbs'),
         })
 
         if (data.styles !== 'No') {
             actions.push({
                 type: 'add',
-                path: `${rootPath}{{path}}/{{pascalCase name}}/{{pascalCase name}}.module.scss`,
+                path: join(rootPath, '{{path}}', '{{pascalCase name}}', '{{pascalCase name}}.module.scss'),
                 templateFile: join(__dirname, 'Component.module.scss.hbs'),
             })
         }

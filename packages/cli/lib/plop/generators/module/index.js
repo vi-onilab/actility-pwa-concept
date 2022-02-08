@@ -25,56 +25,56 @@ module.exports = () => ({
 
         actions.push({
             type: 'add',
-            path: `${rootPath}{{path}}/{{dashCase name}}/index.ts`,
+            path: join(rootPath, '{{path}}', '{{dashCase name}}', 'index.ts'),
             templateFile: join(__dirname, 'index.ts.hbs'),
         })
 
         actions.push({
             type: 'add',
-            path: `${rootPath}{{path}}/{{dashCase name}}/module.ts`,
+            path: join(rootPath, '{{path}}', '{{dashCase name}}', 'module.ts'),
             templateFile: join(__dirname, 'module.ts.hbs'),
         })
 
         actions.push({
             type: 'add',
-            path: `${rootPath}{{path}}/{{dashCase name}}/features/index.ts`,
+            path: join(rootPath, '{{path}}', '{{dashCase name}}', 'features', 'index.ts'),
             templateFile: join(__dirname, 'features', 'index.ts.hbs'),
         })
 
         actions.push({
             type: 'add',
-            path: `${rootPath}{{path}}/{{dashCase name}}/graphql/schemas/index.ts`,
+            path: join(rootPath, '{{path}}', '{{dashCase name}}', 'graphql', 'schemas', 'index.ts'),
             templateFile: join(__dirname, 'graphql', 'schemas', 'index.ts.hbs'),
         })
 
         actions.push({
             type: 'add',
-            path: `${rootPath}{{path}}/{{dashCase name}}/graphql/schemas/{{pascalCase name}}.graphql`,
+            path: join(rootPath, '{{path}}', '{{dashCase name}}', 'graphql', 'schemas', '{{pascalCase name}}.graphql'),
             templateFile: join(__dirname, 'graphql', 'schemas', 'Query.graphql.hbs'),
         })
 
         actions.push({
             type: 'add',
-            path: `${rootPath}{{path}}/{{dashCase name}}/graphql/resolvers/index.ts`,
+            path: join(rootPath, '{{path}}', '{{dashCase name}}', 'graphql', 'resolvers', 'index.ts'),
             templateFile: join(__dirname, 'graphql', 'resolvers', 'index.ts.hbs'),
         })
 
         STORES.forEach((storeName) => {
             actions.push({
                 type: 'add',
-                path: `${rootPath}{{path}}/{{dashCase name}}/graphql/resolvers/${storeName}/index.ts`,
+                path: join(rootPath, '{{path}}', '{{dashCase name}}', 'graphql', 'resolvers', storeName, 'index.ts'),
                 templateFile: join(__dirname, 'graphql', 'resolvers', 'store', 'index.ts.hbs'),
             })
 
             actions.push({
                 type: 'add',
-                path: `${rootPath}{{path}}/{{dashCase name}}/graphql/resolvers/${storeName}/Query/index.ts`,
+                path: join(rootPath, '{{path}}', '{{dashCase name}}', 'graphql', 'resolvers', storeName, 'Query', 'index.ts'),
                 templateFile: join(__dirname, 'graphql', 'resolvers', 'store', 'Query', 'index.ts.hbs'),
             })
 
             actions.push({
                 type: 'add',
-                path: `${rootPath}{{path}}/{{dashCase name}}/graphql/resolvers/${storeName}/Mutation/index.ts`,
+                path: join(rootPath, '{{path}}', '{{dashCase name}}', 'graphql', 'resolvers', storeName, 'Mutation', 'index.ts'),
                 templateFile: join(__dirname, 'graphql', 'resolvers', 'store', 'Mutation', 'index.ts.hbs'),
             })
         })

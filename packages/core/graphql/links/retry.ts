@@ -5,12 +5,12 @@ const retryLink = (
         delay: {
             initial: 300,
             max: Infinity,
-            jitter: true
+            jitter: true,
         },
         attempts: {
             max: 5,
-            retryIf: (error) => !!error
-        }
+            retryIf: (error) => !!error,
+        },
     })
 )
 

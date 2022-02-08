@@ -1,14 +1,14 @@
 import { setContext } from '@apollo/client/link/context'
-import { $auth } from '@pwa-concept/core/models';
+import { $auth } from '@pwa-concept/core/models'
 
 const authLink = setContext((_, { headers }) => {
-	const token = $auth.getToken()
+    const token = $auth.getToken()
 
     return {
         headers: {
             ...headers,
-            authorization: token ? `Bearer ${token}` : ''
-        }
+            authorization: token ? `Bearer ${token}` : '',
+        },
     }
 })
 

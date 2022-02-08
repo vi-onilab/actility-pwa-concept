@@ -38,7 +38,7 @@ module.exports = ({ renderString }) => ({
                     type: 'modify',
                     path: join(rootPath, '{{path}}', 'index.ts'),
                     transform: (current) => (
-                        `${(current || '').replace('export {}', '').trim()}${renderString(
+                        `${(current || '').replace('export {}', '').trim()}\n${renderString(
                             'export * from \'./{{dashCase name}}\'',
                             data,
                         )}\n`

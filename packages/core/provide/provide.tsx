@@ -1,8 +1,8 @@
 import {
-    createContext, FC, useContext, PropsWithChildren
+    createContext, FC, useContext, PropsWithChildren,
 } from 'react'
 import {
-    ProvideId, Provides, ProvideToken, Module, ProvideValue
+    ProvideId, Provides, ProvideToken, Module, ProvideValue,
 } from '../types'
 
 const data = new Map<symbol, Provides>()
@@ -10,7 +10,7 @@ const context = createContext<ProvideId | null>(null)
 
 const get = (id: ProvideId | Module, token: ProvideToken): ProvideValue => (
     data.get(
-        (id as Module)?.entryId || id as ProvideId
+        (id as Module)?.entryId || id as ProvideId,
     )?.get(token)
 )
 
@@ -21,7 +21,7 @@ const init = (id: ProvideId, values: Provides): void => {
 const useProvide = <T extends unknown, T2 extends unknown = T>(
     token: ProvideToken,
     defaultValue: T = null,
-    transform = (value: T): T | T2 => value
+    transform = (value: T): T | T2 => value,
 ): T | T2 | null => {
     const id = useContext(context)
 
@@ -44,12 +44,12 @@ const ProvideConstructor = (id: ProvideId, provides: Provides): FC => {
 
 const Provide = {
     get,
-    use: useProvide
+    use: useProvide,
 }
 
 export {
     Provide,
-    useProvide
+    useProvide,
 }
 
 export default ProvideConstructor

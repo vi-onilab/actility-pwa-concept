@@ -6,11 +6,11 @@ const authErrorLink = (
         if (graphQLErrors) {
             const authError = graphQLErrors.find(({ extensions }) => extensions?.category === 'graphql-authorization')
 
-			if (authError && $auth.isToken) {
-				$clean.logout()
-			}
-		}
-	})
+            if (authError && $auth.isToken) {
+                $clean.logout()
+            }
+        }
+    })
 )
 
 export default authErrorLink

@@ -3,7 +3,7 @@ import {
     ApolloClient,
     ApolloProvider,
     from,
-    InMemoryCache
+    InMemoryCache,
 } from '@apollo/client'
 import { TypeSource } from '@graphql-tools/utils/Interfaces'
 import {
@@ -12,7 +12,7 @@ import {
     errorLink,
     httpLink,
     queueLink,
-    retryLink
+    retryLink,
 } from './links'
 import { useProvide } from '../provide'
 import { PROVIDE_GRAPHQL_POLICY, PROVIDE_GRAPHQL_RESOLVERS, PROVIDE_GRAPHQL_SCHEMAS } from './tokens'
@@ -30,7 +30,7 @@ const GraphQLProvider: FC = ({ children }) => {
     const client = useMemo(() => (
         new ApolloClient({
             cache: new InMemoryCache({
-                typePolicies
+                typePolicies,
             }),
             typeDefs,
             resolvers,
@@ -41,9 +41,9 @@ const GraphQLProvider: FC = ({ children }) => {
                 authLink,
                 errorLink,
                 authErrorLink,
-                httpLink
+                httpLink,
             ]),
-            connectToDevTools: process.env.NODE_ENV === 'development'
+            connectToDevTools: process.env.NODE_ENV === 'development',
         })
     ), [typeDefs, resolvers, typePolicies])
 

@@ -7,7 +7,7 @@ const combineProviders = (element: ReactElement, providers?: ModuleProvider[]): 
             createElement(
                 current,
                 {},
-                children
+                children,
             )
         ), element)
     ) : element

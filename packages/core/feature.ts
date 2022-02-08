@@ -1,6 +1,6 @@
 import {
     FeatureFn,
-    Feature
+    Feature,
 } from './types'
 import provideAliases from './provideAliases'
 
@@ -25,7 +25,7 @@ const feature = <T extends FeatureFn = FeatureFn, R extends ReturnType<T> = Retu
             response.configure = (...args): Omit<R, 'configure'> => {
                 const { configure: _, ...value } = {
                     ...response,
-                    ...handle(configure.call(response, ...args))
+                    ...handle(configure.call(response, ...args)),
                 }
 
                 return value

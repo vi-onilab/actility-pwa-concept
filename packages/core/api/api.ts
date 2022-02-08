@@ -1,7 +1,7 @@
 import graphql from './adapters/graphql'
 
 const api = {
-    graphql
+    graphql,
 }
 
 export default api

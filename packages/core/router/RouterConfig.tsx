@@ -1,5 +1,5 @@
 import {
-    FC, useMemo, Suspense, isValidElement
+    FC, useMemo, Suspense, isValidElement,
 } from 'react'
 import { RouteObject, useRoutes } from 'react-router-dom'
 import { useProvide } from '../provide'
@@ -16,7 +16,7 @@ const parseRoutes = (routes: CoreRouteObject[]): RouteObject[] => (
                 element: RouteElement,
                 children,
                 ...route
-            }
+            },
         ) => {
             const fallback = ((typeof Fallback === 'function' ? <Fallback /> : Fallback) || '')
 
@@ -29,7 +29,7 @@ const parseRoutes = (routes: CoreRouteObject[]): RouteObject[] => (
                             {(isValidElement(RouteElement) ? RouteElement : <RouteElement />)}
                         </RouteProvider>
                     </Suspense>
-                )
+                ),
             }
         }) || []
 )
@@ -41,8 +41,8 @@ const RouterConfig: FC = ({ children }) => {
         path: '/',
         element: children,
         children: parseRoutes([
-            ...provideRoutes
-        ])
+            ...provideRoutes,
+        ]),
     }]), [children, provideRoutes])
 
     return useRoutes(config)

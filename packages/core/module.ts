@@ -1,5 +1,5 @@
 import {
-    Module, ModuleFn
+    Module, ModuleFn,
 } from './types'
 import provideAliases from './provideAliases'
 
@@ -28,7 +28,7 @@ const module = <T extends ModuleFn = ModuleFn, R extends ReturnType<T> = ReturnT
             response.configure = (...args): Omit<R, 'configure'> => {
                 const { configure: _, ...value } = {
                     ...response,
-                    ...handle(configure.call(response, ...args))
+                    ...handle(configure.call(response, ...args)),
                 }
 
                 return value

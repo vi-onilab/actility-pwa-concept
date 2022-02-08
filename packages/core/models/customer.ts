@@ -3,7 +3,6 @@ import { makeVar, useReactiveVar } from '@apollo/client';
 const customerModel = makeVar({});
 
 const setCustomer = (newValue = null) => {
-    console.log(newValue)
 	if (newValue) {
 		customerModel({
 			...customerModel(),

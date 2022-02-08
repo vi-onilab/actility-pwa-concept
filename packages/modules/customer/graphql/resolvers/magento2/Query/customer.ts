@@ -20,8 +20,17 @@ const customer: QueryResolvers['customer'] = async () => {
             `,
         ).query()
     )
-    console.log(data)
-    return null
+
+    return {
+        firstName: data?.firstname,
+        lastName: data?.lastname,
+        email: data?.email,
+        middleName: data?.middlename,
+        dateOfBirth: data?.date_of_birth,
+        gender: data?.gender,
+        isSubscribed: data?.is_subscribed,
+        __typename: 'CustomerOutput',
+    }
 }
 
 export default customer

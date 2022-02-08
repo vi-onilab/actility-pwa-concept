@@ -1,20 +1,20 @@
 const { join } = require('path')
-const { spawnSync } = require('child_process');
+const { spawnSync } = require('child_process')
 
 exports.command = 'generate [type]'
 exports.desc = 'Generator'
 exports.builder = {
-	type: {
-		alias: 't',
-		describe: 'Pass the type',
-		demand: false,
-	},
+    type: {
+        alias: 't',
+        describe: 'Pass the type',
+        demand: false,
+    },
 }
 exports.handler = async ({ type }) => {
-	const args = ['--plopfile', join(__dirname, '..', 'plop', 'index.js')]
+    const args = ['--plopfile', join(__dirname, '..', 'plop', 'index.js')]
 
-	if (type)
-		args.push(type)
+    if (type)
+        args.push(type)
 
-	spawnSync(`plop`, args, { stdio: 'inherit', cwd: process.cwd() })
+    spawnSync(`plop`, args, { stdio: 'inherit', cwd: process.cwd() })
 }

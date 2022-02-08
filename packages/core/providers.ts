@@ -3,5 +3,5 @@ import { RouterProvider } from './router'
 
 export default [
     GraphQLProvider,
-    RouterProvider
+    RouterProvider,
 ]

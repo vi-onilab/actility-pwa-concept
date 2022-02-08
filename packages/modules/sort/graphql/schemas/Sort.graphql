@@ -1,0 +1,13 @@
+extend type Query {
+    sorts: SortsQueryOutput
+}
+
+type SortsQueryOutput {
+    default: String
+    items: [Sort]
+}
+
+type Sort {
+    id: String
+    name: String
+}

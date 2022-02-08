@@ -6,8 +6,8 @@ const errorLink = (
             graphQLErrors.map(
                 ({ message, locations, path }) => (
                     console.log(
-                        `[GQL]: Message: ${message}, Location: ${JSON.stringify(locations)}, Path: ${path}`
-                    ))
+                        `[GQL]: Message: ${message}, Location: ${JSON.stringify(locations)}, Path: ${path}`,
+                    )),
             )
         }
         if (networkError) {

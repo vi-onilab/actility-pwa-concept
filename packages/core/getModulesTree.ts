@@ -1,6 +1,6 @@
 import deepmerge from 'deepmerge'
 import {
-    Module, ModuleProvider, Provides, Feature
+    Module, ModuleProvider, Provides, Feature,
 } from './types'
 import { isPrimitive } from './utils'
 
@@ -45,7 +45,7 @@ const getModulesTree = (rootModule: Module): GetModulesTreeReturnType => {
 
     return {
         providers: Array.from(providers),
-        provides
+        provides,
     }
 }
 

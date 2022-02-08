@@ -25,11 +25,11 @@ const create: CreateFn = async (module, options = {}) => {
                 <ProvideProvider>
                     {combineProviders(module.entry, [
                         ...providers,
-                        ...tree.providers
+                        ...tree.providers,
                     ])}
                 </ProvideProvider>
             ),
-            root
+            root,
         )
     }
 }
@@ -38,7 +38,7 @@ type BootstrapEntryFn = (options: { create: typeof create }) => Promise<void>
 
 const bootstrap = async (fn: BootstrapEntryFn): Promise<void> => {
     await fn({
-        create
+        create,
     })
 }
 

@@ -3,7 +3,7 @@ import {
     ReactElement,
     FC,
     PropsWithChildren,
-    useContext
+    useContext,
 } from 'react'
 
 interface RouteProps {
@@ -21,7 +21,7 @@ const RouteProvider = ({ children, ...ctxData }: PropsWithChildren<RouteProps>):
 const useRoute = (): RouteProps => useContext(ctx)
 
 export {
-    RouteProvider
+    RouteProvider,
 }
 
 export default useRoute

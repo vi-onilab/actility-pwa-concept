@@ -8,7 +8,7 @@ const useCustomer = ({ token = null }: { token?: string } = {}) => {
     })
 
     return {
-        customer: loading ? null : data.customer,
+        customer: loading && !data?.customer ? null : data?.customer,
         loading,
     }
 }

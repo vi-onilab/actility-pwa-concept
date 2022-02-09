@@ -1,0 +1,23 @@
+extend type Mutation {
+    updateCustomer(input: CustomerUpdateInput): CustomerUpdateOutput
+}
+
+input CustomerUpdateInput {
+    firstName: String
+    lastName: String
+    middleName: String
+    dateOfBirth: Int
+    gender: Int
+    isSubscribed: Boolean
+}
+
+
+type CustomerUpdateOutput {
+    firstName: String
+    lastName: String
+    email: String
+    middleName: String
+    dateOfBirth: Int
+    gender: Int
+    isSubscribed: Boolean
+}

@@ -1,0 +1,11 @@
+mutation UpdateCustomer($input: CustomerUpdateInput) {
+    updateCustomer(input: $input) @client {
+        firstName
+        lastName
+        email
+        middleName
+        dateOfBirth
+        gender
+        isSubscribed
+    }
+}

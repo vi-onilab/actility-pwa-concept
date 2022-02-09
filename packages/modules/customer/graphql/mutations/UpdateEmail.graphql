@@ -1,0 +1,5 @@
+mutation UpdateEmail($email: String, $password: String, $token: String) {
+    updateEmail(email: $email, password: $password, token: $token) @client {
+        email
+    }
+}

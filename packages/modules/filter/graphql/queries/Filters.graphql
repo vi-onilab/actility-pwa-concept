@@ -1,0 +1,14 @@
+query Filters($input: FiltersQueryInput) {
+    filters(input: $input) @client {
+        id
+        name
+        key
+        type
+        items {
+            id
+            key
+            name
+            value
+        }
+    }
+}

@@ -1,4 +1,4 @@
-query Cms($id: String) {
+query Cms($id: ID) {
     cms(id: $id) @client {
         id
         title

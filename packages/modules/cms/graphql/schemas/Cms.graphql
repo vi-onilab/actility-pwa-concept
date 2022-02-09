@@ -1,9 +1,9 @@
 extend type Query {
-    cms(id: String): Cms
+    cms(id: ID): Cms
 }
 
 type Cms {
-    id: String
+    id: ID
     title: String
     content: String
 

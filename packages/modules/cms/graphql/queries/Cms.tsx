@@ -13,7 +13,7 @@ import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
 const defaultOptions = {} as const;
 export type CmsQueryVariables = Types.Exact<{
-  id?: Types.InputMaybe<Types.Scalars['String']>;
+  id?: Types.InputMaybe<Types.Scalars['ID']>;
 }>;
 
 
@@ -21,7 +21,7 @@ export type CmsQuery = { __typename?: 'Query', cms?: { __typename?: 'Cms', id?: 
 
 
 export const CmsDocument = gql`
-    query Cms($id: String) {
+    query Cms($id: ID) {
   cms(id: $id) @client {
     id
     title

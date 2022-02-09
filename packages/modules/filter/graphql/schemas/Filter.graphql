@@ -1,0 +1,27 @@
+extend type Query {
+    filters(input: FiltersQueryInput): [Filter]
+}
+
+input FiltersQueryInput {
+    categoryId: ID
+}
+
+enum FilterType {
+    Price
+    Checkbox
+}
+
+type Filter {
+    id: ID
+    key: String
+    name: String
+    type: FilterType
+    items: [FilterItem]
+}
+
+type FilterItem {
+    id: ID
+    key: String
+    name: String
+    value: String
+}

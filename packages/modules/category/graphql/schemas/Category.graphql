@@ -4,16 +4,16 @@ extend type Query {
 }
 
 input CategoryQueryInput {
-    id: String
+    id: ID
 }
 
 input CategoriesQueryInput {
     parent: String
-    id: [String]
+    id: [ID]
 }
 
 type Category {
-    id: String
+    id: ID
     name: String
     description: String
     icon: String
@@ -30,31 +30,31 @@ type CategoryImages {
 }
 
 type CategoryImage {
-    id: String
+    id: ID
     url: String
 }
 
 type CategoryBreadcrumb {
-    id: String
+    id: ID
     level: Int
     name: String
 }
 
 type CategoryBanner {
-    id: String
+    id: ID
     title: String
     description: String
     image: CategoryBannerImage
 }
 
 type CategoryBannerImage {
-    id: String
+    id: ID
     url: String
     sources: [CategoryBannerImageSource]
 }
 
 type CategoryBannerImageSource {
-    id: String
+    id: ID
     url: String
     media: String
 }

@@ -107,7 +107,7 @@ module.exports = [
             '@typescript-eslint/promise-function-async': 'error',
             '@typescript-eslint/require-array-sort-compare': ['error', { ignoreStringArrays: true }],
             '@typescript-eslint/restrict-plus-operands': ['error', { checkCompoundAssignments: true }],
-            '@typescript-eslint/restrict-template-expressions': ['error', { allowNumber: true }],
+            '@typescript-eslint/restrict-template-expressions': 'off',
             '@typescript-eslint/return-await': ['error', 'always'],
             '@typescript-eslint/strict-boolean-expressions': 'off',
             '@typescript-eslint/triple-slash-reference': ['error', { lib: 'never', path: 'never', types: 'never' }],

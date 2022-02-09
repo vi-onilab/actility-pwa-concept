@@ -3,7 +3,7 @@ extend type Query {
 }
 
 type CmsRoute {
-    id: String
+    id: ID
     type: String
     url: String
 }

@@ -2,18 +2,18 @@ const { join } = require('path')
 const { existsSync } = require('fs')
 
 module.exports = ({ renderString }) => ({
-    description: 'Creating a new feature',
+    description: 'Creating a new hook',
     prompts: [
         {
             name: 'name',
             type: 'input',
-            message: 'Enter the name of the feature',
+            message: 'Enter the name of the hook',
         },
         {
             name: 'path',
             type: 'directory',
             basePath: process.cwd(),
-            message: 'Select the location of the feature',
+            message: 'Select the location of the hook',
         },
     ],
     actions: (data) => {
@@ -22,14 +22,8 @@ module.exports = ({ renderString }) => ({
 
         actions.push({
             type: 'add',
-            path: join(rootPath, '{{path}}', '{{dashCase name}}', 'index.ts'),
-            templateFile: join(__dirname, 'index.ts.hbs'),
-        })
-
-        actions.push({
-            type: 'add',
-            path: join(rootPath, '{{path}}', '{{dashCase name}}', 'hooks', 'index.ts'),
-            templateFile: join(__dirname, 'hooks', 'index.ts.hbs'),
+            path: join(rootPath, '{{path}}', 'use{{ pascalCase name }}.ts'),
+            templateFile: join(__dirname, 'hook.ts.hbs'),
         })
 
         try {
@@ -38,8 +32,8 @@ module.exports = ({ renderString }) => ({
                     type: 'modify',
                     path: join(rootPath, '{{path}}', 'index.ts'),
                     transform: (current) => (
-                        `${`${(current || '').replace('export {}', '').trim()}\n${renderString(
-                            'export * from \'./{{dashCase name}}\'',
+                        `${`${(current || '').replace('export {}', '').replace('export { }', '').trim()}\n${renderString(
+                            'export { default as use{{ pascalCase name }} } from \'./use{{ pascalCase name }}\'',
                             data,
                         )}`.trim()}\n`
                     ),

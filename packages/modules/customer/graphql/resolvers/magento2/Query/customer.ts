@@ -22,6 +22,7 @@ const customer: QueryResolvers['customer'] = async () => {
     )
 
     return {
+        id: data?.email,
         firstName: data?.firstname,
         lastName: data?.lastname,
         email: data?.email,
@@ -29,7 +30,7 @@ const customer: QueryResolvers['customer'] = async () => {
         dateOfBirth: data?.date_of_birth,
         gender: data?.gender,
         isSubscribed: data?.is_subscribed,
-        __typename: 'CustomerOutput',
+        __typename: 'Customer',
     }
 }
 

@@ -15,7 +15,10 @@ const changePassword: MutationResolvers['changePassword'] = async (_, { newPassw
         ).mutation({ currentPassword, newPassword })
     )
 
-    return customerEmail
+    return {
+        id: customerEmail,
+        __typename: 'Customer',
+    }
 }
 
 export default changePassword

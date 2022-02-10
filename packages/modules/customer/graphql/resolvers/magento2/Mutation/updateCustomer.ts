@@ -24,6 +24,7 @@ const updateCustomer: MutationResolvers['updateCustomer'] = async (_, input) => 
     )
 
     return {
+        id: data?.email,
         firstName: data?.firstname,
         lastName: data?.lastname,
         email: data?.email,
@@ -31,7 +32,7 @@ const updateCustomer: MutationResolvers['updateCustomer'] = async (_, input) => 
         dateOfBirth: data?.date_of_birth,
         gender: data?.gender,
         isSubscribed: data?.is_subscribed,
-        __typename: 'CustomerUpdateOutput',
+        __typename: 'Customer',
     }
 }
 

@@ -12,17 +12,16 @@ import * as Types from '../../../graphql';
 import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
 const defaultOptions = {} as const;
-export type CustomerQueryVariables = Types.Exact<{
-  token?: Types.InputMaybe<Types.Scalars['String']>;
-}>;
+export type CustomerQueryVariables = Types.Exact<{ [key: string]: never; }>;
 
 
-export type CustomerQuery = { __typename?: 'Query', customer?: { __typename?: 'CustomerOutput', firstName?: string | null | undefined, lastName?: string | null | undefined, email?: string | null | undefined, middleName?: string | null | undefined, dateOfBirth?: number | null | undefined, gender?: number | null | undefined, isSubscribed?: boolean | null | undefined } | null | undefined };
+export type CustomerQuery = { __typename?: 'Query', customer?: { __typename?: 'Customer', id?: string | null | undefined, firstName?: string | null | undefined, lastName?: string | null | undefined, email?: string | null | undefined, middleName?: string | null | undefined, dateOfBirth?: number | null | undefined, gender?: number | null | undefined, isSubscribed?: boolean | null | undefined } | null | undefined };
 
 
 export const CustomerDocument = gql`
-    query Customer($token: String) {
-  customer(token: $token) @client {
+    query Customer {
+  customer @client {
+    id
     firstName
     lastName
     email
@@ -46,7 +45,6 @@ export const CustomerDocument = gql`
  * @example
  * const { data, loading, error } = useCustomerQuery({
  *   variables: {
- *      token: // value for 'token'
  *   },
  * });
  */

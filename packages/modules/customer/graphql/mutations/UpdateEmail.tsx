@@ -15,16 +15,16 @@ const defaultOptions = {} as const;
 export type UpdateEmailMutationVariables = Types.Exact<{
   email?: Types.InputMaybe<Types.Scalars['String']>;
   password?: Types.InputMaybe<Types.Scalars['String']>;
-  token?: Types.InputMaybe<Types.Scalars['String']>;
 }>;
 
 
-export type UpdateEmailMutation = { __typename?: 'Mutation', updateEmail?: { __typename?: 'UpdateEmailOutput', email?: string | null | undefined } | null | undefined };
+export type UpdateEmailMutation = { __typename?: 'Mutation', updateEmail?: { __typename?: 'Customer', id?: string | null | undefined, email?: string | null | undefined } | null | undefined };
 
 
 export const UpdateEmailDocument = gql`
-    mutation UpdateEmail($email: String, $password: String, $token: String) {
-  updateEmail(email: $email, password: $password, token: $token) @client {
+    mutation UpdateEmail($email: String, $password: String) {
+  updateEmail(email: $email, password: $password) @client {
+    id
     email
   }
 }
@@ -46,7 +46,6 @@ export type UpdateEmailMutationFn = Apollo.MutationFunction<UpdateEmailMutation,
  *   variables: {
  *      email: // value for 'email'
  *      password: // value for 'password'
- *      token: // value for 'token'
  *   },
  * });
  */

@@ -18,8 +18,9 @@ const updateEmail: MutationResolvers['updateEmail'] = async (_, { email, passwor
     )
 
     return {
+        id: customerEmail,
         email: customerEmail,
-        __typename: 'UpdateEmailOutput',
+        __typename: 'Customer',
     }
 }
 

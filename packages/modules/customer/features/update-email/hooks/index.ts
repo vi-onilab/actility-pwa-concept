@@ -1,1 +1,1 @@
-export { default as useUpdateEmail } from './useUpdateEmail'
+export { default as useCustomerUpdateEmail } from './useCustomerUpdateEmail'

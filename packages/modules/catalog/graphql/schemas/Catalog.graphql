@@ -1,0 +1,16 @@
+extend type Query {
+    catalog(input: CatalogQueryInput): CatalogQueryOutput
+}
+
+
+input CatalogQueryInput {
+    categoriesId: [ID]
+}
+
+type CatalogQueryOutput {
+    items: [String]
+}
+
+type Catalog {
+    id: String
+}

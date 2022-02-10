@@ -1,0 +1,11 @@
+query Customer($token: String) {
+    customer(token: $token) @client {
+        firstName
+        lastName
+        email
+        middleName
+        dateOfBirth
+        gender
+        isSubscribed
+    }
+}

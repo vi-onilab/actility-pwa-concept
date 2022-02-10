@@ -1,0 +1,7 @@
+extend type Mutation {
+    updateEmail(email: String, password: String, token: String): UpdateEmailOutput
+}
+
+type UpdateEmailOutput {
+    email: String
+}

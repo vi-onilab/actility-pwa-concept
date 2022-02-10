@@ -1,7 +1,7 @@
 import api from '@pwa-concept/core/api'
 import { gql } from 'graphql-tag'
 import { MutationResolvers } from '~modules/graphql'
-import { $auth } from '~core/models'
+import { $auth, $customer } from '~core/models'
 
 const register: MutationResolvers['register'] = async (_, input) => {
     const { input: { password } } = input
@@ -38,6 +38,7 @@ const register: MutationResolvers['register'] = async (_, input) => {
     )
 
     if (token) {
+        $customer.setCustomer(data)
         $auth.setToken(token)
     }
 

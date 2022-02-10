@@ -1,10 +1,9 @@
+import { $auth } from '~core/models'
 import { useCustomerQuery } from '~modules/customer/graphql/queries/Customer'
 
-const useCustomer = ({ token = null }: { token?: string } = {}) => {
+const useCustomer = () => {
     const { data, loading } = useCustomerQuery({
-        variables: {
-            token,
-        }
+        skip: !$auth.getToken(),
     })
 
     return {

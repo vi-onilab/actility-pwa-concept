@@ -18,12 +18,14 @@ export type ChangePasswordMutationVariables = Types.Exact<{
 }>;
 
 
-export type ChangePasswordMutation = { __typename?: 'Mutation', changePassword?: string | null | undefined };
+export type ChangePasswordMutation = { __typename?: 'Mutation', changePassword?: { __typename?: 'Customer', id?: string | null | undefined } | null | undefined };
 
 
 export const ChangePasswordDocument = gql`
     mutation ChangePassword($newPassword: String, $currentPassword: String) {
-  changePassword(newPassword: $newPassword, currentPassword: $currentPassword) @client
+  changePassword(newPassword: $newPassword, currentPassword: $currentPassword) @client {
+    id
+  }
 }
     `;
 export type ChangePasswordMutationFn = Apollo.MutationFunction<ChangePasswordMutation, ChangePasswordMutationVariables>;

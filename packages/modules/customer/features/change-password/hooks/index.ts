@@ -1,1 +1,1 @@
-export { default as useChangePassword } from './useChangePassword'
+export { default as useCustomerChangePassword } from './useCustomerChangePassword'

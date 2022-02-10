@@ -1,5 +1,6 @@
-query Customer($token: String) {
-    customer(token: $token) @client {
+query Customer {
+    customer @client {
+        id
         firstName
         lastName
         email

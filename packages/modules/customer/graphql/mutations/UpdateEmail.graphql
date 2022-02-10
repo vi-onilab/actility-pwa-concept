@@ -1,5 +1,6 @@
-mutation UpdateEmail($email: String, $password: String, $token: String) {
-    updateEmail(email: $email, password: $password, token: $token) @client {
+mutation UpdateEmail($email: String, $password: String) {
+    updateEmail(email: $email, password: $password) @client {
+        id
         email
     }
 }

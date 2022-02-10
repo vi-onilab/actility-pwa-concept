@@ -1,8 +1,9 @@
 extend type Query {
-    customer(token: String): CustomerOutput
+    customer: Customer
 }
 
-type CustomerOutput {
+type Customer {
+    id: ID
     firstName: String
     lastName: String
     email: String

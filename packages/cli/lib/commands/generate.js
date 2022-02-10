@@ -13,8 +13,7 @@ exports.builder = {
 exports.handler = async ({ type }) => {
     const args = ['--plopfile', join(__dirname, '..', 'plop', 'index.js')]
 
-    if (type)
-        args.push(type)
+    if (type) args.push(type)
 
-    spawnSync(`plop`, args, { stdio: 'inherit', cwd: process.cwd() })
+    spawnSync(join(process.argv[1], '..', 'plop'), args, { stdio: 'inherit', cwd: process.cwd() })
 }

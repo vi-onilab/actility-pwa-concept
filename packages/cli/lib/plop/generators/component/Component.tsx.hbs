@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { PropsWithChildren } from 'react'
 import { classNames } from 'helpers'
 
 {{#if isAddCss}}
@@ -9,21 +9,21 @@ interface {{pascalCase name}}Props {
     className?: string
 }
 
-const {{pascalCase name}}: FC<{{pascalCase name}}Props> = (
-	{
-		children,
-		className,
-	},
+const {{pascalCase name}} = (
+    {
+        children,
+        className,
+    }: PropsWithChildren<{{pascalCase name}}Props>,
 ) => (
-	{{#if isAddCss}}
-	<div className={classNames(css.root, className)}>
-		{children}
-	</div>
-	{{else}}
-	<div className={classNames(className)}>
-		{children}
-	</div>
-	{{/if}}
+    {{#if isAddCss}}
+    <div className={classNames(css.root, className)}>
+        {children}
+    </div>
+    {{else}}
+    <div className={classNames(className)}>
+        {children}
+    </div>
+    {{/if}}
 )
 
 export default {{pascalCase name}}

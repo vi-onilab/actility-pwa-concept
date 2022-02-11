@@ -1,13 +1,6 @@
 # Core
 
-## TODO
-
-- Apollo:
-    - Реализавать базовое объявление TypePolicies
-- Добавить базовый роутер (url rewrite)
-- Добавить базовый функционал для форм (react-hook-form?)
-
-## Установка
+## Установка из npm [IN PROGRESS]
 
 1. Выполнить: `yarn add @pwa-concept/core`
 
@@ -30,9 +23,11 @@
 
 #### Пример <a name="init_render_example"></a>
 
-```js
-import { run } from '@pwa-concept/core';
-import App from './App';
+```ts
+import { bootstrap } from '@pwa-concept/core'
+import { AppModule } from './AppModule'
 
-run(<App />, document.getElementById('app'));
+bootstrap(async ({ create }) => {
+    await create(AppModule)
+}).catch(console.error)
 ```

@@ -1,3 +1,3 @@
-export default function Customer() {
-	console.log('Customer')
-}
+export * from './features'
+
+export { default as CustomerModule } from './module'

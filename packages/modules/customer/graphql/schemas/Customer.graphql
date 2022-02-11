@@ -1,0 +1,14 @@
+extend type Query {
+    customer: Customer
+}
+
+type Customer {
+    id: ID
+    firstName: String
+    lastName: String
+    email: String
+    middleName: String
+    dateOfBirth: Int
+    gender: Int
+    isSubscribed: Boolean
+}

@@ -12,7 +12,8 @@
         "start": "yarn build:schema-types; node ../../node_modules/.bin/npm-run-all --parallel \"build:** -- --watch\"",
         "build": "yarn build:schema-types; yarn build:types",
         "build:types": "node ../../node_modules/.bin/tsc",
-        "build:schema-types": "node ../../node_modules/.bin/graphql-codegen --config codegen.yml"
+        "build:schema-types": "node ../../node_modules/.bin/graphql-codegen --config codegen.yml",
+        "cli": "node ../../node_modules/.bin/pwa-concept"
     },
     "main": ".",
     "module": ".",

@@ -6,7 +6,8 @@
     "scripts": {
         "start": "yarn workspaces foreach run start -p",
         "build": "yarn workspaces foreach run build",
-        "clean": "yarn workspaces foreach exec 'rm -rf ./node_modules; rm -rf ./dist'; rm -rf ./node_modules; yarn install"
+        "clean": "yarn workspaces foreach exec 'rm -rf ./node_modules; rm -rf ./dist'; rm -rf ./node_modules; yarn install",
+        "cli": "node ./node_modules/.bin/pwa-concept"
     },
     "devDependencies": {
         "@babel/preset-env": "^7.16.7",

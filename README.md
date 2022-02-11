@@ -8,6 +8,20 @@
 - `Пакет` - Пакет из *packages/**
 
 
+## Установка локально
+
+1. Добавить репозиторий как субмодуль: `git submodule add git@bitbucket.org:onilab/pwa-concept.git ./.pwa`
+2. Выполнить: `node .pwa/init`
+
+
+## Скрипты для локальной разработки
+
+- ```node .pwa/build``` - Сборка PWA
+- ```node .pwa/init``` - Инициализация PWA в проект
+- ```node .pwa/install``` - Установка PWA пакетов в проект
+- ```node .pwa/upgrade``` - Обновление PWA в проекте
+
+
 ## Команды
 
 - ```yarn start``` - Запуск пакетов в режиме разработки

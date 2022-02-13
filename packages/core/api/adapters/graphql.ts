@@ -44,6 +44,7 @@ const graphql = (
             return await apollo.query<any>({
                 query: document,
                 variables: applyVariableDecorators(variables),
+                fetchPolicy: 'network-only',
             })
         },
         async mutation (variables = {}) {

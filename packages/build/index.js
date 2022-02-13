@@ -5,7 +5,7 @@ module.exports = async function(type = 'webpack') {
 	const entries = readdirSync(join(__dirname, 'lib'))
 
 	if (entries.includes(type)) {
-		const entry = require(join(__dirname, 'lib', type, 'index.js'))
+		const entry = require(join(__dirname, 'lib', type, 'index.ts'))
 
 		return {
 			start: entry.start,

@@ -1,0 +1,32 @@
+#extend type Query {
+#    # Put you queries...
+#}
+
+type Product {
+    id: ID
+    name: String
+    labels: ProductLabels
+
+    images: [ProductImage]
+    thumbnail: ProductImage
+
+    badges: [ProductBadge]
+
+    price: Money
+}
+
+type ProductLabels {
+    addToCart: String
+}
+
+type ProductBadge {
+    id: ID
+    name: String
+    icon: String
+}
+
+type ProductImage {
+    id: ID
+    url: String
+    description: String
+}

@@ -2,15 +2,32 @@ extend type Query {
     catalog(input: CatalogQueryInput): CatalogQueryOutput
 }
 
+enum CatalogQuerySortOrder {
+    ASC
+    DESC
+}
+
+input CatalogQueryFilterInput {
+    key: String
+    value: [String]
+}
+
+input CatalogQuerySortInput {
+    name: String
+    order: String
+}
 
 input CatalogQueryInput {
-    categoriesId: [ID]
+    filters: [CatalogQueryFilterInput]
+    sort: [CatalogQuerySortInput]
+    categoryId: ID
+    page: Int
+    search: String
 }
 
 type CatalogQueryOutput {
-    items: [String]
+    items: [Product]
+    pagination: Pagination
 }
 
-type Catalog {
-    id: String
-}
+

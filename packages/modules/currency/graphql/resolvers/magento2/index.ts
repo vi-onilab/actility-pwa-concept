@@ -1,8 +1,8 @@
 import { Resolvers } from '~modules/graphql'
-import Query from './Query'
+import Money from './Money'
 
 const resolvers: Resolvers = {
-    Query,
+    Money,
 }
 
 export default resolvers

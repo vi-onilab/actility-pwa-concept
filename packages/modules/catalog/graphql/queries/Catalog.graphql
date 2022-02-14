@@ -1,0 +1,36 @@
+query Catalog($input: CatalogQueryInput) {
+    catalog(input: $input) @client {
+        items {
+            id
+            name
+            thumbnail {
+                id
+                description
+                url
+            }
+            images {
+                id
+                url
+                description
+            }
+
+            badges {
+                id
+                name
+                icon
+            }
+
+            price {
+                name
+                value
+                format
+            }
+        }
+        pagination {
+            count
+            current
+            limit
+            total
+        }
+    }
+}

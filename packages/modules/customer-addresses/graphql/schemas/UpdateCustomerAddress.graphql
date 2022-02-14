@@ -1,0 +1,24 @@
+extend type Mutation {
+    updateCustomerAddress(id: ID, input: UpdateCustomerAddressInput): CustomerAddress
+}
+
+input UpdateCustomerAddressInput {
+    id: ID
+    defaultBilling: Boolean
+    defaultShipping: Boolean
+    city: String
+    company: String
+    countryId: String
+    firstName: String
+    lastName: String
+    telephone: String
+    postcode: String
+    region: UpdateCustomerAddressRegion
+    street: String
+}
+
+input UpdateCustomerAddressRegion {
+    region: String
+    regionCode: String
+    regionId: Int
+}

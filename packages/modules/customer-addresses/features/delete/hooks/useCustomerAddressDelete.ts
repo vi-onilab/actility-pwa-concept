@@ -12,6 +12,10 @@ const useCustomerAddressDelete = () => {
                 id,
             },
             ignoreResults: true,
+            refetchQueries: [
+                'CustomerAddresses',
+            ],
+            awaitRefetchQueries: true,
         })
     }
 }

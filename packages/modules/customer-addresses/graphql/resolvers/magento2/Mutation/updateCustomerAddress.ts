@@ -6,11 +6,11 @@ import { CustomerAddressesToAddress } from '../casts'
 const updateCustomerAddress: MutationResolvers['updateCustomerAddress'] = async (_, input) => {
     const { id, input: address } = input
 
-    const { data: { updateCustomerAddress: data } = {} } = await (
+    const { data: { updateCustomerAddress: data = {} } = {} } = await (
         api.graphql(
             gql`
-                mutation($id: Int, $input: CustomerAddressInput!) {
-                    updateCustomerAddress {
+                mutation($id: Int!, $input: CustomerAddressInput!) {
+                    updateCustomerAddress (id: $id, input: $input) {
                         city
                         company
                         country_id

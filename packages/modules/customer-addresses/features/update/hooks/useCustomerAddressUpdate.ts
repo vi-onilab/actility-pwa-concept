@@ -13,6 +13,10 @@ const useCustomerAddressUpdate = () => {
                 input,
             },
             ignoreResults: true,
+            refetchQueries: [
+                'CustomerAddresses',
+            ],
+            awaitRefetchQueries: true,
         })
     }
 }

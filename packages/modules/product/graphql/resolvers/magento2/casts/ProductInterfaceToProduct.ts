@@ -2,6 +2,7 @@ import { Product, ProductImage, ProductBreadcrumb } from '~modules/graphql'
 import ProductInterfaceToProductPrice from './ProductInterfaceToProductPrice'
 import ProductInterfaceToProductBadges from './ProductInterfaceToProductBadges'
 import ProductInterfaceToProductStock from './ProductInterfaceToProductStock'
+import ProductInterfaceToProductVat from './ProductInterfaceToProductVat'
 
 const ProductInterfaceToProduct = (item): Product => {
     const id = String(item?.id)
@@ -32,6 +33,7 @@ const ProductInterfaceToProduct = (item): Product => {
             description: image?.label,
             __typename: 'ProductImage',
         })),
+        vat: ProductInterfaceToProductVat(item),
         badges: ProductInterfaceToProductBadges(item),
         price: ProductInterfaceToProductPrice(item),
         thumbnail: item?.image ? {

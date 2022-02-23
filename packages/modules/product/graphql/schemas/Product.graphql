@@ -16,6 +16,7 @@ type Product {
     price: ProductPrice
     manufacturer: ProductManufacturer
     stock: ProductStock
+    vat: ProductVat
 }
 
 type ProductBreadcrumb {
@@ -31,6 +32,16 @@ type ProductStock {
 enum ProductStockType {
     IN_STOCK
     OUT_OF_STOCK
+}
+
+enum ProductVatType {
+    INCLUDED
+    EXCLUDED
+}
+
+type ProductVat {
+    type: ProductVatType
+    name: String
 }
 
 type ProductManufacturer {

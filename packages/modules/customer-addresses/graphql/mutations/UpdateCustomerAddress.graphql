@@ -1,0 +1,20 @@
+mutation UpdateCustomerAddress($id: ID, $input: UpdateCustomerAddressInput) {
+   updateCustomerAddress(id: $id, input: $input) @client {
+        id
+        defaultBilling
+        defaultShipping
+        city
+        company
+        countryId
+        firstName
+        lastName
+        telephone
+        postcode
+        region {
+            region
+            regionCode
+            regionId
+        }
+        street
+    }
+}

@@ -1,18 +1,51 @@
-#extend type Query {
-#    # Put you queries...
-#}
+extend type Query {
+    product(input: ProductQueryInput): Product
+}
+
+input ProductQueryInput {
+    id: ID
+}
 
 type Product {
     id: ID
     name: String
-    labels: ProductLabels
-
+    breadcrumbs: [ProductBreadcrumb]
     images: [ProductImage]
     thumbnail: ProductImage
-
     badges: [ProductBadge]
+    price: ProductPrice
+    manufacturer: ProductManufacturer
+    stock: ProductStock
+}
 
-    price: Money
+type ProductBreadcrumb {
+    id: ID
+    name: String
+}
+
+type ProductStock {
+    type: ProductStockType
+    name: String
+}
+
+enum ProductStockType {
+    IN_STOCK
+    OUT_OF_STOCK
+}
+
+type ProductManufacturer {
+    name: String
+}
+
+type ProductPrice {
+    initial: Money
+    current: Money
+    badges: [ProductPriceBadge]
+    isRange: Boolean
+}
+
+type ProductPriceBadge {
+    name: String
 }
 
 type ProductLabels {

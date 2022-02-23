@@ -10,6 +10,8 @@
 import * as Types from '../../../graphql';
 
 import { gql } from '@apollo/client';
+import { ProductFragmentDoc } from '../../../product/graphql/fragments/Product';
+import { PaginationFragmentDoc } from '../../../pagination/graphql/fragments/Pagination';
 import * as Apollo from '@apollo/client';
 const defaultOptions = {} as const;
 export type CatalogQueryVariables = Types.Exact<{
@@ -17,45 +19,22 @@ export type CatalogQueryVariables = Types.Exact<{
 }>;
 
 
-export type CatalogQuery = { __typename?: 'Query', catalog?: { __typename?: 'CatalogQueryOutput', items?: Array<{ __typename?: 'Product', id?: string | null | undefined, name?: string | null | undefined, thumbnail?: { __typename?: 'ProductImage', id?: string | null | undefined, description?: string | null | undefined, url?: string | null | undefined } | null | undefined, images?: Array<{ __typename?: 'ProductImage', id?: string | null | undefined, url?: string | null | undefined, description?: string | null | undefined } | null | undefined> | null | undefined, badges?: Array<{ __typename?: 'ProductBadge', id?: string | null | undefined, name?: string | null | undefined, icon?: string | null | undefined } | null | undefined> | null | undefined, price?: { __typename?: 'Money', name?: string | null | undefined, value?: number | null | undefined, format?: string | null | undefined } | null | undefined } | null | undefined> | null | undefined, pagination?: { __typename?: 'Pagination', count?: number | null | undefined, current?: number | null | undefined, limit?: number | null | undefined, total?: number | null | undefined } | null | undefined } | null | undefined };
+export type CatalogQuery = { __typename?: 'Query', catalog?: { __typename?: 'CatalogQueryOutput', items?: Array<{ __typename?: 'Product', id?: string | null | undefined, name?: string | null | undefined, breadcrumbs?: Array<{ __typename?: 'ProductBreadcrumb', id?: string | null | undefined, name?: string | null | undefined } | null | undefined> | null | undefined, manufacturer?: { __typename?: 'ProductManufacturer', name?: string | null | undefined } | null | undefined, stock?: { __typename?: 'ProductStock', name?: string | null | undefined, type?: Types.ProductStockType | null | undefined } | null | undefined, badges?: Array<{ __typename?: 'ProductBadge', id?: string | null | undefined, name?: string | null | undefined, icon?: string | null | undefined } | null | undefined> | null | undefined, images?: Array<{ __typename?: 'ProductImage', id?: string | null | undefined, description?: string | null | undefined, url?: string | null | undefined } | null | undefined> | null | undefined, thumbnail?: { __typename?: 'ProductImage', id?: string | null | undefined, description?: string | null | undefined, url?: string | null | undefined } | null | undefined, price?: { __typename?: 'ProductPrice', isRange?: boolean | null | undefined, current?: { __typename?: 'Money', value?: number | null | undefined, text?: string | null | undefined, currency?: string | null | undefined } | null | undefined, initial?: { __typename?: 'Money', value?: number | null | undefined, text?: string | null | undefined, currency?: string | null | undefined } | null | undefined } | null | undefined } | null | undefined> | null | undefined, pagination?: { __typename?: 'Pagination', count?: number | null | undefined, limit?: number | null | undefined, total?: number | null | undefined, current?: number | null | undefined } | null | undefined } | null | undefined };
 
 
 export const CatalogDocument = gql`
     query Catalog($input: CatalogQueryInput) {
   catalog(input: $input) @client {
     items {
-      id
-      name
-      thumbnail {
-        id
-        description
-        url
-      }
-      images {
-        id
-        url
-        description
-      }
-      badges {
-        id
-        name
-        icon
-      }
-      price {
-        name
-        value
-        format
-      }
+      ...Product
     }
     pagination {
-      count
-      current
-      limit
-      total
+      ...Pagination
     }
   }
 }
-    `;
+    ${ProductFragmentDoc}
+${PaginationFragmentDoc}`;
 
 /**
  * __useCatalogQuery__

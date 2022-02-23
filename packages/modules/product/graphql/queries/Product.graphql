@@ -1,0 +1,7 @@
+#import "../fragments/Product.graphql"
+
+query Product($input: ProductQueryInput) {
+    product(input: $input) @client {
+        ... Product
+    }
+}

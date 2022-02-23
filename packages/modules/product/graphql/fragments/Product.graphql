@@ -1,0 +1,32 @@
+#import "./ProductImage.graphql"
+#import "./ProductPrice.graphql"
+
+fragment Product on Product {
+    id
+    name
+    breadcrumbs {
+        id
+        name
+    }
+    manufacturer {
+        name
+    }
+    stock {
+        name
+        type
+    }
+    badges {
+        id
+        name
+        icon
+    }
+    images {
+        ... ProductImage
+    }
+    thumbnail {
+        ... ProductImage
+    }
+    price {
+        ... ProductPrice
+    }
+}

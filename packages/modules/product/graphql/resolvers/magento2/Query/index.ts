@@ -1,5 +1,12 @@
 import { QueryResolvers } from '~modules/graphql'
+import product from './product'
+import productRelations from './productRelations'
+import products from './products'
 
-const Query: QueryResolvers = {}
+const Query: QueryResolvers = {
+    product,
+    productRelations,
+    products,
+}
 
 export default Query

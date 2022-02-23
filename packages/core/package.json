@@ -29,6 +29,7 @@
         "deepmerge": "^4.2.2",
         "graphql": "^16.2.0",
         "graphql-tools": "^8.2.0",
+        "js-cookie": "^3.0.1",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
         "react-router-dom": "^6.2.1"

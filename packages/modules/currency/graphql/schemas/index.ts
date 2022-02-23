@@ -1,5 +1,5 @@
-import Currency from './Currency.graphql'
+import Money from './Money.graphql'
 
 export default [
-    Currency,
+    Money,
 ]

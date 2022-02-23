@@ -1,9 +1,0 @@
-#extend type Query {
-#    # Put you queries...
-#}
-
-type Money {
-    name: String
-    format: String
-    value: Float
-}

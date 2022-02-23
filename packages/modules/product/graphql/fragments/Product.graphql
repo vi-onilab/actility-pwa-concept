@@ -1,5 +1,6 @@
 #import "./ProductImage.graphql"
 #import "./ProductPrice.graphql"
+#import "./ProductVat.graphql"
 
 fragment Product on Product {
     id
@@ -20,6 +21,11 @@ fragment Product on Product {
         name
         icon
     }
+
+    vat {
+        ... ProductVat
+    }
+
     images {
         ... ProductImage
     }

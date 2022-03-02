@@ -23,6 +23,15 @@ generates:
         schema:
             - "./magento2/schema.{graphql,gql,graphqls}"
 
+        config:
+            typesPrefix: Magento2
+
         plugins:
+            - add:
+                  placement: append
+                  content: >
+                      export type Magento2StoreFragmentsKeys = keyof Magento2ResolversParentTypes
+                      export type Magento2StorePossibleTypesKeys = keyof Magento2ResolversParentTypes
             - add: *top-comment
             - typescript
+            - typescript-resolvers

@@ -2406,6 +2406,22 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@pwa-concept/stores@workspace:packages/stores":
+  version: 0.0.0-use.local
+  resolution: "@pwa-concept/stores@workspace:packages/stores"
+  dependencies:
+    "@graphql-codegen/add": ^3.1.1
+    "@graphql-codegen/cli": ^2.4.0
+    "@graphql-codegen/near-operation-file-preset": ^2.2.3
+    "@graphql-codegen/schema-ast": ^2.4.1
+    "@graphql-codegen/typescript": ^2.4.2
+    "@graphql-codegen/typescript-operations": ^2.2.2
+    "@graphql-codegen/typescript-react-apollo": ^3.2.4
+    "@graphql-codegen/typescript-resolvers": ^2.4.3
+    get-graphql-schema: ^2.1.2
+  languageName: unknown
+  linkType: soft
+
 "@pwa-concept/typescript-config@workspace:packages/typescript-config":
   version: 0.0.0-use.local
   resolution: "@pwa-concept/typescript-config@workspace:packages/typescript-config"

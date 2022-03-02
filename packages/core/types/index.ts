@@ -1,10 +1,19 @@
 import { FC, ReactElement } from 'react'
 import { RouteObject } from 'react-router-dom'
+import { DocumentNode } from 'graphql/language/ast'
+
+export type Writeable<T> = { -readonly [P in keyof T]: T[P] }
+export type DeepWriteable<T> = { -readonly [P in keyof T]: DeepWriteable<T[P]> }
 
 export interface CoreRouteObject extends RouteObject {
     children?: CoreRouteObject[]
     element: ReactElement | FC
     fallback?: FC | string
+}
+
+export type StoreFragments = DocumentNode[]
+export type StorePossibleTypes<T extends string = string> = {
+    [key in T]?: T[]
 }
 
 export interface ModuleProvideAliases {
@@ -13,6 +22,8 @@ export interface ModuleProvideAliases {
     routes: CoreRouteObject[]
     graphqlSchemas: any[]
     graphqlResolvers: Array<Record<string, any>>
+    graphqlStoreFragments: StoreFragments
+    graphqlStorePossibleTypes: StoreFragments
 }
 
 export type ProvideToken = string | symbol

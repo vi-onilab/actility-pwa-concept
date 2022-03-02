@@ -40,7 +40,7 @@ const getModulesTree = (rootModule: Module): GetModulesTreeReturnType => {
     search(rootModule)
 
     provides.forEach((value, key) => {
-        provides.set(key, isPrimitive(value?.[0]) ? value?.[0] : deepmerge.all(value))
+        if (value?.[0] !== undefined) provides.set(key, isPrimitive(value?.[0]) ? value?.[0] : deepmerge.all(value))
     })
 
     return {

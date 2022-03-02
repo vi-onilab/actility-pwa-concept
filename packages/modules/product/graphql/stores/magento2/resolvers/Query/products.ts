@@ -1,8 +1,6 @@
 import { QueryResolvers } from '~modules/graphql'
 import { gql } from 'graphql-tag'
 import api from '~core/api'
-import { ProductInterfaceToProduct } from '../casts'
-import ProductInterfaceBody from '../gql/ProductInterfaceBody'
 
 const products: QueryResolvers['products'] = async (_, { input }) => {
     const {
@@ -30,7 +28,7 @@ const products: QueryResolvers['products'] = async (_, { input }) => {
                         total_count
 
                         items {
-                            ${ProductInterfaceBody}
+                            ... ProductInterface
                         }
                     }
                 }
@@ -51,7 +49,7 @@ const products: QueryResolvers['products'] = async (_, { input }) => {
     )
 
     return {
-        items: products?.items?.map?.(ProductInterfaceToProduct),
+        items: products?.items?.map?.((__context) => ({ __context, __typename: 'Product' })),
         pagination: {
             count: products?.total_count,
             current: products?.page_info?.current_page,

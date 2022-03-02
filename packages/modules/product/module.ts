@@ -2,7 +2,7 @@ import { module } from '@pwa-concept/core'
 import { CurrencyModule } from '~modules/currency'
 import { PaginationModule } from '~modules/pagination'
 import graphqlSchemas from './graphql/schemas'
-import graphqlResolvers from './graphql/resolvers'
+import stores from './graphql/stores'
 
 const ProductModule = module(() => ({
     modules: [
@@ -10,7 +10,9 @@ const ProductModule = module(() => ({
         PaginationModule,
     ],
     graphqlSchemas,
-    graphqlResolvers,
+    graphqlResolvers: stores?.resolvers,
+    graphqlStoreFragments: stores?.fragments,
+    graphqlStorePossibleTypes: stores?.possibleTypes,
 }))
 
 export default ProductModule

@@ -1,22 +1,18 @@
 import { QueryResolvers } from '~modules/graphql'
 import { gql } from 'graphql-tag'
-import api from '~core/api'
-import { ProductInterfaceToProduct } from '../casts'
-import ProductInterfaceBody from '../gql/ProductInterfaceBody'
+import api from '@pwa-concept/core/api'
 
 const product: QueryResolvers['product'] = async (_, { input }) => {
     const {
         id,
     } = input || {}
 
-    const { data: { productDetail = {} } = {} } = (
+    const { data: { productDetail: __context = {} } = {} } = (
         await api.graphql(
             gql`
                 query($id: Int!) {
-                    productDetail(
-                        id: $id
-                    ) {
-                        ${ProductInterfaceBody}
+                    productDetail(id: $id) {
+                        ... ProductInterface
                     }
                 }
             `,
@@ -25,7 +21,10 @@ const product: QueryResolvers['product'] = async (_, { input }) => {
         })
     )
 
-    return ProductInterfaceToProduct(productDetail)
+    return {
+        __context,
+        __typename: 'Product',
+    }
 }
 
 export default product

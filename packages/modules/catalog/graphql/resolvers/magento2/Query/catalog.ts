@@ -1,7 +1,6 @@
 import { QueryResolvers } from '~modules/graphql'
 import api from '@pwa-concept/core/api'
 import { gql } from 'graphql-tag'
-import { ProductInterfaceToProduct } from '~modules/product/graphql/resolvers/magento2/casts'
 
 const catalog: QueryResolvers['catalog'] = async (_, { input } = {}) => {
     const {
@@ -36,55 +35,7 @@ const catalog: QueryResolvers['catalog'] = async (_, { input } = {}) => {
                         total_count
 
                         items {
-                            id
-                            name
-
-                            media_gallery {
-                                url
-                                label
-                            }
-
-                            image {
-                                url
-                                label
-                            }
-
-                            categories {
-                                id
-                                name
-                                level
-                                category_widget_svg_icon
-                            }
-
-                            priceRange: price_range {
-                                maximumPrice: maximum_price {
-                                    discount {
-                                        percentOff: percent_off
-                                    }
-                                    finalPrice: final_price {
-                                        currency
-                                        value
-                                    }
-                                    regularPrice: regular_price {
-                                        currency
-                                        value
-                                    }
-                                }
-
-                                minimumPrice: minimum_price {
-                                    discount {
-                                        percentOff: percent_off
-                                    }
-                                    finalPrice: final_price {
-                                        currency
-                                        value
-                                    }
-                                    regularPrice: regular_price {
-                                        currency
-                                        value
-                                    }
-                                }
-                            }
+                            ... ProductInterface
                         }
                     }
                 }
@@ -146,7 +97,7 @@ const catalog: QueryResolvers['catalog'] = async (_, { input } = {}) => {
     )
 
     return {
-        items: products?.items?.map?.(ProductInterfaceToProduct),
+        items: products?.items?.map?.((__context) => ({ __context, __typename: 'Product' })),
         pagination: {
             count: products?.total_count,
             current: products?.page_info?.current_page,

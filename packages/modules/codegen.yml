@@ -30,6 +30,7 @@ schema:
 documents:
     - "**/{fragments,mutations,queries}/*.{graphql,gql}"
     - "!./schema.graphql"
+    - "!./**/stores/*.{graphql,gql,graphqls}
 
 generates:
     ./schema.graphql:
@@ -43,8 +44,21 @@ generates:
     ./graphql.ts:
         plugins:
             - add: *top-comment
+            - add:
+                  content: >
+                      type ResolverTypeWrapperSignatureContext<T = any> = {
+                          __context?: T
+                      };
+                      
+                      type ResolverContext<T = any> = {
+                          context?: T
+                      };
             - typescript
             - typescript-resolvers
+        config:
+            contextType: ResolverContext
+            customResolverFn: "(parent: TParent , args: TArgs, context: TContext, info: GraphQLResolveInfo) => Promise<TResult> | TResult"
+            resolverTypeWrapperSignature: "Promise<ResolverTypeWrapperSignatureContext & T> | (ResolverTypeWrapperSignatureContext & T)"
 
     ./:
         preset: near-operation-file

@@ -1,0 +1,7 @@
+fragment ProductInterfaceCustom on ProductInterface {
+    manufacturer_name
+
+    categories {
+        category_widget_svg_icon
+    }
+}

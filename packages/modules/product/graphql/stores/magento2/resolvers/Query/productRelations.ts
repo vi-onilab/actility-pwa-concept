@@ -1,8 +1,6 @@
 import { QueryResolvers, ProductRelationType } from '~modules/graphql'
 import { gql } from 'graphql-tag'
 import api from '~core/api'
-import { ProductInterfaceToProduct } from '../casts'
-import ProductInterfaceBody from '../gql/ProductInterfaceBody'
 
 const TYPE_MAP: Record<ProductRelationType, string> = {
     [ProductRelationType.CrossSell]: 'crosssel_products',
@@ -16,6 +14,8 @@ const productRelations: QueryResolvers['productRelations'] = async (_, { input }
 
     const resolvedType = TYPE_MAP?.[type]
 
+    if (!resolvedType) return null
+
     // TODO: Handle errors
     const { data: { productDetail = {} } = {} } = (
         await api.graphql(
@@ -26,7 +26,7 @@ const productRelations: QueryResolvers['productRelations'] = async (_, { input }
                     ) {
                         id
                         ${resolvedType} {
-                            ${ProductInterfaceBody}
+                            ... ProductInterface
                         }
                     }
                 }
@@ -36,7 +36,7 @@ const productRelations: QueryResolvers['productRelations'] = async (_, { input }
         })
     )
 
-    return productDetail?.[resolvedType]?.map?.(ProductInterfaceToProduct)
+    return productDetail?.[resolvedType]?.map?.((__context) => ({ __context, __typename: 'Product' }))
 }
 
 export default productRelations

@@ -72,8 +72,8 @@ module.exports = [
             '@typescript-eslint/method-signature-style': 'error',
             '@typescript-eslint/naming-convention': ['error', {
                 selector: 'variableLike',
-                leadingUnderscore: 'allow',
-                trailingUnderscore: 'allow',
+                leadingUnderscore: 'allowSingleOrDouble',
+                trailingUnderscore: 'allowSingleOrDouble',
                 format: ['camelCase', 'PascalCase', 'UPPER_CASE'],
             }],
             '@typescript-eslint/no-base-to-string': 'off',

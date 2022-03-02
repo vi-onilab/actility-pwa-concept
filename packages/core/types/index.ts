@@ -39,6 +39,7 @@ export interface ModuleProvide {
 }
 
 export interface Feature extends Partial<ModuleProvideAliases> {
+    readonly id?: symbol
     provides?: ModuleProvide[]
     configure?: ((...args: any) => Feature) | unknown | undefined
 }
@@ -46,6 +47,7 @@ export interface Feature extends Partial<ModuleProvideAliases> {
 export type FeatureFn = () => Feature
 
 export interface Module extends Partial<ModuleProvideAliases> {
+    readonly id?: symbol
     entryId?: ProvideId
     entry?: ReactElement
     modules?: Array<Partial<Module>>
@@ -54,5 +56,7 @@ export interface Module extends Partial<ModuleProvideAliases> {
     features?: Feature[]
     configure?: ((...args: any) => Module) | unknown | undefined
 }
+
+export type ExtendFn = (fn: (module: Omit<Module, 'id' | 'extend'>) => Omit<Module, 'extend' | 'id'>) => Omit<Module, 'extend' | 'id'>
 
 export type ModuleFn = () => Module

@@ -1,22 +1,27 @@
 import {
-    Module, ModuleFn,
+    Module,
+    ModuleFn,
+    Writeable,
+    ExtendFn,
 } from './types'
 import provideAliases from './provideAliases'
 
 const provideAliasesEntries = Object.entries(provideAliases)
 
-const module = <T extends ModuleFn = ModuleFn, R extends ReturnType<T> = ReturnType<T>>(fn: T): Pick<R, 'configure'> => {
+type ModuleReturnType<T extends ModuleFn> = (ReturnType<T> & { extend: ExtendFn })
+
+const module = <T extends ModuleFn = ModuleFn, R extends ModuleReturnType<T> = ModuleReturnType<T>>(fn: T): (Pick<R, 'extend' | 'configure'>) => {
     const handle = (result: Module): R => {
         const { configure, ...rest } = result
-        const response = rest as R
+        const response = rest as Writeable<R>
+
+        response.id ??= Symbol(fn.toString())
 
         if (response?.entry) {
             response.entryId ??= Symbol(result.entry.toString())
         }
 
-        if (!Array.isArray(response?.provides)) {
-            response.provides = []
-        }
+        if (!Array.isArray(response?.provides)) response.provides = []
 
         provideAliasesEntries.forEach(([key, value]) => {
             if (key in response) {
@@ -32,6 +37,15 @@ const module = <T extends ModuleFn = ModuleFn, R extends ReturnType<T> = ReturnT
                 }
 
                 return value
+            }
+        }
+
+        response.extend = (fn) => {
+            const { configure: _, id: __, ...value } = response || {}
+
+            return {
+                ...response,
+                ...fn(value),
             }
         }
 

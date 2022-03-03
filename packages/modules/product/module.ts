@@ -4,15 +4,17 @@ import { PaginationModule } from '~modules/pagination'
 import graphqlSchemas from './graphql/schemas'
 import stores from './graphql/stores'
 
-const ProductModule = module(() => ({
-    modules: [
-        CurrencyModule,
-        PaginationModule,
-    ],
-    graphqlSchemas,
-    graphqlResolvers: stores?.resolvers,
-    graphqlStoreFragments: stores?.fragments,
-    graphqlStorePossibleTypes: stores?.possibleTypes,
-}))
+const ProductModule = module(function ProductModule () {
+    return {
+        modules: [
+            CurrencyModule,
+            PaginationModule,
+        ],
+        graphqlSchemas,
+        graphqlResolvers: stores?.resolvers,
+        graphqlStoreFragments: stores?.fragments,
+        graphqlStorePossibleTypes: stores?.possibleTypes,
+    }
+})
 
 export default ProductModule

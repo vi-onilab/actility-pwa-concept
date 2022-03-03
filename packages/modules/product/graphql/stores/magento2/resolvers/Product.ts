@@ -37,7 +37,7 @@ const Product: ProductResolvers = {
         name: 'VAT excluded',
         __typename: 'ProductVat',
     }),
-    badges: (_, __, { context }) => context?.categories?.slice?.(0, 1)?.map?.((category): ProductBadge => ({
+    badges: (_, __, { context }) => context?.categories?.slice?.(0, 1)?.map?.((category) => ({
         id: category?.id,
         name: category?.name,
         icon: category?.category_widget_svg_icon,

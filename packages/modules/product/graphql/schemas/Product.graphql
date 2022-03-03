@@ -14,7 +14,6 @@ type Product {
     thumbnail: ProductImage
     badges: [ProductBadge]
     price: ProductPrice
-    manufacturer: ProductManufacturer
     stock: ProductStock
     vat: ProductVat
 }
@@ -44,9 +43,6 @@ type ProductVat {
     name: String
 }
 
-type ProductManufacturer {
-    name: String
-}
 
 type ProductPrice {
     initial: Money

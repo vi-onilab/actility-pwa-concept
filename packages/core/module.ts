@@ -5,23 +5,25 @@ import {
     ExtendFn,
 } from './types'
 import provideAliases from './provideAliases'
+import extend from './utils/extend'
 
 const provideAliasesEntries = Object.entries(provideAliases)
 
 type ModuleReturnType<T extends ModuleFn> = (ReturnType<T> & { extend: ExtendFn })
 
 const module = <T extends ModuleFn = ModuleFn, R extends ModuleReturnType<T> = ModuleReturnType<T>>(fn: T): (Pick<R, 'extend' | 'configure'>) => {
-    const handle = (result: Module): R => {
+    const handle = (result: Module, isExtend: boolean = false): R => {
         const { configure, ...rest } = result
         const response = rest as Writeable<R>
 
-        response.id ??= Symbol(fn.toString())
+        response.id ??= Symbol(fn?.name || fn.toString())
+        response.type ??= MODULE_TOKEN
 
         if (response?.entry) {
             response.entryId ??= Symbol(result.entry.toString())
         }
 
-        if (!Array.isArray(response?.provides)) response.provides = []
+        if (!Array.isArray(response?.provides) || isExtend) response.provides = []
 
         provideAliasesEntries.forEach(([key, value]) => {
             if (key in response) {
@@ -43,10 +45,10 @@ const module = <T extends ModuleFn = ModuleFn, R extends ModuleReturnType<T> = M
         response.extend = (fn) => {
             const { configure: _, id: __, ...value } = response || {}
 
-            return {
+            return handle({
                 ...response,
-                ...fn(value),
-            }
+                ...fn(value, extend),
+            }, true)
         }
 
         return response
@@ -54,5 +56,7 @@ const module = <T extends ModuleFn = ModuleFn, R extends ModuleReturnType<T> = M
 
     return handle(fn())
 }
+
+export const MODULE_TOKEN = Symbol('Module')
 
 export default module

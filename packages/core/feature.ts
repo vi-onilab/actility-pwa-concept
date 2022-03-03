@@ -5,19 +5,21 @@ import {
     ExtendFn,
 } from './types'
 import provideAliases from './provideAliases'
+import extend from './utils/extend'
 
 const provideAliasesEntries = Object.entries(provideAliases)
 
 type FeatureReturnType<T extends FeatureFn> = (ReturnType<T> & { extend: ExtendFn })
 
 const feature = <T extends FeatureFn = FeatureFn, R extends FeatureReturnType<T> = FeatureReturnType<T>>(fn: T): Pick<R, 'extend' | 'configure'> => {
-    const handle = (result: Feature): R => {
+    const handle = (result: Feature, isExtend: boolean = false): R => {
         const { configure, ...rest } = result
         const response = rest as Writeable<R>
 
-        response.id = Symbol(fn.toString())
+        response.id ??= Symbol(fn?.name || fn.toString())
+        response.type ??= FEATURE_TOKEN
 
-        if (!Array.isArray(response?.provides)) response.provides = []
+        if (!Array.isArray(response?.provides) || isExtend) response.provides = []
 
         provideAliasesEntries.forEach(([key, value]) => {
             if (key in response) {
@@ -37,9 +39,12 @@ const feature = <T extends FeatureFn = FeatureFn, R extends FeatureReturnType<T>
         }
 
         response.extend = (fn) => {
-            const { configure: _, id: __, ...value } = response
+            const { configure: _, id: __, ...value } = response || {}
 
-            return fn(value)
+            return handle({
+                ...response,
+                ...fn(value, extend),
+            }, true)
         }
 
         return response
@@ -47,5 +52,7 @@ const feature = <T extends FeatureFn = FeatureFn, R extends FeatureReturnType<T>
 
     return handle(fn())
 }
+
+export const FEATURE_TOKEN = Symbol('Feature')
 
 export default feature

@@ -1,0 +1,78 @@
+extend type Query {
+    customerOrders(input: CustomerOrdersInput): CustomerOrders
+}
+
+input CustomerOrdersInput {
+    page: Int
+    size: Int
+    number: ID
+}
+
+type CustomerOrders {
+    customerOrders: [CustomerOrder]
+    pageInfo: CustomerOrdersPageInfo
+    totalOrders: Int
+}
+
+type CustomerOrder {
+    id: ID
+    number: String
+    status: String
+    date: Int
+    shippingAddress: Address
+    billingAddress: Address
+    totals: CustomerOrderTotals
+    shippingMethod: String
+    paymentMethod: String
+    products: [CustomerOrderProducts]
+}
+
+type Address {
+    firstName: String
+    lastName: String
+    telephone: String
+    city: String
+    company: String
+    street: String
+    countryCode: Int
+    postcode: String
+}
+
+type CustomerOrdersPageInfo {
+    page: Int
+    size: Int
+    total: Int
+}
+
+type CustomerOrderTotals {
+    total: Int
+    subtotal: Int
+    totalShipping: Int
+    taxes: [CustomerOrderTaxes]
+    discounts: [CustomerOrderProductsDiscounts]
+}
+
+type CustomerOrderTaxes {
+    rate: Int
+    title: String
+    tax: Int
+}
+
+type CustomerOrderProducts {
+    id: ID
+    url: String
+    name: String
+    discounts: [CustomerOrderProductsDiscounts]
+    status: String
+    options: [CustomerOrderProductsOptions]
+}
+
+type CustomerOrderProductsOptions {
+    label: String
+    value: String
+}
+
+type CustomerOrderProductsDiscounts {
+    label: String
+    value: String
+}

@@ -9,7 +9,7 @@ import { RouteProvider } from '~core/router/Route'
 
 const parseRoutes = (routes: CoreRouteObject[]): RouteObject[] => (
     routes
-        ?.sort((a, b) => (b.path.includes('*') ? (a.path.includes('*') ? 1 : -1) : 0))
+        ?.sort((a, b) => (b?.path?.includes?.('*') ? (a?.path?.includes?.('*') ? 1 : -1) : 0))
         ?.map((
             {
                 fallback: Fallback,

@@ -11,6 +11,9 @@ export interface CoreRouteObject extends RouteObject {
     fallback?: FC | string
 }
 
+export type ModuleFragments = DocumentNode[]
+export type FeatureFragments = ModuleFragments
+
 export type StoreFragments = DocumentNode[]
 export type StorePossibleTypes<T extends string = string> = {
     [key in T]?: T[]
@@ -24,6 +27,7 @@ export interface ModuleProvideAliases {
     graphqlResolvers: Array<Record<string, any>>
     graphqlStoreFragments: StoreFragments
     graphqlStorePossibleTypes: StoreFragments
+    graphqlFragments: ModuleFragments | FeatureFragments
 }
 
 export type ProvideToken = string | symbol

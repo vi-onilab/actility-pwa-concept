@@ -7,10 +7,10 @@ import {
     httpLink,
     queueLink,
     retryLink,
-    storeFragments,
+    fragmentsInjectorFromProvide,
 } from '~core/graphql/links'
-import { Provide } from '~core'
-import { PROVIDE_GRAPHQL_STORE_POSSIBLE_TYPES } from '~core'
+import { Provide } from '~core/provide'
+import { PROVIDE_GRAPHQL_STORE_POSSIBLE_TYPES, PROVIDE_GRAPHQL_STORE_FRAGMENTS } from '~core/graphql'
 
 const cache = new InMemoryCache({
     possibleTypes: {},
@@ -20,7 +20,7 @@ const apollo = new ApolloClient({
     uri: env('APP_GRAPHQL_URL'),
     cache,
     link: from([
-        storeFragments,
+        fragmentsInjectorFromProvide(PROVIDE_GRAPHQL_STORE_FRAGMENTS),
         retryLink,
         queueLink,
         authLink,

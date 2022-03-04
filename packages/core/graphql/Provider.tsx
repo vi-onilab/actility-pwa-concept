@@ -13,19 +13,17 @@ import {
     httpLink,
     queueLink,
     retryLink,
+    fragmentsInjectorFromProvide,
 } from './links'
 import resolver from './resolver'
 import { useProvide } from '../provide'
 import {
-    PROVIDE_GRAPHQL_STORE_FRAGMENTS,
     PROVIDE_GRAPHQL_POLICY,
     PROVIDE_GRAPHQL_RESOLVERS,
     PROVIDE_GRAPHQL_SCHEMAS,
+    PROVIDE_GRAPHQL_FRAGMENTS,
 } from './tokens'
 import { env } from '../utils'
-import { DocumentNode } from 'graphql/language/ast'
-import parseStoreFragments from './parseStoreFragments'
-import { useEffect } from 'react'
 
 const GraphQLProvider: FC = ({ children }) => {
     const typePolicies = useProvide(PROVIDE_GRAPHQL_POLICY, {})
@@ -56,6 +54,7 @@ const GraphQLProvider: FC = ({ children }) => {
             resolvers,
             uri: env('APP_GRAPHQL_URL'),
             link: from([
+                fragmentsInjectorFromProvide(PROVIDE_GRAPHQL_FRAGMENTS),
                 retryLink,
                 queueLink,
                 authLink,

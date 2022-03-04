@@ -20,7 +20,7 @@ const module = <T extends ModuleFn = ModuleFn, R extends ModuleReturnType<T> = M
         response.type ??= MODULE_TOKEN
 
         if (response?.entry) {
-            response.entryId ??= Symbol(result.entry.toString())
+            response.entryId ??= Symbol(result.entry?.key || result.entry.toString())
         }
 
         if (!Array.isArray(response?.provides) || isExtend) response.provides = []

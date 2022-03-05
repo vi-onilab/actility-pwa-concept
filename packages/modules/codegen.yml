@@ -7,18 +7,18 @@ definitions:
              * NOTE: THIS IS AN AUTO-GENERATED FILE. DO NOT MODIFY IT DIRECTLY.
              * USE `yarn build:schema-types` or `yarn build`.
              */
-            
+
             /* eslint-disable */
-            
+
             /* tslint:disable */
-            
+
             /* @ts-nocheck */
     copyright_gql: &top-comment-gql
         content: >
             # NOTE: THIS IS AN AUTO-GENERATED FILE. DO NOT MODIFY IT DIRECTLY.
-            
+
             # USE `yarn build:schema-types` or `yarn build`.
-            
+
 
 schema:
     - "directive @client on FIELD_DEFINITION | ARGUMENT_DEFINITION | QUERY"
@@ -30,7 +30,7 @@ schema:
 documents:
     - "**/{fragments,mutations,queries}/*.{graphql,gql}"
     - "!./schema.graphql"
-    - "!./**/stores/*.{graphql,gql,graphqls}
+    - "!./**/stores/**/*.{graphql,gql,graphqls}"
 
 generates:
     ./schema.graphql:
@@ -49,7 +49,7 @@ generates:
                       type ResolverTypeWrapperSignatureContext<T = any> = {
                           __context?: T
                       };
-                      
+
                       type ResolverContext<T = any> = {
                           context?: T
                       };

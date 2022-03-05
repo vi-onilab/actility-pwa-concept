@@ -9,9 +9,6 @@ fragment Product on Product {
         id
         name
     }
-    manufacturer {
-        name
-    }
     stock {
         name
         type

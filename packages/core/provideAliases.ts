@@ -6,6 +6,7 @@ import {
     PROVIDE_GRAPHQL_RESOLVERS,
     PROVIDE_GRAPHQL_STORE_FRAGMENTS,
     PROVIDE_GRAPHQL_STORE_POSSIBLE_TYPES,
+    PROVIDE_GRAPHQL_FRAGMENTS,
 } from './graphql'
 import { ModuleProvideAliases, ProvideToken } from './types'
 
@@ -15,6 +16,7 @@ const provideAliases: Record<keyof ModuleProvideAliases, ProvideToken> = {
     graphqlLinks: PROVIDE_GRAPHQL_LINKS,
     graphqlSchemas: PROVIDE_GRAPHQL_SCHEMAS,
     graphqlResolvers: PROVIDE_GRAPHQL_RESOLVERS,
+    graphqlFragments: PROVIDE_GRAPHQL_FRAGMENTS,
     graphqlStoreFragments: PROVIDE_GRAPHQL_STORE_FRAGMENTS,
     graphqlStorePossibleTypes: PROVIDE_GRAPHQL_STORE_POSSIBLE_TYPES,
 }

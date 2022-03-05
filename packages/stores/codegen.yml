@@ -7,13 +7,13 @@ definitions:
              * NOTE: THIS IS AN AUTO-GENERATED FILE. DO NOT MODIFY IT DIRECTLY.
              * USE `yarn build:schema-types` or `yarn build`.
              */
-            
+
             /* eslint-disable */
-            
+
             /* tslint:disable */
-            
+
             /* @ts-nocheck */
-            
+
 
 schema:
     - "directive @client on FIELD_DEFINITION | ARGUMENT_DEFINITION | QUERY"
@@ -30,8 +30,9 @@ generates:
             - add:
                   placement: append
                   content: >
-                      export type Magento2StoreFragmentsKeys = keyof Magento2ResolversParentTypes
-                      export type Magento2StorePossibleTypesKeys = keyof Magento2ResolversParentTypes
+                      export type Magento2StoreFragmentsKeys = keyof Magento2ResolversParentTypes;
+
+                      export type Magento2StorePossibleTypesKeys = keyof Magento2ResolversParentTypes;
             - add: *top-comment
             - typescript
             - typescript-resolvers

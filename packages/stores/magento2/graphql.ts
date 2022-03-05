@@ -14812,4 +14812,5 @@ export type Magento2DirectiveResolvers<ContextType = any> = {
   client?: Magento2ClientDirectiveResolver<any, any, ContextType>;
 };
 
-export type Magento2StoreFragmentsKeys = keyof Magento2ResolversParentTypes export type Magento2StorePossibleTypesKeys = keyof Magento2ResolversParentTypes
+export type Magento2StoreFragmentsKeys = keyof Magento2ResolversParentTypes;
+export type Magento2StorePossibleTypesKeys = keyof Magento2ResolversParentTypes;

@@ -13,7 +13,7 @@ const useLastCustomerOrder = () => {
     })
 
     return {
-        lastOrderNumber: loading && !data ? null : data?.customerOrders?.customerOrders[0].number,
+        lastOrderNumber: loading && !data ? null : data?.customerOrders?.customerOrders?.[0]?.number,
         loading,
     }
 }

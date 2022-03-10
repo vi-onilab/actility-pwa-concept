@@ -1,5 +1,5 @@
 import { $country, $currency } from '@pwa-concept/core/models'
-import { Money } from '~modules/graphql'
+import { Money } from '@pwa-concept/modules/graphql'
 
 const convertMoneyToText = (
     money: number | Money,

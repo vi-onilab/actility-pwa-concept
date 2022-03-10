@@ -1,5 +1,5 @@
-import { Product } from '~modules/graphql'
-import { useProductSubscribeToPriceDropMutation } from '~modules/product/graphql/mutations/ProductSubscribeToPriceDrop'
+import { Product } from '@pwa-concept/modules/graphql'
+import { useProductSubscribeToPriceDropMutation } from '@pwa-concept/modules/product/graphql/mutations/ProductSubscribeToPriceDrop'
 
 const useProductSubscribeToPriceDrop = (product: Product = null) => {
     const [productSubscribeToPriceDropMutation, { data, loading }] = useProductSubscribeToPriceDropMutation()

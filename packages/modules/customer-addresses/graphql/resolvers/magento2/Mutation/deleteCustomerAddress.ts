@@ -1,6 +1,6 @@
 import api from '@pwa-concept/core/api'
 import { gql } from 'graphql-tag'
-import { MutationResolvers } from '~modules/graphql'
+import { MutationResolvers } from '@pwa-concept/modules/graphql'
 
 const deleteCustomerAddress: MutationResolvers['deleteCustomerAddress'] = async (_, input) => {
     const { id } = input

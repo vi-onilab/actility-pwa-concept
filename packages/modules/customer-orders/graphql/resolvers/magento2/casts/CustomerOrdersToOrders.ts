@@ -1,4 +1,4 @@
-import { CustomerOrders } from '~modules/graphql'
+import { CustomerOrders } from '@pwa-concept/modules/graphql'
 import CustomerOrdersToOrder from './CustomerOrdersToOrder'
 
 const CustomerOrdersToOrders = (orders): CustomerOrders => {

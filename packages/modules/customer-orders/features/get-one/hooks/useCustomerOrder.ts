@@ -1,5 +1,5 @@
-import { $auth } from '~core/models'
-import { useCustomerOrdersQuery } from '~modules/customer-orders/graphql/queries/CustomerOrders'
+import { $auth } from '@pwa-concept/core/models'
+import { useCustomerOrdersQuery } from '@pwa-concept/modules/customer-orders/graphql/queries/CustomerOrders'
 
 const useCustomerOrder = (number: string) => {
     const { data, loading } = useCustomerOrdersQuery({

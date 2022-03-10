@@ -1,4 +1,4 @@
-import { Resolvers } from '~modules/graphql'
+import { Resolvers } from '@pwa-concept/modules/graphql'
 import Query from './Query'
 import Mutation from './Mutation'
 import Product from './Product'

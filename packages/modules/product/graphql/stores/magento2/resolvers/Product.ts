@@ -1,4 +1,4 @@
-import { ProductResolvers, ProductBreadcrumb, ProductStockType, ProductImage, ProductVatType, ProductBadge } from '~modules/graphql'
+import { ProductResolvers, ProductBreadcrumb, ProductStockType, ProductImage, ProductVatType, ProductBadge } from '@pwa-concept/modules/graphql'
 
 const id = (context) => String(context?.id)
 
@@ -22,10 +22,6 @@ const Product: ProductResolvers = {
             __typename: 'ProductBreadcrumb',
         },
     ],
-    manufacturer: (_, __, { context }) => ({
-        name: context?.manufacturer_name,
-        __typename: 'ProductManufacturer',
-    }),
     images: (_, __, { context }) => context?.media_gallery?.map?.((image, index): ProductImage => ({
         id: `${id(context)}_${index}`,
         url: image?.url,

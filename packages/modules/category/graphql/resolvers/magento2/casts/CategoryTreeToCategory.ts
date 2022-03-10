@@ -1,4 +1,4 @@
-import { Category } from '~modules/graphql'
+import { Category } from '@pwa-concept/modules/graphql'
 
 const CategoryTreeToCategory = (category): Category => {
     if (!category) return null

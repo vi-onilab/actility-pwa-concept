@@ -1,6 +1,6 @@
 import api from '@pwa-concept/core/api'
 import { gql } from 'graphql-tag'
-import { MutationResolvers } from '~modules/graphql'
+import { MutationResolvers } from '@pwa-concept/modules/graphql'
 
 const updateEmail: MutationResolvers['updateEmail'] = async (_, { email, password }) => {
     const { data: { updateCustomerEmail: { customer: { email: customerEmail = '' } } } } = await (

@@ -5,12 +5,13 @@
 
 /* eslint-disable */
 /* tslint:disable */
-/* @ts-nocheck */
+// @ts-nocheck
 
 import * as Types from '../../../graphql';
 
 import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
+import * as ApolloReactHooks from '@pwa-concept/core/graphql/hooks';
 const defaultOptions = {} as const;
 export type CreateCustomerAddressMutationVariables = Types.Exact<{
   input?: Types.InputMaybe<Types.CustomerAddressInput>;
@@ -61,9 +62,9 @@ export type CreateCustomerAddressMutationFn = Apollo.MutationFunction<CreateCust
  *   },
  * });
  */
-export function useCreateCustomerAddressMutation(baseOptions?: Apollo.MutationHookOptions<CreateCustomerAddressMutation, CreateCustomerAddressMutationVariables>) {
+export function useCreateCustomerAddressMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<CreateCustomerAddressMutation, CreateCustomerAddressMutationVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<CreateCustomerAddressMutation, CreateCustomerAddressMutationVariables>(CreateCustomerAddressDocument, options);
+        return ApolloReactHooks.useMutation<CreateCustomerAddressMutation, CreateCustomerAddressMutationVariables>(CreateCustomerAddressDocument, options);
       }
 export type CreateCustomerAddressMutationHookResult = ReturnType<typeof useCreateCustomerAddressMutation>;
 export type CreateCustomerAddressMutationResult = Apollo.MutationResult<CreateCustomerAddressMutation>;

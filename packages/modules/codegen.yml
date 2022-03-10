@@ -12,7 +12,7 @@ definitions:
 
             /* tslint:disable */
 
-            /* @ts-nocheck */
+            // @ts-nocheck
     copyright_gql: &top-comment-gql
         content: >
             # NOTE: THIS IS AN AUTO-GENERATED FILE. DO NOT MODIFY IT DIRECTLY.
@@ -54,9 +54,10 @@ generates:
                           context?: T
                       };
             - typescript
-            - typescript-resolvers
+            - "@pwa-concept/cli/lib/utils/codegen/typescript-resolvers.js"
         config:
             contextType: ResolverContext
+            declarationKind: 'interface'
             customResolverFn: "(parent: TParent , args: TArgs, context: TContext, info: GraphQLResolveInfo) => Promise<TResult> | TResult"
             resolverTypeWrapperSignature: "Promise<ResolverTypeWrapperSignatureContext & T> | (ResolverTypeWrapperSignatureContext & T)"
 
@@ -67,6 +68,7 @@ generates:
             baseTypesPath: ./graphql.ts
         config:
             withHooks: true
+            apolloReactHooksImportFrom: "@pwa-concept/core/graphql/hooks"
         plugins:
             - add: *top-comment
             - typescript-operations

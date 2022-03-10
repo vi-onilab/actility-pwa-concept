@@ -1,4 +1,4 @@
-import { useCreateCustomerAddressMutation, CreateCustomerAddressMutationVariables } from '~modules/customer-addresses/graphql/mutations/CreateCustomerAddress'
+import { useCreateCustomerAddressMutation, CreateCustomerAddressMutationVariables } from '@pwa-concept/modules/customer-addresses/graphql/mutations/CreateCustomerAddress'
 
 const useCustomerAddressCreate = () => {
     const [createCustomerAddress] = useCreateCustomerAddressMutation()

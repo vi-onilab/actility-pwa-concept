@@ -1,4 +1,4 @@
-import { CustomerOrder } from '~modules/graphql'
+import { CustomerOrder } from '@pwa-concept/modules/graphql'
 
 const CustomerOrdersToOrder = (order): CustomerOrder => {
     if (!order) return null

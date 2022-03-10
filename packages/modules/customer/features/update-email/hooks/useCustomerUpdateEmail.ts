@@ -1,4 +1,4 @@
-import { useUpdateEmailMutation, UpdateEmailMutationVariables } from '~modules/customer/graphql/mutations/UpdateEmail'
+import { useUpdateEmailMutation, UpdateEmailMutationVariables } from '@pwa-concept/modules/customer/graphql/mutations/UpdateEmail'
 
 const useCustomerUpdateEmail = () => {
     const [updateEmail] = useUpdateEmailMutation()

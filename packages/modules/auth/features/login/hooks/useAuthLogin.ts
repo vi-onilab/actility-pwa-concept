@@ -1,4 +1,4 @@
-import { useLoginMutation, LoginMutationVariables } from '~modules/auth/graphql/mutations/Login'
+import { useLoginMutation, LoginMutationVariables } from '@pwa-concept/modules/auth/graphql/mutations/Login'
 
 const useAuthLogin = () => {
     const [logIn] = useLoginMutation()

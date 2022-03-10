@@ -1,4 +1,4 @@
-import { useUpdateCustomerMutation, UpdateCustomerMutationVariables } from '~modules/customer/graphql/mutations/UpdateCustomer'
+import { useUpdateCustomerMutation, UpdateCustomerMutationVariables } from '@pwa-concept/modules/customer/graphql/mutations/UpdateCustomer'
 
 const useCustomerUpdate = () => {
     const [updateCustomer] = useUpdateCustomerMutation()

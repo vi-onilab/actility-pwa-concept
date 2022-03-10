@@ -1,7 +1,7 @@
 import {
     useDeleteCustomerAddressMutation,
     DeleteCustomerAddressMutationVariables,
-} from '~modules/customer-addresses/graphql/mutations/DeleteCustomerAddress'
+} from '@pwa-concept/modules/customer-addresses/graphql/mutations/DeleteCustomerAddress'
 
 const useCustomerAddressDelete = () => {
     const [deleteCustomerAddress] = useDeleteCustomerAddressMutation()

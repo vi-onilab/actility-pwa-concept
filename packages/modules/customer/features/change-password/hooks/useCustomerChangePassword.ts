@@ -1,4 +1,4 @@
-import { useChangePasswordMutation, ChangePasswordMutationVariables } from '~modules/customer/graphql/mutations/ChangePassword'
+import { useChangePasswordMutation, ChangePasswordMutationVariables } from '@pwa-concept/modules/customer/graphql/mutations/ChangePassword'
 
 const useCustomerChangePassword = () => {
     const [changePassword] = useChangePasswordMutation()

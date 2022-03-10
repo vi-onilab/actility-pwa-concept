@@ -1,5 +1,5 @@
-import { QueryResolvers } from '~modules/graphql'
-import { gql } from 'graphql-tag'
+import { QueryResolvers } from '@pwa-concept/modules/graphql'
+import { gql } from '@apollo/client'
 import api from '@pwa-concept/core/api'
 
 const product: QueryResolvers['product'] = async (_, { input }) => {
@@ -7,24 +7,31 @@ const product: QueryResolvers['product'] = async (_, { input }) => {
         id,
     } = input || {}
 
-    const { data: { productDetail: __context = {} } = {} } = (
-        await api.graphql(
-            gql`
-                query($id: Int!) {
-                    productDetail(id: $id) {
-                        ... ProductInterface
+    try {
+        const { data: { productDetail: __context = {} } = {} } = (
+            await api.graphql(
+                gql`
+                    query($id: Int!) {
+                        productDetail(id: $id) {
+                            ... ProductInterface
+                        }
                     }
-                }
-            `,
-        ).query({
-            id,
-        })
-    )
+                `,
+            ).query({
+                id,
+            })
+        )
 
-    return {
-        __context,
-        __typename: 'Product',
+        return {
+            __context,
+            __typename: 'Product',
+        }
+    } catch (e) {
+        console.error(e)
+        throw e
     }
+
+
 }
 
 export default product

@@ -5,12 +5,13 @@
 
 /* eslint-disable */
 /* tslint:disable */
-/* @ts-nocheck */
+// @ts-nocheck
 
 import * as Types from '../../../graphql';
 
 import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
+import * as ApolloReactHooks from '@pwa-concept/core/graphql/hooks';
 const defaultOptions = {} as const;
 export type ResetRequestMutationVariables = Types.Exact<{
   email?: Types.InputMaybe<Types.Scalars['String']>;
@@ -44,9 +45,9 @@ export type ResetRequestMutationFn = Apollo.MutationFunction<ResetRequestMutatio
  *   },
  * });
  */
-export function useResetRequestMutation(baseOptions?: Apollo.MutationHookOptions<ResetRequestMutation, ResetRequestMutationVariables>) {
+export function useResetRequestMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<ResetRequestMutation, ResetRequestMutationVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<ResetRequestMutation, ResetRequestMutationVariables>(ResetRequestDocument, options);
+        return ApolloReactHooks.useMutation<ResetRequestMutation, ResetRequestMutationVariables>(ResetRequestDocument, options);
       }
 export type ResetRequestMutationHookResult = ReturnType<typeof useResetRequestMutation>;
 export type ResetRequestMutationResult = Apollo.MutationResult<ResetRequestMutation>;

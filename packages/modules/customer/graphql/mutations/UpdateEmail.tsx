@@ -5,12 +5,13 @@
 
 /* eslint-disable */
 /* tslint:disable */
-/* @ts-nocheck */
+// @ts-nocheck
 
 import * as Types from '../../../graphql';
 
 import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
+import * as ApolloReactHooks from '@pwa-concept/core/graphql/hooks';
 const defaultOptions = {} as const;
 export type UpdateEmailMutationVariables = Types.Exact<{
   email?: Types.InputMaybe<Types.Scalars['String']>;
@@ -49,9 +50,9 @@ export type UpdateEmailMutationFn = Apollo.MutationFunction<UpdateEmailMutation,
  *   },
  * });
  */
-export function useUpdateEmailMutation(baseOptions?: Apollo.MutationHookOptions<UpdateEmailMutation, UpdateEmailMutationVariables>) {
+export function useUpdateEmailMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<UpdateEmailMutation, UpdateEmailMutationVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<UpdateEmailMutation, UpdateEmailMutationVariables>(UpdateEmailDocument, options);
+        return ApolloReactHooks.useMutation<UpdateEmailMutation, UpdateEmailMutationVariables>(UpdateEmailDocument, options);
       }
 export type UpdateEmailMutationHookResult = ReturnType<typeof useUpdateEmailMutation>;
 export type UpdateEmailMutationResult = Apollo.MutationResult<UpdateEmailMutation>;

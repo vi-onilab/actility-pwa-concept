@@ -1,5 +1,5 @@
-import { $auth } from '~core/models'
-import { useCustomerAddressesQuery } from '~modules/customer-addresses/graphql/queries/CustomerAddresses'
+import { $auth } from '@pwa-concept/core/models'
+import { useCustomerAddressesQuery } from '@pwa-concept/modules/customer-addresses/graphql/queries/CustomerAddresses'
 
 const useCustomerAddresses = () => {
     const { data, loading } = useCustomerAddressesQuery({

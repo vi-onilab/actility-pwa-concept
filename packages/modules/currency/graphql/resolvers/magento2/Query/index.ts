@@ -1,4 +1,4 @@
-import { QueryResolvers } from '~modules/graphql'
+import { QueryResolvers } from '@pwa-concept/modules/graphql'
 
 const Query: QueryResolvers = {}
 

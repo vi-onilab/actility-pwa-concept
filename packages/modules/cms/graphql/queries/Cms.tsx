@@ -5,12 +5,13 @@
 
 /* eslint-disable */
 /* tslint:disable */
-/* @ts-nocheck */
+// @ts-nocheck
 
 import * as Types from '../../../graphql';
 
 import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
+import * as ApolloReactHooks from '@pwa-concept/core/graphql/hooks';
 const defaultOptions = {} as const;
 export type CmsQueryVariables = Types.Exact<{
   id?: Types.InputMaybe<Types.Scalars['ID']>;
@@ -49,13 +50,13 @@ export const CmsDocument = gql`
  *   },
  * });
  */
-export function useCmsQuery(baseOptions?: Apollo.QueryHookOptions<CmsQuery, CmsQueryVariables>) {
+export function useCmsQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<CmsQuery, CmsQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<CmsQuery, CmsQueryVariables>(CmsDocument, options);
+        return ApolloReactHooks.useQuery<CmsQuery, CmsQueryVariables>(CmsDocument, options);
       }
-export function useCmsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<CmsQuery, CmsQueryVariables>) {
+export function useCmsLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<CmsQuery, CmsQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<CmsQuery, CmsQueryVariables>(CmsDocument, options);
+          return ApolloReactHooks.useLazyQuery<CmsQuery, CmsQueryVariables>(CmsDocument, options);
         }
 export type CmsQueryHookResult = ReturnType<typeof useCmsQuery>;
 export type CmsLazyQueryHookResult = ReturnType<typeof useCmsLazyQuery>;

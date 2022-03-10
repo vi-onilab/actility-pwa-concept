@@ -5,12 +5,13 @@
 
 /* eslint-disable */
 /* tslint:disable */
-/* @ts-nocheck */
+// @ts-nocheck
 
 import * as Types from '../../../graphql';
 
 import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
+import * as ApolloReactHooks from '@pwa-concept/core/graphql/hooks';
 const defaultOptions = {} as const;
 export type FiltersQueryVariables = Types.Exact<{
   input?: Types.InputMaybe<Types.FiltersQueryInput>;
@@ -53,13 +54,13 @@ export const FiltersDocument = gql`
  *   },
  * });
  */
-export function useFiltersQuery(baseOptions?: Apollo.QueryHookOptions<FiltersQuery, FiltersQueryVariables>) {
+export function useFiltersQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<FiltersQuery, FiltersQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<FiltersQuery, FiltersQueryVariables>(FiltersDocument, options);
+        return ApolloReactHooks.useQuery<FiltersQuery, FiltersQueryVariables>(FiltersDocument, options);
       }
-export function useFiltersLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<FiltersQuery, FiltersQueryVariables>) {
+export function useFiltersLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<FiltersQuery, FiltersQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<FiltersQuery, FiltersQueryVariables>(FiltersDocument, options);
+          return ApolloReactHooks.useLazyQuery<FiltersQuery, FiltersQueryVariables>(FiltersDocument, options);
         }
 export type FiltersQueryHookResult = ReturnType<typeof useFiltersQuery>;
 export type FiltersLazyQueryHookResult = ReturnType<typeof useFiltersLazyQuery>;

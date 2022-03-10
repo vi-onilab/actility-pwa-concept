@@ -1,7 +1,7 @@
 import api from '@pwa-concept/core/api'
 import { gql } from 'graphql-tag'
 import { $auth } from '@pwa-concept/core/models'
-import { MutationResolvers } from '~modules/graphql'
+import { MutationResolvers } from '@pwa-concept/modules/graphql'
 
 const login: MutationResolvers['login'] = async (_, { email, password }) => {
     const { data: { generateCustomerToken: { token = '' } } } = await (

@@ -5,12 +5,13 @@
 
 /* eslint-disable */
 /* tslint:disable */
-/* @ts-nocheck */
+// @ts-nocheck
 
 import * as Types from '../../../graphql';
 
 import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
+import * as ApolloReactHooks from '@pwa-concept/core/graphql/hooks';
 const defaultOptions = {} as const;
 export type CustomerOrdersQueryVariables = Types.Exact<{
   input?: Types.InputMaybe<Types.CustomerOrdersInput>;
@@ -103,13 +104,13 @@ export const CustomerOrdersDocument = gql`
  *   },
  * });
  */
-export function useCustomerOrdersQuery(baseOptions?: Apollo.QueryHookOptions<CustomerOrdersQuery, CustomerOrdersQueryVariables>) {
+export function useCustomerOrdersQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<CustomerOrdersQuery, CustomerOrdersQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<CustomerOrdersQuery, CustomerOrdersQueryVariables>(CustomerOrdersDocument, options);
+        return ApolloReactHooks.useQuery<CustomerOrdersQuery, CustomerOrdersQueryVariables>(CustomerOrdersDocument, options);
       }
-export function useCustomerOrdersLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<CustomerOrdersQuery, CustomerOrdersQueryVariables>) {
+export function useCustomerOrdersLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<CustomerOrdersQuery, CustomerOrdersQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<CustomerOrdersQuery, CustomerOrdersQueryVariables>(CustomerOrdersDocument, options);
+          return ApolloReactHooks.useLazyQuery<CustomerOrdersQuery, CustomerOrdersQueryVariables>(CustomerOrdersDocument, options);
         }
 export type CustomerOrdersQueryHookResult = ReturnType<typeof useCustomerOrdersQuery>;
 export type CustomerOrdersLazyQueryHookResult = ReturnType<typeof useCustomerOrdersLazyQuery>;

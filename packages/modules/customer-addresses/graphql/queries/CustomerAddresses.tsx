@@ -5,12 +5,13 @@
 
 /* eslint-disable */
 /* tslint:disable */
-/* @ts-nocheck */
+// @ts-nocheck
 
 import * as Types from '../../../graphql';
 
 import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
+import * as ApolloReactHooks from '@pwa-concept/core/graphql/hooks';
 const defaultOptions = {} as const;
 export type CustomerAddressesQueryVariables = Types.Exact<{ [key: string]: never; }>;
 
@@ -56,13 +57,13 @@ export const CustomerAddressesDocument = gql`
  *   },
  * });
  */
-export function useCustomerAddressesQuery(baseOptions?: Apollo.QueryHookOptions<CustomerAddressesQuery, CustomerAddressesQueryVariables>) {
+export function useCustomerAddressesQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<CustomerAddressesQuery, CustomerAddressesQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<CustomerAddressesQuery, CustomerAddressesQueryVariables>(CustomerAddressesDocument, options);
+        return ApolloReactHooks.useQuery<CustomerAddressesQuery, CustomerAddressesQueryVariables>(CustomerAddressesDocument, options);
       }
-export function useCustomerAddressesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<CustomerAddressesQuery, CustomerAddressesQueryVariables>) {
+export function useCustomerAddressesLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<CustomerAddressesQuery, CustomerAddressesQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<CustomerAddressesQuery, CustomerAddressesQueryVariables>(CustomerAddressesDocument, options);
+          return ApolloReactHooks.useLazyQuery<CustomerAddressesQuery, CustomerAddressesQueryVariables>(CustomerAddressesDocument, options);
         }
 export type CustomerAddressesQueryHookResult = ReturnType<typeof useCustomerAddressesQuery>;
 export type CustomerAddressesLazyQueryHookResult = ReturnType<typeof useCustomerAddressesLazyQuery>;

@@ -5,12 +5,13 @@
 
 /* eslint-disable */
 /* tslint:disable */
-/* @ts-nocheck */
+// @ts-nocheck
 
 import * as Types from '../../../graphql';
 
 import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
+import * as ApolloReactHooks from '@pwa-concept/core/graphql/hooks';
 const defaultOptions = {} as const;
 export type ProductSubscribeToPriceDropMutationVariables = Types.Exact<{
   input: Types.ProductSubscribeToPriceDropInput;
@@ -46,9 +47,9 @@ export type ProductSubscribeToPriceDropMutationFn = Apollo.MutationFunction<Prod
  *   },
  * });
  */
-export function useProductSubscribeToPriceDropMutation(baseOptions?: Apollo.MutationHookOptions<ProductSubscribeToPriceDropMutation, ProductSubscribeToPriceDropMutationVariables>) {
+export function useProductSubscribeToPriceDropMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<ProductSubscribeToPriceDropMutation, ProductSubscribeToPriceDropMutationVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<ProductSubscribeToPriceDropMutation, ProductSubscribeToPriceDropMutationVariables>(ProductSubscribeToPriceDropDocument, options);
+        return ApolloReactHooks.useMutation<ProductSubscribeToPriceDropMutation, ProductSubscribeToPriceDropMutationVariables>(ProductSubscribeToPriceDropDocument, options);
       }
 export type ProductSubscribeToPriceDropMutationHookResult = ReturnType<typeof useProductSubscribeToPriceDropMutation>;
 export type ProductSubscribeToPriceDropMutationResult = Apollo.MutationResult<ProductSubscribeToPriceDropMutation>;

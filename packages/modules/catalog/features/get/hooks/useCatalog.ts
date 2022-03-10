@@ -1,5 +1,5 @@
-import { useCatalogQuery } from '~modules/catalog/graphql/queries/Catalog'
-import { CatalogQueryInput } from '~modules/graphql'
+import { useCatalogQuery } from '@pwa-concept/modules/catalog/graphql/queries/Catalog'
+import { CatalogQueryInput } from '@pwa-concept/modules/graphql'
 
 const useCatalog = (input?: CatalogQueryInput) => {
     const {

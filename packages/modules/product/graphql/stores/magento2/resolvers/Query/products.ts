@@ -1,6 +1,6 @@
-import { QueryResolvers } from '~modules/graphql'
+import { QueryResolvers } from '@pwa-concept/modules/graphql'
 import { gql } from 'graphql-tag'
-import api from '~core/api'
+import api from '@pwa-concept/core/api'
 
 const products: QueryResolvers['products'] = async (_, { input }) => {
     const {

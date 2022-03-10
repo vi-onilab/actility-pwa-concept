@@ -1,5 +1,5 @@
-import { useFiltersQuery } from '~modules/filter/graphql/queries/Filters'
-import { Category } from '~modules/graphql'
+import { useFiltersQuery } from '@pwa-concept/modules/filter/graphql/queries/Filters'
+import { Category } from '@pwa-concept/modules/graphql'
 
 interface UseFiltersInput {
     category?: Category

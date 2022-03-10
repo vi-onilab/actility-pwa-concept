@@ -5,13 +5,14 @@
 
 /* eslint-disable */
 /* tslint:disable */
-/* @ts-nocheck */
+// @ts-nocheck
 
 import * as Types from '../../../graphql';
 
 import { gql } from '@apollo/client';
 import { ProductFragmentDoc } from '../fragments/Product';
 import * as Apollo from '@apollo/client';
+import * as ApolloReactHooks from '@pwa-concept/core/graphql/hooks';
 const defaultOptions = {} as const;
 export type ProductRelationsQueryVariables = Types.Exact<{
   input: Types.ProductRelationsQueryInput;
@@ -45,13 +46,13 @@ export const ProductRelationsDocument = gql`
  *   },
  * });
  */
-export function useProductRelationsQuery(baseOptions: Apollo.QueryHookOptions<ProductRelationsQuery, ProductRelationsQueryVariables>) {
+export function useProductRelationsQuery(baseOptions: ApolloReactHooks.QueryHookOptions<ProductRelationsQuery, ProductRelationsQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<ProductRelationsQuery, ProductRelationsQueryVariables>(ProductRelationsDocument, options);
+        return ApolloReactHooks.useQuery<ProductRelationsQuery, ProductRelationsQueryVariables>(ProductRelationsDocument, options);
       }
-export function useProductRelationsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ProductRelationsQuery, ProductRelationsQueryVariables>) {
+export function useProductRelationsLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<ProductRelationsQuery, ProductRelationsQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<ProductRelationsQuery, ProductRelationsQueryVariables>(ProductRelationsDocument, options);
+          return ApolloReactHooks.useLazyQuery<ProductRelationsQuery, ProductRelationsQueryVariables>(ProductRelationsDocument, options);
         }
 export type ProductRelationsQueryHookResult = ReturnType<typeof useProductRelationsQuery>;
 export type ProductRelationsLazyQueryHookResult = ReturnType<typeof useProductRelationsLazyQuery>;

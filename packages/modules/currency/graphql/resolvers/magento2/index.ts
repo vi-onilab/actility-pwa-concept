@@ -1,4 +1,4 @@
-import { Resolvers } from '~modules/graphql'
+import { Resolvers } from '@pwa-concept/modules/graphql'
 import Money from './Money'
 
 const resolvers: Resolvers = {

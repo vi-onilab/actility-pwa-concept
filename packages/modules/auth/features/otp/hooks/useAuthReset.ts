@@ -1,4 +1,4 @@
-import { useResetMutation, ResetMutationVariables } from '~modules/auth/graphql/mutations/Reset'
+import { useResetMutation, ResetMutationVariables } from '@pwa-concept/modules/auth/graphql/mutations/Reset'
 
 const useAuthReset = () => {
     const [reset] = useResetMutation()

@@ -1,5 +1,5 @@
-import { MutationResolvers } from '~modules/graphql'
-import api from '~core/api'
+import { MutationResolvers } from '@pwa-concept/modules/graphql'
+import api from '@pwa-concept/core/api'
 import { gql } from 'graphql-tag'
 
 const productSubscribeToPriceDrop: MutationResolvers['productSubscribeToPriceDrop'] = async (_, { input }) => {

@@ -5,12 +5,13 @@
 
 /* eslint-disable */
 /* tslint:disable */
-/* @ts-nocheck */
+// @ts-nocheck
 
 import * as Types from '../../../graphql';
 
 import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
+import * as ApolloReactHooks from '@pwa-concept/core/graphql/hooks';
 const defaultOptions = {} as const;
 export type CmsRouteQueryVariables = Types.Exact<{
   url?: Types.InputMaybe<Types.Scalars['String']>;
@@ -46,13 +47,13 @@ export const CmsRouteDocument = gql`
  *   },
  * });
  */
-export function useCmsRouteQuery(baseOptions?: Apollo.QueryHookOptions<CmsRouteQuery, CmsRouteQueryVariables>) {
+export function useCmsRouteQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<CmsRouteQuery, CmsRouteQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<CmsRouteQuery, CmsRouteQueryVariables>(CmsRouteDocument, options);
+        return ApolloReactHooks.useQuery<CmsRouteQuery, CmsRouteQueryVariables>(CmsRouteDocument, options);
       }
-export function useCmsRouteLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<CmsRouteQuery, CmsRouteQueryVariables>) {
+export function useCmsRouteLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<CmsRouteQuery, CmsRouteQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<CmsRouteQuery, CmsRouteQueryVariables>(CmsRouteDocument, options);
+          return ApolloReactHooks.useLazyQuery<CmsRouteQuery, CmsRouteQueryVariables>(CmsRouteDocument, options);
         }
 export type CmsRouteQueryHookResult = ReturnType<typeof useCmsRouteQuery>;
 export type CmsRouteLazyQueryHookResult = ReturnType<typeof useCmsRouteLazyQuery>;

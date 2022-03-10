@@ -5,12 +5,13 @@
 
 /* eslint-disable */
 /* tslint:disable */
-/* @ts-nocheck */
+// @ts-nocheck
 
 import * as Types from '../../../graphql';
 
 import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
+import * as ApolloReactHooks from '@pwa-concept/core/graphql/hooks';
 const defaultOptions = {} as const;
 export type DeleteCustomerAddressMutationVariables = Types.Exact<{
   id?: Types.InputMaybe<Types.Scalars['ID']>;
@@ -44,9 +45,9 @@ export type DeleteCustomerAddressMutationFn = Apollo.MutationFunction<DeleteCust
  *   },
  * });
  */
-export function useDeleteCustomerAddressMutation(baseOptions?: Apollo.MutationHookOptions<DeleteCustomerAddressMutation, DeleteCustomerAddressMutationVariables>) {
+export function useDeleteCustomerAddressMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<DeleteCustomerAddressMutation, DeleteCustomerAddressMutationVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<DeleteCustomerAddressMutation, DeleteCustomerAddressMutationVariables>(DeleteCustomerAddressDocument, options);
+        return ApolloReactHooks.useMutation<DeleteCustomerAddressMutation, DeleteCustomerAddressMutationVariables>(DeleteCustomerAddressDocument, options);
       }
 export type DeleteCustomerAddressMutationHookResult = ReturnType<typeof useDeleteCustomerAddressMutation>;
 export type DeleteCustomerAddressMutationResult = Apollo.MutationResult<DeleteCustomerAddressMutation>;

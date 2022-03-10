@@ -5,7 +5,7 @@
 
 /* eslint-disable */
 /* tslint:disable */
-/* @ts-nocheck */
+// @ts-nocheck
 
 import * as Types from '../../../graphql';
 
@@ -13,6 +13,7 @@ import { gql } from '@apollo/client';
 import { ProductFragmentDoc } from '../../../product/graphql/fragments/Product';
 import { PaginationFragmentDoc } from '../../../pagination/graphql/fragments/Pagination';
 import * as Apollo from '@apollo/client';
+import * as ApolloReactHooks from '@pwa-concept/core/graphql/hooks';
 const defaultOptions = {} as const;
 export type CatalogQueryVariables = Types.Exact<{
   input?: Types.InputMaybe<Types.CatalogQueryInput>;
@@ -52,13 +53,13 @@ ${PaginationFragmentDoc}`;
  *   },
  * });
  */
-export function useCatalogQuery(baseOptions?: Apollo.QueryHookOptions<CatalogQuery, CatalogQueryVariables>) {
+export function useCatalogQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<CatalogQuery, CatalogQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<CatalogQuery, CatalogQueryVariables>(CatalogDocument, options);
+        return ApolloReactHooks.useQuery<CatalogQuery, CatalogQueryVariables>(CatalogDocument, options);
       }
-export function useCatalogLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<CatalogQuery, CatalogQueryVariables>) {
+export function useCatalogLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<CatalogQuery, CatalogQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<CatalogQuery, CatalogQueryVariables>(CatalogDocument, options);
+          return ApolloReactHooks.useLazyQuery<CatalogQuery, CatalogQueryVariables>(CatalogDocument, options);
         }
 export type CatalogQueryHookResult = ReturnType<typeof useCatalogQuery>;
 export type CatalogLazyQueryHookResult = ReturnType<typeof useCatalogLazyQuery>;

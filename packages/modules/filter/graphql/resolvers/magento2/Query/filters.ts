@@ -1,5 +1,5 @@
-import { Filter, FilterType, QueryResolvers } from '~modules/graphql'
-import api from '~core/api'
+import { Filter, FilterType, QueryResolvers } from '@pwa-concept/modules/graphql'
+import api from '@pwa-concept/core/api'
 import { gql } from 'graphql-tag'
 
 const EXCLUDE_ID = ['price']

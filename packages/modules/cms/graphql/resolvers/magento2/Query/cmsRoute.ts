@@ -1,6 +1,6 @@
 import api from '@pwa-concept/core/api'
 import { gql } from 'graphql-tag'
-import { QueryResolvers } from '~modules/graphql'
+import { QueryResolvers } from '@pwa-concept/modules/graphql'
 
 const cmsRoute: QueryResolvers['cmsRoute'] = async (_, { url }) => {
     const { data: { urlResolver: data = {} } = {} } = await (

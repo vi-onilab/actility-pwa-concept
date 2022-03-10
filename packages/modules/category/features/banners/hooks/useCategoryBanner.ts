@@ -1,4 +1,4 @@
-import { Category } from '~modules/graphql'
+import { Category } from '@pwa-concept/modules/graphql'
 import useCategoryBanners from './useCategoryBanners'
 
 const useCategoryBanner = (category: Category) => {

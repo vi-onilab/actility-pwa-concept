@@ -1,5 +1,5 @@
 import api from '@pwa-concept/core/api'
-import { QueryResolvers } from '~modules/graphql'
+import { QueryResolvers } from '@pwa-concept/modules/graphql'
 import { CustomerOrdersToOrders } from '../casts'
 import customerOrdersQuery from '../gql/customerOrdersQuery'
 

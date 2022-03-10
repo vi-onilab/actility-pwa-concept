@@ -1,4 +1,4 @@
-import { CustomerAddress } from '~modules/graphql'
+import { CustomerAddress } from '@pwa-concept/modules/graphql'
 
 const CustomerAddressesToAddress = (address): CustomerAddress => {
     if (!address) return null

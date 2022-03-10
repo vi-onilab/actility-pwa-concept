@@ -1,4 +1,4 @@
-import { useProductsQuery } from '~modules/product/graphql/queries/Products'
+import { useProductsQuery } from '@pwa-concept/modules/product/graphql/queries/Products'
 
 interface UseProductsInput {
     id?: string | string[]

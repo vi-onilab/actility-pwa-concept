@@ -12,7 +12,7 @@ definitions:
 
             /* tslint:disable */
 
-            /* @ts-nocheck */
+            // @ts-nocheck
 
 
 schema:
@@ -25,6 +25,7 @@ generates:
 
         config:
             typesPrefix: Magento2
+            declarationKind: 'interface'
 
         plugins:
             - add:
@@ -35,4 +36,4 @@ generates:
                       export type Magento2StorePossibleTypesKeys = keyof Magento2ResolversParentTypes;
             - add: *top-comment
             - typescript
-            - typescript-resolvers
+            - "@pwa-concept/cli/lib/utils/codegen/typescript-resolvers.js"

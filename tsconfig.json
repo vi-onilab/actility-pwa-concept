@@ -25,10 +25,22 @@
       "~core": [
         "./packages/core/index"
       ],
+      "@pwa-concept/core/*": [
+        "./packages/core/*"
+      ],
+      "@pwa-concept/core": [
+        "./packages/core/index"
+      ],
       "~modules/*": [
         "./packages/modules/*"
       ],
       "~modules": [
+        "./packages/modules/index"
+      ],
+      "@pwa-concept/modules/*": [
+        "./packages/modules/*"
+      ],
+      "@pwa-concept/modules": [
         "./packages/modules/index"
       ],
       "~ui/*": [

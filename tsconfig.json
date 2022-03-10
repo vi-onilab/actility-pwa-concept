@@ -1,31 +1,50 @@
 {
-    "compilerOptions": {
-        "baseUrl": ".",
-        "target": "es6",
-        "esModuleInterop": true,
-        "forceConsistentCasingInFileNames": true,
-        "strict": false,
-        "skipLibCheck": true,
-        "strictNullChecks": false,
-        "jsx": "react-jsx",
-        "module": "ESNext",
-        "declaration": true,
-        "sourceMap": true,
-        "moduleResolution": "node",
-        "allowSyntheticDefaultImports": true,
-        "emitDeclarationOnly": true,
-        "typeRoots": ["packages/typescript-config/global.d.ts", "./node_modules/@types"],
-        "paths": {
-            "~core/*": ["./packages/core/*"],
-            "~core": ["./packages/core/index"],
-            "~modules/*": ["./packages/modules/*"],
-            "~modules": ["./packages/modules/index"],
-            "~ui/*": ["./packages/ui/*"],
-            "~ui": ["./packages/ui/index"]
-        }
-    },
-    "files": ["packages/typescript-config/global.d.ts"],
-    "compileOnSave": false,
-    "buildOnSave": false,
-    "include": ["packages/**/*"]
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "es6",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": false,
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "declaration": true,
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "emitDeclarationOnly": true,
+    "typeRoots": [
+      "packages/typescript-config/global.d.ts",
+      "./node_modules/@types"
+    ],
+    "paths": {
+      "~core/*": [
+        "./packages/core/*"
+      ],
+      "~core": [
+        "./packages/core/index"
+      ],
+      "~modules/*": [
+        "./packages/modules/*"
+      ],
+      "~modules": [
+        "./packages/modules/index"
+      ],
+      "~ui/*": [
+        "./packages/ui/*"
+      ],
+      "~ui": [
+        "./packages/ui/index"
+      ]
+    }
+  },
+  "files": [
+    "packages/typescript-config/global.d.ts"
+  ],
+  "compileOnSave": false,
+  "buildOnSave": false,
+  "include": [
+    "packages/**/*"
+  ]
 }

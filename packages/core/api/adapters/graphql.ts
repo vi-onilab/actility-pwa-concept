@@ -1,5 +1,5 @@
 import { ApolloClient, InMemoryCache, from } from '@apollo/client'
-import { env } from '../../utils'
+import { env, injectFragments } from '../../utils'
 import {
     authErrorLink,
     authLink,
@@ -7,7 +7,6 @@ import {
     httpLink,
     queueLink,
     retryLink,
-    fragmentsInjectorFromProvide,
 } from '~core/graphql/links'
 import { Provide } from '~core/provide'
 import { PROVIDE_GRAPHQL_STORE_POSSIBLE_TYPES, PROVIDE_GRAPHQL_STORE_FRAGMENTS } from '~core/graphql'
@@ -16,11 +15,12 @@ const cache = new InMemoryCache({
     possibleTypes: {},
 })
 
+const inject = (document) => injectFragments(document, Provide.first(PROVIDE_GRAPHQL_STORE_FRAGMENTS))
+
 const apollo = new ApolloClient({
     uri: env('APP_GRAPHQL_URL'),
     cache,
     link: from([
-        fragmentsInjectorFromProvide(PROVIDE_GRAPHQL_STORE_FRAGMENTS),
         retryLink,
         queueLink,
         authLink,
@@ -61,14 +61,14 @@ const graphql = (
         },
         async query(variables = {}) {
             return await apollo.query<any>({
-                query: document,
+                query: inject(document),
                 variables: applyVariableDecorators(variables),
                 fetchPolicy: 'network-only',
             })
         },
         async mutation(variables = {}) {
             return await apollo.mutate<any>({
-                mutation: document,
+                mutation: inject(document),
                 variables: applyVariableDecorators(variables),
             })
         },

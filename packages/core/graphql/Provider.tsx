@@ -13,7 +13,6 @@ import {
     httpLink,
     queueLink,
     retryLink,
-    fragmentsInjectorFromProvide,
 } from './links'
 import resolver from './resolver'
 import { useProvide } from '../provide'
@@ -21,7 +20,6 @@ import {
     PROVIDE_GRAPHQL_POLICY,
     PROVIDE_GRAPHQL_RESOLVERS,
     PROVIDE_GRAPHQL_SCHEMAS,
-    PROVIDE_GRAPHQL_FRAGMENTS,
 } from './tokens'
 import { env } from '../utils'
 
@@ -54,7 +52,6 @@ const GraphQLProvider: FC = ({ children }) => {
             resolvers,
             uri: env('APP_GRAPHQL_URL'),
             link: from([
-                fragmentsInjectorFromProvide(PROVIDE_GRAPHQL_FRAGMENTS),
                 retryLink,
                 queueLink,
                 authLink,

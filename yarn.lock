@@ -2286,6 +2286,20 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@pwa-concept/cli@workspace:packages/cli"
   dependencies:
+    inquirer-directory: ^2.2.0
+    plop: ^3.0.5
+    yargs: ^17.3.1
+  peerDependencies:
+    graphql: ">=16.0.0"
+  bin:
+    pwa-concept: index.js
+  languageName: unknown
+  linkType: soft
+
+"@pwa-concept/codegen@workspace:packages/codegen":
+  version: 0.0.0-use.local
+  resolution: "@pwa-concept/codegen@workspace:packages/codegen"
+  dependencies:
     "@graphql-codegen/add": ^3.1.1
     "@graphql-codegen/cli": ^2.4.0
     "@graphql-codegen/near-operation-file-preset": ^2.2.3
@@ -2295,13 +2309,8 @@ __metadata:
     "@graphql-codegen/typescript-react-apollo": ^3.2.4
     "@graphql-codegen/typescript-resolvers": ^2.4.3
     glob: ^7.2.0
-    inquirer-directory: ^2.2.0
-    plop: ^3.0.5
-    yargs: ^17.3.1
   peerDependencies:
     graphql: ">=16.0.0"
-  bin:
-    pwa-concept: index.js
   languageName: unknown
   linkType: soft
 

@@ -21,15 +21,6 @@
     "url": "https://bitbucket.org/onilab/pwa-concept/issues"
   },
   "dependencies": {
-    "@graphql-codegen/add": "^3.1.1",
-    "@graphql-codegen/cli": "^2.4.0",
-    "@graphql-codegen/near-operation-file-preset": "^2.2.3",
-    "@graphql-codegen/schema-ast": "^2.4.1",
-    "@graphql-codegen/typescript": "^2.4.2",
-    "@graphql-codegen/typescript-operations": "^2.2.2",
-    "@graphql-codegen/typescript-react-apollo": "^3.2.4",
-    "@graphql-codegen/typescript-resolvers": "^2.4.3",
-    "glob": "^7.2.0",
     "inquirer-directory": "^2.2.0",
     "plop": "^3.0.5",
     "yargs": "^17.3.1"

@@ -1,6 +1,6 @@
 /**
  * NOTE: THIS IS AN AUTO-GENERATED FILE. DO NOT MODIFY IT DIRECTLY.
- * USE `yarn build:schema-types` or `yarn build`.
+ * USE `yarn cli codegen`.
  */
 
 /* eslint-disable */

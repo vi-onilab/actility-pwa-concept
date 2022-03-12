@@ -26,7 +26,8 @@ module.exports = {
                         content: copyrightGraphQL,
                     },
                 },
-                'schema-ast'],
+                'schema-ast',
+            ],
             config: {
                 includeDirectives: true,
                 federation: true,

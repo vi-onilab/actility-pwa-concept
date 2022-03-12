@@ -17,6 +17,8 @@ const cmsRoute: QueryResolvers['cmsRoute'] = async (_, { url }) => {
         ).query({ url })
     )
 
+    if (!data) return null
+
     return {
         id: data?.id,
         type: data?.type,

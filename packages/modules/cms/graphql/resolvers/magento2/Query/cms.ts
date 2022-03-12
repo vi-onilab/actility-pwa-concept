@@ -20,6 +20,8 @@ const cms: QueryResolvers['cms'] = async (_, { id }) => {
         ).query({ id })
     )
 
+    if (!data) return null
+
     return {
         id: data?.identifier,
         title: data?.title,

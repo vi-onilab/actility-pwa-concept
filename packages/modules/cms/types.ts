@@ -1,9 +1,8 @@
 import { FC } from 'react'
-
-export type CmsModuleRouteType = 'category' | 'cms_page' | 'product' | 'brands' | Lowercase<string>
+import { CmsRouteType } from '@pwa-concept/modules/graphql'
 
 export interface CmsModuleReplaceProvide {
-    routes?: Record<CmsModuleRouteType, {
+    routes?: Record<CmsRouteType, {
         element: FC
         fallback?: FC | string
     }>

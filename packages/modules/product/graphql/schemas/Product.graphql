@@ -8,6 +8,7 @@ input ProductQueryInput {
 
 type Product {
     id: ID
+    sku: String
     name: String
     breadcrumbs: [ProductBreadcrumb]
     images: [ProductImage]

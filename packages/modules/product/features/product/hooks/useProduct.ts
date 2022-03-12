@@ -1,7 +1,11 @@
 import { ProductQueryInput, Product } from '@pwa-concept/modules/graphql'
 import { useProductQuery } from '@pwa-concept/modules/product/graphql/queries/Product'
 
-const useProduct = (input: ProductQueryInput): {
+interface UseProductOptions {
+    skip?: boolean
+}
+
+const useProduct = (input: ProductQueryInput, options?: UseProductOptions): {
     data: Product
     loading: boolean
 } => {
@@ -15,7 +19,7 @@ const useProduct = (input: ProductQueryInput): {
         onError(error) {
             console.error(error)
         },
-        skip: !input?.id,
+        skip: !input?.id || options?.skip,
     })
 
     return {

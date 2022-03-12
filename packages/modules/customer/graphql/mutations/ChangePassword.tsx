@@ -1,17 +1,17 @@
-/**
- * NOTE: THIS IS AN AUTO-GENERATED FILE. DO NOT MODIFY IT DIRECTLY.
- * USE `yarn cli codegen`.
- */
-
-/* eslint-disable */
-/* tslint:disable */
-// @ts-nocheck
-
 import * as Types from '../../../graphql';
 
 import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
 import * as ApolloReactHooks from '@pwa-concept/core/graphql/hooks';
+
+/**
+* NOTE: THIS IS AN AUTO-GENERATED FILE. DO NOT MODIFY IT DIRECTLY.
+* USE `yarn cli codegen`.
+*/
+/* eslint-disable */
+/* tslint:disable */
+// @ts-nocheck
+
 const defaultOptions = {} as const;
 export type ChangePasswordMutationVariables = Types.Exact<{
   newPassword?: Types.InputMaybe<Types.Scalars['String']>;

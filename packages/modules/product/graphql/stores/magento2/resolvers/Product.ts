@@ -4,6 +4,7 @@ const id = (context) => String(context?.id)
 
 const Product: ProductResolvers = {
     id: (_, __, { context }) => id(context),
+    sku: (_, __, { context }) => context?.sku,
     name: (_, __, { context }) => context?.name,
     stock: (_, __, { context }) => ({
         name: context?.stock_status === ProductStockType.InStock ? 'In stock' : 'Out of stock',

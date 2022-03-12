@@ -1,12 +1,3 @@
-/**
- * NOTE: THIS IS AN AUTO-GENERATED FILE. DO NOT MODIFY IT DIRECTLY.
- * USE `yarn cli codegen`.
- */
-
-/* eslint-disable */
-/* tslint:disable */
-// @ts-nocheck
-
 import * as Types from '../../../graphql';
 
 import { gql } from '@apollo/client';
@@ -14,6 +5,15 @@ import { ProductFragmentDoc } from '../fragments/Product';
 import { PaginationFragmentDoc } from '../../../pagination/graphql/fragments/Pagination';
 import * as Apollo from '@apollo/client';
 import * as ApolloReactHooks from '@pwa-concept/core/graphql/hooks';
+
+/**
+* NOTE: THIS IS AN AUTO-GENERATED FILE. DO NOT MODIFY IT DIRECTLY.
+* USE `yarn cli codegen`.
+*/
+/* eslint-disable */
+/* tslint:disable */
+// @ts-nocheck
+
 const defaultOptions = {} as const;
 export type ProductsQueryVariables = Types.Exact<{
   input?: Types.InputMaybe<Types.ProductsQueryInput>;

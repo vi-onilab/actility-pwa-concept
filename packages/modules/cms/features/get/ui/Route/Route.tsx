@@ -16,10 +16,8 @@ const CmsGetRoute: FC = () => {
         )
     }
 
-    const type = data?.type?.toLowerCase()
-
-    if (replace?.routes?.[type]) {
-        const { fallback = null, element: RenderElement = null } = replace.routes[type]
+    if (replace?.routes?.[data?.type]) {
+        const { fallback, element: RenderElement } = replace.routes[data?.type]
 
         if (RenderElement) {
             return (

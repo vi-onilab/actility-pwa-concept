@@ -2,8 +2,14 @@ extend type Query {
     cmsRoute(url: String): CmsRoute
 }
 
+enum CmsRouteType {
+    CMS_PAGE
+    PRODUCT
+    CATEGORY
+}
+
 type CmsRoute {
     id: ID
-    type: String
+    type: CmsRouteType
     url: String
 }

@@ -7,31 +7,24 @@ const product: QueryResolvers['product'] = async (_, { input }) => {
         id,
     } = input || {}
 
-    try {
-        const { data: { productDetail: __context = {} } = {} } = (
-            await api.graphql(
-                gql`
-                    query($id: Int!) {
-                        productDetail(id: $id) {
-                            ... ProductInterface
-                        }
+    const { data: { productDetail: __context = {} } = {} } = (
+        await api.graphql(
+            gql`
+                query($id: Int!) {
+                    productDetail(id: $id) {
+                        ... ProductInterface
                     }
-                `,
-            ).query({
-                id,
-            })
-        )
+                }
+            `,
+        ).query({
+            id,
+        })
+    )
 
-        return {
-            __context,
-            __typename: 'Product',
-        }
-    } catch (e) {
-        console.error(e)
-        throw e
+    return {
+        __context,
+        __typename: 'Product',
     }
-
-
 }
 
 export default product

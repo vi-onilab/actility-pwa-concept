@@ -2,6 +2,8 @@ fragment ProductInterface on ProductInterface {
     id
     name
 
+    sku
+
     media_gallery {
         url
         label

@@ -15,6 +15,7 @@ const injectFragments = (query: DocumentNode, fragments) => {
 
         const selectedFragments = new Set()
         const existFragments = new Set()
+        const definitions = deepCloneQuery.definitions as unknown as Array<DeepWriteable<FragmentDefinitionNode>>
 
         visit(deepCloneQuery, {
             FragmentDefinition: {
@@ -30,8 +31,6 @@ const injectFragments = (query: DocumentNode, fragments) => {
                     const fragments: FragmentDefinitionNode[] = fragmentsValue?.[node?.name?.value]
 
                     if (fragments?.length > 0) {
-                        selectedFragments.add(fragments)
-
                         const [first, ...otherFragments] = fragments
 
                         if (first) {
@@ -39,30 +38,32 @@ const injectFragments = (query: DocumentNode, fragments) => {
                                 otherFragments.push(first)
                             } else {
                                 (node as any).name.value = first.name.value
+
+                                if (!selectedFragments.has(first)) {
+                                    definitions.push(first as any)
+                                    selectedFragments.add(first)
+                                }
                             }
                         }
 
                         const nodePreparedToClone = JSON.stringify(node)
 
-                        otherFragments?.forEach?.(({ name }) => {
+                        otherFragments?.forEach?.((item) => {
                             const cloneNode: DeepWriteable<FragmentSpreadNode> = JSON.parse(nodePreparedToClone)
 
-                            cloneNode.name.value = name.value
+                            cloneNode.name.value = item?.name.value
 
                             parent.push(cloneNode as unknown as FragmentSpreadNode)
+
+                            if (!selectedFragments.has(item)) {
+                                definitions.push(item as any)
+                                selectedFragments.add(item)
+                            }
                         })
                     }
                 },
             },
         })
-
-        if (selectedFragments.size > 0) {
-            const definitions = deepCloneQuery.definitions as unknown as Array<DeepWriteable<FragmentDefinitionNode>>
-
-            selectedFragments.forEach((items: Array<DeepWriteable<FragmentDefinitionNode>>) => {
-                items.forEach((item) => definitions.push(item))
-            })
-        }
 
         cache.set(query, deepCloneQuery)
 

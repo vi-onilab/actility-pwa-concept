@@ -2,7 +2,7 @@ import { DocumentNode } from '@apollo/client'
 import { ASTNode, FragmentSpreadNode, visit } from 'graphql'
 import { FragmentDefinitionNode } from 'graphql/language/ast'
 import parseFragments from './parseFragments'
-import { DeepWriteable } from '~core/types'
+import { DeepWriteable } from '@pwa-concept/coretypes'
 
 const cache = new Map<DocumentNode, DocumentNode>()
 

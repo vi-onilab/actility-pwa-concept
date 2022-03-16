@@ -7,9 +7,9 @@ import {
     httpLink,
     queueLink,
     retryLink,
-} from '~core/graphql/links'
-import { Provide } from '~core/provide'
-import { PROVIDE_GRAPHQL_STORE_POSSIBLE_TYPES, PROVIDE_GRAPHQL_STORE_FRAGMENTS } from '~core/graphql'
+} from '@pwa-concept/coregraphql/links'
+import { Provide } from '@pwa-concept/coreprovide'
+import { PROVIDE_GRAPHQL_STORE_POSSIBLE_TYPES, PROVIDE_GRAPHQL_STORE_FRAGMENTS } from '@pwa-concept/coregraphql'
 
 const cache = new InMemoryCache({
     possibleTypes: {},

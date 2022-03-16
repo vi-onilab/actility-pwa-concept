@@ -1,32 +1,30 @@
-import { DocumentNode, FragmentDefinitionNode } from 'graphql/language/ast'
-import { Kind } from 'graphql'
-import { DeepWriteable } from '../types'
+import { DocumentNode, FragmentDefinitionNode, visit } from 'graphql'
+import { DeepWriteable } from '~core/types'
 
-const parseCache = new Map()
+const parseFragments = (fragments: DocumentNode[]) => {
+    const data = JSON.parse(JSON.stringify(fragments))
 
-const parseFragments = (fragments: Array<DeepWriteable<DocumentNode>>) => {
-    if (parseCache.has(fragments)) return parseCache.get(fragments)
+    const response = {}
 
-    const result = fragments?.reduce?.((response, current) => {
-        current.definitions?.forEach((fragment: DeepWriteable<FragmentDefinitionNode>) => {
-            if (fragment.kind === Kind.FRAGMENT_DEFINITION) {
-                const name = fragment.typeCondition.name.value
+    data?.forEach?.((nodes) => {
+        visit(nodes, {
+            FragmentDefinition: {
+                enter(node: FragmentDefinitionNode) {
+                    const fragment = node as unknown as DeepWriteable<FragmentDefinitionNode>
+                    const name = fragment.typeCondition.name.value
 
-                if (!name) return null
-                if (!(name in response)) response[name] = []
+                    if (name) {
+                        if (!(name in response)) response[name] = []
+                        fragment.name.value = `${name}${response[name].length}`
 
-                fragment.name.value = `${name}${response[name].length}`
-
-                response[name].push(fragment)
-            }
+                        response[name].push(fragment)
+                    }
+                },
+            },
         })
+    })
 
-        return response
-    }, {})
-
-    parseCache.set(fragments, result)
-
-    return result
+    return response
 }
 
 export default parseFragments

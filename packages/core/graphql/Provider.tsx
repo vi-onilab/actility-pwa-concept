@@ -1,26 +1,10 @@
 import { FC, useMemo } from 'react'
-import {
-    ApolloClient,
-    ApolloProvider,
-    from,
-    InMemoryCache,
-} from '@apollo/client'
+import { ApolloClient, ApolloProvider, from, InMemoryCache } from '@apollo/client'
 import { TypeSource } from '@graphql-tools/utils/Interfaces'
-import {
-    authErrorLink,
-    authLink,
-    errorLink,
-    httpLink,
-    queueLink,
-    retryLink,
-} from './links'
+import { authErrorLink, authLink, errorLink, httpLink, queueLink, retryLink } from './links'
 import resolver from './resolver'
 import { useProvide } from '../provide'
-import {
-    PROVIDE_GRAPHQL_POLICY,
-    PROVIDE_GRAPHQL_RESOLVERS,
-    PROVIDE_GRAPHQL_SCHEMAS,
-} from './tokens'
+import { PROVIDE_GRAPHQL_POLICY, PROVIDE_GRAPHQL_RESOLVERS, PROVIDE_GRAPHQL_SCHEMAS } from './tokens'
 import { env } from '../utils'
 
 const GraphQLProvider: FC = ({ children }) => {
@@ -28,6 +12,8 @@ const GraphQLProvider: FC = ({ children }) => {
     const typeDefs = useProvide<TypeSource[], any>(PROVIDE_GRAPHQL_SCHEMAS, null, (value) => (
         value?.length > 0 ? value : undefined
     ))
+
+    console.log(1234, typePolicies)
 
     const resolvers = useProvide<any>(PROVIDE_GRAPHQL_RESOLVERS, [], (value) => {
         if (!value?.length) return undefined

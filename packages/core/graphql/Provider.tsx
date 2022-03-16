@@ -12,9 +12,7 @@ const GraphQLProvider: FC = ({ children }) => {
     const typeDefs = useProvide<TypeSource[], any>(PROVIDE_GRAPHQL_SCHEMAS, null, (value) => (
         value?.length > 0 ? value : undefined
     ))
-
-    console.log(1234, typePolicies)
-
+    
     const resolvers = useProvide<any>(PROVIDE_GRAPHQL_RESOLVERS, [], (value) => {
         if (!value?.length) return undefined
 

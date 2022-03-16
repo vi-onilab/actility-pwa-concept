@@ -96,29 +96,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:^7.16.5":
-  version: 7.16.10
-  resolution: "@babel/core@npm:7.16.10"
-  dependencies:
-    "@babel/code-frame": ^7.16.7
-    "@babel/generator": ^7.16.8
-    "@babel/helper-compilation-targets": ^7.16.7
-    "@babel/helper-module-transforms": ^7.16.7
-    "@babel/helpers": ^7.16.7
-    "@babel/parser": ^7.16.10
-    "@babel/template": ^7.16.7
-    "@babel/traverse": ^7.16.10
-    "@babel/types": ^7.16.8
-    convert-source-map: ^1.7.0
-    debug: ^4.1.0
-    gensync: ^1.0.0-beta.2
-    json5: ^2.1.2
-    semver: ^6.3.0
-    source-map: ^0.5.0
-  checksum: d34c5edf9258e620d0cbea4ed25a2615f5ab86dc7f7c1b96ac19817fb7d57bfae9af72dc244385a724225dbc701cb878d9559158aee9659e2a3c69d03f93f3e1
-  languageName: node
-  linkType: hard
-
 "@babel/eslint-parser@npm:^7.16.3, @babel/eslint-parser@npm:^7.16.5":
   version: 7.16.5
   resolution: "@babel/eslint-parser@npm:7.16.5"
@@ -1182,7 +1159,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-transform-react-jsx-development@npm:^7.16.5, @babel/plugin-transform-react-jsx-development@npm:^7.16.7":
+"@babel/plugin-transform-react-jsx-development@npm:^7.16.7":
   version: 7.16.7
   resolution: "@babel/plugin-transform-react-jsx-development@npm:7.16.7"
   dependencies:
@@ -1193,29 +1170,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-transform-react-jsx-self@npm:^7.16.5":
-  version: 7.16.7
-  resolution: "@babel/plugin-transform-react-jsx-self@npm:7.16.7"
-  dependencies:
-    "@babel/helper-plugin-utils": ^7.16.7
-  peerDependencies:
-    "@babel/core": ^7.0.0-0
-  checksum: cf1e408eedf99de3e49689473f329f0a45f1d8642536398570267f564a0da785a676045f042ca6e5d026bcee271127e3b2555fd84949fb7fc87f8ba4fefec34e
-  languageName: node
-  linkType: hard
-
-"@babel/plugin-transform-react-jsx-source@npm:^7.16.5":
-  version: 7.16.7
-  resolution: "@babel/plugin-transform-react-jsx-source@npm:7.16.7"
-  dependencies:
-    "@babel/helper-plugin-utils": ^7.16.7
-  peerDependencies:
-    "@babel/core": ^7.0.0-0
-  checksum: 722147fd37d8b5343ab88f611f0e05dd1e298ac981ec74797751689d4a3ed35a09af1d62dc81bf78efee922d8962aa0840a4fcf07f030434139e41012ade851d
-  languageName: node
-  linkType: hard
-
-"@babel/plugin-transform-react-jsx@npm:^7.0.0, @babel/plugin-transform-react-jsx@npm:^7.16.5, @babel/plugin-transform-react-jsx@npm:^7.16.7":
+"@babel/plugin-transform-react-jsx@npm:^7.0.0, @babel/plugin-transform-react-jsx@npm:^7.16.7":
   version: 7.16.7
   resolution: "@babel/plugin-transform-react-jsx@npm:7.16.7"
   dependencies:
@@ -2257,7 +2212,6 @@ __metadata:
     "@svgr/webpack": ^5.5.0
     "@types/react": ^17.0.38
     "@types/react-dom": ^17.0.11
-    "@vitejs/plugin-react": ^1.1.4
     babel-loader: ^8.2.3
     babel-plugin-transform-react-remove-prop-types: ^0.4.24
     copy-webpack-plugin: ^9.1.0
@@ -2309,6 +2263,7 @@ __metadata:
     "@graphql-codegen/typescript-react-apollo": ^3.2.4
     "@graphql-codegen/typescript-resolvers": ^2.4.3
     glob: ^7.2.0
+    graphql: ^16.3.0
   peerDependencies:
     graphql: ">=16.0.0"
   languageName: unknown
@@ -2396,16 +2351,6 @@ __metadata:
   resolution: "@pwa-concept/ui@workspace:packages/ui"
   languageName: unknown
   linkType: soft
-
-"@rollup/pluginutils@npm:^4.1.2":
-  version: 4.1.2
-  resolution: "@rollup/pluginutils@npm:4.1.2"
-  dependencies:
-    estree-walker: ^2.0.1
-    picomatch: ^2.2.2
-  checksum: 498d67e7b48c707e3e0d9f7ddaa405833d77575b2d9607cd1914be40455ed534235e0512f9d046bf0e4ed1740e7816fd32ab1c673195e897c4fa180bcbfd7283
-  languageName: node
-  linkType: hard
 
 "@samverschueren/stream-to-observable@npm:^0.3.0":
   version: 0.3.1
@@ -3020,22 +2965,6 @@ __metadata:
     "@typescript-eslint/types": 5.9.0
     eslint-visitor-keys: ^3.0.0
   checksum: 34a595b83b0e7d4f387d6c81b272804b94a1a91478c5f856fdfdd227595bf8562bf3f5d732606d10b4522c3f2617d09d4bacd2193f757a324ea66b3144a68903
-  languageName: node
-  linkType: hard
-
-"@vitejs/plugin-react@npm:^1.1.4":
-  version: 1.1.4
-  resolution: "@vitejs/plugin-react@npm:1.1.4"
-  dependencies:
-    "@babel/core": ^7.16.5
-    "@babel/plugin-transform-react-jsx": ^7.16.5
-    "@babel/plugin-transform-react-jsx-development": ^7.16.5
-    "@babel/plugin-transform-react-jsx-self": ^7.16.5
-    "@babel/plugin-transform-react-jsx-source": ^7.16.5
-    "@rollup/pluginutils": ^4.1.2
-    react-refresh: ^0.11.0
-    resolve: ^1.20.0
-  checksum: a0362c3cd6e393ba224436a6d1597dab2b49d32eb608eb562d4672c3899d24cf1b0dde94676da1055a63838c676365c3c1110955b8c8d10a2b98e9543d6ba582
   languageName: node
   linkType: hard
 
@@ -5873,13 +5802,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"estree-walker@npm:^2.0.1":
-  version: 2.0.2
-  resolution: "estree-walker@npm:2.0.2"
-  checksum: 6151e6f9828abe2259e57f5fd3761335bb0d2ebd76dc1a01048ccee22fabcfef3c0859300f6d83ff0d1927849368775ec5a6d265dde2f6de5a1be1721cd94efc
-  languageName: node
-  linkType: hard
-
 "esutils@npm:^2.0.2":
   version: 2.0.3
   resolution: "esutils@npm:2.0.3"
@@ -6737,6 +6659,13 @@ __metadata:
   peerDependencies:
     graphql: ">=0.11 <=16"
   checksum: bdb77b3e44be53d2d8d0c395066e62e74efe1123d9b5be7cc69b60d28229974e32abc79c5997095d038d169d4135cb2bcb98f0e666aa8cfeb3bb9857b960d803
+  languageName: node
+  linkType: hard
+
+"graphql@npm:^16.3.0":
+  version: 16.3.0
+  resolution: "graphql@npm:16.3.0"
+  checksum: ba540641e9cd2a8de5b989ff1433b015f232fa73aaef478d6709c1339cd43113347917acb965a5799c004667687852fc8ff0cfaa935eb26374c91c1fd7fdaeb1
   languageName: node
   linkType: hard
 
@@ -9660,7 +9589,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"picomatch@npm:^2.0.4, picomatch@npm:^2.2.1, picomatch@npm:^2.2.2, picomatch@npm:^2.2.3":
+"picomatch@npm:^2.0.4, picomatch@npm:^2.2.1, picomatch@npm:^2.2.3":
   version: 2.3.1
   resolution: "picomatch@npm:2.3.1"
   checksum: 050c865ce81119c4822c45d3c84f1ced46f93a0126febae20737bd05ca20589c564d6e9226977df859ed5e03dc73f02584a2b0faad36e896936238238b0446cf

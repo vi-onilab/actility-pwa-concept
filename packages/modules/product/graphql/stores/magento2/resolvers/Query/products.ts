@@ -48,8 +48,10 @@ const products: QueryResolvers['products'] = async (_, { input }) => {
         })
     )
 
+    if (!products) return null
+
     return {
-        items: products?.items?.map?.((__context) => ({ __context, __typename: 'Product' })),
+        items: products?.items?.map?.((__context) => ({ __context, __typename: 'Product' })) || [],
         pagination: {
             count: products?.total_count,
             current: products?.page_info?.current_page,

@@ -15,7 +15,17 @@ const useCatalog = (input?: CatalogQueryInput) => {
 
     return {
         data,
-        fetchMore,
+        fetchMore: async (variables: CatalogQueryInput, updateQuery: Parameters<typeof fetchMore>[0]['updateQuery']) => (
+            await fetchMore({
+                variables: {
+                    input: {
+                        ...input,
+                        ...variables,
+                    },
+                },
+                updateQuery,
+            })
+        ),
         loading,
     }
 }

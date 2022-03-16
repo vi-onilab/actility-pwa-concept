@@ -7,22 +7,32 @@ const product: QueryResolvers['product'] = async (_, { input }) => {
         id,
     } = input || {}
 
-    const { data: { productDetail: __context = {} } = {} } = (
+    const { data: { products } = {} } = (
         await api.graphql(
             gql`
-                query($id: Int!) {
-                    productDetail(id: $id) {
-                        ... ProductInterface
+                query($filter: ProductAttributeFilterInput!) {
+                    products(
+                        filter: $filter
+                    ) {
+                        items {
+                            ... ProductInterface
+                        }
                     }
                 }
             `,
         ).query({
-            id,
+            filter: {
+                entity_id: {
+                    eq: id,
+                },
+            },
         })
     )
 
+    if (products?.items?.length < 1) return null
+
     return {
-        __context,
+        __context: products?.items?.[0],
         __typename: 'Product',
     }
 }

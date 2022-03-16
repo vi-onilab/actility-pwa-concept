@@ -1,4 +1,4 @@
-import { ProductQueryInput, Product } from '@pwa-concept/modules/graphql'
+import { Product, ProductQueryInput } from '@pwa-concept/modules/graphql'
 import { useProductQuery } from '@pwa-concept/modules/product/graphql/queries/Product'
 
 interface UseProductOptions {
@@ -12,12 +12,6 @@ const useProduct = (input: ProductQueryInput, options?: UseProductOptions): {
     const { data: { product: data } = {}, loading } = useProductQuery({
         variables: {
             input,
-        },
-        onCompleted(...args) {
-            console.log('complete', args)
-        },
-        onError(error) {
-            console.error(error)
         },
         skip: !input?.id || options?.skip,
     })

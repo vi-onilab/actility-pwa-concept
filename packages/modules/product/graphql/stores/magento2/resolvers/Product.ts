@@ -1,4 +1,18 @@
-import { ProductResolvers, ProductBreadcrumb, ProductStockType, ProductImage, ProductVatType, ProductBadge } from '@pwa-concept/modules/graphql'
+import {
+    ProductBreadcrumb,
+    ProductImage,
+    ProductOption,
+    ProductOptionKind,
+    ProductOptionType,
+    ProductOptionValue,
+    ProductResolvers,
+    ProductStockType,
+    ProductVatType,
+} from '@pwa-concept/modules/graphql'
+import {
+    Magento2ConfigurableProductOptions,
+    Magento2CustomizableOptionInterface,
+} from '@pwa-concept/stores/magento2/graphql'
 
 const id = (context) => String(context?.id)
 
@@ -6,6 +20,7 @@ const Product: ProductResolvers = {
     id: (_, __, { context }) => id(context),
     sku: (_, __, { context }) => context?.sku,
     name: (_, __, { context }) => context?.name,
+    description: (_, __, { context }) => context?.description?.html,
     stock: (_, __, { context }) => ({
         name: context?.stock_status === ProductStockType.InStock ? 'In stock' : 'Out of stock',
         type: context?.stock_status,
@@ -29,7 +44,7 @@ const Product: ProductResolvers = {
         description: image?.label,
         __typename: 'ProductImage',
     })),
-    vat: (_, __, { context }) => ({
+    vat: () => ({
         type: ProductVatType.Excluded,
         name: 'VAT excluded',
         __typename: 'ProductVat',
@@ -72,6 +87,67 @@ const Product: ProductResolvers = {
         description: context?.image?.label,
         __typename: 'ProductImage',
     } : null,
+    options: (_, __, { context }) => {
+        const result: ProductOption[] = []
+
+        const TYPE_BY_TYPENAME = {
+            CustomizableAreaOption: ProductOptionType.Area,
+            CustomizableDateOption: ProductOptionType.Date,
+            CustomizableCheckboxOption: ProductOptionType.Checkbox,
+            CustomizableDropDownOption: ProductOptionType.DropDown,
+            CustomizableFieldOption: ProductOptionType.Field,
+            CustomizableFileOption: ProductOptionType.Field,
+            CustomizableMultipleOption: ProductOptionType.Multiple,
+            CustomizableRadioOption: ProductOptionType.Radio,
+        }
+
+        context?.configurable_options?.forEach?.((item: Magento2ConfigurableProductOptions & { __typename: string }) => {
+            result.push({
+                id: item?.uid,
+                key: item?.attribute_code,
+                name: item?.label,
+                kind: ProductOptionKind.Configurable,
+                type: ProductOptionType.Radio,
+                required: true,
+                values: (
+                    item?.values?.map((child): ProductOptionValue => ({
+                        value: child?.uid,
+                        name: child?.store_label || child?.label || child?.default_label,
+                        price: null,
+                        __typename: 'ProductOptionValue',
+                    }))
+                ),
+                __typename: 'ProductOption',
+            })
+        })
+
+        context?.options?.forEach?.((item: Magento2CustomizableOptionInterface & { __typename: string, value: any[] }) => {
+            result.push({
+                id: item?.uid,
+                key: item?.uid,
+                name: item?.title,
+                kind: ProductOptionKind.Customizable,
+                type: TYPE_BY_TYPENAME?.[item?.__typename],
+                required: item?.required,
+                values: (
+                    item
+                        ?.value?.filter(({ price_type: priceType }) => priceType?.toLowerCase() === 'fixed')
+                        ?.map((child): ProductOptionValue => ({
+                            value: child?.uid,
+                            name: child?.title,
+                            price: {
+                                value: child?.price,
+                                __typename: 'Money',
+                            },
+                            __typename: 'ProductOptionValue',
+                        }))
+                ),
+                __typename: 'ProductOption',
+            })
+        })
+
+        return result
+    },
 }
 
 export default Product

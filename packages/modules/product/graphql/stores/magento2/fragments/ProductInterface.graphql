@@ -4,6 +4,10 @@ fragment ProductInterface on ProductInterface {
 
     sku
 
+    description {
+        html
+    }
+
     media_gallery {
         url
         label
@@ -49,6 +53,21 @@ fragment ProductInterface on ProductInterface {
                 currency
                 value
             }
+        }
+    }
+
+    ... on SimpleProduct {
+        options {
+            ... CustomizableOptionInterface
+        }
+    }
+
+    ... on ConfigurableProduct {
+        configurable_options {
+            ... ConfigurableProductOptions
+        }
+        options {
+            ... CustomizableOptionInterface
         }
     }
 }

@@ -10,6 +10,7 @@ type Product {
     id: ID
     sku: String
     name: String
+    description: String
     breadcrumbs: [ProductBreadcrumb]
     images: [ProductImage]
     thumbnail: ProductImage
@@ -17,6 +18,41 @@ type Product {
     price: ProductPrice
     stock: ProductStock
     vat: ProductVat
+    options: [ProductOption]
+}
+
+enum ProductOptionType {
+    Area
+    Checkbox
+    DropDown
+    Date
+    Field
+    File
+    Radio
+    Multiple
+}
+
+
+enum ProductOptionKind {
+    Customizable
+    Configurable
+}
+
+type ProductOption {
+    id: ID
+    key: String
+    name: String
+    type: ProductOptionType
+    kind: ProductOptionKind
+    required: Boolean
+
+    values: [ProductOptionValue]
+}
+
+type ProductOptionValue {
+    name: String
+    value: String
+    price: Money
 }
 
 type ProductBreadcrumb {

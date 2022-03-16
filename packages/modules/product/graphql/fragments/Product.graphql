@@ -1,6 +1,7 @@
 #import "./ProductImage.graphql"
 #import "./ProductPrice.graphql"
 #import "./ProductVat.graphql"
+#import "./ProductOption.graphql"
 
 fragment Product on Product {
     id
@@ -31,5 +32,8 @@ fragment Product on Product {
     }
     price {
         ... ProductPrice
+    }
+    options {
+        ... ProductOption
     }
 }

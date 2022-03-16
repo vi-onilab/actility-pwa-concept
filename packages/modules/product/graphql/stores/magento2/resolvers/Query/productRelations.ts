@@ -1,4 +1,4 @@
-import { QueryResolvers, ProductRelationType } from '@pwa-concept/modules/graphql'
+import { ProductRelationType, QueryResolvers } from '@pwa-concept/modules/graphql'
 import { gql } from 'graphql-tag'
 import api from '@pwa-concept/core/api'
 
@@ -16,27 +16,39 @@ const productRelations: QueryResolvers['productRelations'] = async (_, { input }
 
     if (!resolvedType) return null
 
+    const typeGql = `
+        ${resolvedType} {
+            ... ProductInterface
+        }
+    `
+
     // TODO: Handle errors
-    const { data: { productDetail = {} } = {} } = (
+    const { data: { products } = {} } = (
         await api.graphql(
             gql`
-                query($id: Int!) {
-                    productDetail(
-                        id: $id
+                query($filter: ProductAttributeFilterInput!) {
+                    products(
+                        filter: $filter
                     ) {
-                        id
-                        ${resolvedType} {
-                            ... ProductInterface
+                        items {
+                            id
+                            ${typeGql}
                         }
                     }
                 }
             `,
         ).query({
-            id,
+            filter: {
+                entity_id: {
+                    eq: id,
+                },
+            },
         })
     )
 
-    return productDetail?.[resolvedType]?.map?.((__context) => ({ __context, __typename: 'Product' }))
+    if (!products) return null
+
+    return products?.items?.[0]?.[resolvedType]?.map?.((__context) => ({ __context, __typename: 'Product' })) || []
 }
 
 export default productRelations

@@ -19,23 +19,11 @@
       "./node_modules/@types"
     ],
     "paths": {
-      "~core/*": [
-        "./packages/core/*"
-      ],
-      "~core": [
-        "./packages/core/index"
-      ],
       "@pwa-concept/core/*": [
         "./packages/core/*"
       ],
       "@pwa-concept/core": [
         "./packages/core/index"
-      ],
-      "~modules/*": [
-        "./packages/modules/*"
-      ],
-      "~modules": [
-        "./packages/modules/index"
       ],
       "@pwa-concept/modules/*": [
         "./packages/modules/*"
@@ -43,10 +31,10 @@
       "@pwa-concept/modules": [
         "./packages/modules/index"
       ],
-      "~ui/*": [
+      "@pwa-concept/ui/*": [
         "./packages/ui/*"
       ],
-      "~ui": [
+      "@pwa-concept/ui": [
         "./packages/ui/index"
       ]
     }

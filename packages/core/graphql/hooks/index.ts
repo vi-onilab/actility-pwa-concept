@@ -3,8 +3,8 @@ import {
     useLazyQuery as useLazyQueryOrigin,
     useMutation as useMutationOrigin,
 } from '@apollo/client'
-import { Provide, PROVIDE_GRAPHQL_FRAGMENTS } from '~core'
-import { injectFragments } from '@pwa-concept/coreutils'
+import { Provide, PROVIDE_GRAPHQL_FRAGMENTS } from '@pwa-concept/core'
+import { injectFragments } from '@pwa-concept/core/utils'
 
 const inject = (document) => injectFragments(document, Provide.first(PROVIDE_GRAPHQL_FRAGMENTS))
 

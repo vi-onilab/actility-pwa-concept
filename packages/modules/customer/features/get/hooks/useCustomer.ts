@@ -7,7 +7,7 @@ const useCustomer = () => {
     })
 
     return {
-        customer: loading && !data?.customer ? null : data?.customer,
+        data: loading && !data?.customer ? null : data?.customer,
         loading,
     }
 }

@@ -7,7 +7,7 @@ const useCustomerAddresses = () => {
     })
 
     return {
-        addresses: loading && !data ? null : data,
+        data: loading && !data ? null : data?.customerAddresses,
         loading,
     }
 }

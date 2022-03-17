@@ -1,5 +1,5 @@
 import { DocumentNode, FragmentDefinitionNode, visit } from 'graphql'
-import { DeepWriteable } from '@pwa-concept/coretypes'
+import { DeepWriteable } from '@pwa-concept/core/types'
 
 const parseFragments = (fragments: DocumentNode[]) => {
     const data = JSON.parse(JSON.stringify(fragments))

@@ -1,3 +1,0 @@
-extend type Mutation {
-    deleteCustomerAddress(id: ID): Boolean
-}

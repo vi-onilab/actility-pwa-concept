@@ -3,8 +3,8 @@ import {
     Module, ModuleProvider, Provides, Feature,
 } from './types'
 import { isPrimitive } from './utils'
-import { FEATURE_TOKEN } from '@pwa-concept/corefeature'
-import { MODULE_TOKEN } from '@pwa-concept/coremodule'
+import { FEATURE_TOKEN } from '@pwa-concept/core/feature'
+import { MODULE_TOKEN } from '@pwa-concept/core/module'
 
 interface GetModulesTreeReturnType {
     provides: Provides

@@ -1,7 +1,7 @@
 import * as Types from '../../../graphql';
 
 import { gql } from '@apollo/client';
-import { CategoryFragmentFragmentDoc } from '../fragments/Category';
+import { CategoryFragmentDoc } from '../fragments/Category';
 import * as Apollo from '@apollo/client';
 import * as ApolloReactHooks from '@pwa-concept/core/graphql/hooks';
 
@@ -25,10 +25,10 @@ export type CategoriesQuery = { __typename?: 'Query', categories?: Array<{ __typ
 export const CategoriesDocument = gql`
     query Categories($input: CategoriesQueryInput!) {
   categories(input: $input) @client {
-    ...CategoryFragment
+    ...Category
   }
 }
-    ${CategoryFragmentFragmentDoc}`;
+    ${CategoryFragmentDoc}`;
 
 /**
  * __useCategoriesQuery__

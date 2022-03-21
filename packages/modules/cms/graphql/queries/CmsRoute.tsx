@@ -1,6 +1,7 @@
 import * as Types from '../../../graphql';
 
 import { gql } from '@apollo/client';
+import { CmsRouteFragmentDoc } from '../fragments/CmsRoute';
 import * as Apollo from '@apollo/client';
 import * as ApolloReactHooks from '@pwa-concept/core/graphql/hooks';
 
@@ -24,12 +25,10 @@ export type CmsRouteQuery = { __typename?: 'Query', cmsRoute?: { __typename?: 'C
 export const CmsRouteDocument = gql`
     query CmsRoute($url: String) {
   cmsRoute(url: $url) @client {
-    id
-    type
-    url
+    ...CmsRoute
   }
 }
-    `;
+    ${CmsRouteFragmentDoc}`;
 
 /**
  * __useCmsRouteQuery__

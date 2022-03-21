@@ -1,0 +1,8 @@
+fragment CmsPage on CmsPage {
+    identifier
+    title
+    content
+    meta_title
+    meta_keywords
+    meta_description
+}

@@ -1,7 +1,7 @@
+#import "../fragments/Cms.graphql"
+
 query CmsRoute($url: String) {
     cmsRoute(url: $url) @client {
-        id
-        type
-        url
+        ... CmsRoute
     }
 }

@@ -3,7 +3,7 @@ import { PROVIDE_CMS_MODULE_REPLACE } from './tokens'
 import { CmsGetRoute } from './features'
 import { CmsModuleReplaceProvide } from './types'
 import graphqlSchemas from './graphql/schemas'
-import graphqlResolvers from './graphql/resolvers'
+import stores from './graphql/stores'
 
 interface CMSModuleConfigureOptions {
     replace?: CmsModuleReplaceProvide
@@ -11,7 +11,9 @@ interface CMSModuleConfigureOptions {
 
 const CMSModule = module(() => ({
     graphqlSchemas,
-    graphqlResolvers,
+    graphqlResolvers: stores?.resolvers,
+    graphqlStoreFragments: stores?.fragments,
+    graphqlStorePossibleTypes: stores?.possibleTypes,
     routes: [
         {
             path: '*',

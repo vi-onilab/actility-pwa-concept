@@ -1,6 +1,7 @@
 import * as Types from '../../../graphql';
 
 import { gql } from '@apollo/client';
+import { CmsFragmentDoc } from '../fragments/Cms';
 import * as Apollo from '@apollo/client';
 import * as ApolloReactHooks from '@pwa-concept/core/graphql/hooks';
 
@@ -24,15 +25,10 @@ export type CmsQuery = { __typename?: 'Query', cms?: { __typename?: 'Cms', id?: 
 export const CmsDocument = gql`
     query Cms($id: ID) {
   cms(id: $id) @client {
-    id
-    title
-    content
-    metaTitle
-    metaKeywords
-    metaDescription
+    ...Cms
   }
 }
-    `;
+    ${CmsFragmentDoc}`;
 
 /**
  * __useCmsQuery__

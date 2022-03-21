@@ -1,0 +1,8 @@
+fragment Cms on Cms {
+    id
+    title
+    content
+    metaTitle
+    metaKeywords
+    metaDescription
+}

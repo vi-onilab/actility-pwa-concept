@@ -20,7 +20,7 @@ export type UpdateEmailMutationVariables = Types.Exact<{
 }>;
 
 
-export type UpdateEmailMutation = { __typename?: 'Mutation', updateEmail?: { __typename?: 'Customer', id?: string | null | undefined, firstName?: string | null | undefined, lastName?: string | null | undefined, email?: string | null | undefined, middleName?: string | null | undefined, dateOfBirth?: number | null | undefined, gender?: number | null | undefined, isSubscribed?: boolean | null | undefined } | null | undefined };
+export type UpdateEmailMutation = { __typename?: 'Mutation', updateEmail?: { __typename?: 'Customer', id?: string | null | undefined, firstName?: string | null | undefined, lastName?: string | null | undefined, fullName?: string | null | undefined, email?: string | null | undefined, middleName?: string | null | undefined, dateOfBirth?: number | null | undefined, gender?: number | null | undefined, isSubscribed?: boolean | null | undefined } | null | undefined };
 
 
 export const UpdateEmailDocument = gql`

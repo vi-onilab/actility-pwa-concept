@@ -17,7 +17,7 @@ const defaultOptions = {} as const;
 export type CustomerQueryVariables = Types.Exact<{ [key: string]: never; }>;
 
 
-export type CustomerQuery = { __typename?: 'Query', customer?: { __typename?: 'Customer', id?: string | null | undefined, firstName?: string | null | undefined, lastName?: string | null | undefined, email?: string | null | undefined, middleName?: string | null | undefined, dateOfBirth?: number | null | undefined, gender?: number | null | undefined, isSubscribed?: boolean | null | undefined } | null | undefined };
+export type CustomerQuery = { __typename?: 'Query', customer?: { __typename?: 'Customer', id?: string | null | undefined, firstName?: string | null | undefined, lastName?: string | null | undefined, fullName?: string | null | undefined, email?: string | null | undefined, middleName?: string | null | undefined, dateOfBirth?: number | null | undefined, gender?: number | null | undefined, isSubscribed?: boolean | null | undefined } | null | undefined };
 
 
 export const CustomerDocument = gql`

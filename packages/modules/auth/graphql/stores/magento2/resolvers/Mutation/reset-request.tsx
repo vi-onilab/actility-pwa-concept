@@ -13,7 +13,12 @@ const resetRequest: MutationResolvers['resetRequest'] = async (_, { email }) => 
         ).mutation({ email })
     )
 
-    return null
+    return {
+        __context: {
+            email,
+        },
+        __typename: 'ResetRequestOutput',
+    }
 }
 
 export default resetRequest

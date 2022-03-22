@@ -1,0 +1,26 @@
+extend type Mutation {
+    login(email: String, password: String): AccessToken
+    register(input: RegisterInput): AccessToken
+    reset(code: String, email: String): ResetToken
+    resetRequest(email: String): ResetRequestOutput
+}
+
+type AccessToken {
+    token: String
+}
+
+type ResetToken {
+    token: String
+    attempts: Int
+}
+
+input RegisterInput {
+    email: String
+    firstName: String
+    lastName: String
+    password: String
+}
+
+type ResetRequestOutput {
+    email: String
+}

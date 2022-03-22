@@ -1,8 +1,8 @@
+import { MutationResolvers } from '@pwa-concept/modules/graphql'
 import register from './register'
 import login from './login'
-import resetRequest from './resetRequest'
+import resetRequest from './reset-request'
 import reset from './reset'
-import { MutationResolvers } from '@pwa-concept/modules/graphql'
 
 const Mutation: MutationResolvers = {
     register,

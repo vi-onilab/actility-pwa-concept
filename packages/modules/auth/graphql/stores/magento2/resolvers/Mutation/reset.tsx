@@ -3,13 +3,12 @@ import { gql } from 'graphql-tag'
 import { MutationResolvers } from '@pwa-concept/modules/graphql'
 
 const reset: MutationResolvers['reset'] = async (_, { email, code }) => {
-    const { data: { verifyOneTimePassword: { token = '' } } } = await (
+    const { data: { verifyOneTimePassword: __context } } = await (
         api.graphql(
             gql`
                 mutation($email: String!, $code: String!) {
                     verifyOneTimePassword(email: $email, code: $code) {
-                        attempts_left
-                        token
+                        ... OneTimePasswordVerificationResult
                     }
                 }
             `,
@@ -17,7 +16,8 @@ const reset: MutationResolvers['reset'] = async (_, { email, code }) => {
     )
 
     return {
-        token,
+        __context,
+        __typename: 'ResetToken',
     }
 }
 

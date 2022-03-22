@@ -1,6 +1,7 @@
 import * as Types from '../../../graphql';
 
 import { gql } from '@apollo/client';
+import { ResetTokenFragmentDoc } from '../fragments/ResetToken';
 import * as Apollo from '@apollo/client';
 import * as ApolloReactHooks from '@pwa-concept/core/graphql/hooks';
 
@@ -19,16 +20,16 @@ export type ResetMutationVariables = Types.Exact<{
 }>;
 
 
-export type ResetMutation = { __typename?: 'Mutation', reset?: { __typename?: 'RenewToken', token?: string | null | undefined } | null | undefined };
+export type ResetMutation = { __typename?: 'Mutation', reset?: { __typename?: 'ResetToken', token?: string | null | undefined } | null | undefined };
 
 
 export const ResetDocument = gql`
     mutation Reset($code: String, $email: String) {
   reset(code: $code, email: $email) @client {
-    token
+    ...ResetToken
   }
 }
-    `;
+    ${ResetTokenFragmentDoc}`;
 export type ResetMutationFn = Apollo.MutationFunction<ResetMutation, ResetMutationVariables>;
 
 /**

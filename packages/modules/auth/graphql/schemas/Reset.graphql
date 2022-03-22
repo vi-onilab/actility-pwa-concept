@@ -1,7 +1,0 @@
-extend type Mutation {
-    reset(code: String, email: String): RenewToken
-}
-
-type RenewToken {
-    token: String
-}

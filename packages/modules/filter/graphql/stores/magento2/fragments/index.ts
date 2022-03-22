@@ -1,8 +1,8 @@
 import { StoreFragments } from '@pwa-concept/core'
-import Products from './Products.graphql'
+import Aggregation from './Aggregation.graphql'
 
 const fragments: StoreFragments = [
-    Products,
+    Aggregation,
 ]
 
 export default fragments

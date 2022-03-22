@@ -1,14 +1,8 @@
-fragment Products on Products {
-    aggregations {
-        attribute_code
+fragment Aggregation on Aggregation {
+    attribute_code
+    label
+    options {
         label
-        options {
-            label
-            value
-        }
+        value
     }
-
-    # Custom
-    max_price
-    min_price
 }

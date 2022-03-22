@@ -12,7 +12,9 @@ const filters: QueryResolvers['filters'] = async (_, { input }) => {
                     products(
                         filter: $filter
                     ) {
-                        ... Products
+                        aggregations {
+                            ... Aggregation
+                        }
                     }
                 }
             `,

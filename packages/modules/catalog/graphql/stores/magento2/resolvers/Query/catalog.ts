@@ -73,7 +73,6 @@ const catalog: QueryResolvers['catalog'] = async (_, { input } = {}) => {
             (...prev) => ({
                 ...prev,
                 sort: sort?.reduce?.((result, { name, order }) => {
-
                     result[name] = order
 
                     return result

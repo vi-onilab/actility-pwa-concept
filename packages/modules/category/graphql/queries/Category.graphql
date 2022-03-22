@@ -2,6 +2,6 @@
 
 query Category($input: CategoryQueryInput!) {
     category(input: $input) @client {
-        ... CategoryFragment
+        ... Category
     }
 }

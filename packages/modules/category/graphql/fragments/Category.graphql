@@ -1,4 +1,4 @@
-fragment CategoryFragment on Category {
+fragment Category on Category {
     id
     name
     description

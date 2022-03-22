@@ -1,0 +1,8 @@
+#import "./SortField.graphql"
+
+fragment SortFields on SortFields {
+    default
+    options {
+        ... SortField
+    }
+}

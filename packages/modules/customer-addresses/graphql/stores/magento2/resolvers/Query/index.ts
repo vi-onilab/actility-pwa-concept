@@ -1,5 +1,5 @@
 import { QueryResolvers } from '@pwa-concept/modules/graphql'
-import customerAddresses from './customerAddressess'
+import customerAddresses from './customer-addressess'
 
 const Query: QueryResolvers = {
     customerAddresses,

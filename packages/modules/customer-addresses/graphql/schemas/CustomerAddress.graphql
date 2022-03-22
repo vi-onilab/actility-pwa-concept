@@ -54,11 +54,11 @@ type CustomerAddress {
     lastName: String
     telephone: String
     postcode: String
-    region: CustomerAddressesRegion
+    region: CustomerAddressRegion
     street: String
 }
 
-type CustomerAddressesRegion {
+type CustomerAddressRegion {
     region: String
     regionCode: String
     regionId: Int

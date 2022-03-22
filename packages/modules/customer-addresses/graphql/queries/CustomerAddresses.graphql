@@ -1,20 +1,7 @@
+#import "../fragments/CustomerAddress.graphql"
+
 query CustomerAddresses {
     customerAddresses @client {
-        id
-        defaultBilling
-        defaultShipping
-        city
-        company
-        countryId
-        firstName
-        lastName
-        telephone
-        postcode
-        region {
-            region
-            regionCode
-            regionId
-        }
-        street
+        ... CustomerAddress
     }
 }

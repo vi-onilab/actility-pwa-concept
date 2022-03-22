@@ -1,6 +1,7 @@
 import * as Types from '../../../graphql';
 
 import { gql } from '@apollo/client';
+import { CustomerAddressFragmentDoc } from '../fragments/CustomerAddress';
 import * as Apollo from '@apollo/client';
 import * as ApolloReactHooks from '@pwa-concept/core/graphql/hooks';
 
@@ -16,31 +17,16 @@ const defaultOptions = {} as const;
 export type CustomerAddressesQueryVariables = Types.Exact<{ [key: string]: never; }>;
 
 
-export type CustomerAddressesQuery = { __typename?: 'Query', customerAddresses?: Array<{ __typename?: 'CustomerAddress', id?: string | null | undefined, defaultBilling?: boolean | null | undefined, defaultShipping?: boolean | null | undefined, city?: string | null | undefined, company?: string | null | undefined, countryId?: string | null | undefined, firstName?: string | null | undefined, lastName?: string | null | undefined, telephone?: string | null | undefined, postcode?: string | null | undefined, street?: string | null | undefined, region?: { __typename?: 'CustomerAddressesRegion', region?: string | null | undefined, regionCode?: string | null | undefined, regionId?: number | null | undefined } | null | undefined } | null | undefined> | null | undefined };
+export type CustomerAddressesQuery = { __typename?: 'Query', customerAddresses?: Array<{ __typename?: 'CustomerAddress', id?: string | null | undefined, defaultBilling?: boolean | null | undefined, defaultShipping?: boolean | null | undefined, city?: string | null | undefined, company?: string | null | undefined, countryId?: string | null | undefined, firstName?: string | null | undefined, lastName?: string | null | undefined, telephone?: string | null | undefined, postcode?: string | null | undefined, street?: string | null | undefined, region?: { __typename?: 'CustomerAddressRegion', region?: string | null | undefined, regionCode?: string | null | undefined, regionId?: number | null | undefined } | null | undefined } | null | undefined> | null | undefined };
 
 
 export const CustomerAddressesDocument = gql`
     query CustomerAddresses {
   customerAddresses @client {
-    id
-    defaultBilling
-    defaultShipping
-    city
-    company
-    countryId
-    firstName
-    lastName
-    telephone
-    postcode
-    region {
-      region
-      regionCode
-      regionId
-    }
-    street
+    ...CustomerAddress
   }
 }
-    `;
+    ${CustomerAddressFragmentDoc}`;
 
 /**
  * __useCustomerAddressesQuery__

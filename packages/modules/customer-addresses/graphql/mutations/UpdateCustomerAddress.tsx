@@ -1,6 +1,7 @@
 import * as Types from '../../../graphql';
 
 import { gql } from '@apollo/client';
+import { CustomerAddressFragmentDoc } from '../fragments/CustomerAddress';
 import * as Apollo from '@apollo/client';
 import * as ApolloReactHooks from '@pwa-concept/core/graphql/hooks';
 
@@ -19,31 +20,16 @@ export type UpdateCustomerAddressMutationVariables = Types.Exact<{
 }>;
 
 
-export type UpdateCustomerAddressMutation = { __typename?: 'Mutation', updateCustomerAddress?: { __typename?: 'CustomerAddress', id?: string | null | undefined, defaultBilling?: boolean | null | undefined, defaultShipping?: boolean | null | undefined, city?: string | null | undefined, company?: string | null | undefined, countryId?: string | null | undefined, firstName?: string | null | undefined, lastName?: string | null | undefined, telephone?: string | null | undefined, postcode?: string | null | undefined, street?: string | null | undefined, region?: { __typename?: 'CustomerAddressesRegion', region?: string | null | undefined, regionCode?: string | null | undefined, regionId?: number | null | undefined } | null | undefined } | null | undefined };
+export type UpdateCustomerAddressMutation = { __typename?: 'Mutation', updateCustomerAddress?: { __typename?: 'CustomerAddress', id?: string | null | undefined, defaultBilling?: boolean | null | undefined, defaultShipping?: boolean | null | undefined, city?: string | null | undefined, company?: string | null | undefined, countryId?: string | null | undefined, firstName?: string | null | undefined, lastName?: string | null | undefined, telephone?: string | null | undefined, postcode?: string | null | undefined, street?: string | null | undefined, region?: { __typename?: 'CustomerAddressRegion', region?: string | null | undefined, regionCode?: string | null | undefined, regionId?: number | null | undefined } | null | undefined } | null | undefined };
 
 
 export const UpdateCustomerAddressDocument = gql`
     mutation UpdateCustomerAddress($id: ID, $input: UpdateCustomerAddressInput) {
   updateCustomerAddress(id: $id, input: $input) @client {
-    id
-    defaultBilling
-    defaultShipping
-    city
-    company
-    countryId
-    firstName
-    lastName
-    telephone
-    postcode
-    region {
-      region
-      regionCode
-      regionId
-    }
-    street
+    ...CustomerAddress
   }
 }
-    `;
+    ${CustomerAddressFragmentDoc}`;
 export type UpdateCustomerAddressMutationFn = Apollo.MutationFunction<UpdateCustomerAddressMutation, UpdateCustomerAddressMutationVariables>;
 
 /**

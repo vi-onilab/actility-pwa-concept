@@ -1,10 +1,16 @@
-import { useCreateCustomerAddressMutation, CreateCustomerAddressMutationVariables } from '@pwa-concept/modules/customer-addresses/graphql/mutations/CreateCustomerAddress'
+import {
+    CreateCustomerAddressMutationVariables,
+    useCreateCustomerAddressMutation,
+} from '@pwa-concept/modules/customer-addresses/graphql/mutations/CreateCustomerAddress'
+import { FeatureMutationHookReturnType } from '@pwa-concept/core'
 
 const useCustomerAddressCreate = () => {
     const [createCustomerAddress] = useCreateCustomerAddressMutation()
 
-    return async (input: CreateCustomerAddressMutationVariables['input']) => {
-        return await createCustomerAddress({
+    return async (
+        input: CreateCustomerAddressMutationVariables['input'],
+    ): FeatureMutationHookReturnType<typeof useCreateCustomerAddressMutation, 'createCustomerAddress'> => {
+        const { data, errors } = await createCustomerAddress({
             variables: {
                 input,
             },
@@ -13,6 +19,11 @@ const useCustomerAddressCreate = () => {
             ],
             awaitRefetchQueries: true,
         })
+
+        return {
+            data: data?.createCustomerAddress,
+            errors,
+        }
     }
 }
 

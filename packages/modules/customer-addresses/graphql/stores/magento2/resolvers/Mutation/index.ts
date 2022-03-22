@@ -1,7 +1,7 @@
 import { MutationResolvers } from '@pwa-concept/modules/graphql'
-import createCustomerAddress from './createCustomerAddress'
-import updateCustomerAddress from './updateCustomerAddress'
-import deleteCustomerAddress from './deleteCustomerAddress'
+import createCustomerAddress from './create-customer-address'
+import updateCustomerAddress from './update-customer-address'
+import deleteCustomerAddress from './delete-customer-address'
 
 const Mutation: MutationResolvers = {
     createCustomerAddress,

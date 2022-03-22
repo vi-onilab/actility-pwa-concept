@@ -75,3 +75,8 @@ export interface ExtendUtils {
 export type ExtendFn = (fn: (module: Omit<Module, 'id' | 'extend'>, utils: ExtendUtils) => Omit<Module, 'extend' | 'id'>) => Omit<Module, 'extend' | 'id'>
 
 export type ModuleFn = () => Module
+
+
+type FeatureMutationHookReturnTypeFn<T extends (() => any)> = Awaited<ReturnType<ReturnType<T>[0]>>
+
+export type FeatureMutationHookReturnType<T extends (() => any), T2 extends keyof FeatureMutationHookReturnTypeFn<T>['data']> = Promise<{ data: FeatureMutationHookReturnTypeFn<T>['data'][T2] } & Pick<FeatureMutationHookReturnTypeFn<T>, 'errors'>>

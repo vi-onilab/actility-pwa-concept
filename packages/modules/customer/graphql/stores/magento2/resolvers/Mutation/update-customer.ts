@@ -3,19 +3,13 @@ import { gql } from 'graphql-tag'
 import { MutationResolvers } from '@pwa-concept/modules/graphql'
 
 const updateCustomer: MutationResolvers['updateCustomer'] = async (_, input) => {
-    const { data: { updateCustomerV2: data = {} } } = await (
+    const { data: { updateCustomerV2: __context = null } = {} } = await (
         api.graphql(
             gql`
                 mutation($input: CustomerUpdateInput!) {
                     updateCustomerV2(input: $input) {
                         customer {
-                            email
-                            firstname
-                            lastname
-                            is_subscribed
-                            middlename
-                            date_of_birth
-                            gender
+                            ... Customer
                         }
                     }
                 }
@@ -23,15 +17,10 @@ const updateCustomer: MutationResolvers['updateCustomer'] = async (_, input) => 
         ).mutation({ ...input })
     )
 
+    if (!__context) return null
+
     return {
-        id: data?.email,
-        firstName: data?.firstname,
-        lastName: data?.lastname,
-        email: data?.email,
-        middleName: data?.middlename,
-        dateOfBirth: data?.date_of_birth,
-        gender: data?.gender,
-        isSubscribed: data?.is_subscribed,
+        __context,
         __typename: 'Customer',
     }
 }

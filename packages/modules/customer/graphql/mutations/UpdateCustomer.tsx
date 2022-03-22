@@ -1,6 +1,7 @@
 import * as Types from '../../../graphql';
 
 import { gql } from '@apollo/client';
+import { CustomerFragmentDoc } from '../fragments/Customer';
 import * as Apollo from '@apollo/client';
 import * as ApolloReactHooks from '@pwa-concept/core/graphql/hooks';
 
@@ -24,17 +25,10 @@ export type UpdateCustomerMutation = { __typename?: 'Mutation', updateCustomer?:
 export const UpdateCustomerDocument = gql`
     mutation UpdateCustomer($input: CustomerUpdateInput) {
   updateCustomer(input: $input) @client {
-    id
-    firstName
-    lastName
-    email
-    middleName
-    dateOfBirth
-    gender
-    isSubscribed
+    ...Customer
   }
 }
-    `;
+    ${CustomerFragmentDoc}`;
 export type UpdateCustomerMutationFn = Apollo.MutationFunction<UpdateCustomerMutation, UpdateCustomerMutationVariables>;
 
 /**

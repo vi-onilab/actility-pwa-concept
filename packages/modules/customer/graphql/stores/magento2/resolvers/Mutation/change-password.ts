@@ -3,20 +3,22 @@ import { gql } from 'graphql-tag'
 import { MutationResolvers } from '@pwa-concept/modules/graphql'
 
 const changePassword: MutationResolvers['changePassword'] = async (_, { newPassword, currentPassword }) => {
-    const { data: { changeCustomerPassword: { email: customerEmail = '' } } } = await (
+    const { data: { changeCustomerPassword: __context = null } = {} } = await (
         api.graphql(
             gql`
                 mutation($currentPassword: String!, $newPassword: String!) {
                     changeCustomerPassword(currentPassword: $currentPassword, newPassword: $newPassword) {
-                        email
+                        ... Customer
                     }
                 }
             `,
         ).mutation({ currentPassword, newPassword })
     )
 
+    if (!__context) return null
+
     return {
-        id: customerEmail,
+        __context,
         __typename: 'Customer',
     }
 }

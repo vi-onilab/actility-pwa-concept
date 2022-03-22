@@ -1,6 +1,7 @@
 import * as Types from '../../../graphql';
 
 import { gql } from '@apollo/client';
+import { CustomerFragmentDoc } from '../fragments/Customer';
 import * as Apollo from '@apollo/client';
 import * as ApolloReactHooks from '@pwa-concept/core/graphql/hooks';
 
@@ -22,17 +23,10 @@ export type CustomerQuery = { __typename?: 'Query', customer?: { __typename?: 'C
 export const CustomerDocument = gql`
     query Customer {
   customer @client {
-    id
-    firstName
-    lastName
-    email
-    middleName
-    dateOfBirth
-    gender
-    isSubscribed
+    ...Customer
   }
 }
-    `;
+    ${CustomerFragmentDoc}`;
 
 /**
  * __useCustomerQuery__

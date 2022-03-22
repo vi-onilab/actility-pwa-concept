@@ -1,0 +1,10 @@
+fragment Customer on Customer {
+    id
+    firstName
+    lastName
+    email
+    middleName
+    dateOfBirth
+    gender
+    isSubscribed
+}

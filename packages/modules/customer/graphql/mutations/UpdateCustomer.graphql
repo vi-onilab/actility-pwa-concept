@@ -1,12 +1,7 @@
+#import "../fragments/Customer.graphql"
+
 mutation UpdateCustomer($input: CustomerUpdateInput) {
     updateCustomer(input: $input) @client {
-        id
-        firstName
-        lastName
-        email
-        middleName
-        dateOfBirth
-        gender
-        isSubscribed
+        ... Customer
     }
 }

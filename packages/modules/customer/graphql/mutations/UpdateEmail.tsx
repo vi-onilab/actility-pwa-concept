@@ -1,6 +1,7 @@
 import * as Types from '../../../graphql';
 
 import { gql } from '@apollo/client';
+import { CustomerFragmentDoc } from '../fragments/Customer';
 import * as Apollo from '@apollo/client';
 import * as ApolloReactHooks from '@pwa-concept/core/graphql/hooks';
 
@@ -19,17 +20,16 @@ export type UpdateEmailMutationVariables = Types.Exact<{
 }>;
 
 
-export type UpdateEmailMutation = { __typename?: 'Mutation', updateEmail?: { __typename?: 'Customer', id?: string | null | undefined, email?: string | null | undefined } | null | undefined };
+export type UpdateEmailMutation = { __typename?: 'Mutation', updateEmail?: { __typename?: 'Customer', id?: string | null | undefined, firstName?: string | null | undefined, lastName?: string | null | undefined, email?: string | null | undefined, middleName?: string | null | undefined, dateOfBirth?: number | null | undefined, gender?: number | null | undefined, isSubscribed?: boolean | null | undefined } | null | undefined };
 
 
 export const UpdateEmailDocument = gql`
     mutation UpdateEmail($email: String, $password: String) {
   updateEmail(email: $email, password: $password) @client {
-    id
-    email
+    ...Customer
   }
 }
-    `;
+    ${CustomerFragmentDoc}`;
 export type UpdateEmailMutationFn = Apollo.MutationFunction<UpdateEmailMutation, UpdateEmailMutationVariables>;
 
 /**

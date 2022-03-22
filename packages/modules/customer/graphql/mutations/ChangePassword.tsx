@@ -1,6 +1,7 @@
 import * as Types from '../../../graphql';
 
 import { gql } from '@apollo/client';
+import { CustomerFragmentDoc } from '../fragments/Customer';
 import * as Apollo from '@apollo/client';
 import * as ApolloReactHooks from '@pwa-concept/core/graphql/hooks';
 
@@ -19,16 +20,16 @@ export type ChangePasswordMutationVariables = Types.Exact<{
 }>;
 
 
-export type ChangePasswordMutation = { __typename?: 'Mutation', changePassword?: { __typename?: 'Customer', id?: string | null | undefined } | null | undefined };
+export type ChangePasswordMutation = { __typename?: 'Mutation', changePassword?: { __typename?: 'Customer', id?: string | null | undefined, firstName?: string | null | undefined, lastName?: string | null | undefined, email?: string | null | undefined, middleName?: string | null | undefined, dateOfBirth?: number | null | undefined, gender?: number | null | undefined, isSubscribed?: boolean | null | undefined } | null | undefined };
 
 
 export const ChangePasswordDocument = gql`
     mutation ChangePassword($newPassword: String, $currentPassword: String) {
   changePassword(newPassword: $newPassword, currentPassword: $currentPassword) @client {
-    id
+    ...Customer
   }
 }
-    `;
+    ${CustomerFragmentDoc}`;
 export type ChangePasswordMutationFn = Apollo.MutationFunction<ChangePasswordMutation, ChangePasswordMutationVariables>;
 
 /**

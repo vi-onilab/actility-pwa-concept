@@ -1,6 +1,7 @@
 import * as Types from '../../../graphql';
 
 import { gql } from '@apollo/client';
+import { FilterFragmentDoc } from '../fragments/Filter';
 import * as Apollo from '@apollo/client';
 import * as ApolloReactHooks from '@pwa-concept/core/graphql/hooks';
 
@@ -24,19 +25,10 @@ export type FiltersQuery = { __typename?: 'Query', filters?: Array<{ __typename?
 export const FiltersDocument = gql`
     query Filters($input: FiltersQueryInput) {
   filters(input: $input) @client {
-    id
-    name
-    key
-    type
-    items {
-      id
-      key
-      name
-      value
-    }
+    ...Filter
   }
 }
-    `;
+    ${FilterFragmentDoc}`;
 
 /**
  * __useFiltersQuery__

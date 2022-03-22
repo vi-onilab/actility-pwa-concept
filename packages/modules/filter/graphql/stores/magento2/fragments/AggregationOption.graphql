@@ -1,0 +1,4 @@
+fragment AggregationOption on AggregationOption {
+    label
+    value
+}

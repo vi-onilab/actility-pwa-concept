@@ -8,12 +8,7 @@ const cms: QueryResolvers['cms'] = async (_, { id }) => {
             gql`
                 query($id: String) {
                     cmsPage(identifier: $id) {
-                        identifier
-                        title
-                        content
-                        meta_title
-                        meta_keywords
-                        meta_description
+                        ... CmsPage
                     }
                 }
             `,
@@ -23,12 +18,7 @@ const cms: QueryResolvers['cms'] = async (_, { id }) => {
     if (!data) return null
 
     return {
-        id: data?.identifier,
-        title: data?.title,
-        content: data?.content,
-        metaTitle: data?.meta_title,
-        metaKeywords: data?.meta_keywords,
-        metaDescription: data?.meta_description,
+        __context: data,
         __typename: 'Cms',
     }
 }

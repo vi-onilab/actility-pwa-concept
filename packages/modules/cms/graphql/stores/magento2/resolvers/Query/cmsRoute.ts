@@ -8,9 +8,7 @@ const cmsRoute: QueryResolvers['cmsRoute'] = async (_, { url }) => {
             gql`
                 query($url: String!) {
                     urlResolver(url: $url) {
-                        id
-                        type
-                        relative_url
+                        ... EntityUrl
                     }
                 }
             `,
@@ -20,9 +18,7 @@ const cmsRoute: QueryResolvers['cmsRoute'] = async (_, { url }) => {
     if (!data) return null
 
     return {
-        id: data?.id,
-        type: data?.type,
-        url: data?.relative_url,
+        __context: data,
         __typename: 'CmsRoute',
     }
 }

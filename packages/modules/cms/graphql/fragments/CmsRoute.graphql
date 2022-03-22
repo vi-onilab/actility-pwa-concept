@@ -1,0 +1,5 @@
+fragment CmsRoute on CmsRoute {
+    id
+    type
+    url
+}

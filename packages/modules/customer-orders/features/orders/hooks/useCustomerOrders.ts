@@ -13,7 +13,7 @@ const useCustomerOrders = ({ page = 1, size = 20 }) => {
     })
 
     return {
-        customerOrders: loading && !data ? null : data?.customerOrders,
+        data: loading && !data ? null : data?.customerOrders,
         loading,
     }
 }

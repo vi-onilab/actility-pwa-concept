@@ -1,6 +1,8 @@
 import * as Types from '../../../graphql';
 
 import { gql } from '@apollo/client';
+import { CustomerOrderFragmentDoc } from '../fragments/CustomerOrder';
+import { PaginationFragmentDoc } from '../../../pagination/graphql/fragments/Pagination';
 import * as Apollo from '@apollo/client';
 import * as ApolloReactHooks from '@pwa-concept/core/graphql/hooks';
 
@@ -18,75 +20,22 @@ export type CustomerOrdersQueryVariables = Types.Exact<{
 }>;
 
 
-export type CustomerOrdersQuery = { __typename?: 'Query', customerOrders?: { __typename?: 'CustomerOrders', totalOrders?: number | null | undefined, customerOrders?: Array<{ __typename?: 'CustomerOrder', number?: string | null | undefined, status?: string | null | undefined, date?: number | null | undefined, paymentMethod?: string | null | undefined, shippingAddress?: { __typename?: 'Address', firstName?: string | null | undefined, lastName?: string | null | undefined, telephone?: string | null | undefined, city?: string | null | undefined, company?: string | null | undefined, street?: string | null | undefined, countryCode?: number | null | undefined, postcode?: string | null | undefined } | null | undefined, billingAddress?: { __typename?: 'Address', firstName?: string | null | undefined, lastName?: string | null | undefined, telephone?: string | null | undefined, city?: string | null | undefined, company?: string | null | undefined, street?: string | null | undefined, countryCode?: number | null | undefined, postcode?: string | null | undefined } | null | undefined, totals?: { __typename?: 'CustomerOrderTotals', total?: number | null | undefined, subtotal?: number | null | undefined, totalShipping?: number | null | undefined, taxes?: Array<{ __typename?: 'CustomerOrderTaxes', rate?: number | null | undefined, title?: string | null | undefined, tax?: number | null | undefined } | null | undefined> | null | undefined, discounts?: Array<{ __typename?: 'CustomerOrderProductsDiscounts', label?: string | null | undefined, value?: string | null | undefined } | null | undefined> | null | undefined } | null | undefined, products?: Array<{ __typename?: 'CustomerOrderProducts', id?: string | null | undefined, url?: string | null | undefined, name?: string | null | undefined, status?: string | null | undefined, discounts?: Array<{ __typename?: 'CustomerOrderProductsDiscounts', label?: string | null | undefined, value?: string | null | undefined } | null | undefined> | null | undefined, options?: Array<{ __typename?: 'CustomerOrderProductsOptions', label?: string | null | undefined, value?: string | null | undefined } | null | undefined> | null | undefined } | null | undefined> | null | undefined } | null | undefined> | null | undefined, pageInfo?: { __typename?: 'CustomerOrdersPageInfo', page?: number | null | undefined, size?: number | null | undefined, total?: number | null | undefined } | null | undefined } | null | undefined };
+export type CustomerOrdersQuery = { __typename?: 'Query', customerOrders?: { __typename?: 'CustomerOrdersOutput', items?: Array<{ __typename?: 'CustomerOrder', id?: string | null | undefined, number?: string | null | undefined, status?: string | null | undefined, date?: number | null | undefined, paymentMethod?: string | null | undefined, shippingAddress?: { __typename?: 'CustomerOrderAddress', firstName?: string | null | undefined, lastName?: string | null | undefined, telephone?: string | null | undefined, city?: string | null | undefined, company?: string | null | undefined, street?: string | null | undefined, countryCode?: number | null | undefined, postcode?: string | null | undefined } | null | undefined, billingAddress?: { __typename?: 'CustomerOrderAddress', firstName?: string | null | undefined, lastName?: string | null | undefined, telephone?: string | null | undefined, city?: string | null | undefined, company?: string | null | undefined, street?: string | null | undefined, countryCode?: number | null | undefined, postcode?: string | null | undefined } | null | undefined, totals?: { __typename?: 'CustomerOrderTotals', total?: number | null | undefined, subtotal?: number | null | undefined, totalShipping?: number | null | undefined, taxes?: Array<{ __typename?: 'CustomerOrderTotalsTax', rate?: number | null | undefined, title?: string | null | undefined, tax?: number | null | undefined } | null | undefined> | null | undefined, discounts?: Array<{ __typename?: 'CustomerOrderDiscount', label?: string | null | undefined, value?: string | null | undefined } | null | undefined> | null | undefined } | null | undefined, products?: Array<{ __typename?: 'CustomerOrderProduct', id?: string | null | undefined, url?: string | null | undefined, name?: string | null | undefined, status?: string | null | undefined, discounts?: Array<{ __typename?: 'CustomerOrderDiscount', label?: string | null | undefined, value?: string | null | undefined } | null | undefined> | null | undefined, options?: Array<{ __typename?: 'CustomerOrderProductOption', label?: string | null | undefined, value?: string | null | undefined } | null | undefined> | null | undefined } | null | undefined> | null | undefined } | null | undefined> | null | undefined, pagination?: { __typename?: 'Pagination', count?: number | null | undefined, limit?: number | null | undefined, total?: number | null | undefined, current?: number | null | undefined } | null | undefined } | null | undefined };
 
 
 export const CustomerOrdersDocument = gql`
     query CustomerOrders($input: CustomerOrdersInput) {
   customerOrders(input: $input) @client {
-    customerOrders {
-      number
-      status
-      date
-      paymentMethod
-      shippingAddress {
-        firstName
-        lastName
-        telephone
-        city
-        company
-        street
-        countryCode
-        postcode
-      }
-      billingAddress {
-        firstName
-        lastName
-        telephone
-        city
-        company
-        street
-        countryCode
-        postcode
-      }
-      totals {
-        total
-        subtotal
-        totalShipping
-        taxes {
-          rate
-          title
-          tax
-        }
-        discounts {
-          label
-          value
-        }
-      }
-      products {
-        id
-        url
-        name
-        discounts {
-          label
-          value
-        }
-        status
-        options {
-          label
-          value
-        }
-      }
+    items {
+      ...CustomerOrder
     }
-    pageInfo {
-      page
-      size
-      total
+    pagination {
+      ...Pagination
     }
-    totalOrders
   }
 }
-    `;
+    ${CustomerOrderFragmentDoc}
+${PaginationFragmentDoc}`;
 
 /**
  * __useCustomerOrdersQuery__

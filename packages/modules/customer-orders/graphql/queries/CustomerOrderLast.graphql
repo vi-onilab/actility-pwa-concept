@@ -1,0 +1,7 @@
+#import "../fragments/CustomerOrder.graphql"
+
+query CustomerOrderLast {
+    customerOrderLast @client {
+        ... CustomerOrder
+    }
+}

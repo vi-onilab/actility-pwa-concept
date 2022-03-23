@@ -1,11 +1,9 @@
 import { Resolvers } from '@pwa-concept/modules/graphql'
 import Query from './Query'
-import Mutation from './Mutation'
 import Product from './Product'
 
 const resolvers: Resolvers = {
     Query,
-    Mutation,
     Product,
 }
 

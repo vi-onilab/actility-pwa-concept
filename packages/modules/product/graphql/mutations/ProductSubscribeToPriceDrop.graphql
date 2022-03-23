@@ -1,5 +1,0 @@
-mutation ProductSubscribeToPriceDrop($input: ProductSubscribeToPriceDropInput!) {
-    productSubscribeToPriceDrop(input: $input) {
-        id
-    }
-}

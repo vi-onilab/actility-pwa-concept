@@ -1,7 +1,0 @@
-extend type Mutation {
-    productSubscribeToPriceDrop(input: ProductSubscribeToPriceDropInput): Product
-}
-
-input ProductSubscribeToPriceDropInput {
-    id: ID
-}

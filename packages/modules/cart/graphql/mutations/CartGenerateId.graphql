@@ -1,0 +1,3 @@
+mutation CartGenerateId {
+    cartGenerateId @client
+}

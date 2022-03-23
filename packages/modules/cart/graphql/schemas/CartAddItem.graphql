@@ -1,0 +1,9 @@
+extend type Mutation {
+    cartAddItem(cartId: String!, cartItems: [CartItem!]!): Cart
+}
+
+input CartItem {
+    quantity: Int
+    selectedOptions: [ID]
+    sku: String!
+}

@@ -1,0 +1,8 @@
+extend type Mutation {
+    cartAssignToCustomer(input: CartAssignToCustomerInput): Cart
+}
+
+input CartAssignToCustomerInput {
+    sourceCartId: ID
+    destinationCartId: String
+}

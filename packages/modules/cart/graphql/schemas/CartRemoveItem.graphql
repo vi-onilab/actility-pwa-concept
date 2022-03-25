@@ -1,0 +1,8 @@
+extend type Mutation {
+    cartRemoveItem(input: CartRemoveItemInput): Cart
+}
+
+input CartRemoveItemInput {
+    cartId: ID
+    cartItemUid: String
+}

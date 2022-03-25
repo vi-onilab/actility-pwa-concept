@@ -1,0 +1,120 @@
+extend type Query {
+    cart(cartId: String, isFull: Boolean): Cart
+}
+
+type Cart {
+    id: ID
+    email: String
+    totalQuantity: Int
+    totals: CartTotals
+    prices: CartPrices
+    items: [CartItems]
+    shippingAddresses: [CartShippingAddresses]
+}
+
+type CartMoney {
+    money: String
+    label: String
+}
+
+type CartMoneyOnly {
+    money: String
+}
+
+type CartAmount {
+    amount: CartMoney
+    label: String
+}
+
+type CartTotals {
+    taxes: [CartMoney]
+    tax: CartMoneyOnly
+    discounts: [CartMoney]
+    shippings: [CartMoney]
+    shipping: CartMoney
+    sub: CartMoneyOnly
+    subTax: CartMoneyOnly
+    grand: CartMoneyOnly
+}
+
+type CartPrices {
+    discounts: [CartAmount]
+    subtotalExcludingTax: CartMoney
+    subtotalIncludingTax: CartMoney
+    subtotalWithDiscountExcludingTax: CartMoney
+    appliedTaxes: [CartAmount]
+    grandTotal: CartMoney
+}
+
+type CartProduct {
+    id: ID
+    name: String
+    sku: String
+}
+
+type CartCustomizableOptionsValue {
+    id: ID
+    label: String
+    value: String
+}
+
+type CartItemCustomizableOptions {
+    id: ID
+    label: String
+    changedLabel: String
+    isRequired: Boolean
+    type: String
+    values: [CartCustomizableOptionsValue]
+}
+
+type CartItemPrices {
+    discounts: [CartAmount]
+    price: CartMoneyOnly
+    rowTotal: CartMoneyOnly
+    rowTotalIncludingTax: CartMoneyOnly
+    totalItemDiscount: CartMoneyOnly
+}
+
+type CartItems {
+    id: ID
+    quantity: Int
+    product: CartProduct
+    customizableOptions: [CartItemCustomizableOptions]
+    prices: CartItemPrices
+}
+
+type CartShippingMethod {
+    price: CartMoneyOnly
+    available: String
+    carrierCode: String
+    carrierTitle: String
+    methodCode: String
+    methodTitle: String
+    priceExcludingTax: CartMoneyOnly
+    priceIncludingTax: CartMoneyOnly
+}
+
+type CartShippingAddressRegion {
+    code: String
+    label: String
+    regionId: String
+}
+
+type CartSelectedShippingMethod {
+    price: CartMoneyOnly
+    carrierCode: String
+    carrierTitle: String
+    methodCode: String
+    methodTitle: String
+}
+
+type CartShippingAddresses {
+    methods: [CartShippingMethod]
+    city: String
+    firstName: String
+    lastName: String
+    postCode: String
+    region: CartShippingAddressRegion
+    selectedMethod: CartSelectedShippingMethod
+}
+

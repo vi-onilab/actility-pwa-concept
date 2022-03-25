@@ -1,0 +1,7 @@
+#import "../fragments/Cart.graphql"
+
+mutation CartAddItem($cartId: String!, $cartItems: [CartItem!]!) {
+    cartAddItem(cartId: $cartId, cartItems: $cartItems) @client {
+        ... Cart
+    }
+}

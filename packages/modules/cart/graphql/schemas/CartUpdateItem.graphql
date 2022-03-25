@@ -1,0 +1,14 @@
+extend type Mutation {
+    cartUpdateItem(input: CartUpdateItemInput): Cart
+}
+
+input CartUpdateItemInput {
+    cartId: String!
+    cartItems: [CartUpdateItem!]!
+}
+
+input CartUpdateItem {
+    cartItemId: ID!
+    cartItemUid: Int
+    quantity: Int
+}

@@ -1,0 +1,7 @@
+#import "../fragments/Cart.graphql"
+
+query Cart($cartId: String, $isFull: Boolean) {
+    cart(cartId: $cartId, isFull: $isFull) @client {
+        ... Cart
+    }
+}

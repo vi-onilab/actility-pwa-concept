@@ -1,4 +1,4 @@
-import { $auth, $customer } from '@pwa-concept/core/models'
+import { $auth } from '@pwa-concept/core/models'
 
 export const $clean = {
     logout() {

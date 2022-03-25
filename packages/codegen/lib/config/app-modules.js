@@ -2,7 +2,9 @@ const copyright = require('../templates/copyright')
 const resolverTypeWrapperSignature = require('../templates/resolver-type-wrapper-signature')
 const ResolverTypeWrapperSignatureContext = require('../templates/resolver-type-wrapper-signature-context')
 const customResolverFn = require('../templates/custom-resolver-fn')
-const { dirname } = require('path')
+const { dirname, join } = require('path')
+
+const root = (path, prefix = '') => `${prefix}${process.cwd()}/${path}`
 
 module.exports = {
     overwrite: true,
@@ -17,10 +19,10 @@ module.exports = {
                 return []
             }
         })(),
-        '**/schema.{graphql,gql,graphqls}',
-        '**/schemas.{graphql,gql,graphqls}',
-        '**/schemas/*.{graphql,gql,graphqls}',
-        '!./schema.graphql',
+        root('**/schema.{graphql,gql,graphqls}'),
+        root('**/schemas.{graphql,gql,graphqls}'),
+        root('**/schemas/*.{graphql,gql,graphqls}'),
+        root('schema.graphql', '!'),
     ].filter(Boolean),
     documents: [
         ...(() => {
@@ -36,12 +38,12 @@ module.exports = {
                 return []
             }
         })(),
-        '**/{fragments,mutations,queries}/*.{graphql,gql}',
-        '!./schema.graphql',
-        '!./**/stores/**/*.{graphql,gql,graphqls}',
+        root('**/{fragments,mutations,queries}/*.{graphql,gql}'),
+        root('schema.graphql', '!'),
+        root('**/stores/**/*.{graphql,gql,graphqls}', '!'),
     ].filter(Boolean),
     generates: {
-        './graphql.ts': {
+        [join(process.cwd(), 'graphql.ts')]: {
             plugins:
                 [
                     {

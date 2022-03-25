@@ -10,7 +10,7 @@ import { gql } from '@apollo/client';
 /* tslint:disable */
 // @ts-nocheck
 
-export type PaginationFragment = { __typename?: 'Pagination', count?: number | null | undefined, limit?: number | null | undefined, total?: number | null | undefined, current?: number | null | undefined };
+export type PaginationFragment = { __typename?: 'Pagination', count?: number | null, limit?: number | null, total?: number | null, current?: number | null };
 
 export const PaginationFragmentDoc = gql`
     fragment Pagination on Pagination {

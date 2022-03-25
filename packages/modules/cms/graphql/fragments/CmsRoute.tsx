@@ -10,7 +10,7 @@ import { gql } from '@apollo/client';
 /* tslint:disable */
 // @ts-nocheck
 
-export type CmsRouteFragment = { __typename?: 'CmsRoute', id?: string | null | undefined, type?: Types.CmsRouteType | null | undefined, url?: string | null | undefined };
+export type CmsRouteFragment = { __typename?: 'CmsRoute', id?: string | null, type?: Types.CmsRouteType | null, url?: string | null };
 
 export const CmsRouteFragmentDoc = gql`
     fragment CmsRoute on CmsRoute {

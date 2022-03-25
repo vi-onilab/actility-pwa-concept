@@ -10,7 +10,7 @@ import { gql } from '@apollo/client';
 /* tslint:disable */
 // @ts-nocheck
 
-export type AccessTokenFragment = { __typename?: 'AccessToken', token?: string | null | undefined };
+export type AccessTokenFragment = { __typename?: 'AccessToken', token?: string | null };
 
 export const AccessTokenFragmentDoc = gql`
     fragment AccessToken on AccessToken {

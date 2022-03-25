@@ -20,7 +20,7 @@ export type ChangePasswordMutationVariables = Types.Exact<{
 }>;
 
 
-export type ChangePasswordMutation = { __typename?: 'Mutation', changePassword?: { __typename?: 'Customer', id?: string | null | undefined, firstName?: string | null | undefined, lastName?: string | null | undefined, fullName?: string | null | undefined, email?: string | null | undefined, middleName?: string | null | undefined, dateOfBirth?: number | null | undefined, gender?: number | null | undefined, isSubscribed?: boolean | null | undefined } | null | undefined };
+export type ChangePasswordMutation = { __typename?: 'Mutation', changePassword?: { __typename?: 'Customer', id?: string | null, firstName?: string | null, lastName?: string | null, fullName?: string | null, email?: string | null, middleName?: string | null, dateOfBirth?: number | null, gender?: number | null, isSubscribed?: boolean | null } | null };
 
 
 export const ChangePasswordDocument = gql`

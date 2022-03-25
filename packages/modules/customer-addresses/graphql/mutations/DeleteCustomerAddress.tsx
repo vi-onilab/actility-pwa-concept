@@ -18,7 +18,7 @@ export type DeleteCustomerAddressMutationVariables = Types.Exact<{
 }>;
 
 
-export type DeleteCustomerAddressMutation = { __typename?: 'Mutation', deleteCustomerAddress?: boolean | null | undefined };
+export type DeleteCustomerAddressMutation = { __typename?: 'Mutation', deleteCustomerAddress?: boolean | null };
 
 
 export const DeleteCustomerAddressDocument = gql`

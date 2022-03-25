@@ -11,7 +11,7 @@ import { MoneyFragmentDoc } from '../../../currency/graphql/fragments/Money';
 /* tslint:disable */
 // @ts-nocheck
 
-export type ProductOptionFragment = { __typename?: 'ProductOption', id?: string | null | undefined, name?: string | null | undefined, key?: string | null | undefined, type?: Types.ProductOptionType | null | undefined, required?: boolean | null | undefined, kind?: Types.ProductOptionKind | null | undefined, values?: Array<{ __typename?: 'ProductOptionValue', name?: string | null | undefined, value?: string | null | undefined, price?: { __typename?: 'Money', value?: number | null | undefined, text?: string | null | undefined, currency?: string | null | undefined } | null | undefined } | null | undefined> | null | undefined };
+export type ProductOptionFragment = { __typename?: 'ProductOption', id?: string | null, name?: string | null, key?: string | null, type?: Types.ProductOptionType | null, required?: boolean | null, kind?: Types.ProductOptionKind | null, values?: Array<{ __typename?: 'ProductOptionValue', name?: string | null, value?: string | null, price?: { __typename?: 'Money', value?: number | null, text?: string | null, currency?: string | null } | null } | null> | null };
 
 export const ProductOptionFragmentDoc = gql`
     fragment ProductOption on ProductOption {

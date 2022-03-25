@@ -10,7 +10,7 @@ import { gql } from '@apollo/client';
 /* tslint:disable */
 // @ts-nocheck
 
-export type ProductVatFragment = { __typename?: 'ProductVat', type?: Types.ProductVatType | null | undefined, name?: string | null | undefined };
+export type ProductVatFragment = { __typename?: 'ProductVat', type?: Types.ProductVatType | null, name?: string | null };
 
 export const ProductVatFragmentDoc = gql`
     fragment ProductVat on ProductVat {

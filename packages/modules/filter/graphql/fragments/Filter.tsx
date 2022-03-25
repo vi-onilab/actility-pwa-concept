@@ -11,7 +11,7 @@ import { FilterItemFragmentDoc } from './FilterItem';
 /* tslint:disable */
 // @ts-nocheck
 
-export type FilterFragment = { __typename?: 'Filter', id?: string | null | undefined, name?: string | null | undefined, key?: string | null | undefined, type?: Types.FilterType | null | undefined, items?: Array<{ __typename?: 'FilterItem', id?: string | null | undefined, key?: string | null | undefined, name?: string | null | undefined, value?: string | null | undefined } | null | undefined> | null | undefined };
+export type FilterFragment = { __typename?: 'Filter', id?: string | null, name?: string | null, key?: string | null, type?: Types.FilterType | null, items?: Array<{ __typename?: 'FilterItem', id?: string | null, key?: string | null, name?: string | null, value?: string | null } | null> | null };
 
 export const FilterFragmentDoc = gql`
     fragment Filter on Filter {

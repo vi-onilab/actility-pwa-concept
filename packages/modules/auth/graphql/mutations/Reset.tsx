@@ -20,7 +20,7 @@ export type ResetMutationVariables = Types.Exact<{
 }>;
 
 
-export type ResetMutation = { __typename?: 'Mutation', reset?: { __typename?: 'ResetToken', token?: string | null | undefined } | null | undefined };
+export type ResetMutation = { __typename?: 'Mutation', reset?: { __typename?: 'ResetToken', token?: string | null } | null };
 
 
 export const ResetDocument = gql`

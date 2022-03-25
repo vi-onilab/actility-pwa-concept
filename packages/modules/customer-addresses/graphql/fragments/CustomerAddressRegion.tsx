@@ -10,7 +10,7 @@ import { gql } from '@apollo/client';
 /* tslint:disable */
 // @ts-nocheck
 
-export type CustomerAddressRegionFragment = { __typename?: 'CustomerAddressRegion', region?: string | null | undefined, regionCode?: string | null | undefined, regionId?: number | null | undefined };
+export type CustomerAddressRegionFragment = { __typename?: 'CustomerAddressRegion', region?: string | null, regionCode?: string | null, regionId?: number | null };
 
 export const CustomerAddressRegionFragmentDoc = gql`
     fragment CustomerAddressRegion on CustomerAddressRegion {

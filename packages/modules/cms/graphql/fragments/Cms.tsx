@@ -10,7 +10,7 @@ import { gql } from '@apollo/client';
 /* tslint:disable */
 // @ts-nocheck
 
-export type CmsFragment = { __typename?: 'Cms', id?: string | null | undefined, title?: string | null | undefined, content?: string | null | undefined, metaTitle?: string | null | undefined, metaKeywords?: string | null | undefined, metaDescription?: string | null | undefined };
+export type CmsFragment = { __typename?: 'Cms', id?: string | null, title?: string | null, content?: string | null, metaTitle?: string | null, metaKeywords?: string | null, metaDescription?: string | null };
 
 export const CmsFragmentDoc = gql`
     fragment Cms on Cms {

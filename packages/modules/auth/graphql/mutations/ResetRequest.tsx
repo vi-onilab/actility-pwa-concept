@@ -19,7 +19,7 @@ export type ResetRequestMutationVariables = Types.Exact<{
 }>;
 
 
-export type ResetRequestMutation = { __typename?: 'Mutation', resetRequest?: { __typename?: 'ResetRequestOutput', email?: string | null | undefined } | null | undefined };
+export type ResetRequestMutation = { __typename?: 'Mutation', resetRequest?: { __typename?: 'ResetRequestOutput', email?: string | null } | null };
 
 
 export const ResetRequestDocument = gql`

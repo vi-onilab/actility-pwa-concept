@@ -19,7 +19,7 @@ export type FiltersQueryVariables = Types.Exact<{
 }>;
 
 
-export type FiltersQuery = { __typename?: 'Query', filters?: Array<{ __typename?: 'Filter', id?: string | null | undefined, name?: string | null | undefined, key?: string | null | undefined, type?: Types.FilterType | null | undefined, items?: Array<{ __typename?: 'FilterItem', id?: string | null | undefined, key?: string | null | undefined, name?: string | null | undefined, value?: string | null | undefined } | null | undefined> | null | undefined } | null | undefined> | null | undefined };
+export type FiltersQuery = { __typename?: 'Query', filters?: Array<{ __typename?: 'Filter', id?: string | null, name?: string | null, key?: string | null, type?: Types.FilterType | null, items?: Array<{ __typename?: 'FilterItem', id?: string | null, key?: string | null, name?: string | null, value?: string | null } | null> | null } | null> | null };
 
 
 export const FiltersDocument = gql`

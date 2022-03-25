@@ -16,7 +16,7 @@ const defaultOptions = {} as const;
 export type SortsQueryVariables = Types.Exact<{ [key: string]: never; }>;
 
 
-export type SortsQuery = { __typename?: 'Query', sorts?: { __typename?: 'SortsQueryOutput', default?: string | null | undefined, items?: Array<{ __typename?: 'Sort', id?: string | null | undefined, name?: string | null | undefined } | null | undefined> | null | undefined } | null | undefined };
+export type SortsQuery = { __typename?: 'Query', sorts?: { __typename?: 'SortsQueryOutput', default?: string | null, items?: Array<{ __typename?: 'Sort', id?: string | null, name?: string | null } | null> | null } | null };
 
 
 export const SortsDocument = gql`

@@ -19,7 +19,7 @@ export type CmsRouteQueryVariables = Types.Exact<{
 }>;
 
 
-export type CmsRouteQuery = { __typename?: 'Query', cmsRoute?: { __typename?: 'CmsRoute', id?: string | null | undefined, type?: Types.CmsRouteType | null | undefined, url?: string | null | undefined } | null | undefined };
+export type CmsRouteQuery = { __typename?: 'Query', cmsRoute?: { __typename?: 'CmsRoute', id?: string | null, type?: Types.CmsRouteType | null, url?: string | null } | null };
 
 
 export const CmsRouteDocument = gql`

@@ -10,7 +10,7 @@ import { gql } from '@apollo/client';
 /* tslint:disable */
 // @ts-nocheck
 
-export type FilterItemFragment = { __typename?: 'FilterItem', id?: string | null | undefined, key?: string | null | undefined, name?: string | null | undefined, value?: string | null | undefined };
+export type FilterItemFragment = { __typename?: 'FilterItem', id?: string | null, key?: string | null, name?: string | null, value?: string | null };
 
 export const FilterItemFragmentDoc = gql`
     fragment FilterItem on FilterItem {

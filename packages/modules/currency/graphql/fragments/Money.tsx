@@ -10,7 +10,7 @@ import { gql } from '@apollo/client';
 /* tslint:disable */
 // @ts-nocheck
 
-export type MoneyFragment = { __typename?: 'Money', value?: number | null | undefined, text?: string | null | undefined, currency?: string | null | undefined };
+export type MoneyFragment = { __typename?: 'Money', value?: number | null, text?: string | null, currency?: string | null };
 
 export const MoneyFragmentDoc = gql`
     fragment Money on Money {

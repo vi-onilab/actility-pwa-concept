@@ -19,7 +19,7 @@ export type RegisterMutationVariables = Types.Exact<{
 }>;
 
 
-export type RegisterMutation = { __typename?: 'Mutation', register?: { __typename?: 'AccessToken', token?: string | null | undefined } | null | undefined };
+export type RegisterMutation = { __typename?: 'Mutation', register?: { __typename?: 'AccessToken', token?: string | null } | null };
 
 
 export const RegisterDocument = gql`

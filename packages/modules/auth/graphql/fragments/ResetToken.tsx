@@ -10,7 +10,7 @@ import { gql } from '@apollo/client';
 /* tslint:disable */
 // @ts-nocheck
 
-export type ResetTokenFragment = { __typename?: 'ResetToken', token?: string | null | undefined };
+export type ResetTokenFragment = { __typename?: 'ResetToken', token?: string | null };
 
 export const ResetTokenFragmentDoc = gql`
     fragment ResetToken on ResetToken {

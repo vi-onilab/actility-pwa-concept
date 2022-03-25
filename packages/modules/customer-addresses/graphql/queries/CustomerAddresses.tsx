@@ -17,7 +17,7 @@ const defaultOptions = {} as const;
 export type CustomerAddressesQueryVariables = Types.Exact<{ [key: string]: never; }>;
 
 
-export type CustomerAddressesQuery = { __typename?: 'Query', customerAddresses?: Array<{ __typename?: 'CustomerAddress', id?: string | null | undefined, defaultBilling?: boolean | null | undefined, defaultShipping?: boolean | null | undefined, city?: string | null | undefined, company?: string | null | undefined, countryId?: string | null | undefined, firstName?: string | null | undefined, lastName?: string | null | undefined, telephone?: string | null | undefined, postcode?: string | null | undefined, street?: string | null | undefined, region?: { __typename?: 'CustomerAddressRegion', region?: string | null | undefined, regionCode?: string | null | undefined, regionId?: number | null | undefined } | null | undefined } | null | undefined> | null | undefined };
+export type CustomerAddressesQuery = { __typename?: 'Query', customerAddresses?: Array<{ __typename?: 'CustomerAddress', id?: string | null, defaultBilling?: boolean | null, defaultShipping?: boolean | null, city?: string | null, company?: string | null, countryId?: string | null, firstName?: string | null, lastName?: string | null, telephone?: string | null, postcode?: string | null, street?: string | null, region?: { __typename?: 'CustomerAddressRegion', region?: string | null, regionCode?: string | null, regionId?: number | null } | null } | null> | null };
 
 
 export const CustomerAddressesDocument = gql`

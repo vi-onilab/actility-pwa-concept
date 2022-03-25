@@ -10,7 +10,7 @@ import { gql } from '@apollo/client';
 /* tslint:disable */
 // @ts-nocheck
 
-export type ResetRequestOutputFragment = { __typename?: 'ResetRequestOutput', email?: string | null | undefined };
+export type ResetRequestOutputFragment = { __typename?: 'ResetRequestOutput', email?: string | null };
 
 export const ResetRequestOutputFragmentDoc = gql`
     fragment ResetRequestOutput on ResetRequestOutput {

@@ -10,7 +10,7 @@ import { gql } from '@apollo/client';
 /* tslint:disable */
 // @ts-nocheck
 
-export type ProductImageFragment = { __typename?: 'ProductImage', id?: string | null | undefined, description?: string | null | undefined, url?: string | null | undefined };
+export type ProductImageFragment = { __typename?: 'ProductImage', id?: string | null, description?: string | null, url?: string | null };
 
 export const ProductImageFragmentDoc = gql`
     fragment ProductImage on ProductImage {

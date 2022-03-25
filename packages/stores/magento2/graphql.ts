@@ -13,7 +13,7 @@ export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
-export type RequireFields<T, K extends keyof T> = { [X in Exclude<keyof T, K>]?: T[X] } & { [P in K]-?: NonNullable<T[P]> };
+export type RequireFields<T, K extends keyof T> = Omit<T, K> & { [P in K]-?: NonNullable<T[P]> };
 /** All built-in and custom scalars, mapped to their actual values */
 export interface Scalars {
   ID: string;
@@ -3653,7 +3653,9 @@ export interface Magento2DownloadableCreditMemoItem extends Magento2CreditMemoIt
 }
 
 export enum Magento2DownloadableFileTypeEnum {
+  /** @deprecated `sample_url` serves to get the downloadable sample */
   File = 'FILE',
+  /** @deprecated `sample_url` serves to get the downloadable sample */
   Url = 'URL'
 }
 
@@ -6669,8 +6671,11 @@ export interface Magento2PriceAdjustment {
 
 /** PriceAdjustment.code is deprecated. This enumeration contains values defined in modules other than the Catalog module. */
 export enum Magento2PriceAdjustmentCodesEnum {
+  /** @deprecated PriceAdjustmentCodesEnum is deprecated. Tax is included or excluded in price. Tax is not shown separtely in Catalog */
   Tax = 'TAX',
+  /** @deprecated WEEE code is deprecated, use fixed_product_taxes.label */
   Weee = 'WEEE',
+  /** @deprecated Use fixed_product_taxes. PriceAdjustmentCodesEnum is deprecated. Tax is included or excluded in price. Tax is not shown separtely in Catalog */
   WeeeTax = 'WEEE_TAX'
 }
 
@@ -11496,7 +11501,7 @@ export interface Magento2ConfigurableProductResolvers<ContextType = any, ParentT
   categories?: Resolver<Maybe<Array<Maybe<Magento2ResolversTypes['CategoryInterface']>>>, ParentType, ContextType>;
   color?: Resolver<Maybe<Magento2ResolversTypes['Int']>, ParentType, ContextType>;
   configurable_options?: Resolver<Maybe<Array<Maybe<Magento2ResolversTypes['ConfigurableProductOptions']>>>, ParentType, ContextType>;
-  configurable_product_options_selection?: Resolver<Maybe<Magento2ResolversTypes['ConfigurableProductOptionsSelection']>, ParentType, ContextType, RequireFields<Magento2ConfigurableProductConfigurable_Product_Options_SelectionArgs, never>>;
+  configurable_product_options_selection?: Resolver<Maybe<Magento2ResolversTypes['ConfigurableProductOptionsSelection']>, ParentType, ContextType, Partial<Magento2ConfigurableProductConfigurable_Product_Options_SelectionArgs>>;
   country_of_manufacture?: Resolver<Maybe<Magento2ResolversTypes['String']>, ParentType, ContextType>;
   created_at?: Resolver<Maybe<Magento2ResolversTypes['String']>, ParentType, ContextType>;
   crosssell_products?: Resolver<Maybe<Array<Maybe<Magento2ResolversTypes['ProductInterface']>>>, ParentType, ContextType>;
@@ -12940,20 +12945,20 @@ export interface Magento2MoveProductsBetweenWishlistsOutputResolvers<ContextType
 };
 
 export interface Magento2MutationResolvers<ContextType = any, ParentType extends Magento2ResolversParentTypes['Mutation'] = Magento2ResolversParentTypes['Mutation']> {
-  addBundleProductsToCart?: Resolver<Maybe<Magento2ResolversTypes['AddBundleProductsToCartOutput']>, ParentType, ContextType, RequireFields<Magento2MutationAddBundleProductsToCartArgs, never>>;
-  addConfigurableProductsToCart?: Resolver<Maybe<Magento2ResolversTypes['AddConfigurableProductsToCartOutput']>, ParentType, ContextType, RequireFields<Magento2MutationAddConfigurableProductsToCartArgs, never>>;
-  addDownloadableProductsToCart?: Resolver<Maybe<Magento2ResolversTypes['AddDownloadableProductsToCartOutput']>, ParentType, ContextType, RequireFields<Magento2MutationAddDownloadableProductsToCartArgs, never>>;
+  addBundleProductsToCart?: Resolver<Maybe<Magento2ResolversTypes['AddBundleProductsToCartOutput']>, ParentType, ContextType, Partial<Magento2MutationAddBundleProductsToCartArgs>>;
+  addConfigurableProductsToCart?: Resolver<Maybe<Magento2ResolversTypes['AddConfigurableProductsToCartOutput']>, ParentType, ContextType, Partial<Magento2MutationAddConfigurableProductsToCartArgs>>;
+  addDownloadableProductsToCart?: Resolver<Maybe<Magento2ResolversTypes['AddDownloadableProductsToCartOutput']>, ParentType, ContextType, Partial<Magento2MutationAddDownloadableProductsToCartArgs>>;
   addGiftRegistryRegistrants?: Resolver<Maybe<Magento2ResolversTypes['AddGiftRegistryRegistrantsOutput']>, ParentType, ContextType, RequireFields<Magento2MutationAddGiftRegistryRegistrantsArgs, 'giftRegistryUid' | 'registrants'>>;
   addProductsToCart?: Resolver<Maybe<Magento2ResolversTypes['AddProductsToCartOutput']>, ParentType, ContextType, RequireFields<Magento2MutationAddProductsToCartArgs, 'cartId' | 'cartItems'>>;
-  addProductsToCompareList?: Resolver<Maybe<Magento2ResolversTypes['CompareList']>, ParentType, ContextType, RequireFields<Magento2MutationAddProductsToCompareListArgs, never>>;
+  addProductsToCompareList?: Resolver<Maybe<Magento2ResolversTypes['CompareList']>, ParentType, ContextType, Partial<Magento2MutationAddProductsToCompareListArgs>>;
   addProductsToWishlist?: Resolver<Maybe<Magento2ResolversTypes['AddProductsToWishlistOutput']>, ParentType, ContextType, RequireFields<Magento2MutationAddProductsToWishlistArgs, 'wishlistId' | 'wishlistItems'>>;
   addReturnComment?: Resolver<Maybe<Magento2ResolversTypes['AddReturnCommentOutput']>, ParentType, ContextType, RequireFields<Magento2MutationAddReturnCommentArgs, 'input'>>;
   addReturnTracking?: Resolver<Maybe<Magento2ResolversTypes['AddReturnTrackingOutput']>, ParentType, ContextType, RequireFields<Magento2MutationAddReturnTrackingArgs, 'input'>>;
-  addSimpleProductsToCart?: Resolver<Maybe<Magento2ResolversTypes['AddSimpleProductsToCartOutput']>, ParentType, ContextType, RequireFields<Magento2MutationAddSimpleProductsToCartArgs, never>>;
-  addVirtualProductsToCart?: Resolver<Maybe<Magento2ResolversTypes['AddVirtualProductsToCartOutput']>, ParentType, ContextType, RequireFields<Magento2MutationAddVirtualProductsToCartArgs, never>>;
+  addSimpleProductsToCart?: Resolver<Maybe<Magento2ResolversTypes['AddSimpleProductsToCartOutput']>, ParentType, ContextType, Partial<Magento2MutationAddSimpleProductsToCartArgs>>;
+  addVirtualProductsToCart?: Resolver<Maybe<Magento2ResolversTypes['AddVirtualProductsToCartOutput']>, ParentType, ContextType, Partial<Magento2MutationAddVirtualProductsToCartArgs>>;
   addWishlistItemsToCart?: Resolver<Maybe<Magento2ResolversTypes['AddWishlistItemsToCartOutput']>, ParentType, ContextType, RequireFields<Magento2MutationAddWishlistItemsToCartArgs, 'wishlistId'>>;
-  applyCouponToCart?: Resolver<Maybe<Magento2ResolversTypes['ApplyCouponToCartOutput']>, ParentType, ContextType, RequireFields<Magento2MutationApplyCouponToCartArgs, never>>;
-  applyGiftCardToCart?: Resolver<Maybe<Magento2ResolversTypes['ApplyGiftCardToCartOutput']>, ParentType, ContextType, RequireFields<Magento2MutationApplyGiftCardToCartArgs, never>>;
+  applyCouponToCart?: Resolver<Maybe<Magento2ResolversTypes['ApplyCouponToCartOutput']>, ParentType, ContextType, Partial<Magento2MutationApplyCouponToCartArgs>>;
+  applyGiftCardToCart?: Resolver<Maybe<Magento2ResolversTypes['ApplyGiftCardToCartOutput']>, ParentType, ContextType, Partial<Magento2MutationApplyGiftCardToCartArgs>>;
   applyRewardPointsToCart?: Resolver<Maybe<Magento2ResolversTypes['ApplyRewardPointsToCartOutput']>, ParentType, ContextType, RequireFields<Magento2MutationApplyRewardPointsToCartArgs, 'cartId'>>;
   applyStoreCreditToCart?: Resolver<Maybe<Magento2ResolversTypes['ApplyStoreCreditToCartOutput']>, ParentType, ContextType, RequireFields<Magento2MutationApplyStoreCreditToCartArgs, 'input'>>;
   assignCompareListToCustomer?: Resolver<Maybe<Magento2ResolversTypes['AssignCompareListToCustomerOutput']>, ParentType, ContextType, RequireFields<Magento2MutationAssignCompareListToCustomerArgs, 'uid'>>;
@@ -12961,13 +12966,13 @@ export interface Magento2MutationResolvers<ContextType = any, ParentType extends
   contactUs?: Resolver<Maybe<Magento2ResolversTypes['ContactUsOutput']>, ParentType, ContextType, RequireFields<Magento2MutationContactUsArgs, 'input'>>;
   copyProductsBetweenWishlists?: Resolver<Maybe<Magento2ResolversTypes['CopyProductsBetweenWishlistsOutput']>, ParentType, ContextType, RequireFields<Magento2MutationCopyProductsBetweenWishlistsArgs, 'destinationWishlistUid' | 'sourceWishlistUid' | 'wishlistItems'>>;
   createBraintreeClientToken?: Resolver<Magento2ResolversTypes['String'], ParentType, ContextType>;
-  createCompareList?: Resolver<Maybe<Magento2ResolversTypes['CompareList']>, ParentType, ContextType, RequireFields<Magento2MutationCreateCompareListArgs, never>>;
+  createCompareList?: Resolver<Maybe<Magento2ResolversTypes['CompareList']>, ParentType, ContextType, Partial<Magento2MutationCreateCompareListArgs>>;
   createCustomer?: Resolver<Maybe<Magento2ResolversTypes['CustomerOutput']>, ParentType, ContextType, RequireFields<Magento2MutationCreateCustomerArgs, 'input'>>;
   createCustomerAddress?: Resolver<Maybe<Magento2ResolversTypes['CustomerAddress']>, ParentType, ContextType, RequireFields<Magento2MutationCreateCustomerAddressArgs, 'input'>>;
   createCustomerV2?: Resolver<Maybe<Magento2ResolversTypes['CustomerOutput']>, ParentType, ContextType, RequireFields<Magento2MutationCreateCustomerV2Args, 'input'>>;
-  createEmptyCart?: Resolver<Maybe<Magento2ResolversTypes['String']>, ParentType, ContextType, RequireFields<Magento2MutationCreateEmptyCartArgs, never>>;
+  createEmptyCart?: Resolver<Maybe<Magento2ResolversTypes['String']>, ParentType, ContextType, Partial<Magento2MutationCreateEmptyCartArgs>>;
   createGiftRegistry?: Resolver<Maybe<Magento2ResolversTypes['CreateGiftRegistryOutput']>, ParentType, ContextType, RequireFields<Magento2MutationCreateGiftRegistryArgs, 'giftRegistry'>>;
-  createKlarnaPaymentsSession?: Resolver<Maybe<Magento2ResolversTypes['createKlarnaPaymentsSessionOutput']>, ParentType, ContextType, RequireFields<Magento2MutationCreateKlarnaPaymentsSessionArgs, never>>;
+  createKlarnaPaymentsSession?: Resolver<Maybe<Magento2ResolversTypes['createKlarnaPaymentsSessionOutput']>, ParentType, ContextType, Partial<Magento2MutationCreateKlarnaPaymentsSessionArgs>>;
   createPayflowProToken?: Resolver<Maybe<Magento2ResolversTypes['CreatePayflowProTokenOutput']>, ParentType, ContextType, RequireFields<Magento2MutationCreatePayflowProTokenArgs, 'input'>>;
   createPaypalExpressToken?: Resolver<Maybe<Magento2ResolversTypes['PaypalExpressTokenOutput']>, ParentType, ContextType, RequireFields<Magento2MutationCreatePaypalExpressTokenArgs, 'input'>>;
   createProductReview?: Resolver<Magento2ResolversTypes['CreateProductReviewOutput'], ParentType, ContextType, RequireFields<Magento2MutationCreateProductReviewArgs, 'input'>>;
@@ -12982,15 +12987,15 @@ export interface Magento2MutationResolvers<ContextType = any, ParentType extends
   mergeCarts?: Resolver<Magento2ResolversTypes['Cart'], ParentType, ContextType, RequireFields<Magento2MutationMergeCartsArgs, 'source_cart_id'>>;
   moveCartItemsToGiftRegistry?: Resolver<Maybe<Magento2ResolversTypes['MoveCartItemsToGiftRegistryOutput']>, ParentType, ContextType, RequireFields<Magento2MutationMoveCartItemsToGiftRegistryArgs, 'cartUid' | 'giftRegistryUid'>>;
   moveProductsBetweenWishlists?: Resolver<Maybe<Magento2ResolversTypes['MoveProductsBetweenWishlistsOutput']>, ParentType, ContextType, RequireFields<Magento2MutationMoveProductsBetweenWishlistsArgs, 'destinationWishlistUid' | 'sourceWishlistUid' | 'wishlistItems'>>;
-  placeOrder?: Resolver<Maybe<Magento2ResolversTypes['PlaceOrderOutput']>, ParentType, ContextType, RequireFields<Magento2MutationPlaceOrderArgs, never>>;
+  placeOrder?: Resolver<Maybe<Magento2ResolversTypes['PlaceOrderOutput']>, ParentType, ContextType, Partial<Magento2MutationPlaceOrderArgs>>;
   redeemGiftCardBalanceAsStoreCredit?: Resolver<Maybe<Magento2ResolversTypes['GiftCardAccount']>, ParentType, ContextType, RequireFields<Magento2MutationRedeemGiftCardBalanceAsStoreCreditArgs, 'input'>>;
-  removeCouponFromCart?: Resolver<Maybe<Magento2ResolversTypes['RemoveCouponFromCartOutput']>, ParentType, ContextType, RequireFields<Magento2MutationRemoveCouponFromCartArgs, never>>;
-  removeGiftCardFromCart?: Resolver<Maybe<Magento2ResolversTypes['RemoveGiftCardFromCartOutput']>, ParentType, ContextType, RequireFields<Magento2MutationRemoveGiftCardFromCartArgs, never>>;
+  removeCouponFromCart?: Resolver<Maybe<Magento2ResolversTypes['RemoveCouponFromCartOutput']>, ParentType, ContextType, Partial<Magento2MutationRemoveCouponFromCartArgs>>;
+  removeGiftCardFromCart?: Resolver<Maybe<Magento2ResolversTypes['RemoveGiftCardFromCartOutput']>, ParentType, ContextType, Partial<Magento2MutationRemoveGiftCardFromCartArgs>>;
   removeGiftRegistry?: Resolver<Maybe<Magento2ResolversTypes['RemoveGiftRegistryOutput']>, ParentType, ContextType, RequireFields<Magento2MutationRemoveGiftRegistryArgs, 'giftRegistryUid'>>;
   removeGiftRegistryItems?: Resolver<Maybe<Magento2ResolversTypes['RemoveGiftRegistryItemsOutput']>, ParentType, ContextType, RequireFields<Magento2MutationRemoveGiftRegistryItemsArgs, 'giftRegistryUid' | 'itemsUid'>>;
   removeGiftRegistryRegistrants?: Resolver<Maybe<Magento2ResolversTypes['RemoveGiftRegistryRegistrantsOutput']>, ParentType, ContextType, RequireFields<Magento2MutationRemoveGiftRegistryRegistrantsArgs, 'giftRegistryUid' | 'registrantsUid'>>;
-  removeItemFromCart?: Resolver<Maybe<Magento2ResolversTypes['RemoveItemFromCartOutput']>, ParentType, ContextType, RequireFields<Magento2MutationRemoveItemFromCartArgs, never>>;
-  removeProductsFromCompareList?: Resolver<Maybe<Magento2ResolversTypes['CompareList']>, ParentType, ContextType, RequireFields<Magento2MutationRemoveProductsFromCompareListArgs, never>>;
+  removeItemFromCart?: Resolver<Maybe<Magento2ResolversTypes['RemoveItemFromCartOutput']>, ParentType, ContextType, Partial<Magento2MutationRemoveItemFromCartArgs>>;
+  removeProductsFromCompareList?: Resolver<Maybe<Magento2ResolversTypes['CompareList']>, ParentType, ContextType, Partial<Magento2MutationRemoveProductsFromCompareListArgs>>;
   removeProductsFromWishlist?: Resolver<Maybe<Magento2ResolversTypes['RemoveProductsFromWishlistOutput']>, ParentType, ContextType, RequireFields<Magento2MutationRemoveProductsFromWishlistArgs, 'wishlistId' | 'wishlistItemsIds'>>;
   removeReturnTracking?: Resolver<Maybe<Magento2ResolversTypes['RemoveReturnTrackingOutput']>, ParentType, ContextType, RequireFields<Magento2MutationRemoveReturnTrackingArgs, 'input'>>;
   removeRewardPointsFromCart?: Resolver<Maybe<Magento2ResolversTypes['RemoveRewardPointsFromCartOutput']>, ParentType, ContextType, RequireFields<Magento2MutationRemoveRewardPointsFromCartArgs, 'cartId'>>;
@@ -13000,17 +13005,17 @@ export interface Magento2MutationResolvers<ContextType = any, ParentType extends
   requestReturn?: Resolver<Maybe<Magento2ResolversTypes['RequestReturnOutput']>, ParentType, ContextType, RequireFields<Magento2MutationRequestReturnArgs, 'input'>>;
   resetPassword?: Resolver<Maybe<Magento2ResolversTypes['Boolean']>, ParentType, ContextType, RequireFields<Magento2MutationResetPasswordArgs, 'email' | 'newPassword' | 'resetPasswordToken'>>;
   revokeCustomerToken?: Resolver<Maybe<Magento2ResolversTypes['RevokeCustomerTokenOutput']>, ParentType, ContextType>;
-  sendEmailToFriend?: Resolver<Maybe<Magento2ResolversTypes['SendEmailToFriendOutput']>, ParentType, ContextType, RequireFields<Magento2MutationSendEmailToFriendArgs, never>>;
-  setBillingAddressOnCart?: Resolver<Maybe<Magento2ResolversTypes['SetBillingAddressOnCartOutput']>, ParentType, ContextType, RequireFields<Magento2MutationSetBillingAddressOnCartArgs, never>>;
-  setGiftOptionsOnCart?: Resolver<Maybe<Magento2ResolversTypes['SetGiftOptionsOnCartOutput']>, ParentType, ContextType, RequireFields<Magento2MutationSetGiftOptionsOnCartArgs, never>>;
-  setGuestEmailOnCart?: Resolver<Maybe<Magento2ResolversTypes['SetGuestEmailOnCartOutput']>, ParentType, ContextType, RequireFields<Magento2MutationSetGuestEmailOnCartArgs, never>>;
-  setPaymentMethodAndPlaceOrder?: Resolver<Maybe<Magento2ResolversTypes['PlaceOrderOutput']>, ParentType, ContextType, RequireFields<Magento2MutationSetPaymentMethodAndPlaceOrderArgs, never>>;
-  setPaymentMethodOnCart?: Resolver<Maybe<Magento2ResolversTypes['SetPaymentMethodOnCartOutput']>, ParentType, ContextType, RequireFields<Magento2MutationSetPaymentMethodOnCartArgs, never>>;
-  setShippingAddressesOnCart?: Resolver<Maybe<Magento2ResolversTypes['SetShippingAddressesOnCartOutput']>, ParentType, ContextType, RequireFields<Magento2MutationSetShippingAddressesOnCartArgs, never>>;
-  setShippingMethodsOnCart?: Resolver<Maybe<Magento2ResolversTypes['SetShippingMethodsOnCartOutput']>, ParentType, ContextType, RequireFields<Magento2MutationSetShippingMethodsOnCartArgs, never>>;
+  sendEmailToFriend?: Resolver<Maybe<Magento2ResolversTypes['SendEmailToFriendOutput']>, ParentType, ContextType, Partial<Magento2MutationSendEmailToFriendArgs>>;
+  setBillingAddressOnCart?: Resolver<Maybe<Magento2ResolversTypes['SetBillingAddressOnCartOutput']>, ParentType, ContextType, Partial<Magento2MutationSetBillingAddressOnCartArgs>>;
+  setGiftOptionsOnCart?: Resolver<Maybe<Magento2ResolversTypes['SetGiftOptionsOnCartOutput']>, ParentType, ContextType, Partial<Magento2MutationSetGiftOptionsOnCartArgs>>;
+  setGuestEmailOnCart?: Resolver<Maybe<Magento2ResolversTypes['SetGuestEmailOnCartOutput']>, ParentType, ContextType, Partial<Magento2MutationSetGuestEmailOnCartArgs>>;
+  setPaymentMethodAndPlaceOrder?: Resolver<Maybe<Magento2ResolversTypes['PlaceOrderOutput']>, ParentType, ContextType, Partial<Magento2MutationSetPaymentMethodAndPlaceOrderArgs>>;
+  setPaymentMethodOnCart?: Resolver<Maybe<Magento2ResolversTypes['SetPaymentMethodOnCartOutput']>, ParentType, ContextType, Partial<Magento2MutationSetPaymentMethodOnCartArgs>>;
+  setShippingAddressesOnCart?: Resolver<Maybe<Magento2ResolversTypes['SetShippingAddressesOnCartOutput']>, ParentType, ContextType, Partial<Magento2MutationSetShippingAddressesOnCartArgs>>;
+  setShippingMethodsOnCart?: Resolver<Maybe<Magento2ResolversTypes['SetShippingMethodsOnCartOutput']>, ParentType, ContextType, Partial<Magento2MutationSetShippingMethodsOnCartArgs>>;
   shareGiftRegistry?: Resolver<Maybe<Magento2ResolversTypes['ShareGiftRegistryOutput']>, ParentType, ContextType, RequireFields<Magento2MutationShareGiftRegistryArgs, 'giftRegistryUid' | 'invitees' | 'sender'>>;
   subscribeEmailToNewsletter?: Resolver<Maybe<Magento2ResolversTypes['SubscribeEmailToNewsletterOutput']>, ParentType, ContextType, RequireFields<Magento2MutationSubscribeEmailToNewsletterArgs, 'email'>>;
-  updateCartItems?: Resolver<Maybe<Magento2ResolversTypes['UpdateCartItemsOutput']>, ParentType, ContextType, RequireFields<Magento2MutationUpdateCartItemsArgs, never>>;
+  updateCartItems?: Resolver<Maybe<Magento2ResolversTypes['UpdateCartItemsOutput']>, ParentType, ContextType, Partial<Magento2MutationUpdateCartItemsArgs>>;
   updateChatProfile?: Resolver<Maybe<Magento2ResolversTypes['Boolean']>, ParentType, ContextType, RequireFields<Magento2MutationUpdateChatProfileArgs, 'profileId'>>;
   updateCustomer?: Resolver<Maybe<Magento2ResolversTypes['CustomerOutput']>, ParentType, ContextType, RequireFields<Magento2MutationUpdateCustomerArgs, 'input'>>;
   updateCustomerAddress?: Resolver<Maybe<Magento2ResolversTypes['CustomerAddress']>, ParentType, ContextType, RequireFields<Magento2MutationUpdateCustomerAddressArgs, 'id'>>;
@@ -13452,18 +13457,18 @@ export interface Magento2ProductsResolvers<ContextType = any, ParentType extends
 
 export interface Magento2QueryResolvers<ContextType = any, ParentType extends Magento2ResolversParentTypes['Query'] = Magento2ResolversParentTypes['Query']> {
   attributesMetadata?: Resolver<Maybe<Magento2ResolversTypes['AttributesMetadata']>, ParentType, ContextType, RequireFields<Magento2QueryAttributesMetadataArgs, 'entityType'>>;
-  availableStores?: Resolver<Maybe<Array<Maybe<Magento2ResolversTypes['StoreConfig']>>>, ParentType, ContextType, RequireFields<Magento2QueryAvailableStoresArgs, never>>;
+  availableStores?: Resolver<Maybe<Array<Maybe<Magento2ResolversTypes['StoreConfig']>>>, ParentType, ContextType, Partial<Magento2QueryAvailableStoresArgs>>;
   cart?: Resolver<Maybe<Magento2ResolversTypes['Cart']>, ParentType, ContextType, RequireFields<Magento2QueryCartArgs, 'cart_id'>>;
   categories?: Resolver<Maybe<Magento2ResolversTypes['CategoryResult']>, ParentType, ContextType, RequireFields<Magento2QueryCategoriesArgs, 'currentPage' | 'pageSize'>>;
-  category?: Resolver<Maybe<Magento2ResolversTypes['CategoryTree']>, ParentType, ContextType, RequireFields<Magento2QueryCategoryArgs, never>>;
-  categoryList?: Resolver<Maybe<Array<Maybe<Magento2ResolversTypes['CategoryTree']>>>, ParentType, ContextType, RequireFields<Magento2QueryCategoryListArgs, never>>;
+  category?: Resolver<Maybe<Magento2ResolversTypes['CategoryTree']>, ParentType, ContextType, Partial<Magento2QueryCategoryArgs>>;
+  categoryList?: Resolver<Maybe<Array<Maybe<Magento2ResolversTypes['CategoryTree']>>>, ParentType, ContextType, Partial<Magento2QueryCategoryListArgs>>;
   chatData?: Resolver<Maybe<Magento2ResolversTypes['ChatData']>, ParentType, ContextType>;
   checkoutAgreements?: Resolver<Maybe<Array<Maybe<Magento2ResolversTypes['CheckoutAgreement']>>>, ParentType, ContextType>;
-  cmsBlocks?: Resolver<Maybe<Magento2ResolversTypes['CmsBlocks']>, ParentType, ContextType, RequireFields<Magento2QueryCmsBlocksArgs, never>>;
-  cmsPage?: Resolver<Maybe<Magento2ResolversTypes['CmsPage']>, ParentType, ContextType, RequireFields<Magento2QueryCmsPageArgs, never>>;
+  cmsBlocks?: Resolver<Maybe<Magento2ResolversTypes['CmsBlocks']>, ParentType, ContextType, Partial<Magento2QueryCmsBlocksArgs>>;
+  cmsPage?: Resolver<Maybe<Magento2ResolversTypes['CmsPage']>, ParentType, ContextType, Partial<Magento2QueryCmsPageArgs>>;
   compareList?: Resolver<Maybe<Magento2ResolversTypes['CompareList']>, ParentType, ContextType, RequireFields<Magento2QueryCompareListArgs, 'uid'>>;
   countries?: Resolver<Maybe<Array<Maybe<Magento2ResolversTypes['Country']>>>, ParentType, ContextType>;
-  country?: Resolver<Maybe<Magento2ResolversTypes['Country']>, ParentType, ContextType, RequireFields<Magento2QueryCountryArgs, never>>;
+  country?: Resolver<Maybe<Magento2ResolversTypes['Country']>, ParentType, ContextType, Partial<Magento2QueryCountryArgs>>;
   currency?: Resolver<Maybe<Magento2ResolversTypes['Currency']>, ParentType, ContextType>;
   customAttributeMetadata?: Resolver<Maybe<Magento2ResolversTypes['CustomAttributeMetadata']>, ParentType, ContextType, RequireFields<Magento2QueryCustomAttributeMetadataArgs, 'attributes'>>;
   customer?: Resolver<Maybe<Magento2ResolversTypes['Customer']>, ParentType, ContextType>;
@@ -13623,7 +13628,7 @@ export interface Magento2ReturnItemResolvers<ContextType = any, ParentType exten
 
 export interface Magento2ReturnShippingResolvers<ContextType = any, ParentType extends Magento2ResolversParentTypes['ReturnShipping'] = Magento2ResolversParentTypes['ReturnShipping']> {
   address?: Resolver<Maybe<Magento2ResolversTypes['ReturnShippingAddress']>, ParentType, ContextType>;
-  tracking?: Resolver<Maybe<Array<Maybe<Magento2ResolversTypes['ReturnShippingTracking']>>>, ParentType, ContextType, RequireFields<Magento2ReturnShippingTrackingArgs, never>>;
+  tracking?: Resolver<Maybe<Array<Maybe<Magento2ResolversTypes['ReturnShippingTracking']>>>, ParentType, ContextType, Partial<Magento2ReturnShippingTrackingArgs>>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 

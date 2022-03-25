@@ -1,5 +1,5 @@
-import { useCartAssignToCustomerMutation } from '~modules/cart/graphql/mutations/CartAssignToCustomer'
-import { CartAssignToCustomerInput } from '~modules/graphql'
+import { useCartAssignToCustomerMutation } from '@pwa-concept/modules/cart/graphql/mutations/CartAssignToCustomer'
+import { CartAssignToCustomerInput } from '@pwa-concept/modules/graphql'
 
 const useCartAssignToCustomer = () => {
     const [mergeCarts] = useCartAssignToCustomerMutation()

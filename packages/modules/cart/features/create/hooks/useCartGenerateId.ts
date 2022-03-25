@@ -1,5 +1,5 @@
-import { useCartGenerateIdMutation } from '~modules/cart/graphql/mutations/CartGenerateId'
-import { $cart } from '~core/models'
+import { useCartGenerateIdMutation } from '@pwa-concept/modules/cart/graphql/mutations/CartGenerateId'
+import { $cart } from '@pwa-concept/core/models'
 
 const useCartGenerateId = ({ force: rootForce = false } = {}) => {
     const [generateId] = useCartGenerateIdMutation()

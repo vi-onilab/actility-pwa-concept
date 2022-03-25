@@ -1,4 +1,4 @@
-import { useCartUpdateItemMutation } from '~modules/cart/graphql/mutations/CartUpdateItem'
+import { useCartUpdateItemMutation } from '@pwa-concept/modules/cart/graphql/mutations/CartUpdateItem'
 
 interface UseCartUpdate {
     cartItems: [UseCartUpdateItem]

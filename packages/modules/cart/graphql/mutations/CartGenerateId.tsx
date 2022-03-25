@@ -1,21 +1,22 @@
-/**
- * NOTE: THIS IS AN AUTO-GENERATED FILE. DO NOT MODIFY IT DIRECTLY.
- * USE `yarn build:schema-types` or `yarn build`.
- */
-
-/* eslint-disable */
-/* tslint:disable */
-/* @ts-nocheck */
-
 import * as Types from '../../../graphql';
 
 import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
+import * as ApolloReactHooks from '@pwa-concept/core/graphql/hooks';
+
+/**
+* NOTE: THIS IS AN AUTO-GENERATED FILE. DO NOT MODIFY IT DIRECTLY.
+* USE `yarn cli codegen`.
+*/
+/* eslint-disable */
+/* tslint:disable */
+// @ts-nocheck
+
 const defaultOptions = {} as const;
 export type CartGenerateIdMutationVariables = Types.Exact<{ [key: string]: never; }>;
 
 
-export type CartGenerateIdMutation = { __typename?: 'Mutation', cartGenerateId?: string | null | undefined };
+export type CartGenerateIdMutation = { __typename?: 'Mutation', cartGenerateId?: string | null };
 
 
 export const CartGenerateIdDocument = gql`
@@ -41,9 +42,9 @@ export type CartGenerateIdMutationFn = Apollo.MutationFunction<CartGenerateIdMut
  *   },
  * });
  */
-export function useCartGenerateIdMutation(baseOptions?: Apollo.MutationHookOptions<CartGenerateIdMutation, CartGenerateIdMutationVariables>) {
+export function useCartGenerateIdMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<CartGenerateIdMutation, CartGenerateIdMutationVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<CartGenerateIdMutation, CartGenerateIdMutationVariables>(CartGenerateIdDocument, options);
+        return ApolloReactHooks.useMutation<CartGenerateIdMutation, CartGenerateIdMutationVariables>(CartGenerateIdDocument, options);
       }
 export type CartGenerateIdMutationHookResult = ReturnType<typeof useCartGenerateIdMutation>;
 export type CartGenerateIdMutationResult = Apollo.MutationResult<CartGenerateIdMutation>;

@@ -1,4 +1,4 @@
-import { useCartRemoveItemMutation } from '~modules/cart/graphql/mutations/CartRemoveItem'
+import { useCartRemoveItemMutation } from '@pwa-concept/modules/cart/graphql/mutations/CartRemoveItem'
 
 const useCartRemoveItem = () => {
     const [removeCartItem] = useCartRemoveItemMutation()

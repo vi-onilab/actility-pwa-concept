@@ -1,5 +1,5 @@
-import { useCartQuery } from '~modules/cart/graphql/queries/Cart'
-import { $cart } from '~core/models'
+import { useCartQuery } from '@pwa-concept/modules/cart/graphql/queries/Cart'
+import { $cart } from '@pwa-concept/core/models'
 
 const useCart = ({ isFull = false }: { isFull?: boolean }) => {
     const [cartId] = $cart.useId()

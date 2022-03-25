@@ -1,0 +1,73 @@
+fragment ProductInterface on ProductInterface {
+    id
+    name
+
+    sku
+
+    description {
+        html
+    }
+
+    media_gallery {
+        url
+        label
+    }
+
+    stock_status
+
+    image {
+        url
+        label
+    }
+
+    categories {
+        id
+        name
+        level
+    }
+
+    price_range {
+        maximum_price {
+            discount {
+                percent_off
+            }
+            final_price {
+                currency
+                value
+            }
+            regular_price {
+                currency
+                value
+            }
+        }
+
+        minimum_price {
+            discount {
+                percent_off
+            }
+            final_price {
+                currency
+                value
+            }
+            regular_price {
+                currency
+                value
+            }
+        }
+    }
+
+    ... on SimpleProduct {
+        options {
+            ... CustomizableOptionInterface
+        }
+    }
+
+    ... on ConfigurableProduct {
+        configurable_options {
+            ... ConfigurableProductOptions
+        }
+        options {
+            ... CustomizableOptionInterface
+        }
+    }
+}

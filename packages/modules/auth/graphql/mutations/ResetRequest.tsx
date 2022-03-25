@@ -1,30 +1,34 @@
-/**
- * NOTE: THIS IS AN AUTO-GENERATED FILE. DO NOT MODIFY IT DIRECTLY.
- * USE `yarn build:schema-types` or `yarn build`.
- */
-
-/* eslint-disable */
-/* tslint:disable */
-/* @ts-nocheck */
-
 import * as Types from '../../../graphql';
 
 import { gql } from '@apollo/client';
+import { ResetRequestOutputFragmentDoc } from '../fragments/ResetRequestOutput';
 import * as Apollo from '@apollo/client';
+import * as ApolloReactHooks from '@pwa-concept/core/graphql/hooks';
+
+/**
+* NOTE: THIS IS AN AUTO-GENERATED FILE. DO NOT MODIFY IT DIRECTLY.
+* USE `yarn cli codegen`.
+*/
+/* eslint-disable */
+/* tslint:disable */
+// @ts-nocheck
+
 const defaultOptions = {} as const;
 export type ResetRequestMutationVariables = Types.Exact<{
   email?: Types.InputMaybe<Types.Scalars['String']>;
 }>;
 
 
-export type ResetRequestMutation = { __typename?: 'Mutation', resetRequest?: string | null | undefined };
+export type ResetRequestMutation = { __typename?: 'Mutation', resetRequest?: { __typename?: 'ResetRequestOutput', email?: string | null } | null };
 
 
 export const ResetRequestDocument = gql`
     mutation ResetRequest($email: String) {
-  resetRequest(email: $email) @client
+  resetRequest(email: $email) @client {
+    ...ResetRequestOutput
+  }
 }
-    `;
+    ${ResetRequestOutputFragmentDoc}`;
 export type ResetRequestMutationFn = Apollo.MutationFunction<ResetRequestMutation, ResetRequestMutationVariables>;
 
 /**
@@ -44,9 +48,9 @@ export type ResetRequestMutationFn = Apollo.MutationFunction<ResetRequestMutatio
  *   },
  * });
  */
-export function useResetRequestMutation(baseOptions?: Apollo.MutationHookOptions<ResetRequestMutation, ResetRequestMutationVariables>) {
+export function useResetRequestMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<ResetRequestMutation, ResetRequestMutationVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<ResetRequestMutation, ResetRequestMutationVariables>(ResetRequestDocument, options);
+        return ApolloReactHooks.useMutation<ResetRequestMutation, ResetRequestMutationVariables>(ResetRequestDocument, options);
       }
 export type ResetRequestMutationHookResult = ReturnType<typeof useResetRequestMutation>;
 export type ResetRequestMutationResult = Apollo.MutationResult<ResetRequestMutation>;

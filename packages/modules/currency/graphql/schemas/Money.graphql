@@ -1,0 +1,5 @@
+type Money {
+    currency: String
+    text: String
+    value: Float
+}

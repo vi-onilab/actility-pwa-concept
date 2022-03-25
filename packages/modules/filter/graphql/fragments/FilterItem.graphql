@@ -1,0 +1,6 @@
+fragment FilterItem on FilterItem {
+    id
+    key
+    name
+    value
+}

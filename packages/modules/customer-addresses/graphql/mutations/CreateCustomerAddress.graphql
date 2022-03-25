@@ -1,20 +1,7 @@
+#import "../fragments/CustomerAddress.graphql"
+
 mutation CreateCustomerAddress($input: CustomerAddressInput) {
     createCustomerAddress(input: $input) @client {
-        id
-        defaultBilling
-        defaultShipping
-        city
-        company
-        countryId
-        firstName
-        lastName
-        telephone
-        postcode
-        region {
-            region
-            regionCode
-            regionId
-        }
-        street
+        ... CustomerAddress
     }
 }

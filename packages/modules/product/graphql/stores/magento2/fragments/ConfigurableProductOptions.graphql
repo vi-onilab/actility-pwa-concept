@@ -1,0 +1,12 @@
+fragment ConfigurableProductOptions on ConfigurableProductOptions {
+    uid
+    attribute_code
+    label
+    values {
+        label
+        uid
+        store_label
+        default_label
+        use_default_value
+    }
+}

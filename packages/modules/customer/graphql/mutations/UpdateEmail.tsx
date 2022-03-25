@@ -1,16 +1,18 @@
-/**
- * NOTE: THIS IS AN AUTO-GENERATED FILE. DO NOT MODIFY IT DIRECTLY.
- * USE `yarn build:schema-types` or `yarn build`.
- */
-
-/* eslint-disable */
-/* tslint:disable */
-/* @ts-nocheck */
-
 import * as Types from '../../../graphql';
 
 import { gql } from '@apollo/client';
+import { CustomerFragmentDoc } from '../fragments/Customer';
 import * as Apollo from '@apollo/client';
+import * as ApolloReactHooks from '@pwa-concept/core/graphql/hooks';
+
+/**
+* NOTE: THIS IS AN AUTO-GENERATED FILE. DO NOT MODIFY IT DIRECTLY.
+* USE `yarn cli codegen`.
+*/
+/* eslint-disable */
+/* tslint:disable */
+// @ts-nocheck
+
 const defaultOptions = {} as const;
 export type UpdateEmailMutationVariables = Types.Exact<{
   email?: Types.InputMaybe<Types.Scalars['String']>;
@@ -18,17 +20,16 @@ export type UpdateEmailMutationVariables = Types.Exact<{
 }>;
 
 
-export type UpdateEmailMutation = { __typename?: 'Mutation', updateEmail?: { __typename?: 'Customer', id?: string | null | undefined, email?: string | null | undefined } | null | undefined };
+export type UpdateEmailMutation = { __typename?: 'Mutation', updateEmail?: { __typename?: 'Customer', id?: string | null, firstName?: string | null, lastName?: string | null, fullName?: string | null, email?: string | null, middleName?: string | null, dateOfBirth?: number | null, gender?: number | null, isSubscribed?: boolean | null } | null };
 
 
 export const UpdateEmailDocument = gql`
     mutation UpdateEmail($email: String, $password: String) {
   updateEmail(email: $email, password: $password) @client {
-    id
-    email
+    ...Customer
   }
 }
-    `;
+    ${CustomerFragmentDoc}`;
 export type UpdateEmailMutationFn = Apollo.MutationFunction<UpdateEmailMutation, UpdateEmailMutationVariables>;
 
 /**
@@ -49,9 +50,9 @@ export type UpdateEmailMutationFn = Apollo.MutationFunction<UpdateEmailMutation,
  *   },
  * });
  */
-export function useUpdateEmailMutation(baseOptions?: Apollo.MutationHookOptions<UpdateEmailMutation, UpdateEmailMutationVariables>) {
+export function useUpdateEmailMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<UpdateEmailMutation, UpdateEmailMutationVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<UpdateEmailMutation, UpdateEmailMutationVariables>(UpdateEmailDocument, options);
+        return ApolloReactHooks.useMutation<UpdateEmailMutation, UpdateEmailMutationVariables>(UpdateEmailDocument, options);
       }
 export type UpdateEmailMutationHookResult = ReturnType<typeof useUpdateEmailMutation>;
 export type UpdateEmailMutationResult = Apollo.MutationResult<UpdateEmailMutation>;

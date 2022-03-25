@@ -1,42 +1,47 @@
 {
-    "name": "@pwa-concept/core",
-    "version": "0.0.0",
-    "description": "",
-    "author": "Onilab Team <talkto@onilab.com>",
-    "homepage": "https://bitbucket.org/onilab/pwa-concept#readme",
-    "main": "./index.ts",
-    "module": "./index.ts",
-    "types": "./@types",
-    "typings": "./@types",
-    "license": "ISC",
-    "scripts": {
-        "start": "node ../../node_modules/.bin/tsc --watch",
-        "build": "node ../../node_modules/.bin/tsc"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+ssh://git@bitbucket.org/onilab/pwa-concept.git"
-    },
-    "bugs": {
-        "url": "https://bitbucket.org/onilab/pwa-concept/issues"
-    },
-    "dependencies": {
-        "@apollo/client": "^3.5.6",
-        "@types/react": "^17.0.38",
-        "@types/react-dom": "^17.0.11",
-        "apollo-link-queue": "^3.1.0",
-        "core-js": "^3.20.2",
-        "deepmerge": "^4.2.2",
-        "graphql": "^16.2.0",
-        "graphql-tools": "^8.2.0",
-        "react": "^17.0.2",
-        "react-dom": "^17.0.2",
-        "react-router-dom": "^6.2.1"
-    },
-    "eslintConfig": {
-        "extends": "@pwa-concept/eslint-config",
-        "parserOptions": {
-            "project": "./tsconfig.json"
-        }
+  "name": "@pwa-concept/core",
+  "version": "0.0.0",
+  "description": "",
+  "author": "Onilab Team <talkto@onilab.com>",
+  "homepage": "https://bitbucket.org/onilab/pwa-concept#readme",
+  "main": "./index.ts",
+  "module": "./index.ts",
+  "types": "./@types",
+  "typings": "./@types",
+  "license": "ISC",
+  "scripts": {
+    "start": "yarn build; node ../../node_modules/.bin/tsc --watch",
+    "build": "node ../../node_modules/.bin/tsc --clean"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/onilab/pwa-concept.git"
+  },
+  "bugs": {
+    "url": "https://bitbucket.org/onilab/pwa-concept/issues"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.5.6",
+    "@types/react": "^17.0.38",
+    "@types/react-dom": "^17.0.11",
+    "apollo-link-queue": "^3.1.0",
+    "core-js": "^3.20.2",
+    "deepmerge": "^4.2.2",
+    "js-cookie": "^3.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^6.2.1"
+  },
+  "devDependencies": {
+    "graphql": "^16.3.0"
+  },
+  "peerDependencies": {
+    "graphql": ">=16.0.0"
+  },
+  "eslintConfig": {
+    "extends": "@pwa-concept/eslint-config",
+    "parserOptions": {
+      "project": "./tsconfig.json"
     }
+  }
 }

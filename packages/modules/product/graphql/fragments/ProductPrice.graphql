@@ -1,0 +1,13 @@
+#import "../../../currency/graphql/fragments/Money.graphql"
+
+fragment ProductPrice on ProductPrice {
+    current {
+        ... Money
+    }
+
+    initial {
+        ... Money
+    }
+
+    isRange
+}

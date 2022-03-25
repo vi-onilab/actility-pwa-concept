@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom'
-import { useCmsRouteQuery } from '~modules/cms/graphql/queries/CmsRoute'
+import { useCmsRouteQuery } from '@pwa-concept/modules/cms/graphql/queries/CmsRoute'
 
 const useCmsRoute = () => {
     const { pathname } = useLocation()

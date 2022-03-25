@@ -1,0 +1,4 @@
+fragment SortField on SortField {
+    label
+    value
+}

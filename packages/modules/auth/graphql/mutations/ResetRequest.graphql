@@ -1,3 +1,7 @@
+#import "../fragments/ResetRequestOutput.graphql"
+
 mutation ResetRequest($email: String) {
-    resetRequest(email: $email) @client
+    resetRequest(email: $email) @client {
+        ... ResetRequestOutput
+    }
 }

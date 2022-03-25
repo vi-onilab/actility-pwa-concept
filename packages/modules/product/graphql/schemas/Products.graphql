@@ -1,0 +1,13 @@
+extend type Query {
+    products(input: ProductsQueryInput): ProductsQueryOutput
+}
+
+input ProductsQueryInput {
+    id: [ID]
+    page: Int
+}
+
+type ProductsQueryOutput {
+    items: [Product]
+    pagination: Pagination
+}

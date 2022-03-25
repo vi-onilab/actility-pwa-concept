@@ -1,5 +1,7 @@
 extend type Query {
-    customerOrders(input: CustomerOrdersInput): CustomerOrders
+    customerOrderLast: CustomerOrder
+    customerOrder(id: ID): CustomerOrder
+    customerOrders(input: CustomerOrdersInput): CustomerOrdersOutput
 }
 
 input CustomerOrdersInput {
@@ -8,10 +10,9 @@ input CustomerOrdersInput {
     number: ID
 }
 
-type CustomerOrders {
-    customerOrders: [CustomerOrder]
-    pageInfo: CustomerOrdersPageInfo
-    totalOrders: Int
+type CustomerOrdersOutput {
+    items: [CustomerOrder]
+    pagination: Pagination
 }
 
 type CustomerOrder {
@@ -19,15 +20,15 @@ type CustomerOrder {
     number: String
     status: String
     date: Int
-    shippingAddress: Address
-    billingAddress: Address
+    shippingAddress: CustomerOrderAddress
+    billingAddress: CustomerOrderAddress
     totals: CustomerOrderTotals
     shippingMethod: String
     paymentMethod: String
-    products: [CustomerOrderProducts]
+    products: [CustomerOrderProduct]
 }
 
-type Address {
+type CustomerOrderAddress {
     firstName: String
     lastName: String
     telephone: String
@@ -48,31 +49,31 @@ type CustomerOrderTotals {
     total: Int
     subtotal: Int
     totalShipping: Int
-    taxes: [CustomerOrderTaxes]
-    discounts: [CustomerOrderProductsDiscounts]
+    taxes: [CustomerOrderTotalsTax]
+    discounts: [CustomerOrderDiscount]
 }
 
-type CustomerOrderTaxes {
+type CustomerOrderTotalsTax {
     rate: Int
     title: String
     tax: Int
 }
 
-type CustomerOrderProducts {
+type CustomerOrderProduct {
     id: ID
     url: String
     name: String
-    discounts: [CustomerOrderProductsDiscounts]
+    discounts: [CustomerOrderDiscount]
     status: String
-    options: [CustomerOrderProductsOptions]
+    options: [CustomerOrderProductOption]
 }
 
-type CustomerOrderProductsOptions {
+type CustomerOrderProductOption {
     label: String
     value: String
 }
 
-type CustomerOrderProductsDiscounts {
+type CustomerOrderDiscount {
     label: String
     value: String
 }

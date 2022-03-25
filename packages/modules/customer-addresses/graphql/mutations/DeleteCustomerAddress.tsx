@@ -1,23 +1,24 @@
-/**
- * NOTE: THIS IS AN AUTO-GENERATED FILE. DO NOT MODIFY IT DIRECTLY.
- * USE `yarn build:schema-types` or `yarn build`.
- */
-
-/* eslint-disable */
-/* tslint:disable */
-/* @ts-nocheck */
-
 import * as Types from '../../../graphql';
 
 import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
+import * as ApolloReactHooks from '@pwa-concept/core/graphql/hooks';
+
+/**
+* NOTE: THIS IS AN AUTO-GENERATED FILE. DO NOT MODIFY IT DIRECTLY.
+* USE `yarn cli codegen`.
+*/
+/* eslint-disable */
+/* tslint:disable */
+// @ts-nocheck
+
 const defaultOptions = {} as const;
 export type DeleteCustomerAddressMutationVariables = Types.Exact<{
   id?: Types.InputMaybe<Types.Scalars['ID']>;
 }>;
 
 
-export type DeleteCustomerAddressMutation = { __typename?: 'Mutation', deleteCustomerAddress?: boolean | null | undefined };
+export type DeleteCustomerAddressMutation = { __typename?: 'Mutation', deleteCustomerAddress?: boolean | null };
 
 
 export const DeleteCustomerAddressDocument = gql`
@@ -44,9 +45,9 @@ export type DeleteCustomerAddressMutationFn = Apollo.MutationFunction<DeleteCust
  *   },
  * });
  */
-export function useDeleteCustomerAddressMutation(baseOptions?: Apollo.MutationHookOptions<DeleteCustomerAddressMutation, DeleteCustomerAddressMutationVariables>) {
+export function useDeleteCustomerAddressMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<DeleteCustomerAddressMutation, DeleteCustomerAddressMutationVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<DeleteCustomerAddressMutation, DeleteCustomerAddressMutationVariables>(DeleteCustomerAddressDocument, options);
+        return ApolloReactHooks.useMutation<DeleteCustomerAddressMutation, DeleteCustomerAddressMutationVariables>(DeleteCustomerAddressDocument, options);
       }
 export type DeleteCustomerAddressMutationHookResult = ReturnType<typeof useDeleteCustomerAddressMutation>;
 export type DeleteCustomerAddressMutationResult = Apollo.MutationResult<DeleteCustomerAddressMutation>;

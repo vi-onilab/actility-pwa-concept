@@ -1,23 +1,23 @@
 {
-    "name": "pwa-concept",
-    "version": "0.0.0",
-    "author": "Onilab Team <talkto@onilab.com>",
-    "private": true,
-    "scripts": {
-        "start": "yarn workspaces foreach run start -p",
-        "build": "yarn workspaces foreach run build",
-        "clean": "yarn workspaces foreach exec 'rm -rf ./node_modules; rm -rf ./dist'; rm -rf ./node_modules; yarn install",
-        "cli": "node ./node_modules/.bin/pwa-concept"
-    },
-    "devDependencies": {
-        "@babel/preset-env": "^7.16.7",
-        "@babel/preset-react": "^7.16.7"
-    },
-    "workspaces": [
-        "packages/*"
-    ],
-    "packageManager": "yarn@3.1.1",
-    "dependencies": {
-        "yarn-run-all": "^3.1.1"
-    }
+  "name": "pwa-concept",
+  "version": "0.0.0",
+  "author": "Onilab Team <talkto@onilab.com>",
+  "private": true,
+  "scripts": {
+    "start": "yarn workspaces foreach run start -p",
+    "build": "yarn workspaces foreach run build",
+    "clean": "yarn workspaces foreach exec 'rm -rf ./node_modules; rm -rf ./dist'; rm -rf ./node_modules; yarn install",
+    "cli": "node ./node_modules/.bin/pwa-concept"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.16.7",
+    "@babel/preset-react": "^7.16.7"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "packageManager": "yarn@3.1.1",
+  "dependencies": {
+    "yarn-run-all": "^3.1.1"
+  }
 }

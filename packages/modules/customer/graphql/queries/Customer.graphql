@@ -1,12 +1,7 @@
+#import "../fragments/Customer.graphql"
+
 query Customer {
     customer @client {
-        id
-        firstName
-        lastName
-        email
-        middleName
-        dateOfBirth
-        gender
-        isSubscribed
+        ... Customer
     }
 }

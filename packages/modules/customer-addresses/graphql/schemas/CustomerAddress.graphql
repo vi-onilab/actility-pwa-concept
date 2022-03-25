@@ -1,0 +1,65 @@
+extend type Query {
+    customerAddresses: [CustomerAddress]
+}
+
+extend type Mutation {
+    updateCustomerAddress(id: ID, input: UpdateCustomerAddressInput): CustomerAddress
+    createCustomerAddress(input: CustomerAddressInput): CustomerAddress
+    deleteCustomerAddress(id: ID): Boolean
+}
+
+input CustomerAddressInput {
+    defaultBilling: Boolean
+    defaultShipping: Boolean
+    city: String
+    company: String
+    countryId: String
+    firstName: String
+    lastName: String
+    telephone: String
+    postcode: String
+    region: CustomerAddressRegionInput
+    street: String
+}
+
+input UpdateCustomerAddressInput {
+    id: ID
+    defaultBilling: Boolean
+    defaultShipping: Boolean
+    city: String
+    company: String
+    countryId: String
+    firstName: String
+    lastName: String
+    telephone: String
+    postcode: String
+    region: CustomerAddressRegionInput
+    street: String
+}
+
+input CustomerAddressRegionInput {
+    region: String
+    regionCode: String
+    regionId: Int
+}
+
+type CustomerAddress {
+    id: ID
+    defaultBilling: Boolean
+    defaultShipping: Boolean
+    city: String
+    company: String
+    countryId: String
+    firstName: String
+    lastName: String
+    telephone: String
+    postcode: String
+    region: CustomerAddressRegion
+    street: String
+}
+
+type CustomerAddressRegion {
+    region: String
+    regionCode: String
+    regionId: Int
+}

@@ -1,5 +1,7 @@
+#import "../fragments/ResetToken.graphql"
+
 mutation Reset($code: String, $email: String) {
     reset(code: $code, email: $email) @client {
-        token
+        ... ResetToken
     }
 }

@@ -1,5 +1,5 @@
-import { $auth } from '~core/models'
-import { useCustomerQuery } from '~modules/customer/graphql/queries/Customer'
+import { $auth } from '@pwa-concept/core/models'
+import { useCustomerQuery } from '@pwa-concept/modules/customer/graphql/queries/Customer'
 
 const useCustomer = () => {
     const { data, loading } = useCustomerQuery({
@@ -7,7 +7,7 @@ const useCustomer = () => {
     })
 
     return {
-        customer: loading && !data?.customer ? null : data?.customer,
+        data: loading && !data?.customer ? null : data?.customer,
         loading,
     }
 }

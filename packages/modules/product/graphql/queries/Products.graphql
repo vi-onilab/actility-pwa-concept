@@ -1,0 +1,13 @@
+#import "../fragments/Product.graphql"
+#import "../../../pagination/graphql/fragments/Pagination.graphql"
+
+query Products($input: ProductsQueryInput) {
+    products(input: $input) @client {
+        items {
+            ... Product
+        }
+        pagination {
+            ... Pagination
+        }
+    }
+}

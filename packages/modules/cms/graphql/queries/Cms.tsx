@@ -1,37 +1,34 @@
-/**
- * NOTE: THIS IS AN AUTO-GENERATED FILE. DO NOT MODIFY IT DIRECTLY.
- * USE `yarn build:schema-types` or `yarn build`.
- */
-
-/* eslint-disable */
-/* tslint:disable */
-/* @ts-nocheck */
-
 import * as Types from '../../../graphql';
 
 import { gql } from '@apollo/client';
+import { CmsFragmentDoc } from '../fragments/Cms';
 import * as Apollo from '@apollo/client';
+import * as ApolloReactHooks from '@pwa-concept/core/graphql/hooks';
+
+/**
+* NOTE: THIS IS AN AUTO-GENERATED FILE. DO NOT MODIFY IT DIRECTLY.
+* USE `yarn cli codegen`.
+*/
+/* eslint-disable */
+/* tslint:disable */
+// @ts-nocheck
+
 const defaultOptions = {} as const;
 export type CmsQueryVariables = Types.Exact<{
   id?: Types.InputMaybe<Types.Scalars['ID']>;
 }>;
 
 
-export type CmsQuery = { __typename?: 'Query', cms?: { __typename?: 'Cms', id?: string | null | undefined, title?: string | null | undefined, content?: string | null | undefined, metaTitle?: string | null | undefined, metaKeywords?: string | null | undefined, metaDescription?: string | null | undefined } | null | undefined };
+export type CmsQuery = { __typename?: 'Query', cms?: { __typename?: 'Cms', id?: string | null, title?: string | null, content?: string | null, metaTitle?: string | null, metaKeywords?: string | null, metaDescription?: string | null } | null };
 
 
 export const CmsDocument = gql`
     query Cms($id: ID) {
   cms(id: $id) @client {
-    id
-    title
-    content
-    metaTitle
-    metaKeywords
-    metaDescription
+    ...Cms
   }
 }
-    `;
+    ${CmsFragmentDoc}`;
 
 /**
  * __useCmsQuery__
@@ -49,13 +46,13 @@ export const CmsDocument = gql`
  *   },
  * });
  */
-export function useCmsQuery(baseOptions?: Apollo.QueryHookOptions<CmsQuery, CmsQueryVariables>) {
+export function useCmsQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<CmsQuery, CmsQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<CmsQuery, CmsQueryVariables>(CmsDocument, options);
+        return ApolloReactHooks.useQuery<CmsQuery, CmsQueryVariables>(CmsDocument, options);
       }
-export function useCmsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<CmsQuery, CmsQueryVariables>) {
+export function useCmsLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<CmsQuery, CmsQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<CmsQuery, CmsQueryVariables>(CmsDocument, options);
+          return ApolloReactHooks.useLazyQuery<CmsQuery, CmsQueryVariables>(CmsDocument, options);
         }
 export type CmsQueryHookResult = ReturnType<typeof useCmsQuery>;
 export type CmsLazyQueryHookResult = ReturnType<typeof useCmsLazyQuery>;

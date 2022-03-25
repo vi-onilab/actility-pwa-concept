@@ -1,0 +1,10 @@
+fragment CategoryTree on CategoryTree {
+    id
+    name
+    description
+    breadcrumbs {
+        category_id
+        category_level
+        category_name
+    }
+}

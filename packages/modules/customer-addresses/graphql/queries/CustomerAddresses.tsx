@@ -1,45 +1,32 @@
-/**
- * NOTE: THIS IS AN AUTO-GENERATED FILE. DO NOT MODIFY IT DIRECTLY.
- * USE `yarn build:schema-types` or `yarn build`.
- */
-
-/* eslint-disable */
-/* tslint:disable */
-/* @ts-nocheck */
-
 import * as Types from '../../../graphql';
 
 import { gql } from '@apollo/client';
+import { CustomerAddressFragmentDoc } from '../fragments/CustomerAddress';
 import * as Apollo from '@apollo/client';
+import * as ApolloReactHooks from '@pwa-concept/core/graphql/hooks';
+
+/**
+* NOTE: THIS IS AN AUTO-GENERATED FILE. DO NOT MODIFY IT DIRECTLY.
+* USE `yarn cli codegen`.
+*/
+/* eslint-disable */
+/* tslint:disable */
+// @ts-nocheck
+
 const defaultOptions = {} as const;
 export type CustomerAddressesQueryVariables = Types.Exact<{ [key: string]: never; }>;
 
 
-export type CustomerAddressesQuery = { __typename?: 'Query', customerAddresses?: Array<{ __typename?: 'CustomerAddress', id?: string | null | undefined, defaultBilling?: boolean | null | undefined, defaultShipping?: boolean | null | undefined, city?: string | null | undefined, company?: string | null | undefined, countryId?: string | null | undefined, firstName?: string | null | undefined, lastName?: string | null | undefined, telephone?: string | null | undefined, postcode?: string | null | undefined, street?: string | null | undefined, region?: { __typename?: 'CustomerAddressesRegion', region?: string | null | undefined, regionCode?: string | null | undefined, regionId?: number | null | undefined } | null | undefined } | null | undefined> | null | undefined };
+export type CustomerAddressesQuery = { __typename?: 'Query', customerAddresses?: Array<{ __typename?: 'CustomerAddress', id?: string | null, defaultBilling?: boolean | null, defaultShipping?: boolean | null, city?: string | null, company?: string | null, countryId?: string | null, firstName?: string | null, lastName?: string | null, telephone?: string | null, postcode?: string | null, street?: string | null, region?: { __typename?: 'CustomerAddressRegion', region?: string | null, regionCode?: string | null, regionId?: number | null } | null } | null> | null };
 
 
 export const CustomerAddressesDocument = gql`
     query CustomerAddresses {
   customerAddresses @client {
-    id
-    defaultBilling
-    defaultShipping
-    city
-    company
-    countryId
-    firstName
-    lastName
-    telephone
-    postcode
-    region {
-      region
-      regionCode
-      regionId
-    }
-    street
+    ...CustomerAddress
   }
 }
-    `;
+    ${CustomerAddressFragmentDoc}`;
 
 /**
  * __useCustomerAddressesQuery__
@@ -56,13 +43,13 @@ export const CustomerAddressesDocument = gql`
  *   },
  * });
  */
-export function useCustomerAddressesQuery(baseOptions?: Apollo.QueryHookOptions<CustomerAddressesQuery, CustomerAddressesQueryVariables>) {
+export function useCustomerAddressesQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<CustomerAddressesQuery, CustomerAddressesQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<CustomerAddressesQuery, CustomerAddressesQueryVariables>(CustomerAddressesDocument, options);
+        return ApolloReactHooks.useQuery<CustomerAddressesQuery, CustomerAddressesQueryVariables>(CustomerAddressesDocument, options);
       }
-export function useCustomerAddressesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<CustomerAddressesQuery, CustomerAddressesQueryVariables>) {
+export function useCustomerAddressesLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<CustomerAddressesQuery, CustomerAddressesQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<CustomerAddressesQuery, CustomerAddressesQueryVariables>(CustomerAddressesDocument, options);
+          return ApolloReactHooks.useLazyQuery<CustomerAddressesQuery, CustomerAddressesQueryVariables>(CustomerAddressesDocument, options);
         }
 export type CustomerAddressesQueryHookResult = ReturnType<typeof useCustomerAddressesQuery>;
 export type CustomerAddressesLazyQueryHookResult = ReturnType<typeof useCustomerAddressesLazyQuery>;

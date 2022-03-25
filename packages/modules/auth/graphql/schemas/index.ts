@@ -1,11 +1,5 @@
-import Login from './Login.graphql'
-import ResetRequest from './ResetRequest.graphql'
-import Reset from './Reset.graphql'
-import Register from './Register.graphql'
+import Auth from './Auth.graphql'
 
 export default [
-    ResetRequest,
-    Login,
-    Reset,
-    Register,
+    Auth,
 ]

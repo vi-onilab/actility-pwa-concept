@@ -1,0 +1,11 @@
+#import "./FilterItem.graphql"
+
+fragment Filter on Filter {
+    id
+    name
+    key
+    type
+    items {
+        ... FilterItem
+    }
+}

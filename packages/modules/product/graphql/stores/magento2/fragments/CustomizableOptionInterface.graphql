@@ -1,0 +1,25 @@
+fragment CustomizableOptionInterface on CustomizableOptionInterface {
+    uid
+    title
+    required
+
+    ... on CustomizableRadioOption {
+        value {
+            uid
+            title
+            price
+            price_type
+            sku
+        }
+    }
+
+    ... on CustomizableCheckboxOption {
+        value {
+            uid
+            title
+            price
+            price_type
+            sku
+        }
+    }
+}

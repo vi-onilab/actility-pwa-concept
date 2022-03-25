@@ -1,16 +1,18 @@
-/**
- * NOTE: THIS IS AN AUTO-GENERATED FILE. DO NOT MODIFY IT DIRECTLY.
- * USE `yarn build:schema-types` or `yarn build`.
- */
-
-/* eslint-disable */
-/* tslint:disable */
-/* @ts-nocheck */
-
 import * as Types from '../../../graphql';
 
 import { gql } from '@apollo/client';
+import { ResetTokenFragmentDoc } from '../fragments/ResetToken';
 import * as Apollo from '@apollo/client';
+import * as ApolloReactHooks from '@pwa-concept/core/graphql/hooks';
+
+/**
+* NOTE: THIS IS AN AUTO-GENERATED FILE. DO NOT MODIFY IT DIRECTLY.
+* USE `yarn cli codegen`.
+*/
+/* eslint-disable */
+/* tslint:disable */
+// @ts-nocheck
+
 const defaultOptions = {} as const;
 export type ResetMutationVariables = Types.Exact<{
   code?: Types.InputMaybe<Types.Scalars['String']>;
@@ -18,16 +20,16 @@ export type ResetMutationVariables = Types.Exact<{
 }>;
 
 
-export type ResetMutation = { __typename?: 'Mutation', reset?: { __typename?: 'RenewToken', token?: string | null | undefined } | null | undefined };
+export type ResetMutation = { __typename?: 'Mutation', reset?: { __typename?: 'ResetToken', token?: string | null } | null };
 
 
 export const ResetDocument = gql`
     mutation Reset($code: String, $email: String) {
   reset(code: $code, email: $email) @client {
-    token
+    ...ResetToken
   }
 }
-    `;
+    ${ResetTokenFragmentDoc}`;
 export type ResetMutationFn = Apollo.MutationFunction<ResetMutation, ResetMutationVariables>;
 
 /**
@@ -48,9 +50,9 @@ export type ResetMutationFn = Apollo.MutationFunction<ResetMutation, ResetMutati
  *   },
  * });
  */
-export function useResetMutation(baseOptions?: Apollo.MutationHookOptions<ResetMutation, ResetMutationVariables>) {
+export function useResetMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<ResetMutation, ResetMutationVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<ResetMutation, ResetMutationVariables>(ResetDocument, options);
+        return ApolloReactHooks.useMutation<ResetMutation, ResetMutationVariables>(ResetDocument, options);
       }
 export type ResetMutationHookResult = ReturnType<typeof useResetMutation>;
 export type ResetMutationResult = Apollo.MutationResult<ResetMutation>;

@@ -1,4 +1,6 @@
 export { $auth } from './auth'
 export { $clean } from './clean'
+export { $country } from './country'
+export { $currency } from './currency'
 export { $customer } from './customer'
 export { $cart } from './cart'

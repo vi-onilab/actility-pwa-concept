@@ -1,0 +1,9 @@
+#import "./AggregationOption.graphql"
+
+fragment Aggregation on Aggregation {
+    attribute_code
+    label
+    options {
+        ... AggregationOption
+    }
+}

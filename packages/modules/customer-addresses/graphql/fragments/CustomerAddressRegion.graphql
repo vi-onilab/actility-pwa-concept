@@ -1,0 +1,5 @@
+fragment CustomerAddressRegion on CustomerAddressRegion {
+    region
+    regionCode
+    regionId
+}

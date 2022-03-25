@@ -1,0 +1,109 @@
+extend type Query {
+    product(input: ProductQueryInput): Product
+}
+
+input ProductQueryInput {
+    id: ID
+}
+
+type Product {
+    id: ID
+    sku: String
+    name: String
+    description: String
+    breadcrumbs: [ProductBreadcrumb]
+    images: [ProductImage]
+    thumbnail: ProductImage
+    badges: [ProductBadge]
+    price: ProductPrice
+    stock: ProductStock
+    vat: ProductVat
+    options: [ProductOption]
+}
+
+enum ProductOptionType {
+    Area
+    Checkbox
+    DropDown
+    Date
+    Field
+    File
+    Radio
+    Multiple
+}
+
+
+enum ProductOptionKind {
+    Customizable
+    Configurable
+}
+
+type ProductOption {
+    id: ID
+    key: String
+    name: String
+    type: ProductOptionType
+    kind: ProductOptionKind
+    required: Boolean
+
+    values: [ProductOptionValue]
+}
+
+type ProductOptionValue {
+    name: String
+    value: String
+    price: Money
+}
+
+type ProductBreadcrumb {
+    id: ID
+    name: String
+}
+
+type ProductStock {
+    type: ProductStockType
+    name: String
+}
+
+enum ProductStockType {
+    IN_STOCK
+    OUT_OF_STOCK
+}
+
+enum ProductVatType {
+    INCLUDED
+    EXCLUDED
+}
+
+type ProductVat {
+    type: ProductVatType
+    name: String
+}
+
+
+type ProductPrice {
+    initial: Money
+    current: Money
+    badges: [ProductPriceBadge]
+    isRange: Boolean
+}
+
+type ProductPriceBadge {
+    name: String
+}
+
+type ProductLabels {
+    addToCart: String
+}
+
+type ProductBadge {
+    id: ID
+    name: String
+    icon: String
+}
+
+type ProductImage {
+    id: ID
+    url: String
+    description: String
+}

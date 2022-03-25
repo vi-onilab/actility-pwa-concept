@@ -2,11 +2,27 @@ extend type Query {
     customer: Customer
 }
 
+extend type Mutation {
+    updateEmail(email: String, password: String): Customer
+    updateCustomer(input: CustomerUpdateInput): Customer
+    changePassword(newPassword: String, currentPassword: String): Customer
+}
+
 type Customer {
     id: ID
     firstName: String
     lastName: String
+    fullName: String
     email: String
+    middleName: String
+    dateOfBirth: Int
+    gender: Int
+    isSubscribed: Boolean
+}
+
+input CustomerUpdateInput {
+    firstName: String
+    lastName: String
     middleName: String
     dateOfBirth: Int
     gender: Int

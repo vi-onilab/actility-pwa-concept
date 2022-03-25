@@ -1,41 +1,31 @@
 {
-    "name": "@pwa-concept/modules",
-    "version": "0.0.0",
-    "description": "",
-    "author": "Onilab Team <talkto@onilab.com>",
-    "homepage": "https://bitbucket.org/onilab/pwa-concept#readme",
-    "repository": {
-        "type": "git",
-        "url": "git+ssh://git@bitbucket.org/onilab/pwa-concept.git"
-    },
-    "scripts": {
-        "start": "yarn build:schema-types; node ../../node_modules/.bin/npm-run-all --parallel \"build:** -- --watch\"",
-        "build": "yarn build:schema-types; yarn build:types",
-        "build:types": "node ../../node_modules/.bin/tsc",
-        "build:schema-types": "node ../../node_modules/.bin/graphql-codegen --config codegen.yml",
-        "cli": "node ../../node_modules/.bin/pwa-concept"
-    },
-    "main": ".",
-    "module": ".",
-    "types": "./@types",
-    "typings": "./@types",
-    "bugs": {
-        "url": "https://bitbucket.org/onilab/pwa-concept/issues"
-    },
-    "eslintConfig": {
-        "extends": "@pwa-concept/eslint-config",
-        "parserOptions": {
-            "project": "./tsconfig.json"
-        }
-    },
-    "dependencies": {
-        "@graphql-codegen/add": "^3.1.1",
-        "@graphql-codegen/cli": "^2.4.0",
-        "@graphql-codegen/near-operation-file-preset": "^2.2.3",
-        "@graphql-codegen/schema-ast": "^2.4.1",
-        "@graphql-codegen/typescript": "^2.4.2",
-        "@graphql-codegen/typescript-operations": "^2.2.2",
-        "@graphql-codegen/typescript-react-apollo": "^3.2.4",
-        "@graphql-codegen/typescript-resolvers": "^2.4.3"
+  "name": "@pwa-concept/modules",
+  "version": "0.0.0",
+  "description": "",
+  "author": "Onilab Team <talkto@onilab.com>",
+  "homepage": "https://bitbucket.org/onilab/pwa-concept#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/onilab/pwa-concept.git"
+  },
+  "scripts": {
+    "start": "yarn build:schema-types; node ../../node_modules/.bin/npm-run-all --parallel \"build:** -- --watch\"",
+    "build": "yarn build:schema-types; yarn build:types",
+    "build:types": "node ../../node_modules/.bin/tsc",
+    "build:schema-types": "yarn cli codegen",
+    "cli": "node ../../node_modules/.bin/pwa-concept"
+  },
+  "main": ".",
+  "module": ".",
+  "types": "./@types",
+  "typings": "./@types",
+  "bugs": {
+    "url": "https://bitbucket.org/onilab/pwa-concept/issues"
+  },
+  "eslintConfig": {
+    "extends": "@pwa-concept/eslint-config",
+    "parserOptions": {
+      "project": "./tsconfig.json"
     }
+  }
 }

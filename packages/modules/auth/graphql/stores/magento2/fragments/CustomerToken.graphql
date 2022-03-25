@@ -1,0 +1,3 @@
+fragment CustomerToken on CustomerToken {
+    token
+}

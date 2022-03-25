@@ -1,0 +1,5 @@
+fragment EntityUrl on EntityUrl {
+    id
+    type
+    relative_url
+}

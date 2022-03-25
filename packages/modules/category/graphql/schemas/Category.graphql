@@ -16,45 +16,13 @@ type Category {
     id: ID
     name: String
     description: String
-    icon: String
-    images: CategoryImages
     breadcrumbs: [CategoryBreadcrumb]
-    banners: [CategoryBanner]
     parent: Category
     level: Int
-}
-
-type CategoryImages {
-    thumbnail: CategoryImage
-    main: CategoryImage
-}
-
-type CategoryImage {
-    id: ID
-    url: String
 }
 
 type CategoryBreadcrumb {
     id: ID
     level: Int
     name: String
-}
-
-type CategoryBanner {
-    id: ID
-    title: String
-    description: String
-    image: CategoryBannerImage
-}
-
-type CategoryBannerImage {
-    id: ID
-    url: String
-    sources: [CategoryBannerImageSource]
-}
-
-type CategoryBannerImageSource {
-    id: ID
-    url: String
-    media: String
 }

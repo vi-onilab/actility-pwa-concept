@@ -1,0 +1,3 @@
+fragment ResetRequestOutput on ResetRequestOutput {
+    email
+}

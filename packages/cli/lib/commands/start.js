@@ -1,4 +1,5 @@
 const Builder = require('@pwa-concept/build')
+const codegen = require('./codegen')
 
 exports.command = 'start [port]'
 exports.desc = 'Start the local server'
@@ -12,5 +13,8 @@ exports.builder = {
 exports.handler = async (args) => {
     const builder = await Builder()
 
-    await builder.start(args)
+    await Promise.allSettled([
+        codegen.handler({ watch: true }),
+        builder.start(args),
+    ])
 }

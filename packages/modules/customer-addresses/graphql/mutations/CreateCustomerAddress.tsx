@@ -1,47 +1,34 @@
-/**
- * NOTE: THIS IS AN AUTO-GENERATED FILE. DO NOT MODIFY IT DIRECTLY.
- * USE `yarn build:schema-types` or `yarn build`.
- */
-
-/* eslint-disable */
-/* tslint:disable */
-/* @ts-nocheck */
-
 import * as Types from '../../../graphql';
 
 import { gql } from '@apollo/client';
+import { CustomerAddressFragmentDoc } from '../fragments/CustomerAddress';
 import * as Apollo from '@apollo/client';
+import * as ApolloReactHooks from '@pwa-concept/core/graphql/hooks';
+
+/**
+* NOTE: THIS IS AN AUTO-GENERATED FILE. DO NOT MODIFY IT DIRECTLY.
+* USE `yarn cli codegen`.
+*/
+/* eslint-disable */
+/* tslint:disable */
+// @ts-nocheck
+
 const defaultOptions = {} as const;
 export type CreateCustomerAddressMutationVariables = Types.Exact<{
   input?: Types.InputMaybe<Types.CustomerAddressInput>;
 }>;
 
 
-export type CreateCustomerAddressMutation = { __typename?: 'Mutation', createCustomerAddress?: { __typename?: 'CustomerAddress', id?: string | null | undefined, defaultBilling?: boolean | null | undefined, defaultShipping?: boolean | null | undefined, city?: string | null | undefined, company?: string | null | undefined, countryId?: string | null | undefined, firstName?: string | null | undefined, lastName?: string | null | undefined, telephone?: string | null | undefined, postcode?: string | null | undefined, street?: string | null | undefined, region?: { __typename?: 'CustomerAddressesRegion', region?: string | null | undefined, regionCode?: string | null | undefined, regionId?: number | null | undefined } | null | undefined } | null | undefined };
+export type CreateCustomerAddressMutation = { __typename?: 'Mutation', createCustomerAddress?: { __typename?: 'CustomerAddress', id?: string | null, defaultBilling?: boolean | null, defaultShipping?: boolean | null, city?: string | null, company?: string | null, countryId?: string | null, firstName?: string | null, lastName?: string | null, telephone?: string | null, postcode?: string | null, street?: string | null, region?: { __typename?: 'CustomerAddressRegion', region?: string | null, regionCode?: string | null, regionId?: number | null } | null } | null };
 
 
 export const CreateCustomerAddressDocument = gql`
     mutation CreateCustomerAddress($input: CustomerAddressInput) {
   createCustomerAddress(input: $input) @client {
-    id
-    defaultBilling
-    defaultShipping
-    city
-    company
-    countryId
-    firstName
-    lastName
-    telephone
-    postcode
-    region {
-      region
-      regionCode
-      regionId
-    }
-    street
+    ...CustomerAddress
   }
 }
-    `;
+    ${CustomerAddressFragmentDoc}`;
 export type CreateCustomerAddressMutationFn = Apollo.MutationFunction<CreateCustomerAddressMutation, CreateCustomerAddressMutationVariables>;
 
 /**
@@ -61,9 +48,9 @@ export type CreateCustomerAddressMutationFn = Apollo.MutationFunction<CreateCust
  *   },
  * });
  */
-export function useCreateCustomerAddressMutation(baseOptions?: Apollo.MutationHookOptions<CreateCustomerAddressMutation, CreateCustomerAddressMutationVariables>) {
+export function useCreateCustomerAddressMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<CreateCustomerAddressMutation, CreateCustomerAddressMutationVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<CreateCustomerAddressMutation, CreateCustomerAddressMutationVariables>(CreateCustomerAddressDocument, options);
+        return ApolloReactHooks.useMutation<CreateCustomerAddressMutation, CreateCustomerAddressMutationVariables>(CreateCustomerAddressDocument, options);
       }
 export type CreateCustomerAddressMutationHookResult = ReturnType<typeof useCreateCustomerAddressMutation>;
 export type CreateCustomerAddressMutationResult = Apollo.MutationResult<CreateCustomerAddressMutation>;

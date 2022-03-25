@@ -1,0 +1,18 @@
+#import "./CustomerAddressRegion.graphql"
+
+fragment CustomerAddress on CustomerAddress {
+    id
+    defaultBilling
+    defaultShipping
+    city
+    company
+    countryId
+    firstName
+    lastName
+    telephone
+    postcode
+    street
+    region {
+        ... CustomerAddressRegion
+    }
+}

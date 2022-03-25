@@ -1,65 +1,13 @@
+#import "../fragments/CustomerOrder.graphql"
+#import "../../../pagination/graphql/fragments/Pagination.graphql"
+
 query CustomerOrders($input: CustomerOrdersInput) {
     customerOrders(input: $input) @client {
-        customerOrders {
-#            id
-            number
-            status
-            date
-            paymentMethod
-            shippingAddress {
-                firstName
-                lastName
-                telephone
-                city
-                company
-                street
-                countryCode
-                postcode
-            }
-            billingAddress {
-                firstName
-                lastName
-                telephone
-                city
-                company
-                street
-                countryCode
-                postcode
-            }
-            totals {
-                total
-                subtotal
-                totalShipping
-                taxes {
-                    rate
-                    title
-                    tax
-                }
-                discounts {
-                    label
-                    value
-                }
-            }
-            products {
-                id
-                url
-                name
-                discounts {
-                    label
-                    value
-                }
-                status
-                options {
-                    label
-                    value
-                }
-            }
+        items {
+            ... CustomerOrder
         }
-        pageInfo {
-            page
-            size
-            total
+        pagination {
+            ... Pagination
         }
-        totalOrders
     }
 }

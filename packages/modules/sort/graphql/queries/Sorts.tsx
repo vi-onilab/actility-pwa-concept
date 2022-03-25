@@ -1,21 +1,22 @@
-/**
- * NOTE: THIS IS AN AUTO-GENERATED FILE. DO NOT MODIFY IT DIRECTLY.
- * USE `yarn build:schema-types` or `yarn build`.
- */
-
-/* eslint-disable */
-/* tslint:disable */
-/* @ts-nocheck */
-
 import * as Types from '../../../graphql';
 
 import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
+import * as ApolloReactHooks from '@pwa-concept/core/graphql/hooks';
+
+/**
+* NOTE: THIS IS AN AUTO-GENERATED FILE. DO NOT MODIFY IT DIRECTLY.
+* USE `yarn cli codegen`.
+*/
+/* eslint-disable */
+/* tslint:disable */
+// @ts-nocheck
+
 const defaultOptions = {} as const;
 export type SortsQueryVariables = Types.Exact<{ [key: string]: never; }>;
 
 
-export type SortsQuery = { __typename?: 'Query', sorts?: { __typename?: 'SortsQueryOutput', default?: string | null | undefined, items?: Array<{ __typename?: 'Sort', id?: string | null | undefined, name?: string | null | undefined } | null | undefined> | null | undefined } | null | undefined };
+export type SortsQuery = { __typename?: 'Query', sorts?: { __typename?: 'SortsQueryOutput', default?: string | null, items?: Array<{ __typename?: 'Sort', id?: string | null, name?: string | null } | null> | null } | null };
 
 
 export const SortsDocument = gql`
@@ -45,13 +46,13 @@ export const SortsDocument = gql`
  *   },
  * });
  */
-export function useSortsQuery(baseOptions?: Apollo.QueryHookOptions<SortsQuery, SortsQueryVariables>) {
+export function useSortsQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<SortsQuery, SortsQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<SortsQuery, SortsQueryVariables>(SortsDocument, options);
+        return ApolloReactHooks.useQuery<SortsQuery, SortsQueryVariables>(SortsDocument, options);
       }
-export function useSortsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<SortsQuery, SortsQueryVariables>) {
+export function useSortsLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<SortsQuery, SortsQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<SortsQuery, SortsQueryVariables>(SortsDocument, options);
+          return ApolloReactHooks.useLazyQuery<SortsQuery, SortsQueryVariables>(SortsDocument, options);
         }
 export type SortsQueryHookResult = ReturnType<typeof useSortsQuery>;
 export type SortsLazyQueryHookResult = ReturnType<typeof useSortsLazyQuery>;

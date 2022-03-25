@@ -1,16 +1,18 @@
-/**
- * NOTE: THIS IS AN AUTO-GENERATED FILE. DO NOT MODIFY IT DIRECTLY.
- * USE `yarn build:schema-types` or `yarn build`.
- */
-
-/* eslint-disable */
-/* tslint:disable */
-/* @ts-nocheck */
-
 import * as Types from '../../../graphql';
 
 import { gql } from '@apollo/client';
+import { CustomerFragmentDoc } from '../fragments/Customer';
 import * as Apollo from '@apollo/client';
+import * as ApolloReactHooks from '@pwa-concept/core/graphql/hooks';
+
+/**
+* NOTE: THIS IS AN AUTO-GENERATED FILE. DO NOT MODIFY IT DIRECTLY.
+* USE `yarn cli codegen`.
+*/
+/* eslint-disable */
+/* tslint:disable */
+// @ts-nocheck
+
 const defaultOptions = {} as const;
 export type ChangePasswordMutationVariables = Types.Exact<{
   newPassword?: Types.InputMaybe<Types.Scalars['String']>;
@@ -18,16 +20,16 @@ export type ChangePasswordMutationVariables = Types.Exact<{
 }>;
 
 
-export type ChangePasswordMutation = { __typename?: 'Mutation', changePassword?: { __typename?: 'Customer', id?: string | null | undefined } | null | undefined };
+export type ChangePasswordMutation = { __typename?: 'Mutation', changePassword?: { __typename?: 'Customer', id?: string | null, firstName?: string | null, lastName?: string | null, fullName?: string | null, email?: string | null, middleName?: string | null, dateOfBirth?: number | null, gender?: number | null, isSubscribed?: boolean | null } | null };
 
 
 export const ChangePasswordDocument = gql`
     mutation ChangePassword($newPassword: String, $currentPassword: String) {
   changePassword(newPassword: $newPassword, currentPassword: $currentPassword) @client {
-    id
+    ...Customer
   }
 }
-    `;
+    ${CustomerFragmentDoc}`;
 export type ChangePasswordMutationFn = Apollo.MutationFunction<ChangePasswordMutation, ChangePasswordMutationVariables>;
 
 /**
@@ -48,9 +50,9 @@ export type ChangePasswordMutationFn = Apollo.MutationFunction<ChangePasswordMut
  *   },
  * });
  */
-export function useChangePasswordMutation(baseOptions?: Apollo.MutationHookOptions<ChangePasswordMutation, ChangePasswordMutationVariables>) {
+export function useChangePasswordMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<ChangePasswordMutation, ChangePasswordMutationVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<ChangePasswordMutation, ChangePasswordMutationVariables>(ChangePasswordDocument, options);
+        return ApolloReactHooks.useMutation<ChangePasswordMutation, ChangePasswordMutationVariables>(ChangePasswordDocument, options);
       }
 export type ChangePasswordMutationHookResult = ReturnType<typeof useChangePasswordMutation>;
 export type ChangePasswordMutationResult = Apollo.MutationResult<ChangePasswordMutation>;

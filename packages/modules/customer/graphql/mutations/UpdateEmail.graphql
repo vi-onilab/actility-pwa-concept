@@ -1,6 +1,7 @@
+#import "../fragments/Customer.graphql"
+
 mutation UpdateEmail($email: String, $password: String) {
     updateEmail(email: $email, password: $password) @client {
-        id
-        email
+        ... Customer
     }
 }

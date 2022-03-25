@@ -1,10 +1,12 @@
 import { module } from '@pwa-concept/core'
 import graphqlSchemas from './graphql/schemas'
-import graphqlResolvers from './graphql/resolvers'
+import stores from './graphql/stores'
 
 const SortModule = module(() => ({
     graphqlSchemas,
-    graphqlResolvers,
+    graphqlResolvers: stores?.resolvers,
+    graphqlStoreFragments: stores?.fragments,
+    graphqlStorePossibleTypes: stores?.possibleTypes,
 }))
 
 export default SortModule

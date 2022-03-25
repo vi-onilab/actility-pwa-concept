@@ -1,4 +1,4 @@
-import { useSortsQuery } from '~modules/sort/graphql/queries/Sorts'
+import { useSortsQuery } from '@pwa-concept/modules/sort/graphql/queries/Sorts'
 
 const useSorts = () => {
     const { data: { sorts: data = null } = {}, loading } = useSortsQuery()

@@ -1,33 +1,34 @@
-/**
- * NOTE: THIS IS AN AUTO-GENERATED FILE. DO NOT MODIFY IT DIRECTLY.
- * USE `yarn build:schema-types` or `yarn build`.
- */
-
-/* eslint-disable */
-/* tslint:disable */
-/* @ts-nocheck */
-
 import * as Types from '../../../graphql';
 
 import { gql } from '@apollo/client';
-import { CategoryFragmentFragmentDoc } from '../fragments/Category';
+import { CategoryFragmentDoc } from '../fragments/Category';
 import * as Apollo from '@apollo/client';
+import * as ApolloReactHooks from '@pwa-concept/core/graphql/hooks';
+
+/**
+* NOTE: THIS IS AN AUTO-GENERATED FILE. DO NOT MODIFY IT DIRECTLY.
+* USE `yarn cli codegen`.
+*/
+/* eslint-disable */
+/* tslint:disable */
+// @ts-nocheck
+
 const defaultOptions = {} as const;
 export type CategoriesQueryVariables = Types.Exact<{
   input: Types.CategoriesQueryInput;
 }>;
 
 
-export type CategoriesQuery = { __typename?: 'Query', categories?: Array<{ __typename?: 'Category', id?: string | null | undefined, name?: string | null | undefined, description?: string | null | undefined, level?: number | null | undefined, icon?: string | null | undefined, banners?: Array<{ __typename?: 'CategoryBanner', id?: string | null | undefined, title?: string | null | undefined, description?: string | null | undefined, image?: { __typename?: 'CategoryBannerImage', id?: string | null | undefined, url?: string | null | undefined, sources?: Array<{ __typename?: 'CategoryBannerImageSource', id?: string | null | undefined, url?: string | null | undefined, media?: string | null | undefined } | null | undefined> | null | undefined } | null | undefined } | null | undefined> | null | undefined, breadcrumbs?: Array<{ __typename?: 'CategoryBreadcrumb', id?: string | null | undefined, name?: string | null | undefined, level?: number | null | undefined } | null | undefined> | null | undefined, images?: { __typename?: 'CategoryImages', thumbnail?: { __typename?: 'CategoryImage', id?: string | null | undefined, url?: string | null | undefined } | null | undefined, main?: { __typename?: 'CategoryImage', id?: string | null | undefined, url?: string | null | undefined } | null | undefined } | null | undefined, parent?: { __typename?: 'Category', id?: string | null | undefined, name?: string | null | undefined, description?: string | null | undefined, level?: number | null | undefined } | null | undefined } | null | undefined> | null | undefined };
+export type CategoriesQuery = { __typename?: 'Query', categories?: Array<{ __typename?: 'Category', id?: string | null, name?: string | null, description?: string | null, level?: number | null, breadcrumbs?: Array<{ __typename?: 'CategoryBreadcrumb', id?: string | null, name?: string | null, level?: number | null } | null> | null, parent?: { __typename?: 'Category', id?: string | null, name?: string | null, description?: string | null, level?: number | null } | null } | null> | null };
 
 
 export const CategoriesDocument = gql`
     query Categories($input: CategoriesQueryInput!) {
   categories(input: $input) @client {
-    ...CategoryFragment
+    ...Category
   }
 }
-    ${CategoryFragmentFragmentDoc}`;
+    ${CategoryFragmentDoc}`;
 
 /**
  * __useCategoriesQuery__
@@ -45,13 +46,13 @@ export const CategoriesDocument = gql`
  *   },
  * });
  */
-export function useCategoriesQuery(baseOptions: Apollo.QueryHookOptions<CategoriesQuery, CategoriesQueryVariables>) {
+export function useCategoriesQuery(baseOptions: ApolloReactHooks.QueryHookOptions<CategoriesQuery, CategoriesQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<CategoriesQuery, CategoriesQueryVariables>(CategoriesDocument, options);
+        return ApolloReactHooks.useQuery<CategoriesQuery, CategoriesQueryVariables>(CategoriesDocument, options);
       }
-export function useCategoriesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<CategoriesQuery, CategoriesQueryVariables>) {
+export function useCategoriesLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<CategoriesQuery, CategoriesQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<CategoriesQuery, CategoriesQueryVariables>(CategoriesDocument, options);
+          return ApolloReactHooks.useLazyQuery<CategoriesQuery, CategoriesQueryVariables>(CategoriesDocument, options);
         }
 export type CategoriesQueryHookResult = ReturnType<typeof useCategoriesQuery>;
 export type CategoriesLazyQueryHookResult = ReturnType<typeof useCategoriesLazyQuery>;

@@ -1,0 +1,13 @@
+#import "../../../product/graphql/fragments/Product.graphql"
+#import "../../../pagination/graphql/fragments/Pagination.graphql"
+
+query Catalog($input: CatalogQueryInput) {
+    catalog(input: $input) @client {
+        items {
+            ... Product
+        }
+        pagination {
+            ... Pagination
+        }
+    }
+}

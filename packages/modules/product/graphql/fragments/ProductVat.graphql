@@ -1,0 +1,4 @@
+fragment ProductVat on ProductVat {
+    type
+    name
+}

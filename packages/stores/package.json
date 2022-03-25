@@ -1,0 +1,23 @@
+{
+  "name": "@pwa-concept/stores",
+  "version": "0.0.0",
+  "description": "",
+  "author": "Onilab Team <talkto@onilab.com>",
+  "homepage": "https://bitbucket.org/onilab/pwa-concept#readme",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/onilab/pwa-concept.git"
+  },
+  "scripts": {
+    "cli": "node ../../node_modules/.bin/pwa-concept",
+    "start": "node ../../node_modules/.bin/npm-run-all --parallel \"build:** -- --watch\"",
+    "build": "node ../../node_modules/.bin/npm-run-all --parallel \"build:**\"",
+    "build:schema-types": "yarn cli codegen",
+    "schema:pull": "../../node_modules/.bin/npm-run-all --parallel \"schema:pull:**\"",
+    "schema:pull:magento2": "yarn cli get-schema https://venia.magento.com/graphql ./magento2/schema.graphql"
+  },
+  "bugs": {
+    "url": "https://bitbucket.org/onilab/pwa-concept/issues"
+  }
+}

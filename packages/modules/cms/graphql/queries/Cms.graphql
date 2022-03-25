@@ -1,10 +1,7 @@
+#import "../fragments/Cms.graphql"
+
 query Cms($id: ID) {
     cms(id: $id) @client {
-        id
-        title
-        content
-        metaTitle
-        metaKeywords
-        metaDescription
+        ... Cms
     }
 }

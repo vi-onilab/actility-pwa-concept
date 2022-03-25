@@ -1,37 +1,32 @@
-/**
- * NOTE: THIS IS AN AUTO-GENERATED FILE. DO NOT MODIFY IT DIRECTLY.
- * USE `yarn build:schema-types` or `yarn build`.
- */
-
-/* eslint-disable */
-/* tslint:disable */
-/* @ts-nocheck */
-
 import * as Types from '../../../graphql';
 
 import { gql } from '@apollo/client';
+import { CustomerFragmentDoc } from '../fragments/Customer';
 import * as Apollo from '@apollo/client';
+import * as ApolloReactHooks from '@pwa-concept/core/graphql/hooks';
+
+/**
+* NOTE: THIS IS AN AUTO-GENERATED FILE. DO NOT MODIFY IT DIRECTLY.
+* USE `yarn cli codegen`.
+*/
+/* eslint-disable */
+/* tslint:disable */
+// @ts-nocheck
+
 const defaultOptions = {} as const;
 export type CustomerQueryVariables = Types.Exact<{ [key: string]: never; }>;
 
 
-export type CustomerQuery = { __typename?: 'Query', customer?: { __typename?: 'Customer', id?: string | null | undefined, firstName?: string | null | undefined, lastName?: string | null | undefined, email?: string | null | undefined, middleName?: string | null | undefined, dateOfBirth?: number | null | undefined, gender?: number | null | undefined, isSubscribed?: boolean | null | undefined } | null | undefined };
+export type CustomerQuery = { __typename?: 'Query', customer?: { __typename?: 'Customer', id?: string | null, firstName?: string | null, lastName?: string | null, fullName?: string | null, email?: string | null, middleName?: string | null, dateOfBirth?: number | null, gender?: number | null, isSubscribed?: boolean | null } | null };
 
 
 export const CustomerDocument = gql`
     query Customer {
   customer @client {
-    id
-    firstName
-    lastName
-    email
-    middleName
-    dateOfBirth
-    gender
-    isSubscribed
+    ...Customer
   }
 }
-    `;
+    ${CustomerFragmentDoc}`;
 
 /**
  * __useCustomerQuery__
@@ -48,13 +43,13 @@ export const CustomerDocument = gql`
  *   },
  * });
  */
-export function useCustomerQuery(baseOptions?: Apollo.QueryHookOptions<CustomerQuery, CustomerQueryVariables>) {
+export function useCustomerQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<CustomerQuery, CustomerQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<CustomerQuery, CustomerQueryVariables>(CustomerDocument, options);
+        return ApolloReactHooks.useQuery<CustomerQuery, CustomerQueryVariables>(CustomerDocument, options);
       }
-export function useCustomerLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<CustomerQuery, CustomerQueryVariables>) {
+export function useCustomerLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<CustomerQuery, CustomerQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<CustomerQuery, CustomerQueryVariables>(CustomerDocument, options);
+          return ApolloReactHooks.useLazyQuery<CustomerQuery, CustomerQueryVariables>(CustomerDocument, options);
         }
 export type CustomerQueryHookResult = ReturnType<typeof useCustomerQuery>;
 export type CustomerLazyQueryHookResult = ReturnType<typeof useCustomerLazyQuery>;

@@ -1,0 +1,15 @@
+extend type Query {
+    productRelations(input: ProductRelationsQueryInput!): [Product]
+}
+
+enum ProductRelationType {
+    CROSS_SELL
+    UP_SELL
+    RELATED
+    SIMILAR
+}
+
+input ProductRelationsQueryInput {
+    id: ID!
+    type: ProductRelationType!
+}

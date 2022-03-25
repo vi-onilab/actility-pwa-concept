@@ -1,7 +1,7 @@
 import {
     useUpdateCustomerAddressMutation,
     UpdateCustomerAddressMutationVariables,
-} from '~modules/customer-addresses/graphql/mutations/UpdateCustomerAddress'
+} from '@pwa-concept/modules/customer-addresses/graphql/mutations/UpdateCustomerAddress'
 
 const useCustomerAddressUpdate = () => {
     const [updateCustomerAddress] = useUpdateCustomerAddressMutation()

@@ -55,27 +55,69 @@ module.exports = () => ({
 
         actions.push({
             type: 'add',
-            path: join(rootPath, '{{path}}', '{{dashCase name}}', 'graphql', 'resolvers', 'index.ts'),
-            templateFile: join(__dirname, 'graphql', 'resolvers', 'index.ts.hbs'),
+            path: join(rootPath, '{{path}}', '{{dashCase name}}', 'graphql', 'stores', 'index.ts'),
+            templateFile: join(__dirname, 'graphql', 'stores', 'index.ts.hbs'),
         })
 
         STORES.forEach((storeName) => {
             actions.push({
                 type: 'add',
-                path: join(rootPath, '{{path}}', '{{dashCase name}}', 'graphql', 'resolvers', storeName, 'index.ts'),
-                templateFile: join(__dirname, 'graphql', 'resolvers', 'store', 'index.ts.hbs'),
+                path: join(rootPath, '{{path}}', '{{dashCase name}}', 'graphql', 'stores', storeName, 'index.ts'),
+                templateFile: join(__dirname, 'graphql', 'stores', 'store', 'index.ts.hbs'),
+                data: {
+                    ...data,
+                    storeName,
+                },
             })
 
             actions.push({
                 type: 'add',
-                path: join(rootPath, '{{path}}', '{{dashCase name}}', 'graphql', 'resolvers', storeName, 'Query', 'index.ts'),
-                templateFile: join(__dirname, 'graphql', 'resolvers', 'store', 'Query', 'index.ts.hbs'),
+                path: join(rootPath, '{{path}}', '{{dashCase name}}', 'graphql', 'stores', storeName, 'resolvers', 'index.ts'),
+                templateFile: join(__dirname, 'graphql', 'stores', 'store', 'resolvers', 'index.ts.hbs'),
+                data: {
+                    ...data,
+                    storeName,
+                },
             })
 
             actions.push({
                 type: 'add',
-                path: join(rootPath, '{{path}}', '{{dashCase name}}', 'graphql', 'resolvers', storeName, 'Mutation', 'index.ts'),
-                templateFile: join(__dirname, 'graphql', 'resolvers', 'store', 'Mutation', 'index.ts.hbs'),
+                path: join(rootPath, '{{path}}', '{{dashCase name}}', 'graphql', 'stores', storeName, 'resolvers', 'Query', 'index.ts'),
+                templateFile: join(__dirname, 'graphql', 'stores', 'store', 'resolvers', 'Query', 'index.ts.hbs'),
+                data: {
+                    ...data,
+                    storeName,
+                },
+            })
+
+            actions.push({
+                type: 'add',
+                path: join(rootPath, '{{path}}', '{{dashCase name}}', 'graphql', 'stores', storeName, 'resolvers', 'Mutation', 'index.ts'),
+                templateFile: join(__dirname, 'graphql', 'stores', 'store', 'resolvers', 'Mutation', 'index.ts.hbs'),
+                data: {
+                    ...data,
+                    storeName,
+                },
+            })
+
+            actions.push({
+                type: 'add',
+                path: join(rootPath, '{{path}}', '{{dashCase name}}', 'graphql', 'stores', storeName, 'possible-types', 'index.ts'),
+                templateFile: join(__dirname, 'graphql', 'stores', 'store', 'possible-types', 'index.ts.hbs'),
+                data: {
+                    ...data,
+                    storeName,
+                },
+            })
+
+            actions.push({
+                type: 'add',
+                path: join(rootPath, '{{path}}', '{{dashCase name}}', 'graphql', 'stores', storeName, 'fragments', 'index.ts'),
+                templateFile: join(__dirname, 'graphql', 'stores', 'store', 'fragments', 'index.ts.hbs'),
+                data: {
+                    ...data,
+                    storeName,
+                },
             })
         })
 

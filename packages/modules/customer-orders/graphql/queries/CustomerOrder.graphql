@@ -1,0 +1,7 @@
+#import "../fragments/CustomerOrder.graphql"
+
+query CustomerOrder($id: ID) {
+    customerOrder(id: $id) @client {
+        ... CustomerOrder
+    }
+}

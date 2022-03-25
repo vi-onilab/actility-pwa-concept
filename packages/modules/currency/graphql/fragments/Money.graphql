@@ -1,0 +1,5 @@
+fragment Money on Money {
+    value
+    text
+    currency
+}

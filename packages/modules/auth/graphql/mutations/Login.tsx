@@ -1,16 +1,18 @@
-/**
- * NOTE: THIS IS AN AUTO-GENERATED FILE. DO NOT MODIFY IT DIRECTLY.
- * USE `yarn build:schema-types` or `yarn build`.
- */
-
-/* eslint-disable */
-/* tslint:disable */
-/* @ts-nocheck */
-
 import * as Types from '../../../graphql';
 
 import { gql } from '@apollo/client';
+import { AccessTokenFragmentDoc } from '../fragments/AccessToken';
 import * as Apollo from '@apollo/client';
+import * as ApolloReactHooks from '@pwa-concept/core/graphql/hooks';
+
+/**
+* NOTE: THIS IS AN AUTO-GENERATED FILE. DO NOT MODIFY IT DIRECTLY.
+* USE `yarn cli codegen`.
+*/
+/* eslint-disable */
+/* tslint:disable */
+// @ts-nocheck
+
 const defaultOptions = {} as const;
 export type LoginMutationVariables = Types.Exact<{
   email: Types.Scalars['String'];
@@ -18,16 +20,16 @@ export type LoginMutationVariables = Types.Exact<{
 }>;
 
 
-export type LoginMutation = { __typename?: 'Mutation', login?: { __typename?: 'Token', token?: string | null | undefined } | null | undefined };
+export type LoginMutation = { __typename?: 'Mutation', login?: { __typename?: 'AccessToken', token?: string | null } | null };
 
 
 export const LoginDocument = gql`
     mutation Login($email: String!, $password: String!) {
   login(email: $email, password: $password) @client {
-    token
+    ...AccessToken
   }
 }
-    `;
+    ${AccessTokenFragmentDoc}`;
 export type LoginMutationFn = Apollo.MutationFunction<LoginMutation, LoginMutationVariables>;
 
 /**
@@ -48,9 +50,9 @@ export type LoginMutationFn = Apollo.MutationFunction<LoginMutation, LoginMutati
  *   },
  * });
  */
-export function useLoginMutation(baseOptions?: Apollo.MutationHookOptions<LoginMutation, LoginMutationVariables>) {
+export function useLoginMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<LoginMutation, LoginMutationVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<LoginMutation, LoginMutationVariables>(LoginDocument, options);
+        return ApolloReactHooks.useMutation<LoginMutation, LoginMutationVariables>(LoginDocument, options);
       }
 export type LoginMutationHookResult = ReturnType<typeof useLoginMutation>;
 export type LoginMutationResult = Apollo.MutationResult<LoginMutation>;

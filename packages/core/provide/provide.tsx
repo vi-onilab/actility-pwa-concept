@@ -14,6 +14,16 @@ const get = (id: ProvideId | Module, token: ProvideToken): ProvideValue => (
     )?.get(token)
 )
 
+const first = (token: ProvideToken): ProvideValue => {
+    let firstElement = null
+
+    data.forEach((value) => {
+        if (!firstElement && value.has(token)) firstElement = value.get(token)
+    })
+
+    return firstElement
+}
+
 const init = (id: ProvideId, values: Provides): void => {
     data.set(id, values)
 }
@@ -45,6 +55,7 @@ const ProvideConstructor = (id: ProvideId, provides: Provides): FC => {
 const Provide = {
     get,
     use: useProvide,
+    first,
 }
 
 export {

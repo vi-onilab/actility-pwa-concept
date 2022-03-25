@@ -1,0 +1,17 @@
+#import "../../../currency/graphql/fragments/Money.graphql"
+
+fragment ProductOption on ProductOption {
+    id
+    name
+    key
+    type
+    required
+    kind
+    values {
+        name
+        value
+        price {
+            ... Money
+        }
+    }
+}

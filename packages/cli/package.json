@@ -25,6 +25,9 @@
     "plop": "^3.0.5",
     "yargs": "^17.3.1"
   },
+  "devDependencies": {
+    "graphql": "^16.3.0"
+  },
   "peerDependencies": {
     "graphql": ">=16.0.0"
   }

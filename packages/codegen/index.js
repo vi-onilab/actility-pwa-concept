@@ -1,5 +1,5 @@
 const { join, dirname } = require('path')
-const { spawnSync } = require('child_process')
+const { spawn } = require('child_process')
 const { renameSync } = require('fs')
 
 module.exports = async function () {
@@ -27,14 +27,16 @@ module.exports = async function () {
             }
         }
 
-        spawnSync('node', args, {
+        const child = spawn('node', args, {
             stdio: 'inherit', cwd: dirname(config), env: { ...process.env, NODE_ENV: 'production' },
         })
 
         if (isExternal) {
             try {
-                // FIXME: Hack for multiple node_modules ("graphql" package find by glob)
-                renameSync(currentGraphQLPathFolder.replace(/graphql(\/?)/igm, '__gql_temp$1'), currentGraphQLPathFolder)
+                child.on('exit', () => {
+                    // FIXME: Hack for multiple node_modules ("graphql" package find by glob)
+                    renameSync(currentGraphQLPathFolder.replace(/graphql(\/?)/igm, '__gql_temp$1'), currentGraphQLPathFolder)
+                })
             } catch {
             }
         }

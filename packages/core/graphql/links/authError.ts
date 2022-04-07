@@ -4,7 +4,15 @@ import { $auth, $clean } from '@pwa-concept/core/models'
 const authErrorLink = (
     onError(({ graphQLErrors }) => {
         if (graphQLErrors) {
-            const authError = graphQLErrors.find(({ extensions }) => extensions?.category === 'graphql-authorization')
+            const ignorePaths = [
+                'cart',
+                'compare',
+                'wishlist',
+            ]
+            const authError = graphQLErrors.find(({ extensions, path }) => (
+                extensions?.category === 'graphql-authorization' &&
+                !path.find((location: string) => ignorePaths.includes(location))
+            ))
 
             if (authError && $auth.isToken) {
                 $clean.logout()

@@ -8,6 +8,8 @@ const authErrorLink = (
                 'cart',
                 'compare',
                 'wishlist',
+                'assignCompareListToCustomer',
+                'mergeCarts',
             ]
             const authError = graphQLErrors.find(({ extensions, path }) => (
                 extensions?.category === 'graphql-authorization' &&

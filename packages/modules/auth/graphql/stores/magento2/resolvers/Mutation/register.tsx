@@ -6,7 +6,7 @@ import { $auth } from '@pwa-concept/core/models'
 const register: MutationResolvers['register'] = async (_, input) => {
     const { input: { password } } = input
 
-    const { data: { createCustomerV2: { email = null } = {} } = {} } = await (
+    const { data: { createCustomerV2: { customer: { email = null } = {} } = {} } = {} } = await (
         api.graphql(
             gql`
                 mutation ($input: CustomerCreateInput!) {

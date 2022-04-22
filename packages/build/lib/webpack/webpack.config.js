@@ -14,12 +14,12 @@ module.exports = ({ WEBPACK_BUNDLE, WEBPACK_SERVE, ANALYZE, PORT }) => {
     }
 
     return {
-        experiments: {
+        experiments: isDevelopment ? {
             lazyCompilation: {
                 imports: true,
                 entries: false,
             },
-        },
+        } : {},
         mode: isDevelopment ? 'development' : 'production',
         bail: isProduction,
         devtool: isDevelopment ? 'eval-source-map' : false,

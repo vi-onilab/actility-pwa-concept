@@ -33,12 +33,10 @@ const module = <T extends ModuleFn = ModuleFn, R extends ModuleReturnType<T> = M
 
         if (typeof configure === 'function') {
             response.configure = (...args): Omit<R, 'configure'> => {
-                const { configure: _, ...value } = {
+                return handle({
                     ...response,
-                    ...handle(configure.call(response, ...args)),
-                }
-
-                return value
+                    ...configure.call(response, ...args),
+                })
             }
         }
 

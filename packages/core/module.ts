@@ -13,8 +13,7 @@ type ModuleReturnType<T extends ModuleFn> = (ReturnType<T> & { extend: ExtendFn 
 
 const module = <T extends ModuleFn = ModuleFn, R extends ModuleReturnType<T> = ModuleReturnType<T>>(fn: T): (Pick<R, 'extend' | 'configure'>) => {
     const handle = (result: Module, isExtend: boolean = false): R => {
-        const { configure, ...rest } = result
-        const response = rest as Writeable<R>
+        const response = result as (Writeable<R> & { $$configure: () => any })
 
         response.id ??= Symbol(fn?.name || fn.toString())
         response.type ??= MODULE_TOKEN
@@ -27,21 +26,29 @@ const module = <T extends ModuleFn = ModuleFn, R extends ModuleReturnType<T> = M
 
         provideAliasesEntries.forEach(([key, value]) => {
             if (key in response) {
-                response.provides.push({ use: value, value: response[key] })
+                if (!response.provides?.find((candidate) => candidate.use === value && candidate.value === response[key])) {
+                    response.provides.push({ use: value, value: response[key] })
+                }
             }
         })
 
-        if (typeof configure === 'function') {
+        if (typeof response?.configure === 'function') {
+            if (!('$$configure' in response)) (response as any).$$configure = (response as any)?.configure
+
             response.configure = (...args): Omit<R, 'configure'> => {
-                return handle({
-                    ...response,
-                    ...configure.call(response, ...args),
-                })
+                if ('$$configure' in response) {
+                    return handle({
+                        ...response,
+                        ...(response as any).$$configure.call(response, ...args),
+                    })
+                }
+
+                return response
             }
         }
 
         response.extend = (fn) => {
-            const { configure: _, id: __, ...value } = response || {}
+            const { id: __, ...value } = response || {}
 
             return handle({
                 ...response,

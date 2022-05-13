@@ -51,8 +51,6 @@ const GraphQLQueryRelayPaginationModule = module(() => ({
             })
         }
 
-        console.log(2222, QueryFields)
-
         if (Object.keys(QueryFields).length === 0) return {}
 
         return {

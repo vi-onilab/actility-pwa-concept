@@ -1,5 +1,6 @@
 import { FC, Suspense } from 'react'
 import { useProvide } from '@pwa-concept/core'
+import { RouteProvider } from '@pwa-concept/core/router/Route'
 import { PROVIDE_CMS_MODULE_REPLACE } from '@pwa-concept/modules/cms'
 import { CmsModuleReplaceProvide } from '../../../../types'
 import { useCmsRoute } from '../../hooks'
@@ -17,13 +18,17 @@ const CmsGetRoute: FC = () => {
     }
 
     if (replace?.routes?.[data?.type]) {
-        const { fallback, element: RenderElement } = replace.routes[data?.type]
+        const { fallback: Fallback, element: RenderElement } = replace.routes[data?.type]
+
+        const renderedFallback = typeof Fallback === 'function' ? <Fallback /> : Fallback
 
         if (RenderElement) {
             return (
-                <Suspense fallback={fallback}>
-                    <RenderElement />
-                </Suspense>
+                <RouteProvider fallback={renderedFallback}>
+                    <Suspense fallback={renderedFallback}>
+                        <RenderElement />
+                    </Suspense>
+                </RouteProvider>
             )
         }
     }

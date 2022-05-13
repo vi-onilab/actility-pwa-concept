@@ -43,13 +43,15 @@ const GraphQLQueryRelayPaginationModule = module(() => ({
             Object.entries(queries).forEach(([key, value]) => {
                 if ('by' in value) {
                     QueryFields[key] = value?.fn?.() ?? graphqlQueryRelayPaginationFieldPolicy({
-                        keyArgs: keyArgs(value),
+                        keyArgs: keyArgs(value.by),
                     })
                 } else if ('fn' in value) {
                     QueryFields[key] = value?.fn()
                 }
             })
         }
+
+        console.log(2222, QueryFields)
 
         if (Object.keys(QueryFields).length === 0) return {}
 

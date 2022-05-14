@@ -116,7 +116,7 @@ const Product: ProductResolvers = {
                         price: null,
                         __typename: 'ProductOptionValue',
                     }))
-                ),
+                ) || [],
                 __typename: 'ProductOption',
             })
         })
@@ -141,7 +141,7 @@ const Product: ProductResolvers = {
                             },
                             __typename: 'ProductOptionValue',
                         }))
-                ),
+                ) || [],
                 __typename: 'ProductOption',
             })
         })

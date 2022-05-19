@@ -22,4 +22,14 @@ fragment CustomizableOptionInterface on CustomizableOptionInterface {
             sku
         }
     }
+
+    ... on CustomizableDropDownOption {
+        value {
+            uid
+            title
+            price
+            price_type
+            sku
+        }
+    }
 }

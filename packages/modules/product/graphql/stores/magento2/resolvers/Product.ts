@@ -44,6 +44,7 @@ const Product: ProductResolvers = {
         {
             id: `product-${id(context)}`,
             name: context?.name,
+            url: null,
             __typename: 'ProductBreadcrumb',
         },
     ],

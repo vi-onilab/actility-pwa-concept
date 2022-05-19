@@ -8,5 +8,11 @@ fragment ConfigurableProductOptions on ConfigurableProductOptions {
         store_label
         default_label
         use_default_value
+        swatch_data {
+            value
+            ... on TextSwatchData {
+                value
+            }
+        }
     }
 }

@@ -13,6 +13,8 @@ import {
     Magento2ConfigurableProductOptions,
     Magento2CustomizableOptionInterface,
 } from '@pwa-concept/stores/magento2/graphql'
+import { Maybe } from '@pwa-concept/stores/magento2/graphql'
+import { Magento2ConfigurableProductOptionsValues } from '@pwa-concept/stores/magento2/graphql'
 
 const id = (context) => String(context?.id)
 
@@ -110,9 +112,11 @@ const Product: ProductResolvers = {
                 type: ProductOptionType.Radio,
                 required: true,
                 values: (
-                    item?.values?.map((child): ProductOptionValue => ({
+                    item?.values?.map((child: Maybe<Magento2ConfigurableProductOptionsValues & { swatch_data: { value: any, __typename: string } }>): ProductOptionValue => ({
                         value: child?.uid,
-                        name: child?.store_label || child?.label || child?.default_label,
+                        name: (
+                            child?.swatch_data?.__typename === 'TextSwatchData' && child?.swatch_data?.value
+                        ) || child?.store_label || child?.label || child?.default_label,
                         price: null,
                         __typename: 'ProductOptionValue',
                     }))

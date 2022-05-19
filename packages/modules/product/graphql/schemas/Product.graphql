@@ -58,6 +58,17 @@ type ProductOptionValue {
 type ProductBreadcrumb {
     id: ID
     name: String
+    url: ProductBreadcrumbUrl
+}
+
+enum ProductBreadcrumbUrlType {
+    Category
+}
+
+type ProductBreadcrumbUrl {
+    id: ID
+    type: ProductBreadcrumbUrlType
+    to: String
 }
 
 type ProductStock {

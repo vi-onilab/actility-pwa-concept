@@ -15,6 +15,7 @@ import {
 } from '@pwa-concept/stores/magento2/graphql'
 import { Maybe } from '@pwa-concept/stores/magento2/graphql'
 import { Magento2ConfigurableProductOptionsValues } from '@pwa-concept/stores/magento2/graphql'
+import { ProductBreadcrumbUrlType } from '@pwa-concept/modules/graphql'
 
 const id = (context) => String(context?.id)
 
@@ -32,6 +33,12 @@ const Product: ProductResolvers = {
         ...(context?.categories?.slice(0, 1)?.map?.((category): ProductBreadcrumb => ({
             id: String(category?.id),
             name: category?.name,
+            url: {
+                id: String(category?.id),
+                type: ProductBreadcrumbUrlType.Category,
+                to: category?.url_path,
+                __typename: 'ProductBreadcrumbUrl',
+            },
             __typename: 'ProductBreadcrumb',
         })) || []),
         {

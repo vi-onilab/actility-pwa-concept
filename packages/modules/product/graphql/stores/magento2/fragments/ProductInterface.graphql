@@ -24,6 +24,7 @@ fragment ProductInterface on ProductInterface {
         id
         name
         level
+        url_path
     }
 
     price_range {

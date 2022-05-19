@@ -36,7 +36,7 @@ const Product: ProductResolvers = {
             url: {
                 id: String(category?.id),
                 type: ProductBreadcrumbUrlType.Category,
-                to: category?.url_path,
+                to: category?.url_path?.length > 0 ? `/${category.url_path}` : null,
                 __typename: 'ProductBreadcrumbUrl',
             },
             __typename: 'ProductBreadcrumb',

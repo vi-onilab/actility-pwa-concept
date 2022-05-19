@@ -9,6 +9,11 @@ fragment Product on Product {
     breadcrumbs {
         id
         name
+        url {
+            id
+            type
+            to
+        }
     }
     stock {
         name

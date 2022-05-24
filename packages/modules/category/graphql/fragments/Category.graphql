@@ -7,6 +7,11 @@ fragment Category on Category {
         id
         name
         level
+        url {
+            id
+            type
+            to
+        }
     }
     parent {
         id

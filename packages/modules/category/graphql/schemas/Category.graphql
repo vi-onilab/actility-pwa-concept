@@ -25,4 +25,15 @@ type CategoryBreadcrumb {
     id: ID
     level: Int
     name: String
+    url: CategoryBreadcrumbUrl
+}
+
+enum CategoryBreadcrumbUrlType {
+    Category
+}
+
+type CategoryBreadcrumbUrl {
+    id: ID
+    type: CategoryBreadcrumbUrlType
+    to: String
 }

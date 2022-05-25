@@ -21,6 +21,7 @@ export type StorePossibleTypes<T extends string = string> = {
 
 export interface ModuleProvideAliases {
     graphqlPolicies: any
+    graphqlPossibleTypes: StoreFragments
     graphqlLinks: any
     routes: CoreRouteObject[]
     graphqlSchemas: any[]

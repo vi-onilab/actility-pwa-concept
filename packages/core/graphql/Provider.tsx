@@ -4,10 +4,13 @@ import { TypeSource } from '@graphql-tools/utils/Interfaces'
 import { authErrorLink, authLink, errorLink, httpLink, queueLink, retryLink } from './links'
 import resolver from './resolver'
 import { useProvide } from '../provide'
-import { PROVIDE_GRAPHQL_POLICY, PROVIDE_GRAPHQL_RESOLVERS, PROVIDE_GRAPHQL_SCHEMAS } from './tokens'
+import {
+    PROVIDE_GRAPHQL_POLICY, PROVIDE_GRAPHQL_RESOLVERS, PROVIDE_GRAPHQL_SCHEMAS, PROVIDE_GRAPHQL_POSSIBLE_TYPES,
+} from './tokens'
 import { env } from '../utils'
 
 const GraphQLProvider: FC = ({ children }) => {
+    const possibleTypes = useProvide(PROVIDE_GRAPHQL_POSSIBLE_TYPES, {})
     const typePolicies = useProvide(PROVIDE_GRAPHQL_POLICY, {})
     const typeDefs = useProvide<TypeSource[], any>(PROVIDE_GRAPHQL_SCHEMAS, null, (value) => (
         value?.length > 0 ? value : undefined
@@ -31,6 +34,7 @@ const GraphQLProvider: FC = ({ children }) => {
         new ApolloClient({
             cache: new InMemoryCache({
                 typePolicies,
+                possibleTypes,
             }),
             typeDefs,
             resolvers,

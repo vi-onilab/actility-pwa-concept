@@ -1,6 +1,7 @@
 import { PROVIDE_ROUTER } from './router'
 import {
     PROVIDE_GRAPHQL_POLICY,
+    PROVIDE_GRAPHQL_POSSIBLE_TYPES,
     PROVIDE_GRAPHQL_LINKS,
     PROVIDE_GRAPHQL_SCHEMAS,
     PROVIDE_GRAPHQL_RESOLVERS,
@@ -13,6 +14,7 @@ import { ModuleProvideAliases, ProvideToken } from './types'
 const provideAliases: Record<keyof ModuleProvideAliases, ProvideToken> = {
     routes: PROVIDE_ROUTER,
     graphqlPolicies: PROVIDE_GRAPHQL_POLICY,
+    graphqlPossibleTypes: PROVIDE_GRAPHQL_POSSIBLE_TYPES,
     graphqlLinks: PROVIDE_GRAPHQL_LINKS,
     graphqlSchemas: PROVIDE_GRAPHQL_SCHEMAS,
     graphqlResolvers: PROVIDE_GRAPHQL_RESOLVERS,

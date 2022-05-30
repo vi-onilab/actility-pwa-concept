@@ -5,4 +5,5 @@ fragment CmsPage on CmsPage {
     meta_title
     meta_keywords
     meta_description
+    page_layout
 }

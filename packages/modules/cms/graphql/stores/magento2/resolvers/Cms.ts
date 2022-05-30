@@ -7,6 +7,7 @@ const Cms: Resolvers['Cms'] = {
     metaTitle: (_, __, { context }) => context?.meta_title,
     metaKeywords: (_, __, { context }) => context?.meta_keywords,
     metaDescription: (_, __, { context }) => context?.meta_description,
+    layout: (_, __, { context }) => context?.page_layout,
 }
 
 export default Cms

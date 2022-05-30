@@ -5,4 +5,5 @@ fragment Cms on Cms {
     metaTitle
     metaKeywords
     metaDescription
+    layout
 }

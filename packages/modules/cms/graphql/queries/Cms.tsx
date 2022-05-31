@@ -19,7 +19,7 @@ export type CmsQueryVariables = Types.Exact<{
 }>;
 
 
-export type CmsQuery = { __typename?: 'Query', cms?: { __typename?: 'Cms', id?: string | null, title?: string | null, content?: string | null, metaTitle?: string | null, metaKeywords?: string | null, metaDescription?: string | null } | null };
+export type CmsQuery = { __typename?: 'Query', cms?: { __typename?: 'Cms', id?: string | null, title?: string | null, content?: string | null, metaTitle?: string | null, metaKeywords?: string | null, metaDescription?: string | null, layout?: string | null } | null };
 
 
 export const CmsDocument = gql`

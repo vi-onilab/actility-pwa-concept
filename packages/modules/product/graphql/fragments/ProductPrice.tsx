@@ -11,10 +11,14 @@ import { MoneyFragmentDoc } from '../../../currency/graphql/fragments/Money';
 /* tslint:disable */
 // @ts-nocheck
 
-export type ProductPriceFragment = { __typename?: 'ProductPrice', isRange?: boolean | null, current?: { __typename?: 'Money', value?: number | null, text?: string | null, currency?: string | null } | null, initial?: { __typename?: 'Money', value?: number | null, text?: string | null, currency?: string | null } | null };
+export type ProductPriceFragment = { __typename?: 'ProductPrice', discount?: number | null, isRange?: boolean | null, badges?: Array<{ __typename?: 'ProductPriceBadge', name?: string | null } | null> | null, current?: { __typename?: 'Money', value?: number | null, text?: string | null, currency?: string | null } | null, initial?: { __typename?: 'Money', value?: number | null, text?: string | null, currency?: string | null } | null };
 
 export const ProductPriceFragmentDoc = gql`
     fragment ProductPrice on ProductPrice {
+  badges {
+    name
+  }
+  discount
   current {
     ...Money
   }

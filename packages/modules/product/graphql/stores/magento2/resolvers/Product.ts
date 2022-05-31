@@ -73,10 +73,18 @@ const Product: ProductResolvers = {
         const isRange = minimumPrice?.final_price?.value !== maximumPrice?.final_price?.value
 
         const current = minimumPrice?.final_price
-        const initial = minimumPrice?.final_price
+        const initial = isRange ? maximumPrice?.final_price : maximumPrice?.regular_price
 
         return {
-            badges: [],
+            badges: maximumPrice?.discount?.percent_off ? (
+                [
+                    {
+                        name: `-${maximumPrice.discount.percent_off}%`,
+                        __typename: 'ProductPriceBadge',
+                    },
+                ]
+            ) : [],
+            discount: maximumPrice?.discount?.percent_off || null,
             current: {
                 currency: current?.currency,
                 value: current?.value,

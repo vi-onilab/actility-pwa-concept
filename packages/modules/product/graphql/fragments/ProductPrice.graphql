@@ -1,6 +1,10 @@
 #import "../../../currency/graphql/fragments/Money.graphql"
 
 fragment ProductPrice on ProductPrice {
+    badges {
+        name
+    }
+    discount
     current {
         ... Money
     }

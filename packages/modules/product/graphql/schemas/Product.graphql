@@ -93,6 +93,7 @@ type ProductVat {
 
 
 type ProductPrice {
+    discount: Float
     initial: Money
     current: Money
     badges: [ProductPriceBadge]

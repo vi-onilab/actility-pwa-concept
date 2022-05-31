@@ -10,7 +10,7 @@ import { gql } from '@apollo/client';
 /* tslint:disable */
 // @ts-nocheck
 
-export type CategoryFragment = { __typename?: 'Category', id?: string | null, name?: string | null, description?: string | null, level?: number | null, breadcrumbs?: Array<{ __typename?: 'CategoryBreadcrumb', id?: string | null, name?: string | null, level?: number | null } | null> | null, parent?: { __typename?: 'Category', id?: string | null, name?: string | null, description?: string | null, level?: number | null } | null };
+export type CategoryFragment = { __typename?: 'Category', id?: string | null, name?: string | null, description?: string | null, level?: number | null, breadcrumbs?: Array<{ __typename?: 'CategoryBreadcrumb', id?: string | null, name?: string | null, level?: number | null, url?: { __typename?: 'CategoryBreadcrumbUrl', id?: string | null, type?: Types.CategoryBreadcrumbUrlType | null, to?: string | null } | null } | null> | null, parent?: { __typename?: 'Category', id?: string | null, name?: string | null, description?: string | null, level?: number | null } | null };
 
 export const CategoryFragmentDoc = gql`
     fragment Category on Category {
@@ -22,6 +22,11 @@ export const CategoryFragmentDoc = gql`
     id
     name
     level
+    url {
+      id
+      type
+      to
+    }
   }
   parent {
     id

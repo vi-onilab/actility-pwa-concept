@@ -4,6 +4,8 @@ extend type Query {
 
 input ProductQueryInput {
     id: ID
+    sku: String
+    url: String
 }
 
 type Product {

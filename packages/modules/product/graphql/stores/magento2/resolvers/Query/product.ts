@@ -4,10 +4,12 @@ import api from '@pwa-concept/core/api'
 
 const product: QueryResolvers['product'] = async (_, { input }) => {
     const {
-        id,
+        id = null,
+        url = null,
+        sku = null,
     } = input || {}
 
-    const { data: { products } = {} } = (
+    const { data: { products = null } = {} } = (
         await api.graphql(
             gql`
                 query($filter: ProductAttributeFilterInput!) {
@@ -20,13 +22,31 @@ const product: QueryResolvers['product'] = async (_, { input }) => {
                     }
                 }
             `,
-        ).query({
+        ).variableIf(!!id, (prev) => ({
+            ...prev,
             filter: {
+                ...(prev?.filter || {}),
                 entity_id: {
                     eq: id,
                 },
             },
-        })
+        })).variableIf(!!sku, (prev) => ({
+            ...prev,
+            filter: {
+                ...(prev?.filter || {}),
+                sku: {
+                    eq: sku,
+                },
+            },
+        })).variableIf(!!url, (prev) => ({
+            ...prev,
+            filter: {
+                ...(prev?.filter || {}),
+                url_key: {
+                    eq: url,
+                },
+            },
+        })).query()
     )
 
     if (products?.items?.length < 1) return null

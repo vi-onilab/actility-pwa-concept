@@ -13,7 +13,7 @@ const useProduct = (input: ProductQueryInput, options?: UseProductOptions): {
         variables: {
             input,
         },
-        skip: !input?.id || options?.skip,
+        skip: (!input?.id && !input?.sku && !input?.url) || options?.skip,
     })
 
     return {

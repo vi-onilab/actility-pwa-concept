@@ -8,14 +8,16 @@ import {
     ProductResolvers,
     ProductStockType,
     ProductVatType,
+    ProductBreadcrumbUrlType,
+    ProductVariant,
+    ProductVariantOption,
 } from '@pwa-concept/modules/graphql'
 import {
+    Maybe,
     Magento2ConfigurableProductOptions,
     Magento2CustomizableOptionInterface,
+    Magento2ConfigurableProductOptionsValues,
 } from '@pwa-concept/stores/magento2/graphql'
-import { Maybe } from '@pwa-concept/stores/magento2/graphql'
-import { Magento2ConfigurableProductOptionsValues } from '@pwa-concept/stores/magento2/graphql'
-import { ProductBreadcrumbUrlType } from '@pwa-concept/modules/graphql'
 
 const id = (context) => String(context?.id)
 
@@ -29,6 +31,22 @@ const Product: ProductResolvers = {
         type: context?.stock_status,
         __typename: 'ProductStock',
     }),
+
+    variants: (product, __, { context }) => (
+        context?.variants?.map?.((item): ProductVariant => ({
+            product: {
+                __context: item?.product,
+                __typename: 'Product',
+            },
+            options: item?.attributes?.map?.((attribute): ProductVariantOption => ({
+                key: attribute?.code,
+                value: attribute?.uid,
+                __typename: 'ProductVariantOption',
+            })),
+            __typename: 'ProductVariant',
+        })) || product?.variants || []
+    ),
+
     breadcrumbs: (_, __, { context }) => [
         ...(context?.categories?.slice(0, 1)?.map?.((category): ProductBreadcrumb => ({
             id: String(category?.id),
@@ -73,13 +91,13 @@ const Product: ProductResolvers = {
         const isRange = minimumPrice?.final_price?.value !== maximumPrice?.final_price?.value
 
         const current = minimumPrice?.final_price
-        const initial = isRange ? maximumPrice?.final_price : maximumPrice?.regular_price
+        const initial = minimumPrice?.regular_price
 
         return {
-            badges: maximumPrice?.discount?.percent_off ? (
+            badges: Math.ceil(maximumPrice?.discount?.percent_off || 0) > 0 ? (
                 [
                     {
-                        name: `-${maximumPrice.discount.percent_off}%`,
+                        name: `-${Math.ceil(maximumPrice.discount.percent_off || 0)}%`,
                         __typename: 'ProductPriceBadge',
                     },
                 ]

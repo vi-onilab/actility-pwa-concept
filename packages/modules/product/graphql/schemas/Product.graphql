@@ -21,6 +21,17 @@ type Product {
     stock: ProductStock
     vat: ProductVat
     options: [ProductOption]
+    variants: [ProductVariant]
+}
+
+type ProductVariant {
+    options: [ProductVariantOption]
+    product: Product
+}
+
+type ProductVariantOption {
+    key: String
+    value: String
 }
 
 enum ProductOptionType {

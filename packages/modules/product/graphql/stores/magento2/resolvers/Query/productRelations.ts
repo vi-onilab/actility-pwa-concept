@@ -10,7 +10,12 @@ const TYPE_MAP: Record<ProductRelationType, string> = {
 }
 
 const productRelations: QueryResolvers['productRelations'] = async (_, { input }) => {
-    const { id, type } = input || {}
+    const {
+        id = null,
+        url = null,
+        sku = null,
+        type,
+    } = input || {}
 
     const resolvedType = TYPE_MAP?.[type]
 
@@ -23,7 +28,7 @@ const productRelations: QueryResolvers['productRelations'] = async (_, { input }
     `
 
     // TODO: Handle errors
-    const { data: { products } = {} } = (
+    const { data: { products = null } = {} } = (
         await api.graphql(
             gql`
                 query($filter: ProductAttributeFilterInput!) {
@@ -37,13 +42,31 @@ const productRelations: QueryResolvers['productRelations'] = async (_, { input }
                     }
                 }
             `,
-        ).query({
+        ).variableIf(!!id, (prev) => ({
+            ...prev,
             filter: {
+                ...(prev?.filter || {}),
                 entity_id: {
                     eq: id,
                 },
             },
-        })
+        })).variableIf(!!sku, (prev) => ({
+            ...prev,
+            filter: {
+                ...(prev?.filter || {}),
+                sku: {
+                    eq: sku,
+                },
+            },
+        })).variableIf(!!url, (prev) => ({
+            ...prev,
+            filter: {
+                ...(prev?.filter || {}),
+                url_key: {
+                    eq: url,
+                },
+            },
+        })).query()
     )
 
     if (!products) return null

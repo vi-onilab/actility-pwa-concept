@@ -10,6 +10,8 @@ enum ProductRelationType {
 }
 
 input ProductRelationsQueryInput {
-    id: ID!
+    id: ID
+    sku: String
+    url: String
     type: ProductRelationType!
 }

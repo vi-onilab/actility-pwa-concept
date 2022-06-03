@@ -5,11 +5,11 @@ const useProductRelations = (product: Product, type: ProductRelationType) => {
     const { data: { productRelations: data } = {}, loading } = useProductRelationsQuery({
         variables: {
             input: {
-                id: product?.id,
+                sku: product?.sku,
                 type,
             },
         },
-        skip: !product?.id || !type,
+        skip: !product?.sku || !type,
     })
 
     return {

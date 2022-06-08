@@ -17,7 +17,6 @@ type Category {
     name: String
     description: String
     breadcrumbs: [CategoryBreadcrumb]
-    parent: Category
     level: Int
 }
 

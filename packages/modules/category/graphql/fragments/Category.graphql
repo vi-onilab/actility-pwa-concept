@@ -13,10 +13,4 @@ fragment Category on Category {
             to
         }
     }
-    parent {
-        id
-        name
-        description
-        level
-    }
 }

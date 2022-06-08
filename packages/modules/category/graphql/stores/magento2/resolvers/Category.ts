@@ -7,10 +7,6 @@ const Category: Resolvers['Category'] = {
     name: (_, __, { context }) => context?.name,
     description: (_, __, { context }) => context?.description,
     level: (_, __, { context }) => context?.level ? Number(context?.level) : 0,
-    parent: (_, __, { context }) => context?.parent_category ? ({
-        __context: context?.parent_category,
-        __typename: 'Category',
-    }) : null,
     breadcrumbs: (_, __, { context }) => ([
         ...(context?.breadcrumbs || [])?.map?.((breadcrumb) => ({
             id: !breadcrumb?.category_id ? null : String(breadcrumb?.category_id),

@@ -10,10 +10,6 @@ const category: QueryResolvers['category'] = async (_, { input }) => {
             query($filters: CategoryFilterInput!) {
                 categoryList(filters: $filters) {
                     ... CategoryTree
-
-                    parent_category {
-                        ... CategoryTree
-                    }
                 }
             }
         `).query({

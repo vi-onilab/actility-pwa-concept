@@ -4,6 +4,10 @@ fragment ProductInterface on ProductInterface {
 
     sku
 
+    url_rewrites {
+        url
+    }
+
     description {
         html
     }

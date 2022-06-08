@@ -12,6 +12,7 @@ type Product {
     id: ID
     sku: String
     name: String
+    url: String
     description: String
     breadcrumbs: [ProductBreadcrumb]
     images: [ProductImage]

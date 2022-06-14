@@ -23,13 +23,13 @@ const id = (context) => String(context?.id)
 
 const Product: ProductResolvers = {
     id: (_, __, { context }) => id(context),
-    sku: (_, __, { context }) => context?.sku,
-    name: (_, __, { context }) => context?.name,
-    url: (_, __, { context }) => context?.url_rewrites?.[0]?.url,
-    description: (_, __, { context }) => context?.description?.html,
+    sku: (_, __, { context }) => context?.sku || null,
+    name: (_, __, { context }) => context?.name || null,
+    url: (_, __, { context }) => context?.url_rewrites?.[0]?.url || null,
+    description: (_, __, { context }) => context?.description?.html || null,
     stock: (_, __, { context }) => ({
         name: context?.stock_status === ProductStockType.InStock ? 'In stock' : 'Out of stock',
-        type: context?.stock_status,
+        type: context?.stock_status || null,
         __typename: 'ProductStock',
     }),
 
@@ -40,8 +40,8 @@ const Product: ProductResolvers = {
                 __typename: 'Product',
             },
             options: item?.attributes?.map?.((attribute): ProductVariantOption => ({
-                key: attribute?.code,
-                value: attribute?.uid,
+                key: attribute?.code || null,
+                value: attribute?.uid || null,
                 __typename: 'ProductVariantOption',
             })),
             __typename: 'ProductVariant',
@@ -51,7 +51,7 @@ const Product: ProductResolvers = {
     breadcrumbs: (_, __, { context }) => [
         ...(context?.categories?.slice(0, 1)?.map?.((category): ProductBreadcrumb => ({
             id: String(category?.id),
-            name: category?.name,
+            name: category?.name || null,
             url: {
                 id: String(category?.id),
                 type: ProductBreadcrumbUrlType.Category,
@@ -62,15 +62,15 @@ const Product: ProductResolvers = {
         })) || []),
         {
             id: `product-${id(context)}`,
-            name: context?.name,
+            name: context?.name || null,
             url: null,
             __typename: 'ProductBreadcrumb',
         },
     ],
     images: (_, __, { context }) => context?.media_gallery?.map?.((image, index): ProductImage => ({
         id: `${id(context)}_${index}`,
-        url: image?.url,
-        description: image?.label,
+        url: image?.url || null,
+        description: image?.label || null,
         __typename: 'ProductImage',
     })),
     vat: () => ({
@@ -99,13 +99,13 @@ const Product: ProductResolvers = {
             ) : [],
             discount: maximumPrice?.discount?.percent_off || null,
             current: {
-                currency: current?.currency,
-                value: current?.value,
+                currency: current?.currency || null,
+                value: current?.value || null,
                 __typename: 'Money',
             },
             initial: {
-                currency: initial?.currency,
-                value: initial?.value,
+                currency: initial?.currency || null,
+                value: initial?.value || null,
                 __typename: 'Money',
             },
             isRange,
@@ -114,8 +114,8 @@ const Product: ProductResolvers = {
     },
     thumbnail: (_, __, { context }) => context?.image ? {
         id: id(context),
-        url: context?.image?.url,
-        description: context?.image?.label,
+        url: context?.image?.url || null,
+        description: context?.image?.label || null,
         __typename: 'ProductImage',
     } : null,
     options: (_, __, { context }) => {

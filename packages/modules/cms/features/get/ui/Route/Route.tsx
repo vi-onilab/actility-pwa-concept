@@ -9,7 +9,7 @@ const CmsGetRoute: FC = () => {
     const { data, loading } = useCmsRoute()
     const replace = useProvide<CmsModuleReplaceProvide>(PROVIDE_CMS_MODULE_REPLACE)
 
-    if (loading) {
+    if (!data?.type && loading) {
         return (
             <>
                 Loading...

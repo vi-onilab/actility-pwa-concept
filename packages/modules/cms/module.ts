@@ -14,6 +14,20 @@ const CMSModule = module(() => ({
     graphqlResolvers: stores?.resolvers,
     graphqlStoreFragments: stores?.fragments,
     graphqlStorePossibleTypes: stores?.possibleTypes,
+    graphqlPolicies: {
+        Query: {
+            fields: {
+                cms: {
+                    read(existing, { args, toReference }) {
+                        return toReference({
+                            id: args?.id,
+                            __typename: 'Cms',
+                        })
+                    },
+                },
+            },
+        },
+    },
     routes: [
         {
             path: '*',

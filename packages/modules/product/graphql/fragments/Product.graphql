@@ -20,11 +20,6 @@ fragment Product on Product {
         name
         type
     }
-    badges {
-        id
-        name
-        icon
-    }
 
     vat {
         ... ProductVat

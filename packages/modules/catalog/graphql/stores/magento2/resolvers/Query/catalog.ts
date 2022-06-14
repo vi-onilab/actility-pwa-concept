@@ -70,7 +70,7 @@ const catalog: QueryResolvers['catalog'] = async (_, { input } = {}) => {
             }),
         ).variableIf(
             sort?.length > 0,
-            (...prev) => ({
+            (prev) => ({
                 ...prev,
                 sort: sort?.reduce?.((result, { name, order }) => {
                     result[name] = order

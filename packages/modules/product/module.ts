@@ -10,6 +10,22 @@ const ProductModule = module(() => ({
         PaginationModule,
     ],
     graphqlSchemas,
+    graphqlPolicies: {
+        Query: {
+            fields: {
+                product: {
+                    read(existing, { args, toReference }) {
+                        return existing ?? toReference({
+                            id: args?.id,
+                            sku: args?.sku,
+                            url: args?.url,
+                            __typename: 'Product',
+                        })
+                    },
+                },
+            },
+        },
+    },
     graphqlResolvers: stores?.resolvers,
     graphqlStoreFragments: stores?.fragments,
     graphqlStorePossibleTypes: stores?.possibleTypes,

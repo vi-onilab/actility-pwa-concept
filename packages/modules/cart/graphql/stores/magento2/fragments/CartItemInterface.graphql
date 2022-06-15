@@ -1,0 +1,72 @@
+fragment CartItemInterface on CartItemInterface {
+    uid
+    id
+
+    ... on BundleCartItem  {
+        customizableOptions: customizable_options {
+            ... SelectedCustomizableOption
+        }
+    }
+
+    ... on ConfigurableCartItem  {
+        customizableOptions: customizable_options {
+            ... SelectedCustomizableOption
+        }
+    }
+
+    ... on DownloadableCartItem  {
+        customizableOptions: customizable_options {
+            ... SelectedCustomizableOption
+        }
+    }
+
+    ... on GiftCardCartItem  {
+        customizableOptions: customizable_options {
+            ... SelectedCustomizableOption
+        }
+    }
+
+    ... on SimpleCartItem  {
+        customizableOptions: customizable_options {
+            ... SelectedCustomizableOption
+        }
+    }
+
+    ... on VirtualCartItem  {
+        customizableOptions: customizable_options {
+            ... SelectedCustomizableOption
+        }
+    }
+
+    prices {
+        discounts {
+            amount {
+                currency
+                value
+            }
+            label
+        }
+        price {
+            currency
+            value
+        }
+        rowTotal: row_total {
+            currency
+            value
+        }
+        rowTotalIncludingTax: row_total_including_tax {
+            currency
+            value
+        }
+        totalItemDiscount: total_item_discount {
+            currency
+            value
+        }
+    }
+    product {
+        uid
+        name
+        sku
+    }
+    quantity
+}

@@ -1,0 +1,3 @@
+fragment BillingCartAddress on BillingCartAddress {
+    ... CartAddressInterface
+}

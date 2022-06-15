@@ -1,0 +1,32 @@
+fragment CartPrices on CartPrices {
+    discounts {
+        amount {
+            currency
+            value
+        }
+        label
+    }
+    subtotalExcludingTax: subtotal_excluding_tax {
+        currency
+        value
+    }
+    subtotalIncludingTax: subtotal_including_tax {
+        currency
+        value
+    }
+    subtotalWithDiscountExcludingTax: subtotal_with_discount_excluding_tax {
+        currency
+        value
+    }
+    appliedTaxes: applied_taxes {
+        amount {
+            currency
+            value
+        }
+        label
+    }
+    grandTotal: grand_total {
+        currency
+        value
+    }
+}

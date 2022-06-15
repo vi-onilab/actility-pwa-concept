@@ -1,0 +1,11 @@
+fragment SelectedCustomizableOption on SelectedCustomizableOption {
+    id
+    label
+    is_required
+    type
+    values {
+        id
+        label
+        value
+    }
+}

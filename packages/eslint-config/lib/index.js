@@ -15,6 +15,7 @@ module.exports = {
 		node: true,
 	},
 	plugins: [
+        'simple-import-sort',
 		'import',
 		'promise',
 		'react',

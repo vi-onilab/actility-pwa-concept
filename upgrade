@@ -31,4 +31,40 @@ const editorConfigName = '.editorconfig';
 const editorConfig = join(__dirname, 'packages', 'editor-config', editorConfigName);
 writeFileSync(join(process.cwd(), editorConfigName), readFileSync(editorConfig), 'utf8');
 
+// Upgrade dependencies
+const getPeerDependenciesFromPackage = (packageName) => {
+    try {
+        const packageJson = require(join(__dirname, 'packages', packageName, 'package.json'));
+
+        if ('peerDependencies' in packageJson) {
+            return Object.entries(packageJson.peerDependencies).reduce((result, [module, version]) => {
+                result[module] = version;
+
+                return result;
+            }, {}) || {};
+        }
+
+        return {};
+    } catch {
+        return {};
+    }
+};
+
+const installPeerDependenciesToProject = (dependencies) => {
+    if (dependencies) {
+        const packages = Object.entries(dependencies).map(([name, version]) => (
+                `${name}@${version}`
+        ));
+
+        spawnSync(`yarn`, ['add', ...packages], { stdio: 'inherit', cwd: process.cwd() });
+        spawnSync(`yarn`, [], { stdio: 'inherit', cwd: process.cwd() });
+    }
+};
+
+console.log('Upgrading peer dependencies...');
+installPeerDependenciesToProject({
+    ...getPeerDependenciesFromPackage('core'),
+});
+
+
 console.log('Upgraded PWA. Be happy! <3');

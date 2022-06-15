@@ -1,6 +1,8 @@
 const INDENT = 4
 
 module.exports = {
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'error',
     'no-var': 'warn',
     'object-shorthand': ['warn', 'properties'],
     'accessor-pairs': ['error', { setWithoutGet: true, enforceForClassMembers: true }],

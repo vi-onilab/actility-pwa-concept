@@ -15,7 +15,7 @@ const Cart: Resolvers['Cart'] = {
     }),
     items: (_, __, { context }) => context?.items?.length > 0 ? context?.items.map((__context) => ({
         __context,
-        __typename: 'CartItem',
+        __typename: 'CartItems',
     })) : null,
     shippingAddresses: (_, __, { context }) => context?.shippingAddresses?.length > 0 ? context?.shippingAddresses.map((__context) => ({
         __context,

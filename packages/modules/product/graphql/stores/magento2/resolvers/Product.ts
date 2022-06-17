@@ -1,5 +1,6 @@
 import {
     ProductBreadcrumb,
+    ProductBreadcrumbUrlType,
     ProductImage,
     ProductOption,
     ProductOptionKind,
@@ -7,16 +8,15 @@ import {
     ProductOptionValue,
     ProductResolvers,
     ProductStockType,
-    ProductVatType,
-    ProductBreadcrumbUrlType,
     ProductVariant,
     ProductVariantOption,
+    ProductVatType,
 } from '@pwa-concept/modules/graphql'
 import {
-    Maybe,
     Magento2ConfigurableProductOptions,
-    Magento2CustomizableOptionInterface,
     Magento2ConfigurableProductOptionsValues,
+    Magento2CustomizableOptionInterface,
+    Maybe,
 } from '@pwa-concept/stores/magento2/graphql'
 
 const id = (context) => String(context?.id)

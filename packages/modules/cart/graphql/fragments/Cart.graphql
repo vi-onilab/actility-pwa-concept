@@ -1,3 +1,5 @@
+#import "../../../product/graphql/fragments/Product.graphql"
+
 fragment Cart on Cart {
     id
     email
@@ -36,9 +38,7 @@ fragment Cart on Cart {
         id
         quantity
         product {
-            id
-            name
-            sku
+            ... Product
         }
         customizableOptions {
             id

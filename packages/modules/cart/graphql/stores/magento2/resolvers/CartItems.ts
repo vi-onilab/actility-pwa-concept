@@ -5,7 +5,7 @@ const CartItems: Resolvers['CartItems'] = {
     quantity: (_, __, { context }) => context?.quantity || null,
     product: (_, __, { context }) => ({
         __context: context?.product,
-        __typename: 'CartProduct',
+        __typename: 'Product',
     }),
     prices: (_, __, { context: __context }) => ({
         __context,

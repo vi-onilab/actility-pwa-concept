@@ -58,9 +58,7 @@ fragment CartItemInterface on CartItemInterface {
         }
     }
     product {
-        uid
-        name
-        sku
+        ... ProductInterface
     }
     quantity
 }

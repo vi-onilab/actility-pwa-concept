@@ -63,9 +63,7 @@ fragment CartItemInterface on CartItemInterface {
 
         sku
 
-        url_rewrites {
-            url
-        }
+        url_key
 
         media_gallery {
             url

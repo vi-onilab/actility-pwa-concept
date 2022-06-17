@@ -1,4 +1,5 @@
-#import "../../../product/graphql/fragments/Product.graphql"
+#import "../../../product/graphql/fragments/ProductImage.graphql"
+#import "../../../product/graphql/fragments/ProductPrice.graphql"
 
 fragment Cart on Cart {
     id
@@ -38,7 +39,19 @@ fragment Cart on Cart {
         id
         quantity
         product {
-            ... Product
+            id
+            name
+            url
+            stock {
+                name
+                type
+            }
+            thumbnail {
+                ... ProductImage
+            }
+            price {
+                ... ProductPrice
+            }
         }
         customizableOptions {
             id

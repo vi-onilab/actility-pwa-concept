@@ -58,7 +58,56 @@ fragment CartItemInterface on CartItemInterface {
         }
     }
     product {
-        ... ProductInterface
+        id
+        name
+
+        sku
+
+        url_rewrites {
+            url
+        }
+
+        media_gallery {
+            url
+            label
+        }
+
+        stock_status
+
+        image {
+            url
+            label
+        }
+
+        price_range {
+            maximum_price {
+                discount {
+                    percent_off
+                }
+                final_price {
+                    currency
+                    value
+                }
+                regular_price {
+                    currency
+                    value
+                }
+            }
+
+            minimum_price {
+                discount {
+                    percent_off
+                }
+                final_price {
+                    currency
+                    value
+                }
+                regular_price {
+                    currency
+                    value
+                }
+            }
+        }
     }
     quantity
 }

@@ -3,31 +3,31 @@ fragment CartItemInterface on CartItemInterface {
     id
 
     ... on BundleCartItem  {
-        customizableOptions: customizable_options {
+        customizableOptionsRequired: customizable_options {
             ... SelectedCustomizableOption
         }
     }
 
     ... on ConfigurableCartItem  {
-        customizableOptions: customizable_options {
+        customizableOptionsNotRequired: customizable_options {
             ... SelectedCustomizableOption
         }
     }
 
     ... on DownloadableCartItem  {
-        customizableOptions: customizable_options {
+        customizableOptionsRequired: customizable_options {
             ... SelectedCustomizableOption
         }
     }
 
     ... on SimpleCartItem  {
-        customizableOptions: customizable_options {
+        customizableOptionsRequired: customizable_options {
             ... SelectedCustomizableOption
         }
     }
 
     ... on VirtualCartItem  {
-        customizableOptions: customizable_options {
+        customizableOptionsRequired: customizable_options {
             ... SelectedCustomizableOption
         }
     }

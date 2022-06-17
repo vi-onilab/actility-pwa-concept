@@ -20,12 +20,6 @@ fragment CartItemInterface on CartItemInterface {
         }
     }
 
-    ... on GiftCardCartItem  {
-        customizableOptions: customizable_options {
-            ... SelectedCustomizableOption
-        }
-    }
-
     ... on SimpleCartItem  {
         customizableOptions: customizable_options {
             ... SelectedCustomizableOption

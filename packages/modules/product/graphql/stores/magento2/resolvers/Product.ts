@@ -25,7 +25,7 @@ const Product: ProductResolvers = {
     id: (_, __, { context }) => id(context),
     sku: (_, __, { context }) => context?.sku || null,
     name: (_, __, { context }) => context?.name || null,
-    url: (_, __, { context }) => context?.url_rewrites?.[0]?.url || null,
+    url: (_, __, { context }) => context?.url_key || null,
     description: (_, __, { context }) => context?.description?.html || null,
     stock: (_, __, { context }) => ({
         name: context?.stock_status === ProductStockType.InStock ? 'In stock' : 'Out of stock',

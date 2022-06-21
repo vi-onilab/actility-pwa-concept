@@ -7,6 +7,7 @@ const useCategory = ({ id = null }: { id?: string }) => {
                 id,
             },
         },
+        returnPartialData: true,
         skip: !id,
     })
 

@@ -1,15 +1,9 @@
-import { ApolloClient, InMemoryCache, from } from '@apollo/client'
-import { env, injectFragments } from '../../utils'
-import {
-    authErrorLink,
-    authLink,
-    errorLink,
-    httpLink,
-    queueLink,
-    retryLink,
-} from '@pwa-concept/core/graphql/links'
+import { ApolloClient, from, InMemoryCache } from '@apollo/client'
+import { PROVIDE_GRAPHQL_STORE_FRAGMENTS, PROVIDE_GRAPHQL_STORE_POSSIBLE_TYPES } from '@pwa-concept/core/graphql'
+import { authErrorLink, authLink, errorLink, httpLink, queueLink, retryLink } from '@pwa-concept/core/graphql/links'
 import { Provide } from '@pwa-concept/core/provide'
-import { PROVIDE_GRAPHQL_STORE_POSSIBLE_TYPES, PROVIDE_GRAPHQL_STORE_FRAGMENTS } from '@pwa-concept/core/graphql'
+
+import { env, injectFragments } from '../../utils'
 
 const cache = new InMemoryCache({
     possibleTypes: {},
@@ -20,6 +14,14 @@ const inject = (document) => injectFragments(document, Provide.first(PROVIDE_GRA
 const apollo = new ApolloClient({
     uri: env('APP_GRAPHQL_URL'),
     cache,
+    defaultOptions: {
+        query: {
+            errorPolicy: 'all',
+        },
+        mutate: {
+            errorPolicy: 'all',
+        },
+    },
     link: from([
         retryLink,
         queueLink,

@@ -1,11 +1,11 @@
+import { gql } from '@apollo/client'
 import api from '@pwa-concept/core/api'
 import { MutationResolvers } from '@pwa-concept/modules/graphql'
-import { gql } from '@apollo/client'
 
 const cartAddItem: MutationResolvers['cartAddItem'] = async (_, input) => {
     const { cartId, cartItems } = input
 
-    const { data: { addProductsToCart: { cart: __context = null } = {} } = {} } = await (
+    const { data: { addProductsToCart: { cart: __context = null, user_errors: errors = [] } = {} } = {} } = await (
         api.graphql(gql`
             mutation(
                 $cartId: String!
@@ -18,6 +18,10 @@ const cartAddItem: MutationResolvers['cartAddItem'] = async (_, input) => {
                     cart {
                         ... Cart
                     }
+                    user_errors {
+                        message
+                        code
+                    }
                 }
             }
         `).mutation({
@@ -25,6 +29,8 @@ const cartAddItem: MutationResolvers['cartAddItem'] = async (_, input) => {
             cartItems,
         })
     )
+
+    if (errors?.[0]?.message?.length) throw new Error(errors?.[0]?.message)
 
     if (!__context) return null
 

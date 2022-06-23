@@ -5,6 +5,7 @@ fragment ProductInterface on ProductInterface {
     sku
 
     url_key
+    url_suffix
 
     description {
         html

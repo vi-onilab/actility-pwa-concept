@@ -19,7 +19,10 @@ const ProductModule = module(() => ({
                     read(existing, { args, toReference, canRead }) {
                         if (!existing) {
                             const reference = toReference({
-                                id: args?.input?.id,
+                                id: (
+                                    args?.input?.id ||
+                                    args?.input?.external?.find((item) => ['id', 'entity_id'].includes(item?.key))?.value?.eq
+                                ),
                                 sku: args?.input?.sku,
                                 url: args?.input?.url,
                                 __typename: 'Product',

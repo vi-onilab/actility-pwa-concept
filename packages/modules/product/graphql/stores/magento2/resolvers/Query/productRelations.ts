@@ -1,6 +1,6 @@
+import api from '@pwa-concept/core/api'
 import { ProductRelationType, QueryResolvers } from '@pwa-concept/modules/graphql'
 import { gql } from 'graphql-tag'
-import api from '@pwa-concept/core/api'
 
 const TYPE_MAP: Record<ProductRelationType, string> = {
     [ProductRelationType.CrossSell]: 'crosssel_products',
@@ -15,6 +15,7 @@ const productRelations: QueryResolvers['productRelations'] = async (_, { input }
         url = null,
         sku = null,
         type,
+        external = null,
     } = input || {}
 
     const resolvedType = TYPE_MAP?.[type]
@@ -42,11 +43,21 @@ const productRelations: QueryResolvers['productRelations'] = async (_, { input }
                     }
                 }
             `,
-        ).variableIf(!!id, (prev) => ({
+        ).variableIf(external?.length > 0, (prev) => ({
             ...prev,
             filter: {
                 ...(prev?.filter || {}),
-                entity_id: {
+                ...external.reduce((result, { key, value }) => {
+                    result[key] = value
+
+                    return result
+                }, {}),
+            },
+        })).variableIf(!!id, (prev) => ({
+            ...prev,
+            filter: {
+                ...(prev?.filter || {}),
+                id: {
                     eq: id,
                 },
             },

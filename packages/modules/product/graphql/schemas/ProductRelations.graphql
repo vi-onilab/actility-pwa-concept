@@ -2,6 +2,13 @@ extend type Query {
     productRelations(input: ProductRelationsQueryInput!): [Product]
 }
 
+scalar Any
+
+input ProductQueryInputExternal {
+    key: String
+    value: Any
+}
+
 enum ProductRelationType {
     CROSS_SELL
     UP_SELL
@@ -14,4 +21,5 @@ input ProductRelationsQueryInput {
     sku: String
     url: String
     type: ProductRelationType!
+    external: [ProductQueryInputExternal]
 }

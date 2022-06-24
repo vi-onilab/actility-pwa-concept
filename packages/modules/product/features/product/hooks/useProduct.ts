@@ -14,7 +14,7 @@ const useProduct = (input: ProductQueryInput, options?: UseProductOptions): {
             input,
         },
         returnPartialData: true,
-        skip: (!input?.id && !input?.sku && !input?.url) || options?.skip,
+        skip: (!input?.id && !input?.sku && !input?.url && !input?.external?.length) || options?.skip,
     })
 
     return {

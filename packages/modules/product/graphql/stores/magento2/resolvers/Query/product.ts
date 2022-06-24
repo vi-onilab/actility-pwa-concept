@@ -1,12 +1,13 @@
-import { QueryResolvers } from '@pwa-concept/modules/graphql'
 import { gql } from '@apollo/client'
 import api from '@pwa-concept/core/api'
+import { QueryResolvers } from '@pwa-concept/modules/graphql'
 
 const product: QueryResolvers['product'] = async (_, { input }) => {
     const {
         id = null,
         url = null,
         sku = null,
+        external = null,
     } = input || {}
 
     const { data: { products = null } = {} } = (
@@ -22,11 +23,21 @@ const product: QueryResolvers['product'] = async (_, { input }) => {
                     }
                 }
             `,
-        ).variableIf(!!id, (prev) => ({
+        ).variableIf(external?.length > 0, (prev) => ({
             ...prev,
             filter: {
                 ...(prev?.filter || {}),
-                entity_id: {
+                ...external.reduce((result, { key, value }) => {
+                    result[key] = value
+
+                    return result
+                }, {}),
+            },
+        })).variableIf(!!id, (prev) => ({
+            ...prev,
+            filter: {
+                ...(prev?.filter || {}),
+                id: {
                     eq: id,
                 },
             },
@@ -49,7 +60,7 @@ const product: QueryResolvers['product'] = async (_, { input }) => {
         })).query()
     )
 
-    if (products?.items?.length < 1) return null
+    if (!products?.items?.length) return null
 
     return {
         __context: products?.items?.[0],

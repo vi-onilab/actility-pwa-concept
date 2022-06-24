@@ -2,10 +2,18 @@ extend type Query {
     product(input: ProductQueryInput): Product
 }
 
+scalar Any
+
+input ProductQueryInputExternal {
+    key: String
+    value: Any
+}
+
 input ProductQueryInput {
     id: ID
     sku: String
     url: String
+    external: [ProductQueryInputExternal]
 }
 
 type Product {

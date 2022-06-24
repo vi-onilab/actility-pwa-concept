@@ -1,11 +1,12 @@
+import api from '@pwa-concept/core/api'
 import { QueryResolvers } from '@pwa-concept/modules/graphql'
 import { gql } from 'graphql-tag'
-import api from '@pwa-concept/core/api'
 
 const products: QueryResolvers['products'] = async (_, { input }) => {
     const {
         id,
         page = 1,
+        external = null,
     } = input || {}
 
     const { data: { products = {} } = {} } = (
@@ -33,12 +34,22 @@ const products: QueryResolvers['products'] = async (_, { input }) => {
                     }
                 }
             `,
-        ).variableIf(
+        ).variableIf(external?.length > 0, (prev) => ({
+            ...prev,
+            filter: {
+                ...(prev?.filter || {}),
+                ...external.reduce((result, { key, value }) => {
+                    result[key] = value
+
+                    return result
+                }, {}),
+            },
+        })).variableIf(
             id?.length > 0,
             (prev) => ({
                 ...prev,
                 filter: {
-                    entity_id: {
+                    id: {
                         in: id,
                     },
                 },

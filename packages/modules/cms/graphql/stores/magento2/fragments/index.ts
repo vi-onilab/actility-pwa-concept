@@ -1,10 +1,11 @@
 import { StoreFragments } from '@pwa-concept/core'
+
 import CmsPage from './CmsPage.graphql'
-import EntityUrl from './EntityUrl.graphql'
+import RoutableInterface from './RoutableInterface.graphql'
 
 const fragments: StoreFragments = [
     CmsPage,
-    EntityUrl,
+    RoutableInterface,
 ]
 
 export default fragments

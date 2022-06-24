@@ -1,0 +1,4 @@
+fragment RoutableInterface on RoutableInterface {
+    type
+    relative_url
+}

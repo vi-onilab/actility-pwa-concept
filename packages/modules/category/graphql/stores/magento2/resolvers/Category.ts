@@ -3,7 +3,7 @@ import { CategoryBreadcrumbUrlType, Resolvers } from '@pwa-concept/modules/graph
 const id = (context) => String(context.id)
 
 const Category: Resolvers['Category'] = {
-    id: (_, __, { context }) => id(context),
+    id: (_, __, { context }) => `${id(context)}`,
     name: (_, __, { context }) => context?.name,
     description: (_, __, { context }) => context?.description,
     level: (_, __, { context }) => context?.level ? Number(context?.level) : 0,

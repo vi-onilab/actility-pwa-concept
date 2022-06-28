@@ -18,9 +18,6 @@ const apollo = new ApolloClient({
         query: {
             errorPolicy: 'all',
         },
-        mutate: {
-            errorPolicy: 'all',
-        },
     },
     link: from([
         retryLink,

@@ -45,9 +45,6 @@ const GraphQLProvider: FC = ({ children }) => {
                 query: {
                     errorPolicy: 'all',
                 },
-                mutate: {
-                    errorPolicy: 'all',
-                },
             },
             resolvers,
             uri: env('APP_GRAPHQL_URL'),

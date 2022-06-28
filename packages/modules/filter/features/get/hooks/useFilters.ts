@@ -16,7 +16,7 @@ const useFilters = (input?: UseFiltersInput, options?: UseFiltersOptions) => {
     } = useFiltersQuery({
         variables: {
             input: {
-                categoryId: input?.category?.id,
+                categoryId: input?.category?.id?.toString?.(),
             },
         },
         skip: options?.skip,

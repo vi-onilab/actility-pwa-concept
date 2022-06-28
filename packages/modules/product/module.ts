@@ -13,7 +13,6 @@ const ProductModule = module(() => ({
     graphqlSchemas,
     graphqlPolicies: {
         Query: {
-            keyFields: (product) => `${product.__typename}:${product.id}`,
             fields: {
                 product: {
                     read(existing, { args, toReference, canRead }) {
@@ -35,6 +34,9 @@ const ProductModule = module(() => ({
                     },
                 },
             },
+        },
+        Product: {
+            keyFields: (product) => `${product.__typename}:${product.id}`,
         },
     },
     graphqlResolvers: stores?.resolvers,

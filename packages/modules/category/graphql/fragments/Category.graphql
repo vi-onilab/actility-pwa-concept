@@ -4,6 +4,7 @@ fragment Category on Category {
     description
     level
     breadcrumbs {
+        id
         name
         level
         url {

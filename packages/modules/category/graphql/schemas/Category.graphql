@@ -21,6 +21,7 @@ type Category {
 }
 
 type CategoryBreadcrumb {
+    id: ID
     level: Int
     name: String
     url: CategoryBreadcrumbUrl

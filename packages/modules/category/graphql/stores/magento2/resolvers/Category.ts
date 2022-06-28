@@ -8,7 +8,8 @@ const Category: Resolvers['Category'] = {
     description: (_, __, { context }) => context?.description,
     level: (_, __, { context }) => context?.level ? Number(context?.level) : 0,
     breadcrumbs: (category, __, { context }) => ([
-        ...(context?.breadcrumbs || [])?.map?.((breadcrumb) => ({
+        ...(context?.breadcrumbs || [])?.map?.((breadcrumb, index) => ({
+            id: `${id(context)}_${index}`,
             name: breadcrumb?.category_name,
             level: +breadcrumb?.category_level || null,
             url: {
@@ -20,6 +21,7 @@ const Category: Resolvers['Category'] = {
             __typename: 'CategoryBreadcrumb',
         })),
         {
+            id: `${id(context)}_${(+context?.breadcrumbs?.length || 0)}`,
             level: 0,
             name: context?.name,
             url: null,

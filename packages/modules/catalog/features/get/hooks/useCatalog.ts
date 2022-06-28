@@ -8,7 +8,11 @@ const useCatalog = (input?: CatalogQueryInput) => {
         fetchMore,
     } = useCatalogQuery({
         variables: {
-            input,
+            input: {
+                ...input,
+                page: +input?.page || 1,
+                categoryId: input?.categoryId?.toString?.(),
+            },
         },
         notifyOnNetworkStatusChange: true,
     })
@@ -21,6 +25,8 @@ const useCatalog = (input?: CatalogQueryInput) => {
                     input: {
                         ...input,
                         ...variables,
+                        ...(variables?.page && { page: +variables?.page || 1 }),
+                        ...(variables?.categoryId && { categoryId: variables?.categoryId?.toString?.() }),
                     },
                 },
                 updateQuery,

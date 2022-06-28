@@ -4,7 +4,7 @@ const useCategory = ({ id = null }: { id?: string }) => {
     const { data, loading } = useCategoryQuery({
         variables: {
             input: {
-                id,
+                id: id?.toString?.(),
             },
         },
         returnPartialData: true,

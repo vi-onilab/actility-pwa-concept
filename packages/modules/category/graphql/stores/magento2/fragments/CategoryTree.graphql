@@ -6,5 +6,6 @@ fragment CategoryTree on CategoryTree {
         category_id
         category_level
         category_name
+        category_url_path
     }
 }

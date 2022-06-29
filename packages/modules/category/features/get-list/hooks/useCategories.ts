@@ -14,8 +14,8 @@ const useCategories = ({ parent = null, id = null }: UseCategoriesFilters, optio
     const { data, loading } = useCategoriesQuery({
         variables: {
             input: {
-                parent: parent?.id?.toString?.(),
-                id: (Array.isArray(id) ? id : [id]).filter(Boolean)?.map?.((item) => item?.toString?.()),
+                ...(!!parent?.id && { parent: parent?.id?.toString?.() }),
+                ...(!!id && { id: (Array.isArray(id) ? id : [id]).filter(Boolean)?.map?.((item) => item?.toString?.()) }),
             },
         },
         skip: options?.skip || false,

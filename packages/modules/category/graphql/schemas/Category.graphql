@@ -18,6 +18,7 @@ type Category {
     description: String
     breadcrumbs: [CategoryBreadcrumb]
     level: Int
+    url: String
 }
 
 type CategoryBreadcrumb {

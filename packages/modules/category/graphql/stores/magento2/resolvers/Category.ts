@@ -28,6 +28,12 @@ const Category: Resolvers['Category'] = {
             __typename: 'CategoryBreadcrumb',
         },
     ]),
+    url: (_, __, { context }) => {
+        if (context?.url_path?.length) return context?.url_path
+        if (context?.url_key?.length) return [context?.url_key, context?.url_suffix].filter(Boolean).join('')
+
+        return null
+    },
 }
 
 export default Category

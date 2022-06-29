@@ -19,7 +19,7 @@ export type CategoriesQueryVariables = Types.Exact<{
 }>;
 
 
-export type CategoriesQuery = { __typename?: 'Query', categories?: Array<{ __typename?: 'Category', id?: string | null, name?: string | null, description?: string | null, level?: number | null, breadcrumbs?: Array<{ __typename?: 'CategoryBreadcrumb', id?: string | null, name?: string | null, level?: number | null, url?: { __typename?: 'CategoryBreadcrumbUrl', id?: string | null, type?: Types.CategoryBreadcrumbUrlType | null, to?: string | null } | null } | null> | null } | null> | null };
+export type CategoriesQuery = { __typename?: 'Query', categories?: Array<{ __typename?: 'Category', id?: string | null, name?: string | null, description?: string | null, level?: number | null, url?: string | null, breadcrumbs?: Array<{ __typename?: 'CategoryBreadcrumb', id?: string | null, name?: string | null, level?: number | null, url?: { __typename?: 'CategoryBreadcrumbUrl', id?: string | null, type?: Types.CategoryBreadcrumbUrlType | null, to?: string | null } | null } | null> | null } | null> | null };
 
 
 export const CategoriesDocument = gql`

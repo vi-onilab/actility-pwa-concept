@@ -1,6 +1,7 @@
-import { module, Module } from '@pwa-concept/core'
-import { QueryResolvers } from '@pwa-concept/modules/graphql'
 import { FieldPolicy } from '@apollo/client/cache/inmemory/policies'
+import { Module, module } from '@pwa-concept/core'
+import { QueryResolvers } from '@pwa-concept/modules/graphql'
+
 import { graphqlQueryRelayPaginationFieldPolicy } from './utils'
 
 type GetResolver<T extends keyof QueryResolvers> = QueryResolvers[T]
@@ -14,6 +15,11 @@ interface GraphQLQueryRelayPaginationModuleConfigureInput {
     queries: {
         [T in keyof QueryResolvers]: {
             by?: QueryResolverFieldTransform<QueryResolverField<T>>
+            settings?: {
+                page?: string
+                pagination?: string
+                items?: string
+            }
             fn?: () => FieldPolicy
         }
     }
@@ -44,6 +50,9 @@ const GraphQLQueryRelayPaginationModule = module(() => ({
                 if ('by' in value) {
                     QueryFields[key] = value?.fn?.() ?? graphqlQueryRelayPaginationFieldPolicy({
                         keyArgs: keyArgs(value.by),
+                        ...(!!value?.settings?.page?.length && { currentPageVariableName: value.settings.page }),
+                        ...(!!value?.settings?.pagination?.length && { pagination: value.settings.pagination }),
+                        ...(!!value?.settings?.items?.length && { itemsFieldName: value.settings.items }),
                     })
                 } else if ('fn' in value) {
                     QueryFields[key] = value?.fn()

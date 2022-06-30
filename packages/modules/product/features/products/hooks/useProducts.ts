@@ -1,9 +1,8 @@
 import { ProductsQueryInput } from '@pwa-concept/modules/graphql'
 import { useProductsQuery } from '@pwa-concept/modules/product/graphql/queries/Products'
 
-interface UseProductsInput extends Pick<ProductsQueryInput, 'external'> {
-    id?: string | string[]
-    page?: number
+interface UseProductsInput extends Omit<ProductsQueryInput, 'id'> {
+    id?: Array<ProductsQueryInput['id']> | ProductsQueryInput['id']
 }
 
 interface UseProductsOptions {
@@ -12,17 +11,15 @@ interface UseProductsOptions {
 
 const useProducts = (
     {
-        page = undefined,
         id = null,
-        external = null,
+        ...args
     }: UseProductsInput = {}, options?: UseProductsOptions,
 ) => {
     const { data, loading } = useProductsQuery({
         variables: {
             input: {
-                id: (Array.isArray(id) ? id : [id]).filter(Boolean),
-                page,
-                external,
+                ...args,
+                ...(id && { id: (Array.isArray(id) ? id || [] : [id]).filter?.(Boolean) }),
             },
         },
         skip: options?.skip,

@@ -38,7 +38,7 @@ const Product: ProductResolvers = {
             product: {
                 __context: item?.product,
                 __typename: 'Product',
-            },
+            } as any,
             options: item?.attributes?.map?.((attribute): ProductVariantOption => ({
                 key: attribute?.code || null,
                 value: attribute?.uid || null,

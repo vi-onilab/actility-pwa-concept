@@ -1,6 +1,6 @@
-import { useCartAddItemMutation } from '@pwa-concept/modules/cart/graphql/mutations/CartAddItem'
 import { $cart } from '@pwa-concept/core/models'
-import { CartItem } from '@pwa-concept/modules/@types/modules/graphql'
+import { useCartAddItemMutation } from '@pwa-concept/modules/cart/graphql/mutations/CartAddItem'
+import { CartItem } from '@pwa-concept/modules/graphql'
 
 interface UseCartAddItems {
     cartItems: [CartItem]

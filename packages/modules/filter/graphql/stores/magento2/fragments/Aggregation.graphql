@@ -3,6 +3,7 @@
 fragment Aggregation on Aggregation {
     attribute_code
     label
+    position
     options {
         ... AggregationOption
     }

@@ -8,6 +8,19 @@ interface GraphqlQueryRelayPaginationTypePolicyInput {
     validator?: (() => boolean) | null | undefined
 }
 
+const findByDotParts = (values, name: string) => {
+    const handle = (value, names: string[]) => {
+        if (names?.length) {
+            const [key, ...parts] = names
+            return handle(value?.[key], parts)
+        }
+
+        return value
+    }
+
+    return handle(values, name.split('.'))
+}
+
 const graphqlQueryRelayPaginationFieldPolicy = (
     {
         keyArgs = false,
@@ -19,7 +32,7 @@ const graphqlQueryRelayPaginationFieldPolicy = (
 ): FieldPolicy => ({
     keyArgs,
     merge(existing, incoming, { args, variables }) {
-        if ((validator && !validator?.()) || (variables?.[currentPageVariableName] === 1 || args?.[currentPageVariableName] === 1)) {
+        if ((validator && !validator?.()) || (+findByDotParts(variables, currentPageVariableName) === 1 || +findByDotParts(args, currentPageVariableName) === 1)) {
             return incoming
         }
 

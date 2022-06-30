@@ -7,6 +7,7 @@ const products: QueryResolvers['products'] = async (_, { input }) => {
         id,
         page = 1,
         external = null,
+        limit = 20,
     } = input || {}
 
     const { data: { products = {} } = {} } = (
@@ -14,9 +15,11 @@ const products: QueryResolvers['products'] = async (_, { input }) => {
             gql`
                 query(
                     $page: Int = 1
+                    $limit: Int = 20
                     $filter: ProductAttributeFilterInput
                 ) {
                     products(
+                        pageSize: $limit
                         filter: $filter
                         currentPage: $page
                     ) {
@@ -56,6 +59,7 @@ const products: QueryResolvers['products'] = async (_, { input }) => {
             }),
         ).query({
             page,
+            limit,
         })
     )
 

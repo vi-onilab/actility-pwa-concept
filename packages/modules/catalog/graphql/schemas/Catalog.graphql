@@ -22,6 +22,7 @@ input CatalogQueryInput {
     sort: [CatalogQuerySortInput]
     categoryId: ID
     page: Int
+    limit: Int = 20
     search: String
 }
 

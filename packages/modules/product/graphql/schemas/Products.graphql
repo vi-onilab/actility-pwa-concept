@@ -12,6 +12,7 @@ input ProductQueryInputExternal {
 input ProductsQueryInput {
     id: [ID]
     page: Int
+    limit: Int = 20
     external: [ProductQueryInputExternal]
 }
 

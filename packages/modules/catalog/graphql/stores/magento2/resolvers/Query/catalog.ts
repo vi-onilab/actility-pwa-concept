@@ -1,5 +1,5 @@
-import { QueryResolvers } from '@pwa-concept/modules/graphql'
 import api from '@pwa-concept/core/api'
+import { QueryResolvers } from '@pwa-concept/modules/graphql'
 import { gql } from 'graphql-tag'
 
 const catalog: QueryResolvers['catalog'] = async (_, { input } = {}) => {
@@ -9,6 +9,7 @@ const catalog: QueryResolvers['catalog'] = async (_, { input } = {}) => {
         categoryId,
         sort,
         page = 1,
+        limit = 20,
     } = input || {}
 
     const { data: { products = {} } = {} } = (
@@ -16,6 +17,7 @@ const catalog: QueryResolvers['catalog'] = async (_, { input } = {}) => {
             gql`
                 query(
                     $search: String = ""
+                    $limit: Int = 20
                     $filter: ProductAttributeFilterInput
                     $sort: ProductAttributeSortInput
                     $page: Int = 1
@@ -24,6 +26,7 @@ const catalog: QueryResolvers['catalog'] = async (_, { input } = {}) => {
                         search: $search
                         filter: $filter
                         sort: $sort
+                        pageSize: $limit
                         currentPage: $page
                     ) {
                         page_info {
@@ -92,6 +95,7 @@ const catalog: QueryResolvers['catalog'] = async (_, { input } = {}) => {
         ).query({
             search,
             page,
+            limit,
         })
     )
 

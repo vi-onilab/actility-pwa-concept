@@ -66,6 +66,24 @@ fragment ProductInterface on ProductInterface {
         }
     }
 
+    ... on VirtualProduct {
+        options {
+            ... CustomizableOptionInterface
+        }
+    }
+
+    ... on DownloadableProduct {
+        options {
+            ... CustomizableOptionInterface
+        }
+    }
+
+    ... on BundleProduct {
+        options {
+            ... CustomizableOptionInterface
+        }
+    }
+
     ... on ConfigurableProduct {
         variants {
             attributes {

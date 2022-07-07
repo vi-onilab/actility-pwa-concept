@@ -51,18 +51,20 @@ const catalog: QueryResolvers['catalog'] = async (_, { input } = {}) => {
                     ...(prev?.filter || {}),
                     ...(filters || [])?.reduce?.((result, { key, value }) => {
                         if (Array.isArray(value)) {
-                            if (key === 'price') {
-                                result[key] = {
-                                    from: value?.[0] || 0,
-                                    ...(value?.length > 1 ? { to: value?.[1] } : {}),
-                                }
-                            } else if (key === 'category_id') {
-                                result[key] = {
-                                    in: [...(prev?.filter?.category_id?.in || []), ...value],
-                                }
-                            } else {
-                                result[key] = {
-                                    in: value,
+                            if (value?.length) {
+                                if (key === 'price') {
+                                    result[key] = {
+                                        from: value?.[0] || 0,
+                                        ...(value?.length > 1 ? { to: value?.[1] } : {}),
+                                    }
+                                } else if (key === 'category_id') {
+                                    result[key] = {
+                                        in: [...(prev?.filter?.category_id?.in || []), ...value],
+                                    }
+                                } else {
+                                    result[key] = {
+                                        in: value,
+                                    }
                                 }
                             }
                         }

@@ -10,7 +10,7 @@ const authErrorLink = onError((error) => {
     const { graphQLErrors } = error
 
     if (graphQLErrors) {
-        const middlewareFn = Provide.first(PROVIDE_GRAPHQL_CUSTOMER_OPERATIONS_GUARD_MIDDLEWARE) || [];
+        const middlewareFn = Provide.first(PROVIDE_GRAPHQL_CUSTOMER_OPERATIONS_GUARD_MIDDLEWARE);
 
         const next = () => {
             const pathsFromTheme = Provide.first(PROVIDE_GRAPHQL_CUSTOMER_OPERATIONS_GUARD) || [];
@@ -43,8 +43,8 @@ const authErrorLink = onError((error) => {
             }
         }
 
-        if (middlewareFn) {
-            middlewareFn?.(error, next)
+        if (typeof middlewareFn === 'function') {
+            middlewareFn(error, next)
         } else {
             next()
         }

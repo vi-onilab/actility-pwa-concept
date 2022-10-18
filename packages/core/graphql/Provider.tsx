@@ -51,17 +51,17 @@ const GraphQLProvider: FC = ({ children }) => {
             resolvers,
             uri: env('APP_GRAPHQL_URL'),
             link: from([
-                ...(links || []),
                 retryLink,
                 queueLink,
                 authLink,
+                ...(links || []),
                 errorLink,
                 authErrorLink,
                 httpLink,
             ]),
             connectToDevTools: process.env.NODE_ENV === 'development',
         })
-    ), [typeDefs, resolvers, typePolicies])
+    ), [links, typeDefs, resolvers, typePolicies])
 
     return (
         <ApolloProvider client={client}>

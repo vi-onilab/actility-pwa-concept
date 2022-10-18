@@ -11,10 +11,12 @@ import {
     PROVIDE_GRAPHQL_POSSIBLE_TYPES,
     PROVIDE_GRAPHQL_RESOLVERS,
     PROVIDE_GRAPHQL_SCHEMAS,
+    PROVIDE_GRAPHQL_LINKS,
 } from './tokens'
 
 const GraphQLProvider: FC = ({ children }) => {
     const possibleTypes = useProvide(PROVIDE_GRAPHQL_POSSIBLE_TYPES, {})
+    const links = useProvide(PROVIDE_GRAPHQL_LINKS, [])
     const typePolicies = useProvide(PROVIDE_GRAPHQL_POLICY, {})
     const typeDefs = useProvide<TypeSource[], any>(PROVIDE_GRAPHQL_SCHEMAS, null, (value) => (
         value?.length > 0 ? value : undefined
@@ -49,6 +51,7 @@ const GraphQLProvider: FC = ({ children }) => {
             resolvers,
             uri: env('APP_GRAPHQL_URL'),
             link: from([
+                ...(links || []),
                 retryLink,
                 queueLink,
                 authLink,

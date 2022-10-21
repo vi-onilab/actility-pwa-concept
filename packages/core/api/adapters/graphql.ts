@@ -1,5 +1,5 @@
 import { ApolloClient, from, InMemoryCache } from '@apollo/client'
-import { PROVIDE_GRAPHQL_STORE_FRAGMENTS, PROVIDE_GRAPHQL_STORE_POSSIBLE_TYPES } from '@pwa-concept/core/graphql'
+import { PROVIDE_GRAPHQL_STORE_FRAGMENTS, PROVIDE_GRAPHQL_STORE_POSSIBLE_TYPES, PROVIDE_GRAPHQL_LINKS } from '@pwa-concept/core/graphql'
 import { authErrorLink, authLink, errorLink, httpLink, queueLink, retryLink } from '@pwa-concept/core/graphql/links'
 import { Provide } from '@pwa-concept/core/provide'
 
@@ -11,6 +11,18 @@ const cache = new InMemoryCache({
 
 const inject = (document) => injectFragments(document, Provide.first(PROVIDE_GRAPHQL_STORE_FRAGMENTS))
 
+const makeLink = (newLinks: any[] = []) => (
+    from([
+        retryLink,
+        queueLink,
+        authLink,
+        ...(newLinks || []),
+        errorLink,
+        authErrorLink,
+        httpLink,
+    ])
+)
+
 const apollo = new ApolloClient({
     uri: env('APP_GRAPHQL_URL'),
     cache,
@@ -19,28 +31,32 @@ const apollo = new ApolloClient({
             errorPolicy: 'all',
         },
     },
-    link: from([
-        retryLink,
-        queueLink,
-        authLink,
-        errorLink,
-        authErrorLink,
-        httpLink,
-    ]),
+    link: makeLink(),
 })
 
 const addedPossibleTypes = new Set()
+const addedLinks = new Set()
 
 const graphql = (
     document: Parameters<typeof apollo.mutate>[0]['mutation'] | Parameters<typeof apollo.query>[0]['query'],
 ) => {
     const possibleTypes = Provide.first(PROVIDE_GRAPHQL_STORE_POSSIBLE_TYPES)
+    const links = Provide.first(PROVIDE_GRAPHQL_LINKS)
 
     if (possibleTypes) {
         if (!addedPossibleTypes.has(possibleTypes)) {
             addedPossibleTypes.add(possibleTypes)
             cache.policies.addPossibleTypes(possibleTypes)
         }
+    }
+
+    if (links) {
+        if (!addedLinks.has(links)) {
+            addedLinks.add(links)
+            apollo.setLink(makeLink(links))
+        }
+    } else if (!addedLinks.size) {
+        apollo.setLink(makeLink())
     }
 
     const variableDecorators: Array<(variables: object) => object> = []

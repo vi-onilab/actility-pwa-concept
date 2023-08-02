@@ -1,6 +1,6 @@
 import { setContext } from '@apollo/client/link/context'
 import { $auth } from '@pwa-concept/core/models'
-import { makeVar } from "@apollo/client";
+import { makeVar } from '@apollo/client'
 export const recaptchaToken = makeVar(null)
 
 const authLink = setContext((_, { headers }) => {

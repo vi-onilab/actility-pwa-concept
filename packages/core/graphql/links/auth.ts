@@ -13,7 +13,7 @@ const authLink = setContext((_, { headers }) => {
             authorization: token ? `Bearer ${token}` : '',
             ...(recaptcha && {
                 'X-ReCaptcha': recaptcha,
-            })
+            }),
         },
     }
 })

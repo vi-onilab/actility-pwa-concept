@@ -4,15 +4,13 @@ import { MutationResolvers } from '@pwa-concept/modules/graphql'
 import { $auth } from '@pwa-concept/core/models'
 
 const register: MutationResolvers['register'] = async (_, input) => {
-    const { input: { password } } = input
-
-    const { data: { createCustomerV2: { customer: { email = null } = {} } = {} } = {} } = await (
+    const { data: { createCustomerV2: { customerToken = {} } = {} } = {} } = await (
         api.graphql(
             gql`
                 mutation ($input: CustomerCreateInput!) {
                     createCustomerV2(input: $input) {
-                        customer {
-                            email
+                        customerToken {
+                            ... CustomerToken
                         }
                     }
                 }
@@ -20,27 +18,14 @@ const register: MutationResolvers['register'] = async (_, input) => {
         ).mutation({ ...input })
     )
 
-    const { data: { generateCustomerToken: __context } } = await (
-        api.graphql(
-            gql`
-                mutation($email: String!, $password: String!) {
-                    generateCustomerToken(email: $email, password: $password) {
-                        ... CustomerToken
-                    }
-                }
-            `,
-        ).mutation({
-            email,
-            password,
-        })
-    )
-
-    if (__context?.token) {
-        $auth.setToken(__context?.token)
+    if (customerToken?.token) {
+        $auth.setToken(customerToken.token)
     }
 
     return {
-        __context,
+        __context: {
+            ...customerToken,
+        },
         __typename: 'AccessToken',
     }
 }

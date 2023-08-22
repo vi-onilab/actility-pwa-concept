@@ -7,7 +7,7 @@ const register: MutationResolvers['register'] = async (_, input) => {
     const { data: { createCustomerV2: { customerToken = {} } = {} } = {} } = await (
         api.graphql(
             gql`
-                mutation ($input: CustomerCreateInput!) {
+                mutation CreateCustomerV2($input: CustomerCreateInput!) {
                     createCustomerV2(input: $input) {
                         customerToken {
                             ... CustomerToken
